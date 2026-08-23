@@ -59,18 +59,65 @@ class RepositoryControlTests(unittest.TestCase):
             errors = validator.check_no_scientific_artifacts(root)
         self.assertTrue(any("artifact type" in error for error in errors))
 
-    def test_bootstrap_artifact_gate_does_not_claim_future_policy(self) -> None:
+    def test_artifact_gate_does_not_claim_model_authorized_future_policy(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             profile_path = root / validator.CONTROL_PROFILE
             profile_path.parent.mkdir(parents=True)
             profile_path.write_text(
                 json.dumps(
-                    {"active_milestone_path": "records/milestones/MILESTONE-001.json"}
+                    {"active_milestone_path": "records/milestones/MILESTONE-002.json"}
                 ),
                 encoding="utf-8",
             )
             (root / "model.pt").write_bytes(b"future-authorized-placeholder")
+            self.assertEqual([], validator.check_no_scientific_artifacts(root))
+
+    def test_milestone_one_rejects_model_and_array_artifacts(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            profile_path = root / validator.CONTROL_PROFILE
+            profile_path.parent.mkdir(parents=True)
+            profile_path.write_text(
+                json.dumps(
+                    {
+                        "active_milestone_path": (
+                            "records/milestones/MILESTONE-001-PROVENANCE.json"
+                        )
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (root / "model.pt").write_bytes(b"not-a-real-model")
+            (root / "benchmark.npy").write_bytes(b"not-a-real-array")
+            evaluation = root / "records" / "evaluations" / "result.json"
+            evaluation.parent.mkdir(parents=True)
+            evaluation.write_text("{}", encoding="utf-8")
+            errors = validator.check_no_scientific_artifacts(root)
+        self.assertTrue(any("model.pt" in error for error in errors))
+        self.assertTrue(any("benchmark.npy" in error for error in errors))
+        self.assertTrue(any("records/evaluations/result.json" in error for error in errors))
+        self.assertTrue(all("milestone 1" in error for error in errors))
+
+    def test_milestone_one_allows_provenance_readiness_and_intake_records(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            profile_path = root / validator.CONTROL_PROFILE
+            profile_path.parent.mkdir(parents=True)
+            profile_path.write_text(
+                json.dumps(
+                    {
+                        "active_milestone_path": (
+                            "records/milestones/MILESTONE-001-PROVENANCE.json"
+                        )
+                    }
+                ),
+                encoding="utf-8",
+            )
+            for directory in ("provenance", "readiness", "intake"):
+                record = root / "records" / directory / "record.json"
+                record.parent.mkdir(parents=True, exist_ok=True)
+                record.write_text("{}", encoding="utf-8")
             self.assertEqual([], validator.check_no_scientific_artifacts(root))
 
     def test_control_references_must_exist_and_point_back(self) -> None:
@@ -124,6 +171,160 @@ class RepositoryControlTests(unittest.TestCase):
             )
             errors = validator.check_truthful_bootstrap_state(root)
         self.assertTrue(any("training_runs" in error for error in errors))
+
+    def test_milestone_one_requires_zero_profile_and_contract_outputs(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            profile_path = root / validator.CONTROL_PROFILE
+            milestone_relative = Path(
+                "records/milestones/MILESTONE-001-PROVENANCE.json"
+            )
+            milestone_path = root / milestone_relative
+            profile_path.parent.mkdir(parents=True)
+            milestone_path.parent.mkdir(parents=True)
+            zero_outputs = {field: 0 for field in validator.EMPTY_OUTPUT_FIELDS}
+            profile = {
+                "active_milestone_path": milestone_relative.as_posix(),
+                "scientific_state": "not_started",
+                "scientific_outputs": dict(zero_outputs),
+            }
+            milestone = {"scientific_outputs": dict(zero_outputs)}
+            profile_path.write_text(json.dumps(profile), encoding="utf-8")
+            milestone_path.write_text(json.dumps(milestone), encoding="utf-8")
+            self.assertEqual([], validator.check_truthful_bootstrap_state(root))
+
+            for field in validator.MILESTONE_ONE_ZERO_OUTPUT_FIELDS:
+                for location in ("profile", "milestone"):
+                    with self.subTest(field=field, location=location):
+                        candidate_profile = {
+                            **profile,
+                            "scientific_outputs": dict(zero_outputs),
+                        }
+                        candidate_milestone = {
+                            "scientific_outputs": dict(zero_outputs)
+                        }
+                        candidate = (
+                            candidate_profile
+                            if location == "profile"
+                            else candidate_milestone
+                        )
+                        candidate["scientific_outputs"][field] = 1
+                        profile_path.write_text(
+                            json.dumps(candidate_profile), encoding="utf-8"
+                        )
+                        milestone_path.write_text(
+                            json.dumps(candidate_milestone), encoding="utf-8"
+                        )
+                        errors = validator.check_truthful_bootstrap_state(root)
+                        self.assertTrue(
+                            any(
+                                f"{location} scientific_outputs.{field}" in error
+                                for error in errors
+                            )
+                        )
+
+    def test_milestone_one_dataset_admission_requires_completed_intake_records(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            profile_path = root / validator.CONTROL_PROFILE
+            milestone_relative = Path(
+                "records/milestones/MILESTONE-001-PROVENANCE.json"
+            )
+            milestone_path = root / milestone_relative
+            profile_path.parent.mkdir(parents=True)
+            milestone_path.parent.mkdir(parents=True)
+            outputs = {field: 0 for field in validator.EMPTY_OUTPUT_FIELDS}
+            outputs["datasets"] = 1
+            profile_path.write_text(
+                json.dumps(
+                    {
+                        "active_milestone_path": milestone_relative.as_posix(),
+                        "scientific_state": "not_started",
+                        "scientific_outputs": outputs,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            milestone = {
+                "scientific_outputs": dict(outputs),
+                "units": [
+                    {
+                        "id": "M1-U005-CONTROLLED-BENCHMARK-INTAKE",
+                        "status": "complete",
+                        "disposition": "pass",
+                    }
+                ],
+            }
+            milestone_path.write_text(json.dumps(milestone), encoding="utf-8")
+            errors = validator.check_truthful_bootstrap_state(root)
+            self.assertTrue(any("record is missing" in error for error in errors))
+
+            for relative in validator.MILESTONE_ONE_ADMISSION_RECORDS:
+                record = root / relative
+                record.parent.mkdir(parents=True, exist_ok=True)
+                record.write_text(
+                    json.dumps({"record_id": relative.stem, "status": "pass"}),
+                    encoding="utf-8",
+                )
+            self.assertEqual([], validator.check_truthful_bootstrap_state(root))
+
+    def test_milestone_one_completed_zero_copy_requires_intake_records(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            profile_path = root / validator.CONTROL_PROFILE
+            milestone_relative = Path(
+                "records/milestones/MILESTONE-001-PROVENANCE.json"
+            )
+            milestone_path = root / milestone_relative
+            profile_path.parent.mkdir(parents=True)
+            milestone_path.parent.mkdir(parents=True)
+            outputs = {field: 0 for field in validator.EMPTY_OUTPUT_FIELDS}
+            profile_path.write_text(
+                json.dumps(
+                    {
+                        "active_milestone_path": milestone_relative.as_posix(),
+                        "scientific_state": "not_started",
+                        "scientific_outputs": outputs,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            milestone_path.write_text(
+                json.dumps(
+                    {
+                        "scientific_outputs": dict(outputs),
+                        "units": [
+                            {
+                                "id": "M1-U005-CONTROLLED-BENCHMARK-INTAKE",
+                                "status": "complete",
+                                "disposition": "no_intake",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            errors = validator.check_truthful_bootstrap_state(root)
+            self.assertEqual(
+                2, sum("dataset admission record is missing" in error for error in errors)
+            )
+
+            for relative in validator.MILESTONE_ONE_ADMISSION_RECORDS:
+                record = root / relative
+                record.parent.mkdir(parents=True, exist_ok=True)
+                record.write_text(
+                    json.dumps(
+                        {
+                            "record_id": relative.stem,
+                            "status": "no_intake",
+                            "copied_files": [],
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+            self.assertEqual([], validator.check_truthful_bootstrap_state(root))
 
 
 if __name__ == "__main__":

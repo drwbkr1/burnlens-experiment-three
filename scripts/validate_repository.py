@@ -13,13 +13,24 @@ from typing import Any, Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
 
-CONTROL_PROFILE = Path(
+HISTORICAL_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json"
+)
+CONTROL_PROFILE = Path(
+    "records/governance/"
+    "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json"
 )
 BOOTSTRAP_MILESTONE = Path(
     "records/milestones/"
     "EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json"
+)
+PROVENANCE_MILESTONE = Path(
+    "records/milestones/"
+    "EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json"
+)
+STATE_RECONCILIATION = Path(
+    "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json"
 )
 
 REQUIRED_FILES = (
@@ -39,8 +50,11 @@ REQUIRED_FILES = (
     Path("records/decisions/DECISION-REGISTER.md"),
     Path("records/evidence/EVIDENCE-LEDGER.md"),
     Path("records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md"),
+    HISTORICAL_CONTROL_PROFILE,
     CONTROL_PROFILE,
     BOOTSTRAP_MILESTONE,
+    PROVENANCE_MILESTONE,
+    STATE_RECONCILIATION,
     Path("records/prompt-build-log/2026-08-23-bootstrap.md"),
     Path("scripts/validate_repository.py"),
     Path("tests/test_repository_controls.py"),
@@ -105,9 +119,14 @@ PROHIBITED_ARTIFACT_DIRECTORIES = {
     "custody",
     "data",
     "datasets",
+    "evaluation",
+    "evaluations",
+    "inference",
     "models",
     "outputs",
+    "predictions",
     "runs",
+    "training",
 }
 
 EMPTY_OUTPUT_FIELDS = (
@@ -117,6 +136,25 @@ EMPTY_OUTPUT_FIELDS = (
     "inference_runs",
     "evaluations",
     "releases",
+)
+
+MILESTONE_ONE_ZERO_OUTPUT_FIELDS = (
+    "training_runs",
+    "checkpoints",
+    "inference_runs",
+    "evaluations",
+    "releases",
+)
+
+MILESTONE_ONE_ADMISSION_RECORDS = (
+    Path(
+        "records/intake/"
+        "EXPERIMENT-ONE-BENCHMARK-ADMISSION-MANIFEST-2026-001.json"
+    ),
+    Path(
+        "records/intake/"
+        "EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json"
+    ),
 )
 
 
@@ -241,29 +279,50 @@ def check_no_cloud_sync_references(root: Path) -> list[str]:
     return errors
 
 
+def _active_pre_model_policy(profile: Any) -> str | None:
+    """Return the active zero-output policy, if the milestone has one."""
+
+    if not isinstance(profile, dict):
+        return "bootstrap"
+    active = profile.get("active_milestone_path")
+    if not isinstance(active, str):
+        return "bootstrap"
+    active_name = PurePosixPath(active).name.casefold()
+    if "milestone-000" in active_name or "bootstrap" in active_name:
+        return "bootstrap"
+    if "milestone-001" in active_name or "provenance" in active_name:
+        return "milestone_1"
+    return None
+
+
 def check_no_scientific_artifacts(root: Path) -> list[str]:
+    policy = "bootstrap"
     profile_path = root / CONTROL_PROFILE
     if profile_path.is_file():
         try:
             profile = _load_json(profile_path)
         except (OSError, UnicodeError, json.JSONDecodeError):
             profile = None
-        if isinstance(profile, dict):
-            active = profile.get("active_milestone_path")
-            if isinstance(active, str) and "BOOTSTRAP" not in Path(active).name.upper():
-                return []
+        policy = _active_pre_model_policy(profile)
+        if policy is None:
+            return []
 
     errors: list[str] = []
+    policy_label = "bootstrap" if policy == "bootstrap" else "milestone 1"
     for path in _repository_files(root):
         relative = path.relative_to(root)
         suffix = path.suffix.casefold()
         if suffix in PROHIBITED_ARTIFACT_SUFFIXES:
-            errors.append(f"prohibited bootstrap artifact type: {relative.as_posix()}")
+            errors.append(
+                f"prohibited {policy_label} artifact type: {relative.as_posix()}"
+            )
             continue
         directory_parts = {part.casefold() for part in relative.parts[:-1]}
         forbidden_parts = directory_parts & PROHIBITED_ARTIFACT_DIRECTORIES
         if forbidden_parts:
-            errors.append(f"prohibited bootstrap artifact location: {relative.as_posix()}")
+            errors.append(
+                f"prohibited {policy_label} artifact location: {relative.as_posix()}"
+            )
     return errors
 
 
@@ -340,7 +399,7 @@ def check_control_references(root: Path) -> list[str]:
 
 
 def check_truthful_bootstrap_state(root: Path) -> list[str]:
-    """Require explicit zero scientific outputs while bootstrap is active."""
+    """Require explicit zero scientific outputs in active pre-model milestones."""
 
     errors: list[str] = []
     profile_path = root / CONTROL_PROFILE
@@ -353,17 +412,24 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
     if not isinstance(profile, dict):
         return errors
 
+    policy = _active_pre_model_policy(profile)
+    if policy is None:
+        return errors
+
     active_relative, error = _checked_relative_path(
         profile.get("active_milestone_path"), "active_milestone_path"
     )
     if error or active_relative is None:
         return errors
-    if "BOOTSTRAP" not in active_relative.name.upper():
-        return errors
 
     state = profile.get("scientific_state")
     if not isinstance(state, str) or state.casefold() != "not_started":
-        errors.append("bootstrap scientific_state must be 'not_started'")
+        policy_label = "bootstrap" if policy == "bootstrap" else "milestone 1"
+        errors.append(f"{policy_label} scientific_state must be 'not_started'")
+
+    profile_outputs = profile.get("scientific_outputs")
+    if policy == "milestone_1" and not isinstance(profile_outputs, dict):
+        errors.append("milestone 1 profile scientific_outputs must be a JSON object")
 
     milestone_path = root / active_relative
     if not milestone_path.is_file():
@@ -376,11 +442,113 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
         return errors
     outputs = milestone.get("scientific_outputs")
     if not isinstance(outputs, dict):
-        return errors + ["bootstrap scientific_outputs must be a JSON object"]
-    for field in EMPTY_OUTPUT_FIELDS:
+        policy_label = "bootstrap" if policy == "bootstrap" else "milestone 1"
+        return errors + [
+            f"{policy_label} milestone scientific_outputs must be a JSON object"
+        ]
+    policy_label = "bootstrap" if policy == "bootstrap" else "milestone 1"
+    zero_fields = (
+        EMPTY_OUTPUT_FIELDS
+        if policy == "bootstrap"
+        else MILESTONE_ONE_ZERO_OUTPUT_FIELDS
+    )
+    for field in zero_fields:
         value = outputs.get(field)
         if type(value) is not int or value != 0:
-            errors.append(f"bootstrap scientific_outputs.{field} must be integer 0")
+            errors.append(
+                f"{policy_label} milestone "
+                f"scientific_outputs.{field} must be integer 0"
+            )
+
+    if policy == "milestone_1" and isinstance(profile_outputs, dict):
+        for field in MILESTONE_ONE_ZERO_OUTPUT_FIELDS:
+            value = profile_outputs.get(field)
+            if type(value) is not int or value != 0:
+                errors.append(
+                    "milestone 1 profile "
+                    f"scientific_outputs.{field} must be integer 0"
+                )
+
+        profile_datasets = profile_outputs.get("datasets")
+        milestone_datasets = outputs.get("datasets")
+        for location, value in (
+            ("profile", profile_datasets),
+            ("milestone", milestone_datasets),
+        ):
+            if type(value) is not int or value not in (0, 1):
+                errors.append(
+                    f"milestone 1 {location} scientific_outputs.datasets "
+                    "must be integer 0 or 1"
+                )
+        if (
+            type(profile_datasets) is int
+            and type(milestone_datasets) is int
+            and profile_datasets != milestone_datasets
+        ):
+            errors.append(
+                "milestone 1 profile and milestone "
+                "scientific_outputs.datasets must match"
+            )
+
+        units = milestone.get("units")
+        intake_unit = None
+        if isinstance(units, list):
+            intake_unit = next(
+                (
+                    unit
+                    for unit in units
+                    if isinstance(unit, dict)
+                    and unit.get("id")
+                    == "M1-U005-CONTROLLED-BENCHMARK-INTAKE"
+                ),
+                None,
+            )
+
+        admitted_dataset = (
+            type(profile_datasets) is int
+            and type(milestone_datasets) is int
+            and profile_datasets == milestone_datasets == 1
+        )
+        if admitted_dataset:
+            if not isinstance(intake_unit, dict):
+                errors.append(
+                    "milestone 1 dataset admission requires the controlled-intake unit"
+                )
+            elif (
+                intake_unit.get("status") != "complete"
+                or intake_unit.get("disposition") != "pass"
+            ):
+                errors.append(
+                    "milestone 1 dataset admission requires controlled intake "
+                    "status complete with disposition pass"
+                )
+
+        if (
+            admitted_dataset
+            or isinstance(intake_unit, dict)
+            and intake_unit.get("status") == "complete"
+        ):
+            for relative in MILESTONE_ONE_ADMISSION_RECORDS:
+                record_path = root / relative
+                if not record_path.is_file():
+                    errors.append(
+                        "milestone 1 dataset admission record is missing: "
+                        f"{relative.as_posix()}"
+                    )
+                    continue
+                try:
+                    record = _load_json(record_path)
+                except (OSError, UnicodeError, json.JSONDecodeError):
+                    errors.append(
+                        "milestone 1 dataset admission record is invalid JSON: "
+                        f"{relative.as_posix()}"
+                    )
+                    continue
+                if not isinstance(record, dict) or not record:
+                    errors.append(
+                        "milestone 1 dataset admission record must be a non-empty "
+                        f"JSON object: {relative.as_posix()}"
+                    )
     return errors
 
 
@@ -408,7 +576,7 @@ def main() -> int:
         return 1
     print(
         "Repository controls: PASS "
-        f"({len(REQUIRED_FILES)} required files; bootstrap truth verified)"
+        f"({len(REQUIRED_FILES)} required files; active milestone truth verified)"
     )
     return 0
 

@@ -1,9 +1,17 @@
 {
   "schema_version": "1.0",
-  "profile_id": "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001",
-  "profile_status": "superseded_by_EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002",
-  "active_milestone_path": "records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json",
+  "profile_id": "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002",
+  "active_milestone_path": "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json",
+  "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/2",
   "scientific_state": "not_started",
+  "scientific_outputs": {
+    "datasets": 0,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "inference_runs": 0,
+    "evaluations": 0,
+    "releases": 0
+  },
   "project": {
     "name": "BurnLens Experiment Three",
     "canonical_root": ".",
@@ -61,9 +69,12 @@
     ],
     "status": "docs/status/STATUS.md",
     "roadmap": "docs/roadmap/ROADMAP.md",
-    "active_contract": "records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json",
+    "active_contract": "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json",
     "evidence_ledger": "records/evidence/EVIDENCE-LEDGER.md",
     "history": [
+      "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
+      "records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json",
+      "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json",
       "CHANGELOG.md",
       "docs/status/VERSION-HISTORY.md",
       "records/decisions/DECISION-REGISTER.md",
@@ -81,7 +92,8 @@
   "evaluation": {
     "procedure_ref": null,
     "evidence_roots": [
-      "records/evidence"
+      "records/evidence",
+      "records/reconciliations"
     ]
   },
   "real_surfaces": [
@@ -106,6 +118,28 @@
       "external": false
     },
     {
+      "id": "project_state_reconciliation",
+      "risk_classes": [
+        "documentation",
+        "data",
+        "security"
+      ],
+      "procedure_ref": "command:python C:\\Users\\drewb\\.codex\\skills\\reconcile-project-state\\scripts\\evaluate_project_state.py records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json --project-root . --verify-paths",
+      "receipt_root": "records/reconciliations",
+      "external": false
+    },
+    {
+      "id": "experiment_one_read_only_source",
+      "risk_classes": [
+        "data",
+        "security",
+        "external"
+      ],
+      "procedure_ref": "command:git -C C:\\Projects\\Active\\burnlens-deschutes status --short --branch",
+      "receipt_root": "records/reconciliations",
+      "external": true
+    },
+    {
       "id": "github_public_repository",
       "risk_classes": [
         "public",
@@ -119,6 +153,7 @@
   "gate_policy": {
     "default_human_action_classes": [
       "normative_scientific_decision",
+      "owner_rightsholder_artifact_grant",
       "research_promise_change",
       "claim_envelope_change",
       "model_family_change",
@@ -163,13 +198,22 @@
       "release_packaging",
       "github_release_publication"
     ],
-    "explicit_human_gates": [],
+    "explicit_human_gates": [
+      {
+        "unit_id": "M1-U003-SOURCE-RIGHTS-GATE",
+        "reason": "Current evidence does not establish cross-repository rights for the exact project-authored Experiment One dataset, label, model, prediction, and render artifacts. The execution goal requires an explicit owner/rightsholder disposition after M1-U002 binds the final inventory; it cannot be inferred from repository presence, prior use, or the MIT software license.",
+        "authority_ref": "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md"
+      }
+    ],
     "amendment_required_to_change_active_gate": true
   },
   "current_checkpoint": {
-    "checkpoint_id": "BOOTSTRAP-ACCEPTED-LIVE-2026-08-23",
-    "expected_branch": "main",
+    "checkpoint_id": "MILESTONE-001-CONTROL-SETUP-2026-08-23",
+    "expected_branch": "codex/benchmark-provenance-001",
     "expected_head": "4543a2dad5c2630249906aab763ae0cbf91097ba",
-    "next_action": "Use profile 002 and the Milestone 1 provenance contract under issue 2; the direct-main bootstrap exception is consumed"
+    "accepted_main_head": "4543a2dad5c2630249906aab763ae0cbf91097ba",
+    "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/2",
+    "candidate_status": "issue-backed branch work; not an accepted public checkpoint until reviewed merge and live verification",
+    "next_action": "Execute M1-U002-READ-ONLY-IDENTITY-INVENTORY against Experiment One main at a741111d82e69689022d2058118ed8f4b9bf3546 without copying or mutating source bytes"
   }
 }

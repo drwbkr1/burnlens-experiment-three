@@ -1,0 +1,602 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
+  "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
+  "status": "active",
+  "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/2",
+  "accepted_base_commit": "4543a2dad5c2630249906aab763ae0cbf91097ba",
+  "active_branch": "codex/benchmark-provenance-001",
+  "scientific_outputs": {
+    "datasets": 0,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "inference_runs": 0,
+    "evaluations": 0,
+    "releases": 0
+  },
+  "output_policy": {
+    "datasets": "May change from 0 to 1 only after a ready source gate, a passing dataset-readiness decision, and a hash-verified controlled-intake receipt. A zero-copy outcome keeps this counter at 0.",
+    "training_runs": "Must remain 0 throughout Milestone 1.",
+    "checkpoints": "Must remain 0 throughout Milestone 1.",
+    "inference_runs": "Must remain 0 throughout Milestone 1.",
+    "evaluations": "Must remain 0 throughout Milestone 1.",
+    "releases": "Must remain 0 throughout Milestone 1. The reviewed merge is a checkpoint, not a release."
+  },
+  "source_repositories": {
+    "experiment_one": {
+      "path": "C:\\Projects\\Active\\burnlens-deschutes",
+      "branch": "main",
+      "head": "a741111d82e69689022d2058118ed8f4b9bf3546",
+      "worktree_clean": true,
+      "mode": "read_only_provenance"
+    },
+    "experiment_two": {
+      "path": "C:\\Projects\\Active\\burnlens-experiment-two",
+      "mode": "read_only_provenance",
+      "admission_role": "none"
+    }
+  },
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": [
+      "read_only_inspection",
+      "deterministic_validation",
+      "metadata_capture",
+      "routine_qa",
+      "evidence_recording",
+      "project_control",
+      "update_project_records",
+      "reversible_remediation",
+      "version_control_write",
+      "github_issue_management",
+      "github_pull_request_management",
+      "external_state_verification",
+      "public_repository_publication",
+      "controlled_benchmark_intake"
+    ],
+    "user_instruction": "The owner approved the comprehensive Experiment Three goal and authorized bounded continuation through terminal closeout subject to its scientific, rights, custody, credential, spending, external-source, and irreversible-action stops.",
+    "repository_controls": [
+      "AGENTS.md",
+      "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md",
+      "docs/governance/CHECKPOINT-POLICY.md",
+      "records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md",
+      "https://github.com/drwbkr1/burnlens-experiment-three/issues/2"
+    ],
+    "active_contract": "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json",
+    "verified_at_utc": "2026-08-23T22:23:46Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Hash-bind the exact Experiment One Deschutes retrospective compatibility benchmark and historical controls, resolve source identity and rights for their exact intended roles, audit readiness without changing prior decisions, and copy only evidence-approved bytes into isolated Experiment Three custody after every prerequisite passes.",
+    "allowed_paths": [
+      ".github/ISSUE_TEMPLATE/milestone.yml",
+      "AGENTS.md",
+      "docs/governance/CHECKPOINT-POLICY.md",
+      "docs/status/VERSION-HISTORY.md",
+      "records/reconciliations/**",
+      "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
+      "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
+      "records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json",
+      "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json",
+      "records/provenance/**",
+      "records/source-gates/**",
+      "records/readiness/**",
+      "records/intake/**",
+      "records/evidence/EVIDENCE-LEDGER.md",
+      "records/decisions/**",
+      "docs/status/STATUS.md",
+      "docs/roadmap/ROADMAP.md",
+      "docs/devlog/**",
+      "records/prompt-build-log/**",
+      "scripts/validate_repository.py",
+      "tests/test_repository_controls.py",
+      "README.md",
+      "CHANGELOG.md",
+      "C:\\Projects\\Active\\burnlens-experiment-three-custody\\benchmark/**"
+    ],
+    "forbidden_work": [
+      "Mutation, commit, tag, push, repair, cleanup, or metadata write in any prior BurnLens repository",
+      "Import of Experiment Two or Two-B code, runtime, data, model, checkpoint, output, worktree state, or authority",
+      "Adoption or installation of a dependency runtime, external source, model, or service",
+      "Neural implementation, synthetic preflight, training, checkpointing, inference, evaluation, threshold selection, or scientific output",
+      "Opening or using the Experiment One test role as new Experiment Three evaluation evidence",
+      "Fresh-event cohort selection, labeling, admission, unsealing, or evaluation",
+      "Authentication, credential use, secret handling, click-through terms acceptance, purchase, or paid access",
+      "Copying any candidate byte before exact identity, source-rights, intended-role, and readiness gates pass",
+      "Committing third-party benchmark bytes or redistributing them without an explicit affirmative redistribution disposition",
+      "Changing the approved model family, protocol direction, cohort, labels, split, masks, normalization, metrics, controls, or decision rules",
+      "Project, custody, cache, temporary, or run-output work outside C:\\Projects\\Active",
+      "Destructive, irreversible, access, ownership, visibility, or custody changes"
+    ],
+    "reversible_actions": [
+      "Inspect prior repositories, Git objects, manifests, documentation, and artifact metadata read-only",
+      "Compute hashes and deterministic inventories without modifying source bytes or source metadata",
+      "Inspect authoritative public source and terms pages without authentication, consent, download, or acceptance",
+      "Create and repair project-owned reconciliation, provenance, gate, readiness, intake-manifest, and status records within the allowlist",
+      "Run deterministic validators and independent hash comparisons",
+      "After all prerequisite gates pass, copy only explicitly eligible immutable bytes once into isolated no-overwrite custody and verify source/destination SHA-256 identity",
+      "When a resolved source or readiness decision is nonpass, create a machine-readable zero-admission manifest and receipt without creating a custody directory or copying a byte"
+    ],
+    "stop_conditions": [
+      "Acquisition, copy, downstream use, or redistribution is proposed while any source identity, intended role, license, terms, attribution, derivative-use, retention, redistribution, commercial-use, privacy-security, or custody requirement remains ambiguous for that action",
+      "Terms acceptance, authentication, credential use, purchase, paid access, upload, consent, or a secret is required",
+      "A materially new external source, model, dependency runtime, or service decision is required",
+      "A prior BurnLens repository would be mutated or its dirty state would need repair",
+      "A candidate byte differs from its recorded identity or cannot be verified before and after copy",
+      "Controlled copy or downstream scientific use is proposed while a dataset-readiness required gate blocks or defers, or while the audit cannot bind an exact candidate manifest",
+      "The branch, base commit, issue, remote, custody root, or active authority differs from this contract",
+      "Benchmark bytes, model work, training, inference, evaluation, or scientific outputs appear before their authorized milestone",
+      "An unsupported scientific, rights, redistribution, operational, release, or public claim would be published",
+      "A destructive, irreversible, authority-broadening, access, ownership, visibility, or custody action is required",
+      "The owner pauses, revokes, or changes the authority"
+    ]
+  },
+  "dependency_barriers": {
+    "read_only_first": "M1-U002 may inspect and hash source bytes but may not copy, transform, execute, or admit them.",
+    "rights_before_readiness": "M1-U003 requires an explicit owner/rightsholder response for the exact hash-bound project-authored artifacts because current evidence is ambiguous. Stop and ask before this human-gated unit. It must produce a structurally valid source gate that is ready, or blocked solely by affirmative failure, explicit owner refusal, or definitive exclusion. Unknown, stale, missing, ambiguous, or deferred evidence cannot advance.",
+    "readiness_before_copy": "M1-U004 audits the exact candidate only after the source gate is ready or blocked by affirmative failure, explicit owner refusal, or definitive exclusion. Unknown, stale, missing, ambiguous, or deferred evidence remains at the human stop and cannot advance. Only a dataset-readiness pass can permit copying; a definitive blocked source gate must remain nonpass and flow to a zero-copy disposition.",
+    "copy_boundary": "M1-U005 may copy only gate-approved identities into C:\\Projects\\Active\\burnlens-experiment-three-custody when both decisions pass. Otherwise it may only write the required machine-readable zero-admission manifest and receipt. It may not commit or redistribute third-party bytes unless the source gate explicitly approves that separate action.",
+    "resolved_no_intake": "An affirmative rights failure, explicit owner refusal, definitive source exclusion, or nonpass readiness decision based on complete evidence is an honest resolved outcome. The dependency chain remains U003 to U004 to U005: U004 records the nonpass readiness disposition and U005 records zero admitted bytes. Unknown, stale, missing, ambiguous, or deferred rights evidence is not a no-intake decision and remains a human stop.",
+    "no_training_authority": "A source-gate or readiness pass creates no training, model, inference, evaluation, publication, or fresh-evidence authority in Milestone 1."
+  },
+  "human_gates": [
+    {
+      "id": "M1-GATE-OWNER-ARTIFACT-RIGHTS",
+      "status": "pending",
+      "unit_id": "M1-U003-SOURCE-RIGHTS-GATE",
+      "purpose": "Obtain an explicit yes-or-no owner/rightsholder disposition for the exact project-authored Experiment One derivative artifacts after M1-U002 hash-binds the final inventory.",
+      "cannot_be_inferred_from": [
+        "Public repository presence",
+        "The MIT software license",
+        "Prior Experiment One use or publication",
+        "Attribution records",
+        "The standing operational authority for controlled intake"
+      ]
+    }
+  ],
+  "entry_conditions": [
+    {
+      "id": "ENTRY-M1-ACCEPTED-BOOTSTRAP",
+      "status": "pass",
+      "evidence": [
+        "Local HEAD, origin/main, and live refs/heads/main matched 4543a2dad5c2630249906aab763ae0cbf91097ba at 2026-08-23T22:45:27Z",
+        "GitHub Actions run 32671370937 completed with conclusion success on the accepted commit"
+      ]
+    },
+    {
+      "id": "ENTRY-M1-ISSUE-BRANCH",
+      "status": "pass",
+      "evidence": [
+        "GitHub issue 2 was OPEN at 2026-08-23T22:45:27Z",
+        "Current branch codex/benchmark-provenance-001 was based at accepted commit 4543a2dad5c2630249906aab763ae0cbf91097ba"
+      ]
+    },
+    {
+      "id": "ENTRY-M1-AUTHORITY",
+      "status": "pass",
+      "evidence": [
+        "Active goal service ID 01a03021-0d66-7553-bcab-26971ec191e6",
+        "records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md"
+      ]
+    },
+    {
+      "id": "ENTRY-M1-CUSTODY",
+      "status": "pass",
+      "evidence": [
+        "Canonical project root is C:\\Projects\\Active\\burnlens-experiment-three",
+        "All permitted controlled custody remains beneath C:\\Projects\\Active and the control profile's forbidden root remains excluded"
+      ]
+    },
+    {
+      "id": "ENTRY-M1-SCIENTIFIC-ZERO",
+      "status": "pass",
+      "evidence": [
+        "No Experiment Three dataset, training run, checkpoint, inference run, evaluation, release, model implementation, or scientific output exists",
+        "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json"
+      ]
+    },
+    {
+      "id": "ENTRY-M1-EXPERIMENT-ONE-READ-ONLY",
+      "status": "pass",
+      "evidence": [
+        "C:\\Projects\\Active\\burnlens-deschutes was clean main at a741111d82e69689022d2058118ed8f4b9bf3546 at 2026-08-23T22:45:27Z",
+        "The execution goal and authority record restrict prior BurnLens repositories to read-only provenance"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-M1-CONTROL",
+      "status": "pass",
+      "evidence": [
+        "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json evaluated aligned",
+        "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json validated with the active Milestone 1 contract",
+        "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json validated with the current profile"
+      ]
+    },
+    {
+      "id": "EXIT-M1-IDENTITY",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-M1-SOURCE-RIGHTS",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-M1-READINESS",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-M1-INTAKE-DISPOSITION",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-M1-SCIENTIFIC-BOUNDARY",
+      "status": "pass",
+      "evidence": [
+        "Milestone 1 currently has zero admitted datasets and zero training runs, checkpoints, inference runs, evaluations, and releases",
+        "A successful controlled benchmark intake may change only datasets from 0 to 1; model, training, inference, evaluation, release, and fresh-confirmation outputs remain prohibited"
+      ]
+    },
+    {
+      "id": "EXIT-M1-VERIFIED-CHECKPOINT",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "M1-U001-RECONCILIATION-CONTROL",
+      "purpose": "Reconcile the accepted bootstrap revision to live repository state and activate a Milestone 1 profile and contract without producing scientific output.",
+      "depends_on": [],
+      "action_class": "project_control",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "Accepted main commit 4543a2dad5c2630249906aab763ae0cbf91097ba",
+        "GitHub issue 2",
+        "Goal service ID 01a03021-0d66-7553-bcab-26971ec191e6",
+        "Live reconciliation observation at 2026-08-23T22:45:27Z"
+      ],
+      "outputs": [
+        ".github/ISSUE_TEMPLATE/milestone.yml",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "README.md",
+        "docs/devlog/2026-08-23-empty-bootstrap.md",
+        "docs/governance/CHECKPOINT-POLICY.md",
+        "docs/roadmap/ROADMAP.md",
+        "docs/status/STATUS.md",
+        "docs/status/VERSION-HISTORY.md",
+        "records/evidence/EVIDENCE-LEDGER.md",
+        "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
+        "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json",
+        "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
+        "records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json",
+        "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json",
+        "records/prompt-build-log/2026-08-23-bootstrap.md",
+        "scripts/validate_repository.py",
+        "tests/test_repository_controls.py"
+      ],
+      "gates": {
+        "live_git_and_github_identity": "pass",
+        "project_state_evaluation": "pass_aligned",
+        "project_profile_schema_and_gate_lint": "pass",
+        "controlled_milestone_schema": "pass",
+        "scientific_output_zero": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M1-CONTROL",
+          "EXIT-M1-SCIENTIFIC-BOUNDARY"
+        ],
+        "observed": [
+          "EXIT-M1-CONTROL",
+          "EXIT-M1-SCIENTIFIC-BOUNDARY"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "The accepted bootstrap, current branch, active issue, read-only source identity, zero-output state, authority, profile, and dependency contract are aligned before provenance inspection begins."
+      },
+      "next_dependency": "M1-U002-READ-ONLY-IDENTITY-INVENTORY"
+    },
+    {
+      "id": "M1-U002-READ-ONLY-IDENTITY-INVENTORY",
+      "purpose": "Inspect Experiment One read-only and hash-bind exact candidate identities and roles for the dataset manifest, arrays, whole-event split, masks, normalization, metric definitions, RBR, canonical U-Net, constant controls, and reviewer reference renders without copying or executing them.",
+      "depends_on": [
+        "M1-U001-RECONCILIATION-CONTROL"
+      ],
+      "action_class": "read_only_inspection",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "C:\\Projects\\Active\\burnlens-deschutes at clean main a741111d82e69689022d2058118ed8f4b9bf3546",
+        "Experiment Three execution goal inherited-artifact list",
+        "GitHub issue 2 included evidence roles"
+      ],
+      "outputs": [
+        "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json"
+      ],
+      "gates": {
+        "source_repository_read_only": "pending",
+        "exact_git_and_path_identity": "pending",
+        "sha256_every_candidate": "pending",
+        "role_and_exposure_classification": "pending",
+        "missing_rejected_ambiguous_retained": "pending"
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M1-IDENTITY"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Identity evidence is not yet collected."
+      },
+      "next_dependency": "M1-U003-SOURCE-RIGHTS-GATE"
+    },
+    {
+      "id": "M1-U003-SOURCE-RIGHTS-GATE",
+      "purpose": "After explicit owner review, apply the external-source gate separately to every independently controlled source role using the exact inventory, the owner/rightsholder response, static provenance, and fresh authoritative public evidence for identity, authority, access, rights, provenance, integrity, fitness, and privacy-security.",
+      "depends_on": [
+        "M1-U002-READ-ONLY-IDENTITY-INVENTORY"
+      ],
+      "action_class": "metadata_capture",
+      "human_gate": true,
+      "status": "planned",
+      "inputs": [
+        "Validated Experiment One identity inventory",
+        "Explicit yes-or-no owner/rightsholder response for the exact hash-bound project-authored derivative artifacts; do not infer it",
+        "Local license, attribution, manifest, and provenance records",
+        "Fresh official publisher and terms surfaces reachable without authentication or acceptance"
+      ],
+      "outputs": [
+        "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json",
+        "records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json"
+      ],
+      "gates": {
+        "owner_artifact_rights_response": "pending_human_review",
+        "identity": "pending",
+        "authority": "pending",
+        "access": "pending",
+        "rights": "pending",
+        "provenance": "pending",
+        "integrity": "pending",
+        "fitness": "pending",
+        "privacy_security": "pending",
+        "fresh_live_evidence_where_required": "pending"
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M1-SOURCE-RIGHTS"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Current evidence supports metadata inspection but leaves project-authored non-software artifact rights ambiguous. Stop after U002 and obtain the exact owner response; do not infer a source or rights disposition from repository presence, the MIT software license, or prior use."
+      },
+      "next_dependency": "M1-U004-DATASET-READINESS-AUDIT"
+    },
+    {
+      "id": "M1-U004-DATASET-READINESS-AUDIT",
+      "purpose": "After the source gate is ready or definitively blocked, audit the exact hash-bound candidate for source-and-terms, provenance-and-custody, schema-and-quality, coverage-and-balance, uncertainty-and-exclusions, leakage-and-split fitness, reproducibility, evaluation design, and applicable human-review evidence. Preserve a definitive source nonpass as a nonpass readiness outcome; counts may support but cannot create readiness.",
+      "depends_on": [
+        "M1-U003-SOURCE-RIGHTS-GATE"
+      ],
+      "action_class": "deterministic_validation",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "Validated immutable candidate inventory",
+        "Structurally valid source-gate record that is ready, or blocked solely by affirmative failure, explicit owner refusal, or definitive exclusion for the exact controlled-intake role; unknown, stale, missing, ambiguous, or deferred evidence cannot start this unit"
+      ],
+      "outputs": [
+        "records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-2026-001.json",
+        "records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-DECISION-2026-001.json"
+      ],
+      "gates": {
+        "candidate_manifest_sha256": "pending",
+        "source_and_terms": "pending",
+        "provenance_and_custody": "pending",
+        "schema_and_quality": "pending",
+        "coverage_and_balance": "pending",
+        "uncertainty_and_exclusions": "pending",
+        "leakage_and_split_fitness": "pending",
+        "reproducibility": "pending",
+        "evaluation_design": "pending",
+        "human_review_if_applicable": "pending",
+        "training_authority": "prohibited_in_milestone_1"
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M1-READINESS"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "The audit has not run and creates no authority."
+      },
+      "next_dependency": "M1-U005-CONTROLLED-BENCHMARK-INTAKE"
+    },
+    {
+      "id": "M1-U005-CONTROLLED-BENCHMARK-INTAKE",
+      "purpose": "Produce one machine-readable admission disposition. If and only if the exact source gate is ready and dataset readiness passes, copy each explicitly eligible immutable byte once into isolated Experiment Three custody and verify identity. For any resolved nonpass, record zero admitted bytes and create no custody directory. Never weaken a gate merely to make this unit complete.",
+      "depends_on": [
+        "M1-U004-DATASET-READINESS-AUDIT"
+      ],
+      "action_class": "controlled_benchmark_intake",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "Resolved source-gate decision for the controlled local-copy role",
+        "Dataset-readiness decision for the exact candidate manifest",
+        "Hash-bound identity inventory and explicit per-artifact inclusion decisions"
+      ],
+      "outputs": [
+        "records/intake/EXPERIMENT-ONE-BENCHMARK-ADMISSION-MANIFEST-2026-001.json",
+        "records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json",
+        "C:\\Projects\\Active\\burnlens-experiment-three-custody\\benchmark only on dual pass; otherwise no custody directory and zero copied bytes"
+      ],
+      "gates": {
+        "source_gate_ready_or_definitively_blocked": "required_before_start",
+        "dataset_readiness_resolved": "required_before_start",
+        "copy_requires_source_gate_ready": "required",
+        "copy_requires_dataset_readiness_pass": "required",
+        "copy_requires_authorized_next_action": "controlled_benchmark_intake",
+        "admission_manifest_required_for_every_outcome": "required",
+        "no_overwrite_custody": "pending",
+        "source_destination_sha256_identity": "pending",
+        "restriction_propagation": "pending",
+        "source_repository_unchanged": "pending",
+        "repository_redistribution": "not_authorized_by_this_unit",
+        "resolved_nonpass_behavior": "write_zero_admission_manifest_and_receipt_without_copy_or_custody_directory"
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M1-INTAKE-DISPOSITION"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Both decisions must be resolved before this unit. Dual pass permits the already authorized controlled copy; any resolved nonpass produces only a zero-admission manifest and receipt. Rights ambiguity is not resolved and stops before this unit."
+      },
+      "next_dependency": "M1-U006-INTEGRATED-VERIFICATION"
+    },
+    {
+      "id": "M1-U006-INTEGRATED-VERIFICATION",
+      "purpose": "Independently validate identities, gate and readiness decisions, custody or zero-admission receipts, source non-mutation, zero prohibited model/training/inference/evaluation/release outputs, the dataset counter, record consistency, and the complete Milestone 1 diff before publication.",
+      "depends_on": [
+        "M1-U005-CONTROLLED-BENCHMARK-INTAKE"
+      ],
+      "action_class": "deterministic_validation",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "Complete Milestone 1 candidate records and either hash-verified custody receipts or a machine-readable zero-admission manifest and receipt"
+      ],
+      "outputs": [
+        "Validated Milestone 1 evidence retained in project records",
+        "Reconciled current status, roadmap, evidence ledger, decisions, changelog, version history, devlog, and prompt log"
+      ],
+      "gates": {
+        "repository_controls": "pending",
+        "profile_and_contract_schemas": "pending",
+        "source_gate_schema_and_decision": "pending",
+        "dataset_readiness_schema_and_decision": "pending",
+        "intake_manifest_and_hash_replay": "pending",
+        "source_repository_non_mutation": "pending",
+        "prohibited_model_training_inference_evaluation_release_outputs_zero": "pending",
+        "dataset_counter_matches_admission_manifest": "pending",
+        "complete_diff_and_claim_review": "pending"
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M1-IDENTITY",
+          "EXIT-M1-SOURCE-RIGHTS",
+          "EXIT-M1-READINESS",
+          "EXIT-M1-INTAKE-DISPOSITION",
+          "EXIT-M1-SCIENTIFIC-BOUNDARY"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Integrated verification has not run."
+      },
+      "next_dependency": "M1-U007-REVIEWED-PR-VERIFICATION"
+    },
+    {
+      "id": "M1-U007-REVIEWED-PR-VERIFICATION",
+      "purpose": "Publish the fully verified issue-backed candidate through a reviewed pull request, verify required checks and the exact merged live main commit, then record the accepted Milestone 1 checkpoint without creating a release.",
+      "depends_on": [
+        "M1-U006-INTEGRATED-VERIFICATION"
+      ],
+      "action_class": "public_repository_publication",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "Exact locally verified Milestone 1 candidate",
+        "Issue 2 and codex/benchmark-provenance-001",
+        "Verified pull request checks"
+      ],
+      "outputs": [
+        "Reviewed pull request and exact merged main commit",
+        "Direct live GitHub verification receipt",
+        "Reconciled accepted checkpoint records"
+      ],
+      "gates": {
+        "issue_branch_and_base_identity": "pending",
+        "required_checks": "pending",
+        "reviewed_pull_request": "pending",
+        "exact_merge_commit": "pending",
+        "live_main_verification": "pending",
+        "no_release_or_scientific_claim": "pending"
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M1-VERIFIED-CHECKPOINT"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Milestone 1 is not accepted until live PR and main verification pass."
+      },
+      "next_dependency": null
+    }
+  ],
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "current project-control routing",
+      "external-source identity and rights",
+      "third-party data custody",
+      "dataset readiness and leakage evidence",
+      "public repository claims"
+    ],
+    "required_checks": [
+      "Evaluate records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json with reconcile-project-state and --verify-paths",
+      "Validate profile 002 with --verify-paths and active Milestone 1 gate lint",
+      "Validate the Milestone 1 contract with profile 002",
+      "Run the external-source gate validator against every saved source-gate record",
+      "Run the dataset-readiness utility self-test and audit the exact candidate manifest",
+      "Independently recompute all source and custody SHA-256 identities",
+      "Verify prior source repositories remain unchanged",
+      "Run repository controls, focused tests, reference checks, complete-diff review, and live GitHub verification"
+    ],
+    "completed_checks": [
+      "Live entry reconciliation at 2026-08-23T22:45:27Z matched current branch and accepted bootstrap commit",
+      "Project-state snapshot evaluator: aligned with zero drift or blockers",
+      "Project-control profile validator with --verify-paths and Milestone 1 gate lint: valid with zero findings",
+      "Controlled milestone validator with profile 002: valid with M1-U002 as the only authorized ready unit"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "Accepted bootstrap main commit 4543a2dad5c2630249906aab763ae0cbf91097ba; Milestone 1 control setup is active on codex/benchmark-provenance-001 under issue 2; no scientific output or benchmark byte is admitted",
+    "next_action": "Execute M1-U002 read-only identity inventory against Experiment One clean main a741111d82e69689022d2058118ed8f4b9bf3546; do not copy, execute, transform, or mutate candidate bytes",
+    "do_not_carry_forward": [
+      "Milestone 0's consumed direct-main exception",
+      "Any assumption that prior use, repository presence, a software license, or public access proves asset rights",
+      "Any benchmark byte before source-gate readiness and dataset-readiness pass",
+      "Any Experiment Two or Two-B code, runtime, data, model, checkpoint, output, worktree state, or authority",
+      "Any dependency runtime, model implementation, training, inference, evaluation, fresh confirmation, or scientific output",
+      "Any claim that schema validity, hashes, counts, or a gate record alone creates authority",
+      "Any mutation of a prior BurnLens repository or operational path outside C:\\Projects\\Active"
+    ]
+  }
+}

@@ -6,28 +6,34 @@
 | Canonical remote | `https://github.com/drwbkr1/burnlens-experiment-three` |
 | Canonical local checkout | `C:\Projects\Active\burnlens-experiment-three` |
 | Current version record | `0.0.0-bootstrap` |
-| Active work | Milestone 0, issue [#1](https://github.com/drwbkr1/burnlens-experiment-three/issues/1) |
-| Overall state | Bootstrap in progress; no scientific run has begun |
+| Accepted checkpoint | `4543a2dad5c2630249906aab763ae0cbf91097ba` on live `main` |
+| Active work | Milestone 1, issue [#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2) |
+| Overall state | Milestone 0 accepted; read-only provenance and rights work active; no scientific run has begun |
 
-## Verified incoming checkpoint
+## Accepted Milestone 0 checkpoint
 
-The public repository was verified as empty before Milestone 0 work began: no
-commits, branches, tags, releases, pull requests, workflows, deployments,
-roadmap, authority record, code, data, model, validator, test, pipeline, replay,
-or rendered evidence surface existed. The local canonical checkout had an
-unborn `main` tracking no live remote branch.
+The repository's empty incoming state was preserved in history, and the exact
+bootstrap candidate was accepted on live `main` at commit
+[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba),
+tree `6387e91f071609605f7fcc3a05842782423fbb6d`. Public validation
+[run 32671370937](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32671370937)
+completed successfully. The live README and execution-goal blobs matched the
+verified local files, and the public repository description was corrected to
+the bounded retrospective framing.
 
-The current files are the Milestone 0 documentation candidate. Their presence
-does not establish a model or scientific result and is not itself a release.
+This is an accepted checkpoint, not a GitHub release or scientific result. It
+contains no benchmark bytes, model implementation, training, inference,
+evaluation, metric, or rendered scientific output.
 
 ## Current truth matrix
 
 | Surface | State | Current evidence |
 | --- | --- | --- |
-| Repository bootstrap records | Locally validated candidate | Milestone 0 controls in the working tree; live main acceptance pending |
-| Active tracker | Present | GitHub issue #1 |
+| Repository bootstrap records | Accepted and live-verified | Live `main` commit `4543a2d`; tree `6387e91`; successful CI run `32671370937` |
+| Active tracker | Present | GitHub issue #2 for Milestone 1 |
+| Benchmark provenance and rights review | Active, read-only | Source inspection and rights reconciliation only; no bytes admitted |
 | Experiment Three dataset | Missing | No bytes admitted |
-| Benchmark admission manifest | Missing | Milestone 1 pending |
+| Benchmark admission manifest | Missing | Milestone 1 active; no manifest or admission decision yet |
 | Model implementation | Missing | Architecture direction only |
 | Model weights/checkpoints | Missing | No training has occurred |
 | Synthetic preflight | Missing | Milestone 2 pending |
@@ -36,7 +42,7 @@ does not establish a model or scientific result and is not itself a release.
 | Training runs | Missing | Not authorized before protocol freeze |
 | Predictions and metrics | Missing | No Experiment Three evaluation |
 | Geospatial outputs | Missing | No output artifacts |
-| Bootstrap validator/tests/CI | Local PASS | Repository validator, 9 focused tests, and both control schemas pass; live CI pending |
+| Bootstrap validator/tests/CI | Local and live PASS | Repository validator, 9 focused tests, both control schemas, and public CI run `32671370937` passed |
 | Scientific pipeline | Missing | No model or data execution surface yet |
 | Replay package | Missing | No model lifecycle yet |
 | Rendered result | Missing | No scientific evidence to render |
@@ -89,17 +95,17 @@ fitness, or emergency-use claims.
 
 ## Immediate next gate
 
-Publish the exact locally validated Milestone 0 candidate under the one-time
-direct-main exception, verify live main and CI, and reconcile the accepted
-checkpoint. Milestone 1 may then
-inspect and bind exact inherited evidence without mutating its source
-repositories or copying assets before rights and integrity review.
+Under issue [#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2),
+inspect and bind the exact inherited benchmark sources, identities, terms,
+attribution, redistribution boundaries, and intended roles without mutating
+their repositories. No benchmark byte may enter Experiment Three custody until
+the provenance, rights, and integrity decision explicitly permits admission.
 
 ## Current risks
 
-1. The public repository's first commit is itself a public claim and must not
-   imply that a model or result exists.
-2. The inherited benchmark is tiny at the event level and already exposed.
+1. The inherited benchmark is tiny at the event level and already exposed.
+2. Source terms, attribution, and redistribution rights remain unresolved;
+   inspection must not be confused with admission.
 3. Sparse selected cores cannot validate dense spatial segmentation.
 4. RBR's reported perfect score leaves no room for numerical superiority on
    the current headline metric and may reflect how prototype cores were

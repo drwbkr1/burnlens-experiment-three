@@ -13,24 +13,32 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-23, this repository is at its truthful empty-bootstrap milestone.
-Issue [#1](https://github.com/drwbkr1/burnlens-experiment-three/issues/1)
-tracks the bootstrap work.
+As of 2026-08-23, the truthful empty bootstrap is accepted on live `main` at
+commit
+[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba)
+(tree `6387e91f071609605f7fcc3a05842782423fbb6d`). Public validation
+[run 32671370937](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32671370937)
+completed successfully, and the live README and execution-goal blobs matched
+the verified local checkpoint. Issue
+[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2) now tracks
+Milestone 1's read-only benchmark-provenance and rights work.
 
 - No dataset or benchmark bytes have been admitted.
 - No model code, model weights, checkpoints, or predictions exist here.
 - No training or evaluation has run here.
 - No Experiment Three metrics, scientific result, or release exists.
 - A bootstrap-only repository validator, focused tests, and pinned CI workflow
-  are present in the working-tree candidate. No scientific pipeline, model
+  are present on live `main` and have passed. No scientific pipeline, model
   replay command, or rendered evidence surface exists yet.
 - Prior BurnLens repositories are read-only provenance sources. Their files and
   decisions are not Experiment Three evidence until they are explicitly
   hash-bound and admitted.
 
-The bootstrap documentation establishes scope and truthful state. It does not
-authorize substantive training or opening evaluation evidence. The complete
-protocol must first be frozen and recorded.
+The accepted bootstrap establishes scope and truthful state. Milestone 1
+authorizes read-only provenance, integrity, attribution, and rights review; it
+does not yet admit benchmark bytes or authorize substantive training or
+opening evaluation evidence. The approved protocol values still require their
+executable, hash-bound Milestone 3 freeze before training.
 
 ## Research question
 

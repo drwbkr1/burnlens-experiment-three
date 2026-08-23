@@ -60,11 +60,31 @@ claim, or release.
 
 ## Local validation
 
-The complete candidate passed the bootstrap repository validator, all 9
-focused control tests, the project-control profile validator, and the
-controlled-milestone validator. Those passes establish local control-plane
-consistency only. The checkpoint remains unaccepted until the exact commit is
-present on live `main` and its public CI and repository surfaces are verified.
+At candidate-validation time, the complete candidate passed the bootstrap
+repository validator, all 9 focused control tests, the project-control profile
+validator, and the controlled-milestone validator. Those passes established
+local control-plane consistency only; live acceptance still required the exact
+commit, public CI, and repository-surface checks recorded below.
+
+## Acceptance update
+
+Milestone 0 was accepted on live `main` at commit
+[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba),
+tree `6387e91f071609605f7fcc3a05842782423fbb6d`. GitHub Actions
+[run 32671370937](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32671370937)
+completed successfully. The live README and execution-goal blobs matched the
+verified local checkpoint, and the public description was corrected to the
+bounded retrospective framing. A separate rendered-page inspection showed the
+expected public `main` file table and README, bounded About description, one
+commit, two issues, zero tags, and zero releases.
+
+Issue #1 closed at `2026-08-23T22:55:18Z` after those checks. Issue #2 and the
+issue-backed `codex/benchmark-provenance-001` branch carry the next milestone;
+the one-time direct-to-`main` exception is consumed.
+
+Acceptance does not turn the bootstrap into a release or scientific result.
+It still contains no benchmark bytes, model implementation, training,
+inference, evaluation, metric, or rendered scientific output.
 
 ## Claim discipline
 
@@ -79,7 +99,9 @@ to keep this experiment open indefinitely.
 
 ## Next checkpoint
 
-Verify the bootstrap candidate and public claims. Then inspect and hash-bind the
-exact inherited benchmark evidence under a rights-and-custody gate before any
-asset is copied. The approved protocol values still require a later executable,
-content-addressed freeze before training.
+Issue [#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2)
+opens Milestone 1 with read-only inspection of the exact inherited benchmark
+sources, provenance, terms, attribution, redistribution boundaries, and
+intended roles. No benchmark byte may be copied or admitted before the rights,
+integrity, and custody gate permits it. The approved protocol values still
+require a later executable, content-addressed freeze before training.

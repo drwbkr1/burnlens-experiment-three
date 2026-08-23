@@ -91,11 +91,28 @@ deployment. It records the approved protocol values but does not create their
 hash-bound executable implementation, authorize substantive training, or
 authorize opening evaluation evidence.
 
-## Required follow-through
+## Acceptance receipt
 
 The local candidate passed the repository validator, 9 focused tests, both
-project-control schema validators, and candidate safety review. It remains
-unaccepted until the exact revision is committed, published to live `main`, and
-verified through the public workflow. Subsequent work must start with
-provenance, rights, integrity, and custody binding rather than implementation
-by assumption.
+project-control schema validators, and candidate safety review. It was then
+accepted on live `main` at commit
+[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba),
+tree `6387e91f071609605f7fcc3a05842782423fbb6d`. Public validation
+[run 32671370937](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32671370937)
+completed successfully. The live README and execution-goal blobs matched the
+verified local checkpoint, and the public description was corrected to the
+bounded retrospective framing.
+
+This accepted checkpoint remains bootstrap-only: it is not a release and
+contains no benchmark bytes, model implementation, training, inference,
+evaluation, scientific result, or rendered scientific output.
+
+## Required follow-through
+
+Milestone 1 is active under issue
+[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2), beginning
+with read-only provenance and rights reconciliation. No benchmark byte may be
+admitted until its identity, source terms, attribution, redistribution
+boundary, custody role, and integrity decision are explicit. Subsequent work
+must continue from the exact accepted bootstrap checkpoint rather than from
+implementation by assumption.
