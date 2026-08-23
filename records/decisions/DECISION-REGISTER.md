@@ -1,0 +1,119 @@
+# Decision Register
+
+This register records scientific and project decisions separately from their
+supporting evidence. Decisions remain reviewable; changing a frozen decision
+requires the applicable human gate and a new decision record rather than an
+overwrite.
+
+## Active decisions
+
+### E3-DEC-0001 - Separate lifecycle completion from comparative outcome
+
+- **Date:** 2026-08-23
+- **State:** Active
+- **Decision:** Track `lifecycle_status` independently from
+  `comparative_status`. A verified lifecycle may complete with comparative
+  `FAIL`, `INCONCLUSIVE`, or `INVALID`.
+- **Reason:** The experiment's required neural demonstration is the complete,
+  replayable process. Favorable performance cannot be guaranteed and is not a
+  valid release condition.
+
+### E3-DEC-0002 - Use a 137-parameter pointwise neural detector
+
+- **Date:** 2026-08-23
+- **State:** Active and owner-approved; executable protocol freeze pending
+- **Decision:** Use biased `1x1` convolutions `6 -> 8 -> 8 -> 1`, with ReLU
+  after the first two layers, for exactly 137 trainable parameters.
+- **Reason:** This is a real fully convolutional neural model sized to extremely
+  limited independent supervision. It avoids adding unjustified spatial
+  capacity merely to make the demonstration look more complex.
+- **Gate:** A model-family or parameter-count change requires owner approval.
+  Approved training and evaluation values must be hash-bound with the remaining
+  implementation details before use.
+
+### E3-DEC-0003 - Treat Experiment 1 as retrospective compatibility evidence
+
+- **Date:** 2026-08-23
+- **State:** Active
+- **Decision:** Bind the exact Experiment 1 benchmark and controls, but describe
+  the evaluation as retrospective because its test role and results are known.
+- **Reason:** Reusing exposed evidence cannot create fresh held-out
+  confirmation.
+- **Claim limit:** No independent-accuracy, dense-segmentation,
+  generalization, significance, superiority, or operational claim.
+
+### E3-DEC-0004 - Keep prior BurnLens repositories read-only
+
+- **Date:** 2026-08-23
+- **State:** Active
+- **Decision:** Treat `burnlens-deschutes` and `burnlens-experiment-two` as
+  read-only provenance sources. Do not rewrite their decisions or import
+  unverified work.
+- **Reason:** Experiment Three requires isolated custody and must preserve prior
+  failed and accepted evidence exactly as history.
+
+### E3-DEC-0005 - Keep all project state outside OneDrive
+
+- **Date:** 2026-08-23
+- **State:** Active
+- **Decision:** Keep the canonical checkout, custody roots, caches,
+  environments, temporary files, and run outputs under `C:\Projects\Active`.
+  Do not use OneDrive.
+- **Reason:** A single explicit custody boundary improves reproducibility and
+  avoids synchronization interference.
+
+### E3-DEC-0006 - Keep fresh confirmation separate and deferred
+
+- **Date:** 2026-08-23
+- **State:** Active
+- **Decision:** A new independently reviewed event cohort is not required for
+  Experiment Three and cannot rescue or extend its retrospective result.
+- **Gate:** Cohort creation, labeling, or opening requires separate owner
+  approval and a frozen prospective protocol.
+
+### E3-DEC-0007 - Preserve all declared runs and terminal outcomes
+
+- **Date:** 2026-08-23
+- **State:** Active
+- **Decision:** Retain valid, failed, interrupted, rejected, inconclusive,
+  invalid, stale, and superseded attempts. Report every predeclared seed; never
+  silently replace or best-seed-select.
+- **Reason:** Failure retention is necessary to make the neural demonstration
+  and comparison auditable.
+
+### E3-DEC-0008 - Separate software licensing from asset rights
+
+- **Date:** 2026-08-23
+- **State:** Active
+- **Decision:** License repository-authored software and documentation under
+  MIT, while requiring separate source, terms, attribution, redistribution,
+  custody, and integrity decisions for data, model artifacts, and third-party
+  materials.
+- **Reason:** A repository software license cannot relicense external assets.
+
+### E3-DEC-0009 - Bind the approved bounded neural protocol
+
+- **Date:** 2026-08-23
+- **State:** Active and owner-approved; executable protocol artifact pending
+- **Decision:** Use event-class-balanced masked BCE; deterministic float32
+  local CPU PyTorch; Adam with learning rate `0.001`; batch size `4`; maximum
+  `200` epochs with patience `25`; seeds `20260725`, `20260726`, and `20260727`
+  with the first primary; and no augmentation, positive-class weighting,
+  BatchNorm, dropout, ensemble, pretraining, or search. Select the minimum
+  validation balanced-BCE checkpoint. Select one threshold from validation
+  only using a prospectively sealed worst-event-Dice/macro-IoU rule.
+- **Comparative rule:** `PASS` requires every seed to be nonconstant on each
+  test event and the three-seed median to beat the strongest constant control
+  on macro IoU and worst-event Dice. Otherwise assign `FAIL`, `INCONCLUSIVE`,
+  or `INVALID` under the sealed rules; never tune from the test.
+- **Gate:** Milestone 3 must hash-bind exact input order, normalization,
+  initialization, deterministic settings, tie-breaks, metric/collapse
+  implementations, tolerances, artifact schemas, and exception/terminal rules
+  before substantive training. It may not replace the approved values above.
+
+## Decisions still pending evidence or binding
+
+Dependency-runtime admission, benchmark-byte admission, exact implementation
+bindings, rights dispositions, and the executable protocol artifact remain
+pending their gated milestones. Their absence does not reopen the approved
+model or training choices for routine optimization.

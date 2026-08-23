@@ -1,0 +1,69 @@
+name: Milestone evidence unit
+description: Propose one bounded, verifiable Experiment Three evidence unit.
+title: "[MILESTONE] "
+labels:
+  - milestone
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Keep one issue to one bounded evidence unit. Proposal is not approval;
+        cite the active milestone and authority record.
+  - type: input
+    id: milestone
+    attributes:
+      label: Governing milestone
+      description: Repository-relative path to the active milestone record.
+      placeholder: records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json
+    validations:
+      required: true
+  - type: dropdown
+    id: action_class
+    attributes:
+      label: Action class
+      options:
+        - repository-only
+        - scientific-preflight
+        - training
+        - evaluation
+        - release
+        - owner-gated
+    validations:
+      required: true
+  - type: textarea
+    id: objective
+    attributes:
+      label: Bounded objective
+      description: State the single result this evidence unit must produce.
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Frozen inputs and dependencies
+      description: List exact paths, hashes, versions, and predecessor evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Real-surface verification
+      description: State commands, rendered surfaces, and expected evidence receipts.
+    validations:
+      required: true
+  - type: textarea
+    id: stops
+    attributes:
+      label: Stop conditions and claim limits
+      description: Identify gates that require owner review or prevent publication.
+    validations:
+      required: true
+  - type: checkboxes
+    id: discipline
+    attributes:
+      label: Evidence discipline
+      options:
+        - label: Failed, invalid, inconclusive, stale, and superseded attempts will be retained.
+          required: true
+        - label: Test or evaluation evidence will not be used to retune a frozen protocol.
+          required: true

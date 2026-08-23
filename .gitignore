@@ -1,0 +1,46 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Editors and operating-system metadata
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local scientific custody and run products are never repository inputs.
+/cache/
+/custody/
+/data/
+/datasets/
+/models/
+/checkpoints/
+/runs/
+/outputs/
+/artifacts/
+/records/validation/local/
+
+# Common data and model formats are prohibited during the empty bootstrap.
+*.npy
+*.npz
+*.tif
+*.tiff
+*.jp2
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.joblib
+*.pkl
+*.pickle
+*.parquet

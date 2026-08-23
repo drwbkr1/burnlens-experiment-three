@@ -1,0 +1,498 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
+  "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
+  "status": "active",
+  "scientific_outputs": {
+    "datasets": 0,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "inference_runs": 0,
+    "evaluations": 0,
+    "releases": 0
+  },
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": [
+      "read_only_inspection",
+      "deterministic_validation",
+      "metadata_capture",
+      "routine_qa",
+      "evidence_recording",
+      "project_control",
+      "update_project_records",
+      "reversible_remediation",
+      "repository_bootstrap",
+      "version_control_write",
+      "github_issue_management",
+      "github_pull_request_management",
+      "external_state_verification",
+      "public_repository_publication",
+      "software_implementation",
+      "synthetic_preflight",
+      "controlled_benchmark_intake",
+      "protocol_freeze",
+      "model_training",
+      "checkpoint_packaging",
+      "model_inference",
+      "retrospective_evaluation",
+      "rendered_evidence_generation",
+      "release_packaging",
+      "github_release_publication"
+    ],
+    "user_instruction": "The owner approved the comprehensive Experiment Three execution goal in the active thread and authorized continued bounded work through terminal closeout subject to its exact hard stops.",
+    "repository_controls": [
+      "AGENTS.md",
+      "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md",
+      "docs/governance/CHECKPOINT-POLICY.md",
+      "records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md",
+      "https://github.com/drwbkr1/burnlens-experiment-three/issues/1"
+    ],
+    "active_contract": "records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json",
+    "verified_at_utc": "2026-08-23T22:23:46Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Establish the complete Experiment Three operating control plane and truthful public repository surface from the verified empty and unborn entry state before any benchmark intake, dependency runtime, model implementation, training, inference, or evaluation.",
+    "allowed_paths": [
+      ".github/**",
+      ".gitignore",
+      "AGENTS.md",
+      "README.md",
+      "CHANGELOG.md",
+      "CONTRIBUTING.md",
+      "LICENSE",
+      "VERSION",
+      "docs/**",
+      "records/**",
+      "scripts/validate_repository.py",
+      "tests/test_repository_controls.py"
+    ],
+    "forbidden_work": [
+      "Experiment One dataset bytes or model artifacts",
+      "Experiment Two or Two-B code, data, models, runtimes, outputs, or authority",
+      "Dependency installation or adoption",
+      "Neural-model implementation",
+      "Synthetic or substantive training",
+      "Checkpoint generation",
+      "Inference or evaluation",
+      "Fresh-event cohort work",
+      "Scientific result or model release",
+      "Secrets, credentials, or private data",
+      "Modification of prior BurnLens repositories",
+      "Project, custody, cache, temporary, or run-output work outside C:\\Projects\\Active"
+    ],
+    "reversible_actions": [
+      "Create and edit allowed bootstrap files before publication",
+      "Run read-only repository and live GitHub inspections",
+      "Run deterministic local validators and tests",
+      "Repair agent-created structural defects within the allowlist",
+      "Create or update issue #1 metadata without closing it before live verification"
+    ],
+    "stop_conditions": [
+      "The canonical remote is unexpectedly nonempty or changes from the recorded entry state before publication",
+      "A project path resolves outside C:\\Projects\\Active or through the cloud-sync root prohibited by the project control profile",
+      "The diff contains benchmark bytes, model code, runtime dependencies, training, checkpoints, inference, evaluation, scientific outputs, secrets, credentials, or unsupported public claims",
+      "A rights, terms, credential, privacy, ownership, access, visibility, or custody decision is required",
+      "A prior BurnLens repository would be modified",
+      "A destructive, irreversible, or authority-broadening action is required",
+      "Required local or live-surface verification cannot be completed",
+      "The owner pauses, revokes, or changes the authority"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-M0-EMPTY-REMOTE",
+      "status": "pass",
+      "evidence": [
+        "GitHub issue #1 verified entry state",
+        "Read-only inspection found no commits, branches, tags, releases, PRs, workflows, or deployments"
+      ]
+    },
+    {
+      "id": "ENTRY-M0-CANONICAL-ROOT",
+      "status": "pass",
+      "evidence": [
+        "Canonical checkout is C:\\Projects\\Active\\burnlens-experiment-three",
+        "Local main is unborn and origin targets the canonical remote"
+      ]
+    },
+    {
+      "id": "ENTRY-M0-OWNER-AUTHORITY",
+      "status": "pass",
+      "evidence": [
+        "Owner-approved comprehensive directive in the active thread",
+        "Active goal service ID 01a03021-0d66-7553-bcab-26971ec191e6"
+      ]
+    },
+    {
+      "id": "ENTRY-M0-ISSUE",
+      "status": "pass",
+      "evidence": [
+        "Open GitHub issue #1 records objective, scope, non-goals, direct-main exception, exit conditions, and completion behavior"
+      ]
+    },
+    {
+      "id": "ENTRY-M0-PRIOR-REPOS-READ-ONLY",
+      "status": "pass",
+      "evidence": [
+        "Owner directive limits prior BurnLens repositories to read-only provenance"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-M0-GOVERNANCE",
+      "status": "pass",
+      "evidence": [
+        "AGENTS.md",
+        "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md",
+        "docs/governance/CHECKPOINT-POLICY.md",
+        "records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md",
+        "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
+        "records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json"
+      ]
+    },
+    {
+      "id": "EXIT-M0-DOCUMENTATION",
+      "status": "pass",
+      "evidence": [
+        "All twelve required public, current-state, and historical documentation surfaces exist and passed repository control validation"
+      ]
+    },
+    {
+      "id": "EXIT-M0-VALIDATION",
+      "status": "pass",
+      "evidence": [
+        "python scripts/validate_repository.py: PASS",
+        "python -m unittest discover -s tests -v: 9 tests passed",
+        "project control profile validator: valid with zero warnings or gate findings",
+        "controlled milestone validator: valid with zero warnings"
+      ]
+    },
+    {
+      "id": "EXIT-M0-DIFF-SAFETY",
+      "status": "pass",
+      "evidence": [
+        "Repository validator found 25 required files and no prohibited scientific artifacts, operational cloud-sync paths, missing control references, or nonzero scientific outputs",
+        "git diff --check completed without findings"
+      ]
+    },
+    {
+      "id": "EXIT-M0-LIVE-MAIN",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-M0-HANDOFF",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "parallelism": {
+    "authorized_unit_sets": [
+      [
+        "M0-U002-DOCUMENTATION",
+        "M0-U003-VALIDATION-SCAFFOLD"
+      ]
+    ],
+    "rationale": "After governance is complete, documentation and validation scaffolding have disjoint primary write sets and make no scientific or external-state decisions."
+  },
+  "units": [
+    {
+      "id": "M0-U001-GOVERNANCE",
+      "purpose": "Create the unabridged goal, repository instructions, checkpoint policy, authority record, control profile, and Milestone 0 contract.",
+      "depends_on": [],
+      "action_class": "project_control",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "Owner-approved thread directive",
+        "Goal service ID 01a03021-0d66-7553-bcab-26971ec191e6",
+        "GitHub issue #1",
+        "Verified empty and unborn repository state",
+        "Project control profile schema 1.0",
+        "Controlled milestone schema 1.0"
+      ],
+      "outputs": [
+        "AGENTS.md",
+        "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md",
+        "docs/governance/CHECKPOINT-POLICY.md",
+        "records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md",
+        "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
+        "records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json"
+      ],
+      "gates": {
+        "scope": "pass",
+        "authority": "pass",
+        "json_parse": "pass",
+        "schema_validation": "pass",
+        "scientific_output_zero": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M0-GOVERNANCE"
+        ],
+        "observed": [
+          "EXIT-M0-GOVERNANCE"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "The governance unit establishes the authority, boundaries, routing profile, checkpoint rules, and active contract needed for all later bootstrap work."
+      },
+      "next_dependency": "M0-U002-DOCUMENTATION and M0-U003-VALIDATION-SCAFFOLD"
+    },
+    {
+      "id": "M0-U002-DOCUMENTATION",
+      "purpose": "Create the truthful public bootstrap documentation, status, roadmap, history, evidence, decision, contribution, license, prompt-log, and devlog surfaces.",
+      "depends_on": [
+        "M0-U001-GOVERNANCE"
+      ],
+      "action_class": "update_project_records",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "Milestone 0 governance controls",
+        "GitHub issue #1"
+      ],
+      "outputs": [
+        "README.md",
+        "LICENSE",
+        "CONTRIBUTING.md",
+        "CHANGELOG.md",
+        "VERSION",
+        "docs/roadmap/ROADMAP.md",
+        "docs/status/STATUS.md",
+        "docs/status/VERSION-HISTORY.md",
+        "docs/devlog/2026-08-23-empty-bootstrap.md",
+        "records/evidence/EVIDENCE-LEDGER.md",
+        "records/decisions/DECISION-REGISTER.md",
+        "records/prompt-build-log/2026-08-23-bootstrap.md"
+      ],
+      "gates": {
+        "required_surfaces": "pass",
+        "truthful_bootstrap_claims": "pass",
+        "control_references": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M0-DOCUMENTATION"
+        ],
+        "observed": [
+          "EXIT-M0-DOCUMENTATION"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "The required truthful public, current-state, and historical surfaces exist and passed repository control validation."
+      },
+      "next_dependency": "M0-U004-INTEGRATED-VALIDATION"
+    },
+    {
+      "id": "M0-U003-VALIDATION-SCAFFOLD",
+      "purpose": "Create deterministic repository validation, focused control tests, and CI for the bootstrap surface.",
+      "depends_on": [
+        "M0-U001-GOVERNANCE"
+      ],
+      "action_class": "repository_bootstrap",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "Milestone 0 governance controls",
+        "GitHub issue #1"
+      ],
+      "outputs": [
+        "scripts/validate_repository.py",
+        "tests/test_repository_controls.py",
+        ".github/workflows/validate.yml"
+      ],
+      "gates": {
+        "repository_validator_real_invocation": "pass",
+        "focused_tests": "pass",
+        "ci_definition": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M0-VALIDATION"
+        ],
+        "observed": [],
+        "decision_value": "enables_dependency",
+        "rationale": "The validator, focused tests, and CI definition exist and enabled the integrated validation unit; live CI remains part of post-publication verification."
+      },
+      "next_dependency": "M0-U004-INTEGRATED-VALIDATION"
+    },
+    {
+      "id": "M0-U004-INTEGRATED-VALIDATION",
+      "purpose": "Run repository, test, profile, milestone, reference, scope, and complete-diff validation and retain the actual results.",
+      "depends_on": [
+        "M0-U002-DOCUMENTATION",
+        "M0-U003-VALIDATION-SCAFFOLD"
+      ],
+      "action_class": "deterministic_validation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "Complete local Milestone 0 candidate"
+      ],
+      "outputs": [
+        "Validation results retained in records/evidence/EVIDENCE-LEDGER.md"
+      ],
+      "gates": {
+        "repository_validator": "pass",
+        "focused_tests": "pass_9_of_9",
+        "project_profile_schema": "pass",
+        "milestone_schema": "pass",
+        "complete_candidate_safety": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M0-VALIDATION",
+          "EXIT-M0-DIFF-SAFETY"
+        ],
+        "observed": [
+          "EXIT-M0-VALIDATION",
+          "EXIT-M0-DIFF-SAFETY"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "All four local validation families passed, and the repository control scan found no prohibited scientific artifacts, nonzero outputs, or unsafe operational paths."
+      },
+      "next_dependency": "M0-U005-INITIAL-MAIN-PUBLICATION"
+    },
+    {
+      "id": "M0-U005-INITIAL-MAIN-PUBLICATION",
+      "purpose": "Create the one authorized initial commit on unborn main and push the exact validated bootstrap candidate to the canonical remote.",
+      "depends_on": [
+        "M0-U004-INTEGRATED-VALIDATION"
+      ],
+      "action_class": "public_repository_publication",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "Exact locally validated Milestone 0 candidate",
+        "One-time direct-main exception in issue #1"
+      ],
+      "outputs": [
+        "Initial local main commit",
+        "Pushed canonical main"
+      ],
+      "gates": {},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M0-LIVE-MAIN"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Publication creates the candidate live state; direct verification is still required before the exit condition passes."
+      },
+      "next_dependency": "M0-U006-LIVE-VERIFY"
+    },
+    {
+      "id": "M0-U006-LIVE-VERIFY",
+      "purpose": "Verify the exact live main commit, repository files, public claims, and required checks on the authoritative GitHub surface.",
+      "depends_on": [
+        "M0-U005-INITIAL-MAIN-PUBLICATION"
+      ],
+      "action_class": "external_state_verification",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "Published canonical main"
+      ],
+      "outputs": [
+        "Live GitHub verification receipt"
+      ],
+      "gates": {},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M0-LIVE-MAIN"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Only a direct live read can convert the published candidate into verified public-state evidence."
+      },
+      "next_dependency": "M0-U007-ISSUE-HANDOFF"
+    },
+    {
+      "id": "M0-U007-ISSUE-HANDOFF",
+      "purpose": "Reconcile current records, open the next issue-backed milestone from the exact live main checkpoint, and close issue #1 only after all bootstrap exits pass.",
+      "depends_on": [
+        "M0-U006-LIVE-VERIFY"
+      ],
+      "action_class": "github_issue_management",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "Verified live main checkpoint",
+        "Complete Milestone 0 evidence ledger"
+      ],
+      "outputs": [
+        "Reconciled Milestone 0 closeout",
+        "Closed issue #1",
+        "Open issue-backed next milestone"
+      ],
+      "gates": {},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-M0-HANDOFF"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "The handoff completes bootstrap only after live truth and current records agree."
+      },
+      "next_dependency": "Milestone 1 benchmark provenance, rights, and controlled intake contract"
+    }
+  ],
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "documentation",
+      "project_control",
+      "security",
+      "public",
+      "external"
+    ],
+    "required_checks": [
+      "python scripts/validate_repository.py",
+      "python -m unittest discover -s tests -v",
+      "project control profile validator with --verify-paths and milestone gate lint",
+      "controlled milestone validator with project profile",
+      "complete diff inspection for forbidden scientific or sensitive material",
+      "direct live GitHub verification after publication"
+    ],
+    "completed_checks": [
+      "python scripts/validate_repository.py: PASS (25 required files; bootstrap truth verified)",
+      "python -m unittest discover -s tests -v: PASS (9 tests)",
+      "project control profile validator with --verify-paths and milestone gate lint: valid, zero warnings, zero gate findings",
+      "controlled milestone validator with project profile: valid, zero warnings",
+      "git diff --check: no findings"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "LOCALLY-VALIDATED-UNBORN-BOOTSTRAP-CANDIDATE-2026-08-23; units M0-U001 through M0-U004 pass locally; main remains unborn and no public checkpoint has been accepted",
+    "next_action": "Execute M0-U005: inspect the exact final candidate, create the one authorized initial main commit, and push it to the canonical remote",
+    "do_not_carry_forward": [
+      "The one-time direct-main exception after the initial bootstrap publication",
+      "Any claim that Milestone 0 contains a dataset, runtime, model, training run, checkpoint, inference, evaluation, scientific result, or release",
+      "Experiment Two or Two-B code, data, runtime, checkpoints, outputs, worktree state, or authority",
+      "Cloud-sync paths as operational, custody, cache, temporary, or run-output locations",
+      "An assumption that a local pass proves live GitHub state"
+    ]
+  }
+}

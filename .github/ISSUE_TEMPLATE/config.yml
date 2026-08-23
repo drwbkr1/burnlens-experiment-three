@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Current experiment status
+    url: https://github.com/drwbkr1/burnlens-experiment-three/blob/main/docs/status/STATUS.md
+    about: Read the current verified checkpoint before proposing work.
