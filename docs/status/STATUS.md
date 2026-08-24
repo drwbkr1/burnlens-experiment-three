@@ -5,21 +5,27 @@
 | Status date | 2026-08-24 |
 | Canonical remote | `https://github.com/drwbkr1/burnlens-experiment-three` |
 | Canonical local checkout | `C:\Projects\Active\burnlens-experiment-three` |
-| Working version | `0.2.0-m2-runtime-gate` (unreleased) |
-| Accepted checkpoint | `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4` on live `main` |
-| Active work | Milestone 2, issue [#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4) |
-| Active review | None; both runtime decisions are resolved |
-| Overall state | Candidate 001 remains a closed activation failure. Candidate 002 passed exact activation, and the fixed 137-parameter model passed an independently verified, byte-replayable synthetic lifecycle. Milestone 2 awaits reviewed publication and live-main verification. |
+| Working version | `0.3.0-m3-protocol-freeze` (unreleased) |
+| Accepted checkpoint | `8b0636d6cc117d524256a0f7f2bd699fb64a232b` on live `main` |
+| Active work | Milestone 3, issue [#6](https://github.com/drwbkr1/burnlens-experiment-three/issues/6) |
+| Active review | None; protocol freeze is a locally verified candidate awaiting reviewed PR |
+| Overall state | Milestone 2 is accepted. The complete executable protocol is frozen locally at SHA-256 `12a092e...`; bindings, fabricated replay, and all 39 approved-runtime tests pass. Training remains prohibited until reviewed merge and live verification. |
 
 ## Current truth
 
-Milestone 1 is accepted and live-verified. Pull request
-[#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3) merged to
-[`32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4`](https://github.com/drwbkr1/burnlens-experiment-three/commit/32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4),
-tree `5b2bd2904b9164b8bd3c655998749cb024202148`. Candidate, pull-request,
-and merge-triggered checks passed; the live README, execution goal, source
-gate, readiness decision, and intake receipt match the accepted candidate.
-Issue #2 is closed. There are still zero tags and zero releases.
+Milestone 2 is accepted and live-verified. Pull request
+[#5](https://github.com/drwbkr1/burnlens-experiment-three/pull/5) merged the
+reviewed tree `fe91a423cee4f4ad69cad88a643bb730c8647005` to live `main` at
+[`8b0636d6cc117d524256a0f7f2bd699fb64a232b`](https://github.com/drwbkr1/burnlens-experiment-three/commit/8b0636d6cc117d524256a0f7f2bd699fb64a232b).
+Candidate, pull-request, and merge-triggered runs
+`32687882167`/`32687884772`/`32687957764` passed. Issue #4 is closed.
+There are still zero tags and zero releases.
+
+Milestone 3 has frozen the complete executable protocol as a local candidate.
+It binds the admitted metadata and comparators without decoding any test array,
+and it fixes all remaining ordering, selection, metric, collapse, replay,
+artifact, exception, decision, opening, and claim rules. This is protocol
+evidence, not training or performance evidence.
 
 | Surface | State | Evidence |
 | --- | --- | --- |
@@ -40,6 +46,7 @@ Issue #2 is closed. There are still zero tags and zero releases.
 | Runtime successor activation | `PASS`, synthetic-only | Exact application-local runtime: 18,171 files / 726,368,861 bytes / roster SHA-256 `77a5bce011c81cd24ae080d76566e0bbcf8c500e80dfdb7f88efe19ddc1bf977`; 20 packages compatible; CPU/native/replay checks pass |
 | Model implementation | `PASS`, synthetic scope | Exact `6 -> 8 -> 8 -> 1` pointwise network, 137 parameters, arbitrary HxW, mask-preserving balanced loss, strict state-dict package |
 | Synthetic lifecycle | `PASS` | Primary and replay each contain 7 files / 20,628 bytes with identical roster `9c008f10...`, receipt `7a3fde99...`, and fingerprint `d13ec92...`; fresh-process reload, GeoTIFF, and render verified |
+| Frozen executable protocol | `PASS`, local candidate | Canonical-LF SHA-256 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`; exact bindings and fabricated dry-run pass; 39/39 approved-runtime tests pass |
 | Training runs / checkpoints | `0 / 0` | Training remains unauthorized before later gates |
 | Inference runs / evaluations | `0 / 0` | Known test evidence has not been opened by Experiment Three |
 | Metrics / rendered result | `MISSING` | No Experiment Three scientific output exists |
@@ -87,7 +94,8 @@ separately approved Experiment 3B.
 
 ## Immediate next gate
 
-Publish the exact verified working tree through draft PR #5, require candidate
-and pull-request checks, merge only after review, then verify the live `main`
-tree and required public blobs. This is a checkpoint, not a release. Milestone
-3 must freeze the complete executable protocol before substantive training.
+Publish the exact protocol-freeze candidate through an issue #6 pull request,
+require candidate and pull-request checks, merge only after review, then verify
+the live `main` tree, protocol hash, required blobs, and merge-triggered CI.
+This is a checkpoint, not a release. Milestone 4 training remains prohibited
+until that acceptance is recorded.

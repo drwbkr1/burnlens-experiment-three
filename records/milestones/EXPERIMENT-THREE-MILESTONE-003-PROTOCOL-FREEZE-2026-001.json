@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json",
+  "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json",
+  "status": "active",
+  "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/6",
+  "accepted_base_commit": "8b0636d6cc117d524256a0f7f2bd699fb64a232b",
+  "active_branch": "codex/protocol-freeze-003",
+  "scientific_outputs": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0},
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": ["read_only_inspection", "deterministic_validation", "metadata_capture", "evidence_recording", "project_control", "update_project_records", "reversible_remediation", "version_control_write", "github_issue_management", "github_pull_request_management", "external_state_verification", "public_repository_publication", "software_implementation", "protocol_freeze"],
+    "user_instruction": "Freeze the complete executable Experiment Three protocol from the accepted 137-parameter direction before substantive training or test opening.",
+    "repository_controls": ["AGENTS.md", "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md", "docs/governance/CHECKPOINT-POLICY.md", "https://github.com/drwbkr1/burnlens-experiment-three/issues/6"],
+    "active_contract": "records/milestones/EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001.json",
+    "verified_at_utc": "2026-08-24T04:05:21Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Hash-bind and validate every executable data, model, training, checkpoint, threshold, metric, collapse, artifact, replay, opening, decision, and claim rule before substantive benchmark training.",
+    "allowed_paths": ["AGENTS.md", "README.md", "CHANGELOG.md", "VERSION", "docs/**", "records/**", "protocol/**", "scripts/**", "src/**", "tests/**", "C:\\Projects\\Active\\burnlens-experiment-three-custody", "C:\\Projects\\Active\\burnlens-experiment-three-runtime"],
+    "forbidden_work": [
+      "Load or decode any admitted test array value",
+      "Perform substantive benchmark training, checkpoint generation, inference, evaluation, metric production, or rendered scientific comparison",
+      "Change an approved architecture, loss, optimizer, budget, seed, checkpoint, threshold, collapse, comparator, or claim direction",
+      "Use test evidence to select or repair any protocol value",
+      "Modify another BurnLens repository",
+      "Commit benchmark arrays, runtime files, model binaries, run outputs, credentials, or secrets"
+    ],
+    "reversible_actions": ["Inspect admitted metadata and identity records", "Implement pure protocol semantics and fabricated dry-runs", "Create issue-backed commits and a reviewed PR"],
+    "stop_conditions": ["A genuinely new scientific promise or protocol choice is required", "Test values would be opened", "A new source, model, runtime, dependency, service, credential, terms, spend, custody, access, or irreversible action is required", "The candidate cannot be verified"]
+  },
+  "entry_conditions": [
+    {"id": "ENTRY-M3-ACCEPTED-M2", "status": "pass", "evidence": ["Live main 8b0636d6cc117d524256a0f7f2bd699fb64a232b", "Tree fe91a423cee4f4ad69cad88a643bb730c8647005", "Merge-triggered CI 32687957764 PASS"]},
+    {"id": "ENTRY-M3-SCIENTIFIC-ZERO", "status": "pass", "evidence": ["One admitted dataset; zero substantive training runs, checkpoints, inference runs, evaluations, and releases"]},
+    {"id": "ENTRY-M3-DIRECTION", "status": "pass", "evidence": ["AGENTS.md and checkpoint policy bind the fixed architecture, runtime, optimizer, budget, seeds, selection direction, and comparative rule"]}
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-M3-CONTROL", "status": "pass", "evidence": ["Issue 6, profile 004, reconciliation 004, and this contract begin from exact accepted M2"]},
+    {"id": "EXIT-M3-BINDINGS", "status": "pass", "evidence": ["Eight exact repository/custody bindings pass; dataset, split, normalization, RBR, and U-Net identities verified"]},
+    {"id": "EXIT-M3-PROTOCOL", "status": "pass", "evidence": ["Frozen protocol canonical-LF SHA-256 12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e"]},
+    {"id": "EXIT-M3-EXECUTABLE", "status": "pass", "evidence": ["Fabricated dry-run PASS; seven focused tests PASS; approved runtime 39/39 PASS"]},
+    {"id": "EXIT-M3-TEST-SEALED", "status": "pass", "evidence": ["Zero benchmark arrays loaded or decoded; test values unopened; zero scientific outputs"]},
+    {"id": "EXIT-M3-VERIFIED-CHECKPOINT", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {
+      "id": "M3-U001-RECONCILIATION-CONTROL",
+      "purpose": "Reconcile accepted M2 and activate a no-training protocol-freeze contract.",
+      "depends_on": [],
+      "action_class": "project_control",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Accepted main 8b0636d", "Issue 6", "Active long-running goal"],
+      "outputs": ["Profile 004", "Milestone 3 contract", "State reconciliation 004"],
+      "gates": {"accepted_base": "pass", "scientific_output_zero": "pass", "test_sealed": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M3-CONTROL"], "observed": ["EXIT-M3-CONTROL"], "decision_value": "advances_exit", "rationale": "The active branch and issue begin from exact live M2 with no scientific output."},
+      "next_dependency": "M3-U002-METADATA-BINDINGS"
+    },
+    {
+      "id": "M3-U002-METADATA-BINDINGS",
+      "purpose": "Bind exact admitted dataset, split, normalization, masks, roles, and comparator identities without decoding test arrays.",
+      "depends_on": ["M3-U001-RECONCILIATION-CONTROL"],
+      "action_class": "metadata_capture",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Accepted admission manifest and custody metadata"],
+      "outputs": ["protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json bindings and exact role roster"],
+      "gates": {"identity": "pass", "role_isolation": "pass", "test_values_unopened": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M3-BINDINGS", "EXIT-M3-TEST-SEALED"], "observed": ["EXIT-M3-BINDINGS", "EXIT-M3-TEST-SEALED"], "decision_value": "advances_exit", "rationale": "Exact metadata and comparator files match custody; roles are disjoint and test arrays were not decoded."},
+      "next_dependency": "M3-U003-EXECUTABLE-PROTOCOL"
+    },
+    {
+      "id": "M3-U003-EXECUTABLE-PROTOCOL",
+      "purpose": "Encode every remaining deterministic protocol value, tie rule, metric, collapse gate, artifact schema, replay rule, decision rule, and claim boundary.",
+      "depends_on": ["M3-U002-METADATA-BINDINGS"],
+      "action_class": "protocol_freeze",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Exact fixed direction and bound metadata"],
+      "outputs": ["Frozen protocol JSON", "Pure selection and metric implementation", "Protocol tests"],
+      "gates": {"complete_values": "pass", "no_search": "pass", "outcome_independent": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M3-PROTOCOL"], "observed": ["EXIT-M3-PROTOCOL"], "decision_value": "advances_exit", "rationale": "The complete protocol and its pure selection/metric implementation are frozen before outcomes."},
+      "next_dependency": "M3-U004-METADATA-SYNTHETIC-DRY-RUN"
+    },
+    {
+      "id": "M3-U004-METADATA-SYNTHETIC-DRY-RUN",
+      "purpose": "Exercise bindings and executable selectors on metadata and fabricated values only.",
+      "depends_on": ["M3-U003-EXECUTABLE-PROTOCOL"],
+      "action_class": "deterministic_validation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Frozen protocol candidate"],
+      "outputs": ["Validator and dry-run PASS receipts"],
+      "gates": {"custody_metadata": "pass", "fabricated_dry_run": "pass", "benchmark_values_accessed": "false_pass"},
+      "disposition": "pass",
+      "retained_failures": ["Initial dependency-free dry-run import failed because package initialization eagerly imported PyTorch; retained in experiment log and repaired without changing model semantics."],
+      "exit_condition_delta": {"expected": ["EXIT-M3-EXECUTABLE", "EXIT-M3-TEST-SEALED"], "observed": ["EXIT-M3-EXECUTABLE", "EXIT-M3-TEST-SEALED"], "decision_value": "advances_exit", "rationale": "The fabricated dry-run deterministically selects epoch 2 and threshold 0.5, reports no benchmark access, and exercises all metric keys."},
+      "next_dependency": "M3-U005-INTEGRATED-VERIFICATION"
+    },
+    {
+      "id": "M3-U005-INTEGRATED-VERIFICATION",
+      "purpose": "Independently validate the protocol hash, code, controls, boundaries, complete diff, and zero scientific outputs.",
+      "depends_on": ["M3-U004-METADATA-SYNTHETIC-DRY-RUN"],
+      "action_class": "deterministic_validation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Complete M3 candidate"],
+      "outputs": ["Protocol freeze record and complete validation evidence"],
+      "gates": {"repository": "pass", "runtime": "pass", "schemas": "pass", "diff": "pass", "scientific_zero": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M3-BINDINGS", "EXIT-M3-PROTOCOL", "EXIT-M3-EXECUTABLE", "EXIT-M3-TEST-SEALED"], "observed": ["EXIT-M3-BINDINGS", "EXIT-M3-PROTOCOL", "EXIT-M3-EXECUTABLE", "EXIT-M3-TEST-SEALED"], "decision_value": "advances_exit", "rationale": "Repository controls pass 78 files; schemas have zero findings; dependency-free and approved-runtime suites pass; scientific outputs remain zero."},
+      "next_dependency": "M3-U006-REVIEWED-PR-VERIFICATION"
+    },
+    {
+      "id": "M3-U006-REVIEWED-PR-VERIFICATION",
+      "purpose": "Publish the exact verified freeze through a reviewed PR and verify live main before allowing Milestone 4 training.",
+      "depends_on": ["M3-U005-INTEGRATED-VERIFICATION"],
+      "action_class": "public_repository_publication",
+      "human_gate": false,
+      "status": "ready",
+      "inputs": ["Exact verified candidate", "Issue 6", "codex/protocol-freeze-003"],
+      "outputs": ["Reviewed merged PR", "Live main and CI receipt", "Closed issue 6"],
+      "gates": {"required_checks": "pending", "reviewed_pr": "pending", "live_main": "pending", "no_release": "required"},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M3-VERIFIED-CHECKPOINT"], "observed": [], "decision_value": "enables_dependency", "rationale": "All local dependencies pass; reviewed publication and live verification remain."},
+      "next_dependency": null
+    }
+  ],
+  "path_efficiency": {"max_consecutive_no_progress_units": 2, "review_action_class": "project_control", "review_human_gate": false},
+  "verification": {
+    "changed_risks": ["scientific protocol", "data-role binding", "checkpoint and threshold selection", "metrics", "test sealing", "public claims"],
+    "required_checks": ["repository controls", "profile and milestone schemas", "protocol validation", "custody metadata hashes", "fabricated dry-run", "approved-runtime tests", "zero test-value access", "zero scientific outputs", "complete diff", "reviewed PR and live main"],
+    "completed_checks": ["Accepted M2 live identity and CI verified", "Issue 6 open", "No training or test opening at M3 entry", "Eight exact protocol bindings pass", "Fabricated dry-run PASS", "Seven focused protocol tests PASS", "Repository controls PASS for 78 required files", "Dependency-free 33 pass plus six expected skips", "Approved runtime 39 of 39 PASS", "Profile, milestone, and reconciliation schemas valid with zero findings"]
+  },
+  "handoff": {
+    "current_checkpoint": "Milestone 2 accepted; Milestone 3 protocol freeze is a locally verified but unaccepted candidate on codex/protocol-freeze-003 at protocol SHA-256 12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e.",
+    "next_action": "Execute ready M3-U006: commit, push, open a reviewed PR, require checks, merge only the verified tree, and directly verify live main before training.",
+    "do_not_carry_forward": ["Any test array value", "Any post-outcome tuning", "Any new architecture, dependency, or claim", "Any Experiment Two or Two-B implementation or authority", "Any scientific output before accepted freeze"]
+  }
+}

@@ -22,9 +22,13 @@ MILESTONE_ONE_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json"
 )
-CONTROL_PROFILE = Path(
+MILESTONE_TWO_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json"
+)
+CONTROL_PROFILE = Path(
+    "records/governance/"
+    "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json"
 )
 BOOTSTRAP_MILESTONE = Path(
     "records/milestones/"
@@ -37,6 +41,10 @@ PROVENANCE_MILESTONE = Path(
 SYNTHETIC_PREFLIGHT_MILESTONE = Path(
     "records/milestones/"
     "EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json"
+)
+PROTOCOL_FREEZE_MILESTONE = Path(
+    "records/milestones/"
+    "EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001.json"
 )
 STATE_RECONCILIATION = Path(
     "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json"
@@ -233,6 +241,18 @@ SYNTHETIC_SOURCE_IDENTITIES = {
 EXPECTED_SYNTHETIC_PREFLIGHT_RECORD_SHA256 = (
     "88fa5c37134c2f91b74d9435cb353ab57664384ef19536b7984f89cccf487c10"
 )
+FROZEN_PROTOCOL = Path(
+    "protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json"
+)
+PROTOCOL_FREEZE_RECORD = Path(
+    "records/protocol/EXPERIMENT-THREE-PROTOCOL-FREEZE-2026-001.json"
+)
+EXPECTED_FROZEN_PROTOCOL_SHA256 = (
+    "12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e"
+)
+EXPECTED_PROTOCOL_FREEZE_RECORD_SHA256 = (
+    "d284d4202cc1d05299a8d20b6a0f93f5f8150bb5dbb8de7e50ca3cc3bac74d82"
+)
 
 REQUIRED_FILES = (
     Path(".gitignore"),
@@ -255,13 +275,16 @@ REQUIRED_FILES = (
     Path("records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md"),
     HISTORICAL_CONTROL_PROFILE,
     MILESTONE_ONE_CONTROL_PROFILE,
+    MILESTONE_TWO_CONTROL_PROFILE,
     CONTROL_PROFILE,
     BOOTSTRAP_MILESTONE,
     PROVENANCE_MILESTONE,
     SYNTHETIC_PREFLIGHT_MILESTONE,
+    PROTOCOL_FREEZE_MILESTONE,
     STATE_RECONCILIATION,
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-002.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-003.json"),
+    Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-004.json"),
     OWNER_RIGHTS_DECISION,
     SOURCE_GATE,
     READINESS_INPUT,
@@ -283,12 +306,22 @@ REQUIRED_FILES = (
     RUNTIME_SUCCESSOR_ADOPTION_DECISION,
     RUNTIME_SUCCESSOR_ACTIVATION,
     SYNTHETIC_PREFLIGHT_RECORD,
+    Path("protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json"),
+    Path("records/protocol/EXPERIMENT-THREE-PROTOCOL-FREEZE-2026-001.json"),
     *SYNTHETIC_SOURCE_IDENTITIES.keys(),
+    Path("src/burnlens_experiment_three/protocol.py"),
+    Path("src/burnlens_experiment_three/selection.py"),
+    Path("src/burnlens_experiment_three/metrics.py"),
     Path("records/prompt-build-log/2026-08-23-bootstrap.md"),
     Path("records/prompt-build-log/2026-08-24-milestone-one-intake.md"),
     Path("records/prompt-build-log/2026-08-24-milestone-two-runtime-gate.md"),
+    Path("records/prompt-build-log/2026-08-24-milestone-three-protocol-freeze.md"),
+    Path("docs/devlog/2026-08-24-milestone-three-protocol-freeze.md"),
+    Path("scripts/validate_frozen_protocol.py"),
+    Path("scripts/run_protocol_dry_run.py"),
     Path("scripts/validate_repository.py"),
     Path("tests/test_repository_controls.py"),
+    Path("tests/test_frozen_protocol.py"),
     Path(".github/ISSUE_TEMPLATE/config.yml"),
     Path(".github/ISSUE_TEMPLATE/milestone.yml"),
     Path(".github/pull_request_template.md"),
@@ -623,6 +656,8 @@ def _active_pre_model_policy(profile: Any) -> str | None:
         return "milestone_1"
     if "milestone-002" in active_name or "synthetic-preflight" in active_name:
         return "milestone_2"
+    if "milestone-003" in active_name or "protocol-freeze" in active_name:
+        return "milestone_3"
     return None
 
 
@@ -643,6 +678,7 @@ def check_no_scientific_artifacts(root: Path) -> list[str]:
         "bootstrap": "bootstrap",
         "milestone_1": "milestone 1",
         "milestone_2": "milestone 2",
+        "milestone_3": "milestone 3",
     }.get(policy, "pre-model")
     for path in _repository_files(root):
         relative = path.relative_to(root)
@@ -754,6 +790,7 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
         "bootstrap": "bootstrap",
         "milestone_1": "milestone 1",
         "milestone_2": "milestone 2",
+        "milestone_3": "milestone 3",
     }.get(policy, "pre-model")
 
     active_relative, error = _checked_relative_path(
@@ -767,7 +804,7 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
         errors.append(f"{policy_label} scientific_state must be 'not_started'")
 
     profile_outputs = profile.get("scientific_outputs")
-    if policy in {"milestone_1", "milestone_2"} and not isinstance(profile_outputs, dict):
+    if policy in {"milestone_1", "milestone_2", "milestone_3"} and not isinstance(profile_outputs, dict):
         errors.append(f"{policy_label} profile scientific_outputs must be a JSON object")
 
     milestone_path = root / active_relative
@@ -797,7 +834,7 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
                 f"scientific_outputs.{field} must be integer 0"
             )
 
-    if policy in {"milestone_1", "milestone_2"} and isinstance(profile_outputs, dict):
+    if policy in {"milestone_1", "milestone_2", "milestone_3"} and isinstance(profile_outputs, dict):
         for field in MILESTONE_ONE_ZERO_OUTPUT_FIELDS:
             value = profile_outputs.get(field)
             if type(value) is not int or value != 0:
@@ -815,7 +852,7 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
             if type(value) is not int or value not in (0, 1):
                 errors.append(
                     f"{policy_label} {location} scientific_outputs.datasets "
-                    + ("must be integer 1" if policy == "milestone_2" else "must be integer 0 or 1")
+                    + ("must be integer 1" if policy in {"milestone_2", "milestone_3"} else "must be integer 0 or 1")
                 )
         if (
             type(profile_datasets) is int
@@ -827,10 +864,10 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
                 "scientific_outputs.datasets must match"
             )
 
-        if policy == "milestone_2" and (
+        if policy in {"milestone_2", "milestone_3"} and (
             profile_datasets != 1 or milestone_datasets != 1
         ):
-            errors.append("milestone 2 requires exactly one admitted dataset")
+            errors.append(f"{policy_label} requires exactly one admitted dataset")
 
     if policy == "milestone_1" and isinstance(profile_outputs, dict):
         units = milestone.get("units")
@@ -2005,8 +2042,8 @@ def check_runtime_failure_and_successor_review(root: Path) -> list[str]:
             publication_unit = units.get("M2-U008-REVIEWED-PR-VERIFICATION", {})
             if verification_unit.get("status") != "complete" or verification_unit.get("disposition") != "pass":
                 errors.append("M2 integrated verification must record complete pass")
-            if publication_unit.get("status") != "ready":
-                errors.append("M2 reviewed publication must be the ready successor dependency")
+            if publication_unit.get("status") != "complete" or publication_unit.get("disposition") != "pass":
+                errors.append("M2 reviewed publication must remain a completed pass")
             gates = [gate for gate in milestone.get("human_gates", []) if isinstance(gate, dict) and gate.get("id") == "M2-GATE-DEPENDENCY-RUNTIME-SUCCESSOR"]
             if len(gates) != 1 or gates[0].get("status") != "passed" or gates[0].get("review_preparation", {}).get("human_decisions_created") != 1:
                 errors.append("M2 successor gate must record one resolved human decision")
@@ -2080,6 +2117,67 @@ def check_synthetic_preflight_record(root: Path) -> list[str]:
     return errors
 
 
+def check_frozen_protocol_record(root: Path) -> list[str]:
+    """Bind the complete M3 protocol without loading benchmark arrays."""
+
+    errors: list[str] = []
+    protocol_path = root / FROZEN_PROTOCOL
+    record_path = root / PROTOCOL_FREEZE_RECORD
+    if not protocol_path.is_file() or not record_path.is_file():
+        return errors
+    protocol_raw = protocol_path.read_bytes()
+    record_raw = record_path.read_bytes()
+    if _repository_text_sha256(protocol_raw) != EXPECTED_FROZEN_PROTOCOL_SHA256:
+        errors.append("frozen protocol hash changed")
+    if _repository_text_sha256(record_raw) != EXPECTED_PROTOCOL_FREEZE_RECORD_SHA256:
+        errors.append("protocol freeze record hash changed")
+    try:
+        protocol = json.loads(protocol_raw.decode("utf-8"))
+        record = json.loads(record_raw.decode("utf-8"))
+    except (UnicodeError, json.JSONDecodeError):
+        return errors + ["protocol and freeze record must be UTF-8 JSON"]
+    if protocol.get("status") != "frozen" or protocol.get("protocol_id") != (
+        "EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001"
+    ):
+        errors.append("protocol identity or frozen status changed")
+    model = protocol.get("model")
+    if not isinstance(model, dict) or model.get("trainable_parameters") != 137:
+        errors.append("frozen protocol model identity changed")
+    execution = protocol.get("execution")
+    if not isinstance(execution, dict) or execution.get("seeds") != [
+        20260725,
+        20260726,
+        20260727,
+    ]:
+        errors.append("frozen protocol seed roster changed")
+    roles = protocol.get("data", {}).get("roles", {})
+    if not isinstance(roles, dict) or any(
+        len(roles.get(role, {}).get("patch_ids", [])) != 4
+        for role in ("train", "validation", "test")
+    ):
+        errors.append("frozen protocol role roster changed")
+    if record.get("disposition") != "pass_local_candidate" or record.get(
+        "acceptance_state"
+    ) != "awaiting_reviewed_pr_and_live_main_verification":
+        errors.append("protocol freeze candidate acceptance boundary changed")
+    boundary = record.get("scientific_boundary")
+    if not isinstance(boundary, dict) or boundary.get("test_values_opened") is not False:
+        errors.append("protocol freeze must retain unopened test values")
+    elif any(
+        boundary.get(field) != 0
+        for field in (
+            "benchmark_arrays_loaded",
+            "training_runs",
+            "checkpoints",
+            "inference_runs",
+            "evaluations",
+            "releases",
+        )
+    ):
+        errors.append("protocol freeze must preserve zero scientific outputs")
+    return errors
+
+
 def validate_repository(root: Path = ROOT) -> list[str]:
     checks = (
         check_required_files,
@@ -2094,6 +2192,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_runtime_adoption_review_preparation,
         check_runtime_failure_and_successor_review,
         check_synthetic_preflight_record,
+        check_frozen_protocol_record,
     )
     errors: list[str] = []
     for check in checks:

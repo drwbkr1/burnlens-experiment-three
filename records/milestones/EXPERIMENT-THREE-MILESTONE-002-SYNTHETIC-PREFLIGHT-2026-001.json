@@ -3,7 +3,7 @@
   "milestone_id": "EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001",
   "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json",
   "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json",
-  "status": "active",
+  "status": "complete",
   "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/4",
   "accepted_base_commit": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4",
   "active_branch": "codex/synthetic-preflight-002",
@@ -191,7 +191,7 @@
     {"id": "EXIT-M2-RELOAD", "status": "pass", "evidence": ["Fresh embedded process weights_only state-dict reconstruction produced exact logits and probabilities"]},
     {"id": "EXIT-M2-REPLAY", "status": "pass", "evidence": ["Primary and replay seven-file rosters and receipts match exactly at roster 9c008f10 and receipt 7a3fde99"]},
     {"id": "EXIT-M2-SCIENTIFIC-BOUNDARY", "status": "pass", "evidence": ["Both exact receipts and public preflight record classify outputs synthetic/non-scientific and record benchmark_accessed false; source inspection contains no benchmark custody locator or loader"]},
-    {"id": "EXIT-M2-VERIFIED-CHECKPOINT", "status": "pending", "evidence": []}
+    {"id": "EXIT-M2-VERIFIED-CHECKPOINT", "status": "pass", "evidence": ["PR #5 merged reviewed candidate c6541a20b68180c75505240e715cbc663b636cf0 to live main 8b0636d6cc117d524256a0f7f2bd699fb64a232b; candidate/live tree fe91a423cee4f4ad69cad88a643bb730c8647005; push/PR/main runs 32687882167/32687884772/32687957764 PASS"]}
   ],
   "units": [
     {
@@ -350,13 +350,13 @@
       "depends_on": ["M2-U007-INTEGRATED-VERIFICATION"],
       "action_class": "public_repository_publication",
       "human_gate": false,
-      "status": "ready",
+      "status": "complete",
       "inputs": ["Exact verified candidate", "Issue 4 and codex/synthetic-preflight-002"],
-      "outputs": ["Merged checkpoint and live verification receipt"],
-      "gates": {"required_checks": "pending", "reviewed_pr": "pending", "live_main": "pending", "no_release": "pending"},
-      "disposition": null,
+      "outputs": ["Merged PR #5", "Live main 8b0636d6cc117d524256a0f7f2bd699fb64a232b", "Tree fe91a423cee4f4ad69cad88a643bb730c8647005", "Merge-triggered CI 32687957764 PASS", "Issue #4 closed after verification"],
+      "gates": {"required_checks": "pass", "reviewed_pr": "pass", "live_main": "pass", "no_release": "pass"},
+      "disposition": "pass",
       "retained_failures": [],
-      "exit_condition_delta": {"expected": ["EXIT-M2-VERIFIED-CHECKPOINT"], "observed": [], "decision_value": "unknown", "rationale": "Publication pending."},
+      "exit_condition_delta": {"expected": ["EXIT-M2-VERIFIED-CHECKPOINT"], "observed": ["EXIT-M2-VERIFIED-CHECKPOINT"], "decision_value": "advances_exit", "rationale": "Candidate and PR checks passed, the exact reviewed tree merged, merge-triggered CI passed, live blobs were present, no tag/release was created, and issue #4 closed only after verification."},
       "next_dependency": null
     }
   ],
@@ -371,8 +371,8 @@
     "completed_checks": ["Accepted Milestone 1 live-main identity and merge-triggered CI verified", "Runtime candidate 001 explicit owner yes locked and reconciled", "Candidate 001 official installer and Sigstore intake verified", "Candidate 001 activation retained as FAIL after maintenance-mode misroute; inspected existing-Python surfaces restored", "Successor candidate 002 source gate valid and ready with one materially new source plus three unchanged inherited sources", "Human-review protocol self-test passed and successor blank response contains zero decisions"]
   },
   "handoff": {
-    "current_checkpoint": "Candidate 001 received an explicit owner yes, but exact activation failed because the same-version Windows installer entered maintenance mode on an existing Python installation. Recovery passed for inspected surfaces, the failed route is closed, and no wheel sync, synthetic execution, or scientific work began. Candidate 002 is a read-only source-ready application-local embeddable-package successor with zero human decisions.",
-    "next_action": "Wait for an explicit M2-U004C yes/no decision bound to successor inventory SHA-256 ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967. Do not carry forward the candidate 001 yes or download, extract, vendor, or execute candidate 002 before that decision.",
+    "current_checkpoint": "Milestone 2 is accepted and live-verified at main 8b0636d6cc117d524256a0f7f2bd699fb64a232b, tree fe91a423cee4f4ad69cad88a643bb730c8647005. Candidate 001 remains retained FAIL; candidate 002 runtime activation and the fixed 137-parameter synthetic lifecycle pass. No substantive training or scientific evaluation occurred and no release exists.",
+    "next_action": "Begin Milestone 3 protocol freeze from the exact accepted checkpoint under issue #6; no substantive training until every executable protocol value and decision rule is hash-bound and validated.",
     "do_not_carry_forward": [
       "Any Experiment One benchmark value into synthetic inputs, targets, or evidence",
       "Any unapproved dependency runtime or environment",

@@ -7,7 +7,14 @@ published releases. A version string does not by itself prove a release.
 | --- | --- | --- | --- | --- | --- |
 | `0.0.0-bootstrap` | 2026-08-23 | Accepted checkpoint; not a release | `4543a2dad5c2630249906aab763ae0cbf91097ba` | Governance, documentation, repository controls, and CI bootstrap only | None |
 | `0.1.0` | 2026-08-24 | Accepted checkpoint; not a release | `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4` | Hash-bound rights, source gate, readiness, and external controlled intake | None |
-| `0.2.0-m2-runtime-gate` | 2026-08-24 | Active branch candidate; not accepted or released | `38a97d933ee9b2345251d9f05da05cf82568c005` plus uncommitted activation/preflight candidate | Retained runtime failure, exact successor activation, fixed model, and synthetic lifecycle | None |
+| `0.2.0-m2-runtime-gate` | 2026-08-24 | Accepted checkpoint; not a release | `8b0636d6cc117d524256a0f7f2bd699fb64a232b` | Retained runtime failure, exact successor activation, fixed model, and synthetic lifecycle | None |
+| `0.3.0-m3-protocol-freeze` | 2026-08-24 | Locally verified branch candidate; not accepted or released | `codex/protocol-freeze-003` from `8b0636d6cc117d524256a0f7f2bd699fb64a232b` | Complete hash-bound executable protocol, pure selection/metric implementation, fabricated replay, and controls | None |
+
+The `0.3.0` candidate binds the protocol at canonical-LF SHA-256
+`12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`.
+Exact metadata bindings, seven focused tests, and all 39 approved-runtime tests
+pass. No benchmark array was decoded and no scientific run or result exists.
+Reviewed merge and live-main verification remain required for acceptance.
 
 ## Incoming state
 

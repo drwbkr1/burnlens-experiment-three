@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "reconciliation_id": "EXPERIMENT-THREE-STATE-2026-004",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": ["read_only_inspection", "deterministic_validation", "project_control", "update_project_records", "protocol_freeze"],
+    "verified_at_utc": "2026-08-24T04:05:21Z",
+    "expires_at_utc": null
+  },
+  "observed_at_utc": "2026-08-24T04:05:21Z",
+  "live_facts": [
+    {"id": "project.root", "status": "observed", "value": "C:\\Projects\\Active\\burnlens-experiment-three", "source_ref": "canonical checkout", "observed_at_utc": "2026-08-24T04:05:21Z"},
+    {"id": "git.branch", "status": "observed", "value": "codex/protocol-freeze-003", "source_ref": "git symbolic-ref --short HEAD", "observed_at_utc": "2026-08-24T04:05:21Z"},
+    {"id": "git.head", "status": "observed", "value": "8b0636d6cc117d524256a0f7f2bd699fb64a232b", "source_ref": "git rev-parse HEAD before M3 edits", "observed_at_utc": "2026-08-24T04:05:21Z"},
+    {"id": "git.origin_main", "status": "observed", "value": "8b0636d6cc117d524256a0f7f2bd699fb64a232b", "source_ref": "git ls-remote origin refs/heads/main", "observed_at_utc": "2026-08-24T04:05:21Z"},
+    {"id": "checkpoint.accepted_main", "status": "observed", "value": {"commit": "8b0636d6cc117d524256a0f7f2bd699fb64a232b", "tree": "fe91a423cee4f4ad69cad88a643bb730c8647005", "ci_run": 32687957764}, "source_ref": "PR 5 and live main verification", "observed_at_utc": "2026-08-24T04:05:21Z"},
+    {"id": "github.issue.6.state", "status": "observed", "value": "OPEN", "source_ref": "https://github.com/drwbkr1/burnlens-experiment-three/issues/6", "observed_at_utc": "2026-08-24T04:05:21Z"},
+    {"id": "contract.active_id", "status": "observed", "value": "EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001", "source_ref": "profile 004 and issue 6", "observed_at_utc": "2026-08-24T04:05:21Z"},
+    {"id": "scientific.outputs", "status": "observed", "value": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0}, "source_ref": "accepted M2 and worktree inventory", "observed_at_utc": "2026-08-24T04:05:21Z"},
+    {"id": "test.values", "status": "observed", "value": "unopened_by_experiment_three", "source_ref": "M3 command and access review", "observed_at_utc": "2026-08-24T04:05:21Z"}
+  ],
+  "recorded_claims": [
+    {"id": "profile.active_contract", "fact_id": "contract.active_id", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json", "scope": "current", "claimed_value": "EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001", "evidence_ref": "active_milestone_path"},
+    {"id": "profile.current_branch", "fact_id": "git.branch", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json", "scope": "current", "claimed_value": "codex/protocol-freeze-003", "evidence_ref": "current_checkpoint.expected_branch"},
+    {"id": "profile.current_head", "fact_id": "git.head", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json", "scope": "current", "claimed_value": "8b0636d6cc117d524256a0f7f2bd699fb64a232b", "evidence_ref": "current_checkpoint.expected_head"},
+    {"id": "profile.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0}, "evidence_ref": "scientific_outputs"},
+    {"id": "contract.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0}, "evidence_ref": "scientific_outputs"}
+  ],
+  "required_fact_ids": ["project.root", "git.branch", "git.head", "git.origin_main", "checkpoint.accepted_main", "github.issue.6.state", "contract.active_id", "scientific.outputs", "test.values"],
+  "reconciliation": {
+    "requested_action_class": "protocol_freeze",
+    "intended_surfaces": ["protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json", "records/protocol/EXPERIMENT-THREE-PROTOCOL-FREEZE-2026-001.json", "docs/status/STATUS.md", "docs/roadmap/ROADMAP.md"],
+    "limitations": ["Metadata and declared hashes are allowed; test arrays remain unopened.", "M3 may create no substantive training or scientific evaluation output.", "The protocol becomes an accepted prerequisite only after reviewed merge and live verification."]
+  }
+}

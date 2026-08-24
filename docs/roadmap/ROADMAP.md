@@ -82,9 +82,11 @@ runs, evaluations, tags, or releases.
 
 ## Milestone 2 - Synthetic lifecycle preflight
 
-**State:** Active under issue
-[#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4).
-Control reconciliation is complete. Candidate 001 received an exact owner
+**State:** Accepted and live-verified through pull request
+[#5](https://github.com/drwbkr1/burnlens-experiment-three/pull/5) at commit
+[`8b0636d6cc117d524256a0f7f2bd699fb64a232b`](https://github.com/drwbkr1/burnlens-experiment-three/commit/8b0636d6cc117d524256a0f7f2bd699fb64a232b),
+tree `fe91a423cee4f4ad69cad88a643bb730c8647005`, with merge-triggered CI
+`32687957764` passing. Candidate 001 received an exact owner
 `yes`, but its Windows installer entered maintenance mode on an existing
 same-version Python installation instead of creating the requested isolated
 runtime. The route is retained as `FAIL` and closed; inspected existing-Python
@@ -104,14 +106,12 @@ render inspection. No benchmark or scientific work occurred.
 - Validate metric fixtures and geospatial write/reopen behavior without opening
   evaluation evidence.
 
-**Current gate**
+**Exit evidence**
 
-- Publish the exact verified candidate through draft PR #5 and require both
-  candidate and pull-request checks.
-- Merge only the reviewed tree, verify live `main`, and record the accepted
-  commit/tree/blob identities without creating a tag or release.
-- Preserve the synthetic artifacts as non-scientific engineering evidence;
-  do not begin substantive training before Milestone 3 protocol freeze.
+- The reviewed candidate and live tree match exactly; candidate, PR, and
+  merge-triggered CI passed; issue #4 closed after direct verification.
+- Synthetic artifacts remain non-scientific engineering evidence and no tag or
+  release was created.
 
 **Exit gate**
 
@@ -121,7 +121,12 @@ render inspection. No benchmark or scientific work occurred.
 
 ## Milestone 3 - Protocol freeze
 
-**State:** Pending; substantive training is not authorized before this gate.
+**State:** Active under issue
+[#6](https://github.com/drwbkr1/burnlens-experiment-three/issues/6).
+The complete protocol is frozen as a locally verified candidate at canonical-LF
+SHA-256 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`.
+Exact admitted metadata bindings and fabricated replay pass, as do all 39 tests
+in the approved runtime. No benchmark array has been decoded in this milestone.
 
 **Deliverables**
 
@@ -141,6 +146,8 @@ render inspection. No benchmark or scientific work occurred.
 
 - A versioned, hash-bound protocol is internally consistent, executable, and
   approved before substantive training begins.
+- The exact reviewed tree must merge with passing CI and match live `main`;
+  local validation alone does not authorize training.
 
 ## Milestone 4 - Frozen training and checkpoint reconstruction
 

@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "record_id": "EXPERIMENT-THREE-PROTOCOL-FREEZE-2026-001",
+  "created_at_utc": "2026-08-24T04:05:21Z",
+  "disposition": "pass_local_candidate",
+  "acceptance_state": "awaiting_reviewed_pr_and_live_main_verification",
+  "protocol": {
+    "path": "protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json",
+    "canonical_lf_bytes": 13456,
+    "sha256": "12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e",
+    "status": "frozen"
+  },
+  "accepted_entry_checkpoint": {
+    "main_commit": "8b0636d6cc117d524256a0f7f2bd699fb64a232b",
+    "tree": "fe91a423cee4f4ad69cad88a643bb730c8647005",
+    "merge_ci_run": 32687957764,
+    "issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/6",
+    "branch": "codex/protocol-freeze-003"
+  },
+  "implementation": [
+    {"path": "src/burnlens_experiment_three/protocol.py", "canonical_lf_bytes": 4051, "sha256": "503c5ecf56825d00bfeb797269c957a5b8f52a1d05982b41c4ad50ecf9ada4f2"},
+    {"path": "src/burnlens_experiment_three/selection.py", "canonical_lf_bytes": 3619, "sha256": "02d2f6c070f4b6adda60d9e254594c896b55951feaece0b3548e0eb40787e44f"},
+    {"path": "src/burnlens_experiment_three/metrics.py", "canonical_lf_bytes": 2827, "sha256": "4e3f3daad19fae7777346ffd68d043e4552195ad3f0a2bd2566e7ed62e7d22c3"},
+    {"path": "scripts/validate_frozen_protocol.py", "canonical_lf_bytes": 1512, "sha256": "610d3055d1adbbd3c1029caaf94f08a1cf9a9d4f84bb46c96fb3edc492ae316b"},
+    {"path": "scripts/run_protocol_dry_run.py", "canonical_lf_bytes": 1570, "sha256": "8792d0c637a3e22a8adff8a52e90f87599859516ce2ca6659a283e9e23d6c63c"},
+    {"path": "tests/test_frozen_protocol.py", "canonical_lf_bytes": 3517, "sha256": "8f05c53063d3c4d196c9b82dae6fd9be0cc7de5f3cfc81c0937913168d079c64"}
+  ],
+  "frozen_surface": {
+    "dataset_roles": {"train_events": 2, "validation_events": 2, "test_events": 2, "patches_per_role": 4},
+    "architecture_id": "burnlens-exp3-pointwise-6x8x8x1-v1",
+    "trainable_parameters": 137,
+    "runtime": "deterministic CPU float32 PyTorch",
+    "optimizer": "Adam learning_rate=0.001 betas=(0.9,0.999) epsilon=1e-8 weight_decay=0 amsgrad=false",
+    "budget": "batch_size=4 maximum_epochs=200 patience=25",
+    "seeds": [20260725, 20260726, 20260727],
+    "checkpoint_rule": "minimum finite validation balanced BCE; exact tie chooses earliest epoch",
+    "threshold_rule": "one shared threshold from k/100 for k=1..99; worst seed-event Dice, median seed macro IoU, distance to 0.5, then lower threshold",
+    "comparators": ["RBR", "canonical Experiment One U-Net", "constant background", "constant burned"],
+    "test_openings_allowed_in_milestone_3": 0
+  },
+  "binding_verification": {
+    "status": "pass",
+    "verified": ["admission manifest", "runtime activation", "synthetic preflight", "dataset manifest", "whole-event split", "train normalization", "RBR comparator", "U-Net comparator"],
+    "test_array_values_decoded": false
+  },
+  "dry_run": {
+    "status": "pass",
+    "fixture": "fabricated_nonbenchmark",
+    "selected_epoch": 2,
+    "selected_threshold": 0.5,
+    "benchmark_values_accessed": false,
+    "scientific_output": false
+  },
+  "tests": {
+    "dependency_free": {"total": 39, "passed": 33, "skipped_neural": 6, "failed": 0},
+    "approved_runtime": {"total": 39, "passed": 39, "skipped": 0, "failed": 0},
+    "focused_protocol": {"total": 7, "passed": 7, "failed": 0}
+  },
+  "retained_failures": [
+    {
+      "attempt": "initial dependency-free protocol dry-run",
+      "result": "fail",
+      "cause": "package initialization eagerly imported PyTorch before the pure protocol module",
+      "repair": "dependency-free scripts load the pure helper directory directly; the accepted neural package initializer and M2 source identity remain unchanged",
+      "scientific_semantics_changed": false
+    },
+    {
+      "attempt": "first focused metric assertion",
+      "result": "fail",
+      "cause": "test expected 0.75 instead of the correctly computed two-event class-macro IoU 0.625",
+      "repair": "corrected the fabricated expected value; metric implementation was unchanged",
+      "scientific_semantics_changed": false
+    }
+  ],
+  "scientific_boundary": {
+    "benchmark_arrays_loaded": 0,
+    "test_values_opened": false,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "inference_runs": 0,
+    "evaluations": 0,
+    "releases": 0,
+    "claim": "Executable protocol evidence only; no model-performance evidence."
+  },
+  "next_gate": "Reviewed PR, merge-triggered CI, and exact live-main verification must accept this freeze before Milestone 4 training."
+}
