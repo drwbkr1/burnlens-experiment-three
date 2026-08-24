@@ -1,0 +1,826 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001",
+  "assessed_at": "2026-08-24T00:47:22Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md; records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json#M1-U003-SOURCE-RIGHTS-GATE",
+    "authorized_actions": [
+      "metadata review",
+      "record assessment evidence",
+      "deterministic readiness validation",
+      "controlled benchmark intake"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Assess only whether the exact hash-bound Experiment One project-authored benchmark derivatives may advance to deterministic readiness validation and, on a separate readiness pass, no-overwrite copy into controlled local Experiment Three custody for the frozen retrospective compatibility experiment. No native provider byte, restricted Tepee BARC4/BARC256 material, raw owner-review material, credential, new source download, repository redistribution, training, inference, evaluation, or publication is part of this gate.",
+    "planned_actions": [
+      "metadata review",
+      "record assessment evidence",
+      "deterministic readiness validation",
+      "controlled benchmark intake"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "experiment-one-authored-artifacts",
+      "name": "Experiment One project-authored benchmark and comparator artifacts",
+      "locator": "https://github.com/drwbkr1/burnlens-deschutes/tree/a741111d82e69689022d2058118ed8f4b9bf3546",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The inventory binds the clean source head and tree, exact role roster, 48 dataset arrays, comparator artifacts, and every retained exclusion."
+            }
+          ],
+          "note": "Identity is fixed to the final M1-U002 inventory; no current-HEAD substitution is permitted."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json",
+              "note": "One exact, attested owner/rightsholder response was locked and reconciled as yes for rights the owner controls."
+            }
+          ],
+          "note": "Owner authority covers only project-authored rights and does not override upstream rights."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Read-only access to the exact local source checkout was verified without authentication, terms acceptance, mutation, or copying."
+            }
+          ],
+          "note": "A later copy may read only the enumerated source paths under the controlled-intake unit."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json",
+              "note": "The owner granted non-exclusive no-fee local-copy and frozen-experiment use permission for the exact derivatives, limited to rights the owner controls and subject to this upstream gate."
+            }
+          ],
+          "note": "Rights pass for controlled local intake and later local frozen use only; repository redistribution is not authorized here."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The inventory retains source, terms, owner-review, build, split, normalization, metric, model, prediction, and render lineage."
+            }
+          ],
+          "note": "The artifacts remain historical Experiment One derivatives, never fresh or independent confirmation evidence."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "All enumerated candidate identities rehashed without mismatch; the dataset roster is 48 files and 1,333,248 bytes with SHA-256 5f186ccd240db26483195421701baf83b7e85436e92a851ace638c249d0b43dd."
+            }
+          ],
+          "note": "No scientific deserialization or execution occurred during the identity review."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md",
+              "note": "The approved goal defines the known Experiment One data and controls as a retrospective compatibility benchmark, not independent confirmation."
+            }
+          ],
+          "note": "Fit is limited to an exact compatibility replay and comparator role; model value remains a separate outcome."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The exclusion roster bars raw owner responses, credentials, cookies, tokens, recipient details, private routes, ignored custody, and provider registrations."
+            }
+          ],
+          "note": "Only public aggregate review evidence and enumerated project artifacts may advance."
+        }
+      ]
+    },
+    {
+      "source_id": "experiment-one-owner-reviewed-prototype-labels",
+      "name": "Experiment One owner-reviewed sparse prototype label states",
+      "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json#source_and_terms_evidence",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Five exact owner-intake records and the downstream sparse state and mask arrays are hash-bound."
+            }
+          ],
+          "note": "These are sparse prototype-core states, not native provider labels or dense segmentation truth."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json",
+              "note": "The project owner supplied the original reviews and now granted the exact bounded cross-experiment use to the extent of controlled rights."
+            }
+          ],
+          "note": "Authority does not convert the labels into independent ground truth."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The accepted structured owner-intake records are present in the clean public source commit; raw or private review material is excluded."
+            }
+          ],
+          "note": "No private response or new owner material is required for the controlled-copy role."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json",
+              "note": "The exact yes decision covers the owner-reviewed derivative label artifacts subject to upstream terms and exclusions."
+            }
+          ],
+          "note": "Pass is for controlled intake and frozen local use; raw review content and broader relicensing remain prohibited."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Candidate proposals, accepted owner intakes, provider-source records, and final state/mask arrays remain linked."
+            }
+          ],
+          "note": "The evidence chain is complete for the selected prototype cores and retains transitive McKay and Tepee sources."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "All five direct owner-intake records and every admitted state and mask array matched recorded byte counts and SHA-256 identities."
+            }
+          ],
+          "note": "No missing or mismatched selected label artifact was observed."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md",
+              "note": "The goal limits evaluation to the same sparse selected cores and requires event-level interpretation and retrospective claim limits."
+            }
+          ],
+          "note": "Fit is narrow: compatibility scoring on already-known prototype cores, not independent accuracy or generalization."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json",
+              "note": "Only aggregate yes/no counts and cryptographic receipts are public; the raw locked response and any notes stay in private C:\\Projects\\Active custody."
+            }
+          ],
+          "note": "No personal, credential, recipient, or private-route byte is eligible."
+        }
+      ]
+    },
+    {
+      "source_id": "copernicus-sentinel-2-derived-features",
+      "name": "Copernicus Sentinel-2 observations underlying the six-channel pre/post features",
+      "locator": "https://dataspace.copernicus.eu/terms-and-conditions",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Exact source and terms identities for the selected 2017-2022 Sentinel-derived arrays are retained; all native SAFE archives are excluded."
+            }
+          ],
+          "note": "The gate covers already-derived arrays only, not new retrievals or portal content."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://dataspace.copernicus.eu/terms-and-conditions",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The current official CDSE terms identify the Copernicus programme, EU, and ESA data-supply authority and point Sentinel use to the controlling legal notice."
+            }
+          ],
+          "note": "The official publisher and controlling notice are current and public."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://dataspace.copernicus.eu/terms-and-conditions",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The official page states Sentinel access and use are free, full, and open worldwide; this gate requires no new download, account, credential, or terms acceptance."
+            }
+          ],
+          "note": "Only existing Experiment One derivatives are contemplated."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The controlling European Commission notice permits lawful reproduction, distribution, communication, adaptation, modification, and combination and requires modified-data source identification."
+            },
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The required notice is Contains modified Copernicus Sentinel data 2017-2022, accessed through the Copernicus Data Space Ecosystem."
+            }
+          ],
+          "note": "Rights pass for the attributed existing derivatives; unrelated CDSE portal content is not included."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Thirty-two exact source and terms records retain the transitive Sentinel scene, event, grid, quality, and derivation chain."
+            }
+          ],
+          "note": "No native source archive is admitted."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The exact derived array roster and all referenced source and terms records match recorded identities."
+            }
+          ],
+          "note": "Integrity is established for the derivatives, not re-proven for excluded native provider bytes."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The six channels are the exact frozen pre/post Sentinel-2 feature representation already used by Experiment One."
+            }
+          ],
+          "note": "They are fit only for exact retrospective compatibility; the legal notice disclaims quality and suitability warranties."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Native archives, registrations, tokens, cookies, signed routes, and ignored delivery custody are excluded."
+            }
+          ],
+          "note": "No authentication or new provider interaction is authorized."
+        }
+      ]
+    },
+    {
+      "source_id": "mtbs-reference-lineage",
+      "name": "Monitoring Trends in Burn Severity reference lineage",
+      "locator": "https://www.mtbs.gov/mapping-methods",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Exact MTBS-related source and terms records, including the supplemental McKay and Tepee chain, are bound to the source commit."
+            }
+          ],
+          "note": "No native MTBS raster, vector, PDF, XML, or KMZ byte is eligible."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://www.mtbs.gov/mapping-methods",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The current official MTBS surface describes the national program and its mapping and distribution methodology."
+            }
+          ],
+          "note": "MTBS is treated as an interagency USGS and USDA Forest Service program."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://www.mtbs.gov/product-descriptions",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The current official product page identifies public fire-level and national geospatial products and formats."
+            },
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Exact delivered metadata recorded access constraints None."
+            }
+          ],
+          "note": "No new MTBS access or download is required."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://www.usgs.gov/faqs/are-usgs-reportspublications-copyrighted",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "Current USGS guidance says USGS-authored or produced data and information are public domain with acknowledgment, while third-party material requires separate rights."
+            },
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Exact delivered MTBS metadata states no use restriction beyond reasonable and proper acknowledgment and retains warranty, positional, and update cautions."
+            }
+          ],
+          "note": "Rights pass for the disclosed reference role in owner-authored derivatives with MTBS, USGS, and USDA Forest Service credit; native bytes remain excluded."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The inventory retains event-level MTBS source, delivery, terms, and candidate-role lineage."
+            }
+          ],
+          "note": "MTBS is reference evidence, never an automatic label or operational perimeter."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Every bound MTBS-related source and terms record matches its expected byte count and SHA-256."
+            }
+          ],
+          "note": "The gate does not claim current native-product identity."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://www.mtbs.gov/mapping-methods",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "Current methods explicitly describe analyst interpretation, subjective thresholds, limited field data, and region-dependent ecological meaning."
+            }
+          ],
+          "note": "Those limitations are compatible only with the already-frozen supporting-reference role and prohibit independent-truth claims."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Provider bytes, recipient details, private routes, cookies, tokens, and credentials are excluded."
+            }
+          ],
+          "note": "The admitted role contains no private access material."
+        }
+      ]
+    },
+    {
+      "source_id": "baer-reference-lineage",
+      "name": "Burned Area Emergency Response reference lineage",
+      "locator": "https://burnseverity.cr.usgs.gov/products/baer",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Exact BAER-related source and terms records are bound, and the restricted Tepee BARC4/BARC256 material is explicitly excluded."
+            }
+          ],
+          "note": "Only owner-authored derivatives of allowed source evidence are in scope."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://burnseverity.cr.usgs.gov/products/baer",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The current official interagency Burn Severity Portal identifies the BAER program, audience, timeline, products, and data-access surfaces."
+            }
+          ],
+          "note": "Program authority is current and official."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://burnseverity.cr.usgs.gov/baer/index.php/data-access",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The official page describes publicly available imagery, dNBR, boundary, mask, metadata, and discretionary SBS access through the Portal."
+            }
+          ],
+          "note": "No new BAER request, login, or download is part of this gate."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://burnseverity.cr.usgs.gov/products/baer",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The current Portal warns that BARC may or may not be public and that SBS is preferred for public sharing."
+            },
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Exact delivered terms allow the bounded public SBS/reference roles and require acknowledgement, while Tepee preliminary thresholded BARC4/BARC256 distribution remains restricted and those materials are excluded."
+            }
+          ],
+          "note": "The exact exclusion resolves the restrictive BAER branch; no BARC pixel, class, threshold, or render advances."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The selected event proposals retain exact BAER program roles and delivered-notice decisions."
+            }
+          ],
+          "note": "BAER is field-informed source evidence; BurnLens itself is not field validated."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "All admitted BAER-related records match expected identities; excluded native and restricted bytes were not evaluated for intake."
+            }
+          ],
+          "note": "Integrity pass is scoped to recorded derivative lineage."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://burnseverity.cr.usgs.gov/products/baer",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The current official page describes BARC as a preliminary estimate used by BAER teams and distinguishes field-validated SBS."
+            }
+          ],
+          "note": "The frozen source-precedence rules and preliminary/draft limitations keep the role fit for prototype reference only."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Recipient details, delivery routes, provider bytes, and restricted Tepee materials are excluded."
+            }
+          ],
+          "note": "No BAER-team-only material enters Experiment Three custody."
+        }
+      ]
+    },
+    {
+      "source_id": "ravg-reference-lineage",
+      "name": "Rapid Assessment of Vegetation Condition after Wildfire reference lineage",
+      "locator": "https://burnseverity.cr.usgs.gov/products/ravg",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Exact RAVG-related source and terms records are bound to the final source commit and role roster."
+            }
+          ],
+          "note": "Native RAVG products are excluded."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://burnseverity.cr.usgs.gov/products/ravg",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The current official Portal identifies the USDA Forest Service RAVG program and related USGS DOI assessments."
+            }
+          ],
+          "note": "Program authority is current and official."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://burnseverity.cr.usgs.gov/ravg/data-access",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The current official RAVG page provides public individual-fire, national-dataset, service, and download access routes."
+            }
+          ],
+          "note": "No new request, authentication, or provider download is needed."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://www.usgs.gov/faqs/are-usgs-reportspublications-copyrighted",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "Current USGS guidance permits use of USGS-authored or produced public-domain data with source acknowledgment and preserves third-party exceptions."
+            },
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Exact delivered RAVG metadata states no use restriction beyond reasonable and proper acknowledgment."
+            }
+          ],
+          "note": "Rights pass for the attributed modeled-context role in owner-authored derivatives; native products remain excluded."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "The inventory retains exact RAVG delivery, terms, and selected-candidate lineage."
+            }
+          ],
+          "note": "RAVG remains contextual evidence and never independently authorizes a label."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "All admitted RAVG-related records match expected identities."
+            }
+          ],
+          "note": "No native provider product is admitted or silently substituted."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://burnseverity.cr.usgs.gov/ravg/background-products-applications",
+              "observed_at": "2026-08-24T00:47:22Z",
+              "note": "The current official page limits RAVG to modeled post-fire vegetation condition, identifies forest-domain and timing limitations, and directs users to bundle metadata."
+            }
+          ],
+          "note": "The existing context-only role is fit; RAVG is not general burn truth or an independent label source."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+              "note": "Native provider bytes, recipient details, delivery routes, credentials, and private material are excluded."
+            }
+          ],
+          "note": "The admitted role contains no sensitive access material."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "metadata review",
+      "record assessment evidence",
+      "deterministic readiness validation",
+      "controlled benchmark intake"
+    ]
+  },
+  "scope_dispositions": {
+    "controlled_local_copy": "ready_subject_to_separate_dataset_readiness_pass",
+    "future_local_frozen_experiment_use": "terms_pass_no_training_authority_created",
+    "repository_redistribution_of_benchmark_bytes": "not_assessed_or_authorized_by_milestone_1",
+    "native_provider_redistribution": "blocked",
+    "restricted_tepee_barc4_barc256": "blocked_and_excluded",
+    "scientific_work": "not_authorized_in_milestone_1"
+  },
+  "binding_attribution_and_claim_limits": [
+    "Contains modified Copernicus Sentinel data 2017-2022, accessed through the Copernicus Data Space Ecosystem.",
+    "Credit Monitoring Trends in Burn Severity (MTBS), U.S. Geological Survey and USDA Forest Service.",
+    "Credit the relevant USDA Forest Service BAER and RAVG programs for their disclosed reference roles.",
+    "Identify labels as owner-reviewed sparse prototype-core derivatives of disclosed source evidence, not independent ground truth or dense segmentation truth.",
+    "Treat the known Experiment One benchmark as retrospective compatibility evidence and events, not pixels, as the independent units.",
+    "Do not imply provider endorsement, field validation by BurnLens, operational suitability, accuracy, superiority, significance, or generalization."
+  ],
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "read supplied metadata",
+      "record assessment evidence",
+      "run deterministic dataset-readiness validation",
+      "perform no-overwrite controlled benchmark intake after a separate readiness pass"
+    ],
+    "requires_explicit_authorization": [
+      "authenticate",
+      "accept terms",
+      "purchase",
+      "download new provider content",
+      "upload content",
+      "publish or redistribute benchmark bytes",
+      "begin training, inference, or evaluation",
+      "change the frozen protocol or source scope"
+    ]
+  }
+}

@@ -3,7 +3,7 @@
   "milestone_id": "EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001",
   "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
   "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
-  "status": "active",
+  "status": "complete",
   "scientific_outputs": {
     "datasets": 0,
     "training_runs": 0,
@@ -182,13 +182,22 @@
     },
     {
       "id": "EXIT-M0-LIVE-MAIN",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "Live main commit 4543a2dad5c2630249906aab763ae0cbf91097ba and tree 6387e91f071609605f7fcc3a05842782423fbb6d",
+        "GitHub Actions run 32671370937 completed success on the accepted commit",
+        "Live README and execution-goal blob identities matched the accepted local commit",
+        "Rendered GitHub repository page showed the expected main file table, README, bounded About description, one commit, zero tags, and zero releases"
+      ]
     },
     {
       "id": "EXIT-M0-HANDOFF",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "GitHub issue 2 opened for Milestone 1 from accepted main commit 4543a2dad5c2630249906aab763ae0cbf91097ba",
+        "Issue 1 closed after live verification at 2026-08-23T22:55:18Z",
+        "Milestone 1 profile, contract, and aligned state reconciliation created on codex/benchmark-provenance-001"
+      ]
     }
   ],
   "parallelism": {
@@ -373,25 +382,30 @@
       ],
       "action_class": "public_repository_publication",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "Exact locally validated Milestone 0 candidate",
         "One-time direct-main exception in issue #1"
       ],
       "outputs": [
-        "Initial local main commit",
-        "Pushed canonical main"
+        "Initial local and live main commit 4543a2dad5c2630249906aab763ae0cbf91097ba",
+        "Live main tree 6387e91f071609605f7fcc3a05842782423fbb6d"
       ],
-      "gates": {},
-      "disposition": null,
+      "gates": {
+        "exact_validated_candidate": "pass",
+        "remote_empty_before_push": "pass",
+        "one_time_direct_main_exception": "pass_consumed",
+        "push": "pass"
+      },
+      "disposition": "pass",
       "retained_failures": [],
       "exit_condition_delta": {
         "expected": [
           "EXIT-M0-LIVE-MAIN"
         ],
         "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Publication creates the candidate live state; direct verification is still required before the exit condition passes."
+        "decision_value": "enables_dependency",
+        "rationale": "The exact validated bootstrap became the first public main commit; direct verification followed in M0-U006."
       },
       "next_dependency": "M0-U006-LIVE-VERIFY"
     },
@@ -403,23 +417,32 @@
       ],
       "action_class": "external_state_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "Published canonical main"
       ],
       "outputs": [
-        "Live GitHub verification receipt"
+        "Live ref, commit, tree, blob, CI, description, and rendered-page verification receipts"
       ],
-      "gates": {},
-      "disposition": null,
+      "gates": {
+        "live_main_ref": "pass",
+        "commit_and_tree_identity": "pass",
+        "readme_and_goal_blob_identity": "pass",
+        "github_actions": "pass",
+        "bounded_public_description": "pass",
+        "rendered_repository_surface": "pass"
+      },
+      "disposition": "pass",
       "retained_failures": [],
       "exit_condition_delta": {
         "expected": [
           "EXIT-M0-LIVE-MAIN"
         ],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Only a direct live read can convert the published candidate into verified public-state evidence."
+        "observed": [
+          "EXIT-M0-LIVE-MAIN"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "Independent API, Git ref, blob, CI, and rendered-page checks verified the public checkpoint."
       },
       "next_dependency": "M0-U007-ISSUE-HANDOFF"
     },
@@ -431,26 +454,34 @@
       ],
       "action_class": "github_issue_management",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "Verified live main checkpoint",
         "Complete Milestone 0 evidence ledger"
       ],
       "outputs": [
         "Reconciled Milestone 0 closeout",
-        "Closed issue #1",
-        "Open issue-backed next milestone"
+        "Issue 1 closed at 2026-08-23T22:55:18Z",
+        "Issue 2 open with codex/benchmark-provenance-001, profile 002, and the Milestone 1 contract"
       ],
-      "gates": {},
-      "disposition": null,
+      "gates": {
+        "live_bootstrap_verified": "pass",
+        "next_issue_open": "pass",
+        "issue_backed_branch": "pass",
+        "milestone_one_controls": "pass",
+        "issue_one_close": "pass"
+      },
+      "disposition": "pass",
       "retained_failures": [],
       "exit_condition_delta": {
         "expected": [
           "EXIT-M0-HANDOFF"
         ],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "The handoff completes bootstrap only after live truth and current records agree."
+        "observed": [
+          "EXIT-M0-HANDOFF"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "The accepted checkpoint now hands off through an open issue-backed Milestone 1 branch and validated current controls."
       },
       "next_dependency": "Milestone 1 benchmark provenance, rights, and controlled intake contract"
     }
@@ -481,12 +512,18 @@
       "python -m unittest discover -s tests -v: PASS (9 tests)",
       "project control profile validator with --verify-paths and milestone gate lint: valid, zero warnings, zero gate findings",
       "controlled milestone validator with project profile: valid, zero warnings",
-      "git diff --check: no findings"
+      "git diff --check: no findings",
+      "live main, commit, and tree identity: pass",
+      "GitHub Actions run 32671370937: success",
+      "live README and execution-goal blob identity: pass",
+      "rendered GitHub repository inspection: pass",
+      "issue 2 and codex/benchmark-provenance-001 handoff: pass",
+      "issue 1 close after live verification: pass"
     ]
   },
   "handoff": {
-    "current_checkpoint": "LOCALLY-VALIDATED-UNBORN-BOOTSTRAP-CANDIDATE-2026-08-23; units M0-U001 through M0-U004 pass locally; main remains unborn and no public checkpoint has been accepted",
-    "next_action": "Execute M0-U005: inspect the exact final candidate, create the one authorized initial main commit, and push it to the canonical remote",
+    "current_checkpoint": "BOOTSTRAP-ACCEPTED-LIVE-2026-08-23 at main commit 4543a2dad5c2630249906aab763ae0cbf91097ba; Milestone 0 complete; issue 1 closed; no scientific output or release",
+    "next_action": "Continue Milestone 1 under issue 2 and codex/benchmark-provenance-001 using profile 002 and the provenance contract",
     "do_not_carry_forward": [
       "The one-time direct-main exception after the initial bootstrap publication",
       "Any claim that Milestone 0 contains a dataset, runtime, model, training run, checkpoint, inference, evaluation, scientific result, or release",

@@ -17,8 +17,12 @@ highest-leverage evidence unit from the first incomplete milestone.
 
 ## Milestone 0 - Truthful bootstrap
 
-**State:** In progress under issue
-[#1](https://github.com/drwbkr1/burnlens-experiment-three/issues/1).
+**State:** Accepted and live-verified under issue
+[#1](https://github.com/drwbkr1/burnlens-experiment-three/issues/1). The
+accepted revision is commit
+[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba),
+tree `6387e91f071609605f7fcc3a05842782423fbb6d`, with successful public CI
+[run 32671370937](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32671370937).
 
 **Deliverables**
 
@@ -37,9 +41,20 @@ highest-leverage evidence unit from the first incomplete milestone.
 - All links and repository paths resolve.
 - The exact candidate revision passes documentation and public-claim review.
 
+**Exit evidence:** Passed. The live README and execution-goal blobs matched the
+verified local checkpoint, and the public repository description was corrected
+to the bounded retrospective framing. This acceptance adds no data, model,
+training, evaluation, or release claim.
+
 ## Milestone 1 - Benchmark provenance and rights
 
-**State:** Pending; no benchmark bytes admitted.
+**State:** Active under issue
+[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2). Identity,
+the explicit owner-rightsholder review, the current six-source gate, dataset
+readiness, and controlled intake are complete locally. Exactly 131 approved
+artifacts / 3,369,748 bytes are admitted to isolated external custody with
+matching identities and no overwrite. Repository redistribution remains
+unauthorized. Integrated verification and reviewed PR acceptance remain.
 
 **Deliverables**
 
@@ -49,6 +64,16 @@ highest-leverage evidence unit from the first incomplete milestone.
 - Record source lineage, terms, attribution, redistribution rights, custody, and
   byte-integrity evidence before copying any asset.
 - Create a machine-readable admission manifest and independent verification.
+
+**Current gate**
+
+- Independently replay the repository-owned gate, readiness, and receipt
+  chain; verify the 131-file external custody roster and the unchanged
+  Experiment One source revision.
+- Reconcile every current project surface, then publish and verify the exact
+  candidate through draft PR #3.
+- Keep model implementations, training, checkpoints, inference, evaluation,
+  metrics, and releases at zero until Milestone 1 is accepted.
 
 **Exit gate**
 

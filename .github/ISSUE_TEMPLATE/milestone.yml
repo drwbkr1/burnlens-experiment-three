@@ -14,7 +14,7 @@ body:
     attributes:
       label: Governing milestone
       description: Repository-relative path to the active milestone record.
-      placeholder: records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json
+      placeholder: records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json
     validations:
       required: true
   - type: dropdown

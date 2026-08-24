@@ -111,9 +111,39 @@ overwrite.
   implementations, tolerances, artifact schemas, and exception/terminal rules
   before substantive training. It may not replace the approved values above.
 
+### E3-DEC-0010 - Separate byte identity from permission and admission
+
+- **Date:** 2026-08-23
+- **State:** Active
+- **Decision:** Accept the exact Experiment One inventory as a metadata
+  identity `PASS` while keeping controlled copy and scientific use `DEFER` and
+  repository/raw-provider redistribution `BLOCK`.
+- **Reason:** Matching hashes establish which bytes exist and whether they
+  drifted. They do not establish ownership, license, current upstream terms,
+  attribution sufficiency, or permission to copy, use, or redistribute.
+- **Gate:** Require an explicit owner/rightsholder yes/no response for the
+  exact project-authored derivative artifacts, followed by a separate current
+  upstream-source gate and readiness audit before any admission. Ambiguity or
+  silence is not permission.
+
+### E3-DEC-0011 - Admit the exact retrospective benchmark to external custody
+
+- **Date:** 2026-08-24
+- **State:** Active Milestone 1 candidate; public acceptance pending
+- **Decision:** Accept the locked owner/rightsholder `yes`, current six-source
+  `READY` gate, and dataset-readiness `PASS` for the bounded controlled-intake
+  role. Admit exactly 131 approved artifacts / 3,369,748 bytes without
+  replacement to external Experiment Three custody.
+- **Limits:** Commit no benchmark byte or raw review response to Git. Exclude
+  native provider bytes, restricted Tepee BARC4/BARC256 material, unsafe or
+  nonselected checkpoints, and current U-Net source that is not the historical
+  reference. This decision creates no training, evaluation, redistribution, or
+  scientific-claim authority.
+
 ## Decisions still pending evidence or binding
 
-Dependency-runtime admission, benchmark-byte admission, exact implementation
-bindings, rights dispositions, and the executable protocol artifact remain
-pending their gated milestones. Their absence does not reopen the approved
-model or training choices for routine optimization.
+Dependency-runtime admission, exact implementation bindings, the executable
+protocol artifact, and every scientific outcome remain pending their gated
+milestones. Their absence does not reopen the approved model or training
+choices for routine optimization. Milestone 1 acceptance itself remains
+pending integrated verification and reviewed live-main publication.

@@ -1,0 +1,216 @@
+{
+  "audit_contract_version": "dataset-readiness-audit-v1",
+  "template": false,
+  "audit_id": "EXPERIMENT-ONE-BENCHMARK-READINESS-2026-001",
+  "candidate_id": "experiment-one-burnlens-dataset-v0.1.0-retrospective",
+  "candidate_manifest_sha256": "e0b7ac666a70e96f979c386a9d503ad45ed0baea8f21e3838ba4530d5e3d2d16",
+  "required_gate_ids": [
+    "source-and-terms",
+    "provenance-and-custody",
+    "schema-and-quality",
+    "coverage-and-balance",
+    "uncertainty-and-exclusions",
+    "leakage-and-split-fitness",
+    "reproducibility",
+    "evaluation-design",
+    "human-review",
+    "claims-and-privacy"
+  ],
+  "gates": [
+    {
+      "gate_id": "source-and-terms",
+      "category": "source_and_terms",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json",
+        "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json"
+      ],
+      "finding": "The current six-source gate passes all 48 required criteria for deterministic readiness validation and controlled local intake, with native provider bytes and restricted Tepee BARC4/BARC256 material excluded.",
+      "remediation": ""
+    },
+    {
+      "gate_id": "provenance-and-custody",
+      "category": "provenance_and_custody",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+        "inventory-sha256:187c9d8aac67038e1269548d0477192ef6f3c6b8113190626c1aada2bed89529"
+      ],
+      "finding": "The clean Experiment One source commit and tree, manifest, 48 arrays, split, normalization, controls, U-Net artifacts, source records, terms records, and exclusions are immutable and hash-bound; the destination remains empty until controlled intake.",
+      "remediation": ""
+    },
+    {
+      "gate_id": "schema-and-quality",
+      "category": "schema_and_quality",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "experiment-one@a741111d82e69689022d2058118ed8f4b9bf3546:samples/qa/phase-two/dataset-v0.1.0/DATASET-QA-2026-001.json",
+        "live-validation:25 dataset-materialization,dataset-qa,whole-event-split,dataset-build-contract tests passed in the Experiment One locked .venv on 2026-08-24",
+        "retained-validation-attempt:system Python lacked rasterio; six split-only tests passed and three imports failed before the locked-runtime rerun"
+      ],
+      "finding": "Independent Experiment One QA reports 48 of 48 bindings, valid array schema and domains, zero exact duplicate features, zero cross-role spatial or source-product overlap, and train-only normalization; 25 focused tests passed in the locked local runtime. The system-Python import failure is retained as a runtime-selection limitation, not erased.",
+      "remediation": ""
+    },
+    {
+      "gate_id": "coverage-and-balance",
+      "category": "coverage_and_balance",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "experiment-one@a741111d82e69689022d2058118ed8f4b9bf3546:records/phase-two/manifests/WHOLE-EVENT-SPLIT-2026-001.json",
+        "experiment-one@a741111d82e69689022d2058118ed8f4b9bf3546:samples/qa/phase-two/dataset-v0.1.0/DATASET-QA-2026-001.json"
+      ],
+      "finding": "The exact roster contains six events and twelve 64-by-64 patches, one burned and one background prototype core per event, with 109 train, 89 validation, and 89 known-test core pixels. This is sufficient only for the predeclared small retrospective lifecycle and is explicitly not representative of wildfire prevalence, geography, or operating conditions.",
+      "remediation": ""
+    },
+    {
+      "gate_id": "uncertainty-and-exclusions",
+      "category": "uncertainty_and_exclusions",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "experiment-one@a741111d82e69689022d2058118ed8f4b9bf3546:records/phase-two/manifests/DATASET-BUILD-CONTRACT-2026-001.json",
+        "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json"
+      ],
+      "finding": "State, loss-mask, and input-valid arrays preserve core, unknown-ring, invalid, and unlabeled behavior; 531 unknown-ring pixels remain excluded from loss and metrics. Native provider bytes, restricted Tepee threshold products, private review material, nonselected artifacts, and all fresh-event evidence remain excluded.",
+      "remediation": ""
+    },
+    {
+      "gate_id": "leakage-and-split-fitness",
+      "category": "leakage_and_split_fitness",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "experiment-one@a741111d82e69689022d2058118ed8f4b9bf3546:records/phase-two/manifests/WHOLE-EVENT-SPLIT-2026-001.json",
+        "live-validation:tests.test_whole_event_split passed on 2026-08-24"
+      ],
+      "finding": "Whole-event grouping keeps event, scene, geography, time, candidate, and source-product identities from crossing roles; validation and test do not contribute normalization. The test outcomes are already known, so the split is fit only for retrospective compatibility and never blind confirmation.",
+      "remediation": ""
+    },
+    {
+      "gate_id": "reproducibility",
+      "category": "reproducibility",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+        "experiment-one@a741111d82e69689022d2058118ed8f4b9bf3546:samples/qa/phase-two/dataset-v0.1.0/DATASET-QA-2026-001.json",
+        "dataset-roster-sha256:5f186ccd240db26483195421701baf83b7e85436e92a851ace638c249d0b43dd"
+      ],
+      "finding": "All 48 existing dataset arrays and their source records can be verified exactly from the locked source commit, and the historical independent QA plus current focused tests reconstruct and reject drift. Rebuilding from native provider archives is neither required nor authorized for Experiment Three intake.",
+      "remediation": ""
+    },
+    {
+      "gate_id": "evaluation-design",
+      "category": "evaluation_design",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md",
+        "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
+        "experiment-one@a741111d82e69689022d2058118ed8f4b9bf3546:records/phase-two/manifests/WHOLE-EVENT-SPLIT-2026-001.json"
+      ],
+      "finding": "Experiment Three freezes architecture, loss, optimizer, budget, three seeds, validation-only checkpoint and threshold rules, collapse gates, metrics, and comparator roles before model work. Known test data cannot influence model, checkpoint, threshold, protocol, or rescue decisions; post-test changes require Experiment 3B.",
+      "remediation": ""
+    },
+    {
+      "gate_id": "human-review",
+      "category": "human_review",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json",
+        "experiment-one@a741111d82e69689022d2058118ed8f4b9bf3546:records/phase-two/readiness/DATASET-READINESS-AUDIT-2026-003.json"
+      ],
+      "finding": "Every selected prototype core retains its original owner-review evidence, and the current exact cross-experiment rights decision is one attested, locked, reconciled yes with no ambiguity or fabricated response. Human approval does not substitute for source, integrity, leakage, or scientific fitness evidence.",
+      "remediation": ""
+    },
+    {
+      "gate_id": "claims-and-privacy",
+      "category": "claims_and_privacy",
+      "required": true,
+      "status": "pass",
+      "evidence_refs": [
+        "records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json",
+        "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md"
+      ],
+      "finding": "Only public aggregate human-review evidence and enumerated project artifacts may advance. The claim envelope bars independent ground truth, dense segmentation, accuracy, superiority, significance, generalization, field-validation-by-BurnLens, endorsement, and operational wildfire guidance claims.",
+      "remediation": ""
+    }
+  ],
+  "count_checks": [
+    {
+      "check_id": "exact-event-groups",
+      "observed": 6,
+      "operator": "==",
+      "threshold": 6,
+      "on_failure": "block"
+    },
+    {
+      "check_id": "exact-patches",
+      "observed": 12,
+      "operator": "==",
+      "threshold": 12,
+      "on_failure": "block"
+    },
+    {
+      "check_id": "exact-array-files",
+      "observed": 48,
+      "operator": "==",
+      "threshold": 48,
+      "on_failure": "block"
+    },
+    {
+      "check_id": "accepted-core-pixels",
+      "observed": 287,
+      "operator": "==",
+      "threshold": 287,
+      "on_failure": "block"
+    },
+    {
+      "check_id": "explicit-unknown-ring-pixels",
+      "observed": 531,
+      "operator": "==",
+      "threshold": 531,
+      "on_failure": "block"
+    },
+    {
+      "check_id": "common-input-channels",
+      "observed": 6,
+      "operator": "==",
+      "threshold": 6,
+      "on_failure": "block"
+    },
+    {
+      "check_id": "train-event-groups",
+      "observed": 2,
+      "operator": "==",
+      "threshold": 2,
+      "on_failure": "block"
+    },
+    {
+      "check_id": "validation-event-groups",
+      "observed": 2,
+      "operator": "==",
+      "threshold": 2,
+      "on_failure": "block"
+    },
+    {
+      "check_id": "known-test-event-groups",
+      "observed": 2,
+      "operator": "==",
+      "threshold": 2,
+      "on_failure": "block"
+    }
+  ],
+  "next_step_authority": {
+    "mode": "inherited",
+    "authority_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json#M1-U005-CONTROLLED-BENCHMARK-INTAKE",
+    "authorized_actions": [
+      "controlled_benchmark_intake"
+    ]
+  }
+}

@@ -13,24 +13,27 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-23, this repository is at its truthful empty-bootstrap milestone.
-Issue [#1](https://github.com/drwbkr1/burnlens-experiment-three/issues/1)
-tracks the bootstrap work.
+As of 2026-08-24, the truthful bootstrap remains the accepted live `main`
+checkpoint at
+[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba).
+Milestone 1 is active under issue
+[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2) and draft
+pull request [#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3).
 
-- No dataset or benchmark bytes have been admitted.
-- No model code, model weights, checkpoints, or predictions exist here.
-- No training or evaluation has run here.
-- No Experiment Three metrics, scientific result, or release exists.
-- A bootstrap-only repository validator, focused tests, and pinned CI workflow
-  are present in the working-tree candidate. No scientific pipeline, model
-  replay command, or rendered evidence surface exists yet.
-- Prior BurnLens repositories are read-only provenance sources. Their files and
-  decisions are not Experiment Three evidence until they are explicitly
-  hash-bound and admitted.
+The exact owner/rightsholder review is now complete and reconciled as `yes` for
+rights the owner controls. A separate current six-source gate is `READY`, and
+the benchmark readiness audit is `PASS`. Controlled intake promoted exactly
+131 approved artifacts (3,369,748 bytes) into isolated local custody at
+`C:\Projects\Active\burnlens-experiment-three-custody\benchmark`; every
+source, staging, and destination identity matched. No benchmark byte is stored
+in this Git repository, and repository redistribution was not authorized by
+the intake.
 
-The bootstrap documentation establishes scope and truthful state. It does not
-authorize substantive training or opening evaluation evidence. The complete
-protocol must first be frozen and recorded.
+This is a data-admission checkpoint candidate, not a scientific result. No
+Experiment Three model implementation, training run, checkpoint, inference,
+evaluation, metric, rendered result, tag, or release exists. Substantive model
+work remains prohibited until Milestone 1 is reviewed and accepted, followed
+by the synthetic-preflight and executable-protocol gates.
 
 ## Research question
 
@@ -83,11 +86,11 @@ Experiment 3B.
 
 ## Compatibility benchmark and claim limits
 
-Experiment Three is designed to bind the exact Experiment 1 dataset, whole-
-event split, masks, normalization, metrics, RBR result, canonical U-Net result,
-and constant-class controls. Until provenance, integrity, and rights checks are
-complete, those materials remain external read-only references and are not
-part of this repository.
+Experiment Three has hash-bound and admitted the exact Experiment 1 dataset,
+whole-event split, masks, normalization, metrics, RBR result, canonical U-Net
+result, and constant-class-control definitions to external controlled custody.
+The bytes are not part of this Git repository and retain their source,
+attribution, restriction, and claim boundaries.
 
 The inherited test has already been observed. Therefore:
 
@@ -148,6 +151,14 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Changelog](CHANGELOG.md)
 - [Evidence ledger](records/evidence/EVIDENCE-LEDGER.md)
 - [Decision register](records/decisions/DECISION-REGISTER.md)
+- [Experiment One benchmark identity inventory](records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json)
+- [Owner-rights review item](records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-ITEM-2026-001.json)
+- [Owner-rights review contract](records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-CONTRACT-2026-001.json)
+- [Blank owner-rights response](records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-RESPONSE-BLANK-2026-001.json)
+- [Owner-rights decision](records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json)
+- [Current source gate](records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json)
+- [Dataset readiness decision](records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-DECISION-2026-001.json)
+- [Controlled-intake receipt](records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json)
 - [Bootstrap devlog](docs/devlog/2026-08-23-empty-bootstrap.md)
 - [Contributing rules](CONTRIBUTING.md)
 

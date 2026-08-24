@@ -1,0 +1,18 @@
+{
+  "response_schema_version": "experiment-one-artifact-rights-response-v1",
+  "review_id": "EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001",
+  "completed": false,
+  "review_started_at_utc": null,
+  "review_completed_at_utc": null,
+  "reviewer": {
+    "attestation": false
+  },
+  "responses": [
+    {
+      "item_id": "experiment-one-project-authored-derivative-artifacts",
+      "evidence_sha256": "2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581",
+      "decision": null,
+      "notes": ""
+    }
+  ]
+}

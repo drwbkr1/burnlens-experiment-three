@@ -91,11 +91,61 @@ deployment. It records the approved protocol values but does not create their
 hash-bound executable implementation, authorize substantive training, or
 authorize opening evaluation evidence.
 
-## Required follow-through
+## Acceptance receipt
 
 The local candidate passed the repository validator, 9 focused tests, both
-project-control schema validators, and candidate safety review. It remains
-unaccepted until the exact revision is committed, published to live `main`, and
-verified through the public workflow. Subsequent work must start with
-provenance, rights, integrity, and custody binding rather than implementation
-by assumption.
+project-control schema validators, and candidate safety review. It was then
+accepted on live `main` at commit
+[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba),
+tree `6387e91f071609605f7fcc3a05842782423fbb6d`. Public validation
+[run 32671370937](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32671370937)
+completed successfully. The live README and execution-goal blobs matched the
+verified local checkpoint, and the public description was corrected to the
+bounded retrospective framing.
+
+This accepted checkpoint remains bootstrap-only: it is not a release and
+contains no benchmark bytes, model implementation, training, inference,
+evaluation, scientific result, or rendered scientific output.
+
+## Required follow-through
+
+Milestone 1 is active under issue
+[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2), beginning
+with read-only provenance and rights reconciliation. No benchmark byte may be
+admitted until its identity, source terms, attribution, redistribution
+boundary, custody role, and integrity decision are explicit. Subsequent work
+must continue from the exact accepted bootstrap checkpoint rather than from
+implementation by assumption.
+
+## Milestone 1 follow-through
+
+Draft pull request
+[#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3) carries the
+accepted-checkpoint-to-Milestone-1 control transition. Published transition
+commit `74171043ddd543979e9773d5ffdd06da116bbaa1` passed push run
+`32674532003` and pull-request run `32674546780`.
+
+The first metadata-only evidence unit then bound the clean Experiment One
+source revision, all 48 declared benchmark arrays, all eight historical U-Net
+prediction/probability arrays, and the relevant direct plus transitive
+source/terms records. The inventory's matching hashes establish identity and
+integrity only. It records zero copied bytes, controlled copy/use `DEFER`, and
+redistribution `BLOCK`.
+
+The next action is the explicit owner/rightsholder rights decision for the
+exact hash-bound project-authored derivative artifacts. No affirmative response
+can relicense third-party material; a separate current upstream-source gate and
+readiness audit remain mandatory. No data admission, model implementation,
+training, inference, evaluation, metric, scientific render, or release has
+occurred.
+
+## Human-gate preparation
+
+The identity evidence unit was published at
+`b17176d07d34f34ab385acbc91cf1876471afe06`, with successful push and
+pull-request validation. The exact owner-rights question was then bound as
+review `EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001` to item SHA-256
+`2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581`.
+The generated blank response contains zero decisions. Preparation does not
+authorize copying, source admission, or scientific work; the workflow must now
+wait for one explicit completed `yes` or `no` response.
