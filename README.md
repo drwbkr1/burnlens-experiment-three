@@ -13,13 +13,13 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-24, Milestone 2 is accepted and live-verified on `main` at
-[`8b0636d6cc117d524256a0f7f2bd699fb64a232b`](https://github.com/drwbkr1/burnlens-experiment-three/commit/8b0636d6cc117d524256a0f7f2bd699fb64a232b),
-tree `fe91a423cee4f4ad69cad88a643bb730c8647005`. Merge-triggered GitHub
+As of 2026-08-24, Milestone 3 is accepted and live-verified on `main` at
+[`10bc499db09bccd66e3bc9289d655ab561bec857`](https://github.com/drwbkr1/burnlens-experiment-three/commit/10bc499db09bccd66e3bc9289d655ab561bec857),
+tree `65d3fcb5b01b5f8448ab863a873a76d1c8da51ee`. Merge-triggered GitHub
 Actions run
-[`32687957764`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32687957764)
-passed. Milestone 3 is active under issue
-[#6](https://github.com/drwbkr1/burnlens-experiment-three/issues/6).
+[`32689530033`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32689530033)
+passed. Milestone 4 is active under issue
+[#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8).
 
 The exact owner/rightsholder review is now complete and reconciled as `yes` for
 rights the owner controls. A separate current six-source gate is `READY`, and
@@ -47,10 +47,10 @@ It fixes all data roles, normalization, masks, training order, checkpoint and
 shared-threshold rules, metrics, collapse gates, artifacts, replay, test
 opening, decision logic, and claim limits. Exact metadata bindings, fabricated
 replay, and all 39 approved-runtime tests pass without decoding a benchmark
-array. This is still engineering-control evidence, not a scientific result:
+array. This is accepted engineering-control evidence, not a scientific result:
 no substantive training run, scientific checkpoint, inference, evaluation,
-metric, result render, tag, or release exists. Training remains unauthorized
-until the freeze is reviewed, merged, and verified on live `main`.
+metric, result render, tag, or release exists. Frozen training may begin only
+after exact train/validation identity verification; test remains sealed.
 
 ## Research question
 

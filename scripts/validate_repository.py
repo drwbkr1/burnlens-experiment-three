@@ -26,9 +26,13 @@ MILESTONE_TWO_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json"
 )
-CONTROL_PROFILE = Path(
+MILESTONE_THREE_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json"
+)
+CONTROL_PROFILE = Path(
+    "records/governance/"
+    "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json"
 )
 BOOTSTRAP_MILESTONE = Path(
     "records/milestones/"
@@ -45,6 +49,10 @@ SYNTHETIC_PREFLIGHT_MILESTONE = Path(
 PROTOCOL_FREEZE_MILESTONE = Path(
     "records/milestones/"
     "EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001.json"
+)
+FROZEN_TRAINING_MILESTONE = Path(
+    "records/milestones/"
+    "EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001.json"
 )
 STATE_RECONCILIATION = Path(
     "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json"
@@ -251,7 +259,7 @@ EXPECTED_FROZEN_PROTOCOL_SHA256 = (
     "12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e"
 )
 EXPECTED_PROTOCOL_FREEZE_RECORD_SHA256 = (
-    "d284d4202cc1d05299a8d20b6a0f93f5f8150bb5dbb8de7e50ca3cc3bac74d82"
+    "3be942adeda2957f6f0ee9556d605369d3b213e95b43aeab7321f2906449707f"
 )
 
 REQUIRED_FILES = (
@@ -276,15 +284,19 @@ REQUIRED_FILES = (
     HISTORICAL_CONTROL_PROFILE,
     MILESTONE_ONE_CONTROL_PROFILE,
     MILESTONE_TWO_CONTROL_PROFILE,
+    MILESTONE_THREE_CONTROL_PROFILE,
     CONTROL_PROFILE,
     BOOTSTRAP_MILESTONE,
     PROVENANCE_MILESTONE,
     SYNTHETIC_PREFLIGHT_MILESTONE,
     PROTOCOL_FREEZE_MILESTONE,
+    FROZEN_TRAINING_MILESTONE,
     STATE_RECONCILIATION,
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-002.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-003.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-004.json"),
+    Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-005.json"),
+    Path("records/training/README.md"),
     OWNER_RIGHTS_DECISION,
     SOURCE_GATE,
     READINESS_INPUT,
@@ -2156,10 +2168,17 @@ def check_frozen_protocol_record(root: Path) -> list[str]:
         for role in ("train", "validation", "test")
     ):
         errors.append("frozen protocol role roster changed")
-    if record.get("disposition") != "pass_local_candidate" or record.get(
+    if record.get("disposition") != "pass_accepted" or record.get(
         "acceptance_state"
-    ) != "awaiting_reviewed_pr_and_live_main_verification":
-        errors.append("protocol freeze candidate acceptance boundary changed")
+    ) != "accepted_live_main":
+        errors.append("protocol freeze accepted state changed")
+    acceptance = record.get("acceptance")
+    if not isinstance(acceptance, dict) or acceptance.get("live_main_commit") != (
+        "10bc499db09bccd66e3bc9289d655ab561bec857"
+    ) or acceptance.get("candidate_and_live_tree") != (
+        "65d3fcb5b01b5f8448ab863a873a76d1c8da51ee"
+    ) or acceptance.get("merge_ci") != 32689530033:
+        errors.append("protocol freeze live acceptance receipt changed")
     boundary = record.get("scientific_boundary")
     if not isinstance(boundary, dict) or boundary.get("test_values_opened") is not False:
         errors.append("protocol freeze must retain unopened test values")

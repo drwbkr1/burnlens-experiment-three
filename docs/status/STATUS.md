@@ -5,27 +5,22 @@
 | Status date | 2026-08-24 |
 | Canonical remote | `https://github.com/drwbkr1/burnlens-experiment-three` |
 | Canonical local checkout | `C:\Projects\Active\burnlens-experiment-three` |
-| Working version | `0.3.0-m3-protocol-freeze` (unreleased) |
-| Accepted checkpoint | `8b0636d6cc117d524256a0f7f2bd699fb64a232b` on live `main` |
-| Active work | Milestone 3, issue [#6](https://github.com/drwbkr1/burnlens-experiment-three/issues/6) |
-| Active review | None; protocol freeze is a locally verified candidate awaiting reviewed PR |
-| Overall state | Milestone 2 is accepted. The complete executable protocol is frozen locally at SHA-256 `12a092e...`; bindings, fabricated replay, and all 39 approved-runtime tests pass. Training remains prohibited until reviewed merge and live verification. |
+| Working version | `0.4.0-m4-frozen-training` (unreleased) |
+| Accepted checkpoint | `10bc499db09bccd66e3bc9289d655ab561bec857` on live `main` |
+| Active work | Milestone 4, issue [#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8) |
+| Active review | None |
+| Overall state | Milestone 3 is accepted and the executable protocol is live at SHA-256 `12a092e...`. Milestone 4 control is active with zero training runs; train/validation identity verification is next and test remains sealed. |
 
 ## Current truth
 
-Milestone 2 is accepted and live-verified. Pull request
-[#5](https://github.com/drwbkr1/burnlens-experiment-three/pull/5) merged the
-reviewed tree `fe91a423cee4f4ad69cad88a643bb730c8647005` to live `main` at
-[`8b0636d6cc117d524256a0f7f2bd699fb64a232b`](https://github.com/drwbkr1/burnlens-experiment-three/commit/8b0636d6cc117d524256a0f7f2bd699fb64a232b).
-Candidate, pull-request, and merge-triggered runs
-`32687882167`/`32687884772`/`32687957764` passed. Issue #4 is closed.
-There are still zero tags and zero releases.
-
-Milestone 3 has frozen the complete executable protocol as a local candidate.
-It binds the admitted metadata and comparators without decoding any test array,
-and it fixes all remaining ordering, selection, metric, collapse, replay,
-artifact, exception, decision, opening, and claim rules. This is protocol
-evidence, not training or performance evidence.
+Milestone 3 is accepted and live-verified. Pull request
+[#7](https://github.com/drwbkr1/burnlens-experiment-three/pull/7) merged the
+reviewed tree `65d3fcb5b01b5f8448ab863a873a76d1c8da51ee` to live `main` at
+[`10bc499db09bccd66e3bc9289d655ab561bec857`](https://github.com/drwbkr1/burnlens-experiment-three/commit/10bc499db09bccd66e3bc9289d655ab561bec857).
+Push, pull-request, and merge-triggered runs
+`32689480130`/`32689499207`/`32689530033` passed. Issue #6 is closed.
+There are still zero tags and zero releases. Milestone 4 is active from this
+exact checkpoint with zero training runs and zero checkpoints.
 
 | Surface | State | Evidence |
 | --- | --- | --- |
@@ -94,8 +89,7 @@ separately approved Experiment 3B.
 
 ## Immediate next gate
 
-Publish the exact protocol-freeze candidate through an issue #6 pull request,
-require candidate and pull-request checks, merge only after review, then verify
-the live `main` tree, protocol hash, required blobs, and merge-triggered CI.
-This is a checkpoint, not a release. Milestone 4 training remains prohibited
-until that acceptance is recorded.
+Verify and decode only the exact admitted train and validation arrays, then
+implement the frozen lifecycle under issue #8. Execute the three declared
+seeds only after that gate passes. Test arrays, historical test predictions,
+test metrics, evaluation, and release remain prohibited in Milestone 4.

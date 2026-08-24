@@ -121,12 +121,12 @@ render inspection. No benchmark or scientific work occurred.
 
 ## Milestone 3 - Protocol freeze
 
-**State:** Active under issue
-[#6](https://github.com/drwbkr1/burnlens-experiment-three/issues/6).
-The complete protocol is frozen as a locally verified candidate at canonical-LF
-SHA-256 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`.
-Exact admitted metadata bindings and fabricated replay pass, as do all 39 tests
-in the approved runtime. No benchmark array has been decoded in this milestone.
+**State:** Accepted and live-verified through pull request
+[#7](https://github.com/drwbkr1/burnlens-experiment-three/pull/7) at main
+`10bc499db09bccd66e3bc9289d655ab561bec857`, tree
+`65d3fcb5b01b5f8448ab863a873a76d1c8da51ee`, with merge-triggered CI
+`32689530033` passing. The frozen protocol canonical-LF SHA-256 is
+`12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`.
 
 **Deliverables**
 
@@ -151,7 +151,10 @@ in the approved runtime. No benchmark array has been decoded in this milestone.
 
 ## Milestone 4 - Frozen training and checkpoint reconstruction
 
-**State:** Pending.
+**State:** Active under issue
+[#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8). Control
+transition is complete; there are zero training runs and zero checkpoints.
+Exact train/validation data verification is active. Test remains sealed.
 
 **Deliverables**
 

@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "record_id": "EXPERIMENT-THREE-PROTOCOL-FREEZE-2026-001",
   "created_at_utc": "2026-08-24T04:05:21Z",
-  "disposition": "pass_local_candidate",
-  "acceptance_state": "awaiting_reviewed_pr_and_live_main_verification",
+  "disposition": "pass_accepted",
+  "acceptance_state": "accepted_live_main",
   "protocol": {
     "path": "protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json",
     "canonical_lf_bytes": 13456,
@@ -83,4 +83,15 @@
     "claim": "Executable protocol evidence only; no model-performance evidence."
   },
   "next_gate": "Reviewed PR, merge-triggered CI, and exact live-main verification must accept this freeze before Milestone 4 training."
+  ,"acceptance": {
+    "candidate_commit": "3b67850539e4d1a4b47f1486de91192a25c2ec3e",
+    "live_main_commit": "10bc499db09bccd66e3bc9289d655ab561bec857",
+    "candidate_and_live_tree": "65d3fcb5b01b5f8448ab863a873a76d1c8da51ee",
+    "pull_request": "https://github.com/drwbkr1/burnlens-experiment-three/pull/7",
+    "push_ci": 32689480130,
+    "pull_request_ci": 32689499207,
+    "merge_ci": 32689530033,
+    "issue_closed_at_utc": "2026-08-24T04:19:49Z",
+    "tag_or_release_created": false
+  }
 }

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json",
+  "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json",
+  "status": "active",
+  "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/8",
+  "accepted_base_commit": "10bc499db09bccd66e3bc9289d655ab561bec857",
+  "active_branch": "codex/frozen-training-004",
+  "scientific_outputs": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0},
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": ["read_only_inspection", "deterministic_validation", "metadata_capture", "evidence_recording", "project_control", "update_project_records", "reversible_remediation", "version_control_write", "github_issue_management", "github_pull_request_management", "external_state_verification", "public_repository_publication", "software_implementation", "model_training", "checkpoint_packaging"],
+    "user_instruction": "Execute the accepted frozen protocol through all three train/validation runs and exact replay without opening test evidence.",
+    "repository_controls": ["AGENTS.md", "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md", "docs/governance/CHECKPOINT-POLICY.md", "protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json", "https://github.com/drwbkr1/burnlens-experiment-three/issues/8"],
+    "active_contract": "records/milestones/EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001.json",
+    "verified_at_utc": "2026-08-24T04:20:33Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Execute and replay exactly three frozen train/validation runs, safely package selected checkpoints, and choose one shared validation-only threshold before any test opening.",
+    "allowed_paths": ["AGENTS.md", "README.md", "CHANGELOG.md", "VERSION", "docs/**", "records/**", "protocol/**", "scripts/**", "src/**", "tests/**", "C:\\Projects\\Active\\burnlens-experiment-three-custody", "C:\\Projects\\Active\\burnlens-experiment-three-runtime"],
+    "forbidden_work": ["Open or decode a test array or historical test prediction", "Change any frozen protocol value", "Replace or best-select a seed", "Create test inference, evaluation, comparative result, tag, or release", "Modify another BurnLens repository", "Commit benchmark bytes, checkpoints, probabilities, outputs, runtime, or secrets"],
+    "reversible_actions": ["Verify and decode exact admitted train/validation arrays", "Create external run packages", "Retain and rerun an affected seed only for a proven implementation defect with unchanged semantics", "Create reviewed repository checkpoint"],
+    "stop_conditions": ["Test access is required", "Frozen semantics cannot execute", "A new dependency, source, credential, service, spend, custody, access, irreversible action, or scientific choice is required", "Any output cannot be verified"]
+  },
+  "entry_conditions": [
+    {"id": "ENTRY-M4-ACCEPTED-FREEZE", "status": "pass", "evidence": ["Live main 10bc499db09bccd66e3bc9289d655ab561bec857", "Tree 65d3fcb5b01b5f8448ab863a873a76d1c8da51ee", "Protocol SHA-256 12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e", "CI 32689530033 PASS"]},
+    {"id": "ENTRY-M4-TEST-SEALED", "status": "pass", "evidence": ["M3 record: zero benchmark arrays loaded and test values unopened"]}
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-M4-CONTROL", "status": "pass", "evidence": ["Issue #8 and codex/frozen-training-004 start from accepted M3"]},
+    {"id": "EXIT-M4-DATA", "status": "pending", "evidence": []},
+    {"id": "EXIT-M4-RUNS", "status": "pending", "evidence": []},
+    {"id": "EXIT-M4-RELOAD", "status": "pending", "evidence": []},
+    {"id": "EXIT-M4-THRESHOLD", "status": "pending", "evidence": []},
+    {"id": "EXIT-M4-REPLAY", "status": "pending", "evidence": []},
+    {"id": "EXIT-M4-TEST-SEALED", "status": "pending", "evidence": []},
+    {"id": "EXIT-M4-VERIFIED-CHECKPOINT", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {"id": "M4-U001-RECONCILIATION-CONTROL", "purpose": "Activate M4 from accepted freeze.", "depends_on": [], "action_class": "project_control", "human_gate": false, "status": "complete", "inputs": ["Accepted M3", "Issue 8"], "outputs": ["Profile 005", "M4 contract", "State 005"], "gates": {"entry": "pass", "test_sealed": "pass"}, "disposition": "pass", "retained_failures": [], "exit_condition_delta": {"expected": ["EXIT-M4-CONTROL"], "observed": ["EXIT-M4-CONTROL"], "decision_value": "advances_exit", "rationale": "Exact accepted freeze is the base."}, "next_dependency": "M4-U002-TRAIN-VALIDATION-DATA"},
+    {"id": "M4-U002-TRAIN-VALIDATION-DATA", "purpose": "Verify exact admitted train/validation arrays, decode only those roles, and prove schema/mask/normalization readiness.", "depends_on": ["M4-U001-RECONCILIATION-CONTROL"], "action_class": "metadata_capture", "human_gate": false, "status": "in_progress", "inputs": ["Admitted train/validation arrays and frozen metadata"], "outputs": ["Data verification receipt"], "gates": {"identity": "pending", "schema": "pending", "test_access": "must_be_zero"}, "disposition": null, "retained_failures": [], "exit_condition_delta": {"expected": ["EXIT-M4-DATA", "EXIT-M4-TEST-SEALED"], "observed": [], "decision_value": "enables_dependency", "rationale": "Pending."}, "next_dependency": "M4-U003-IMPLEMENTATION"},
+    {"id": "M4-U003-IMPLEMENTATION", "purpose": "Implement exact frozen data, training, history, checkpoint, threshold, and replay surfaces.", "depends_on": ["M4-U002-TRAIN-VALIDATION-DATA"], "action_class": "software_implementation", "human_gate": false, "status": "planned", "inputs": ["Verified train/validation data", "Frozen protocol"], "outputs": ["Source, scripts, tests"], "gates": {"conformance": "pending"}, "disposition": null, "retained_failures": [], "exit_condition_delta": {"expected": ["EXIT-M4-RUNS"], "observed": [], "decision_value": "enables_dependency", "rationale": "Pending."}, "next_dependency": "M4-U004-THREE-SEED-EXECUTION"},
+    {"id": "M4-U004-THREE-SEED-EXECUTION", "purpose": "Execute each seed exactly once and retain terminal packages.", "depends_on": ["M4-U003-IMPLEMENTATION"], "action_class": "model_training", "human_gate": false, "status": "planned", "inputs": ["Exact frozen runner"], "outputs": ["Three external run packages"], "gates": {"all_seeds": "pending", "safe_reload": "pending", "shared_threshold": "pending"}, "disposition": null, "retained_failures": [], "exit_condition_delta": {"expected": ["EXIT-M4-RUNS", "EXIT-M4-RELOAD", "EXIT-M4-THRESHOLD"], "observed": [], "decision_value": "enables_dependency", "rationale": "Pending."}, "next_dependency": "M4-U005-REPLAY-VERIFY"},
+    {"id": "M4-U005-REPLAY-VERIFY", "purpose": "Independently replay every run and verify exact outputs with test sealed.", "depends_on": ["M4-U004-THREE-SEED-EXECUTION"], "action_class": "deterministic_validation", "human_gate": false, "status": "planned", "inputs": ["Three run packages"], "outputs": ["Training record and replay receipt"], "gates": {"exact_replay": "pending", "test_sealed": "pending"}, "disposition": null, "retained_failures": [], "exit_condition_delta": {"expected": ["EXIT-M4-REPLAY", "EXIT-M4-TEST-SEALED"], "observed": [], "decision_value": "enables_dependency", "rationale": "Pending."}, "next_dependency": "M4-U006-REVIEWED-PR"},
+    {"id": "M4-U006-REVIEWED-PR", "purpose": "Publish and live-verify the exact training checkpoint without evaluation or release.", "depends_on": ["M4-U005-REPLAY-VERIFY"], "action_class": "public_repository_publication", "human_gate": false, "status": "planned", "inputs": ["Verified candidate"], "outputs": ["Merged PR and live receipt"], "gates": {"checks": "pending", "live": "pending", "no_test": "required", "no_release": "required"}, "disposition": null, "retained_failures": [], "exit_condition_delta": {"expected": ["EXIT-M4-VERIFIED-CHECKPOINT"], "observed": [], "decision_value": "enables_dependency", "rationale": "Pending."}, "next_dependency": null}
+  ],
+  "path_efficiency": {"max_consecutive_no_progress_units": 2, "review_action_class": "project_control", "review_human_gate": false},
+  "verification": {"changed_risks": ["benchmark train/validation access", "scientific training", "checkpoint packaging", "threshold selection"], "required_checks": ["exact data hashes", "schema and masks", "all seeds", "histories", "safe reload", "shared validation threshold", "exact replay", "test sealed", "repository controls", "reviewed live checkpoint"], "completed_checks": ["Accepted M3 live identity and CI verified", "Issue 8 open"]},
+  "handoff": {"current_checkpoint": "M3 accepted; M4 control candidate active with zero training outputs.", "next_action": "Complete M4-U002 exact train/validation data verification; never open test arrays.", "do_not_carry_forward": ["Any test value", "Any protocol change", "Any best-seed selection", "Any evaluation or release"]}
+}

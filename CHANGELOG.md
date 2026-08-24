@@ -54,6 +54,10 @@ semantic versioning once a first release exists.
 
 ### Changed
 
+- Accepted Milestone 3 through PR #7 at live `main`
+  `10bc499db09bccd66e3bc9289d655ab561bec857`, exact tree
+  `65d3fcb5b01b5f8448ab863a873a76d1c8da51ee`, with merge-triggered run
+  `32689530033` passing; activated issue #8 and Milestone 4 training control.
 - Accepted Milestone 2 at live `main` commit `8b0636d6cc117d524256a0f7f2bd699fb64a232b`
   and advanced active control to issue #6 and Milestone 3.
 
