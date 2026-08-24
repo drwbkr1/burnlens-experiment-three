@@ -84,10 +84,13 @@ runs, evaluations, tags, or releases.
 
 **State:** Active under issue
 [#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4).
-Control reconciliation and the exact runtime candidate inventory are complete.
-The four-source runtime gate is `READY` for owner review with 32 required
-criteria and zero blockers or warnings. No candidate artifact has been
-downloaded or installed, and the human response remains blank.
+Control reconciliation is complete. Candidate 001 received an exact owner
+`yes`, but its Windows installer entered maintenance mode on an existing
+same-version Python installation instead of creating the requested isolated
+runtime. The route is retained as `FAIL` and closed; inspected existing-Python
+surfaces were restored. Candidate 002 uses the official embeddable ZIP and the
+unchanged 20-wheel lock. Its source gate is `READY`, its response remains
+blank, and no successor artifact or wheel has been downloaded or executed.
 
 **Deliverables**
 
@@ -101,16 +104,17 @@ downloaded or installed, and the human response remains blank.
 
 **Current gate**
 
-- Obtain one explicit owner `yes` or `no` for the exact CPython 3.12.10,
-  uv 0.10.7, PyTorch 2.13.0+cpu Windows x64 candidate bound to inventory
+- Obtain one explicit owner `yes` or `no` for the exact application-local
+  CPython 3.12.10 embeddable ZIP, uv 0.10.7 tooling, and unchanged PyTorch
+  2.13.0+cpu Windows x64 lock bound to successor inventory
   SHA-256
-  `68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05`.
-- A `yes` releases only exact Active-only runtime activation and synthetic
-  compatibility validation. A `no` rejects the candidate. Neither decision
+  `ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967`.
+- A `yes` releases only exact Active-only application-local construction and
+  synthetic compatibility validation. A `no` rejects the successor. Neither decision
   authorizes benchmark access or substantive training.
-- Do not infer adoption from the already-approved CPU PyTorch direction, an
-  environment used by another project, successful metadata resolution, or
-  silence.
+- Do not infer adoption from candidate 001's explicit `yes`, the successful
+  recovery, the unchanged wheel lock, an environment used by another project,
+  successful metadata resolution, or silence.
 
 **Exit gate**
 

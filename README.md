@@ -30,17 +30,21 @@ source, staging, and destination identity matched. No benchmark byte is stored
 in this Git repository, and repository redistribution was not authorized by
 the intake.
 
-The exact source-ready runtime candidate is now documented for owner review:
-CPython 3.12.10, the already-observed uv 0.10.7 tool, and a locked 20-package
-Windows CPU closure led by PyTorch 2.13.0+cpu. No candidate installer or wheel
-has been downloaded, no package has been installed, and no runtime has been
-adopted or executed. The immutable blank review contains zero decisions.
+Runtime candidate 001 received an exact owner `yes`, but its signed normal
+installer entered maintenance mode on an existing same-version Python product
+instead of creating the required isolated runtime. That activation is retained
+as `FAIL`; inspected existing-Python surfaces were restored, and no wheels,
+model imports, synthetic runs, or scientific work followed. Candidate 002 uses
+Python.org's official application-local embeddable ZIP with the unchanged
+20-package Windows CPU lock. It is source-ready, wholly unadopted, and its
+immutable blank review contains zero decisions.
 
 This is an engineering-control checkpoint candidate, not a scientific result.
 No Experiment Three model implementation, training run, checkpoint, inference,
 evaluation, metric, rendered result, tag, or release exists. The next action is
-an explicit owner `yes` or `no` for the exact runtime candidate; silence or a
-general endorsement cannot be treated as adoption.
+an explicit owner `yes` or `no` for exact successor candidate 002; candidate
+001's prior approval, silence, or a general endorsement cannot be treated as
+adoption.
 
 ## Research question
 

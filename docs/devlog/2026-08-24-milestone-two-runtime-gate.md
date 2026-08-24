@@ -27,8 +27,20 @@ downloaded, no package was installed, no candidate import ran, and no model or
 benchmark value was touched. The source gate passes for presenting this exact
 candidate to the owner, not for adopting it.
 
-The next evidence unit is one explicit `yes` or `no`. A `yes` permits exact
-Active-only download, hash/signature verification, isolated construction,
-license capture, and CPU/synthetic compatibility tests. It does not permit
-benchmark access or substantive training. A `no` rejects this candidate and
-leaves Milestone 2 blocked pending a separately approved alternative.
+The owner supplied one exact `yes`. The installer and Sigstore bundle matched
+their approved identities, but the installer detected an existing per-user
+CPython 3.12.10 product and entered maintenance `Modify` mode. Exit code 0
+therefore described a completed maintenance transaction, not construction of
+the requested Active-only runtime. The target had no `python.exe`; the route
+failed before wheel download or import. The same signed installer restored the
+specifically inspected existing-Python components, PATH/launcher integration,
+and registry feature state. The activation remains `FAIL` and closed.
+
+The smallest successor avoids Windows installation entirely: Python.org's
+official CPython 3.12.10 embeddable ZIP, application-locally extracted beneath
+`C:\Projects\Active`, with only the unchanged hash-locked wheels vendored
+alongside it. Its main uncertainty is real: embedded Python is not an ordinary
+pip-managed environment, so PyTorch, Rasterio, native DLL/data discovery,
+subprocess behavior, and deterministic replay must all pass fresh-process
+checks. The source gate is ready, but the new blank response has zero decisions.
+Candidate 001's `yes` cannot authorize candidate 002.

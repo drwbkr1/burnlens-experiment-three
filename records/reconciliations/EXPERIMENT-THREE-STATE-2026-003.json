@@ -9,22 +9,22 @@
     "verified_at_utc": "2026-08-24T01:26:35Z",
     "expires_at_utc": null
   },
-  "observed_at_utc": "2026-08-24T01:45:19Z",
+  "observed_at_utc": "2026-08-24T02:37:43Z",
   "live_facts": [
     {"id": "project.root", "status": "observed", "value": "C:\\Projects\\Active\\burnlens-experiment-three", "source_ref": "canonical checkout", "observed_at_utc": "2026-08-24T01:30:00Z"},
     {"id": "git.branch", "status": "observed", "value": "codex/synthetic-preflight-002", "source_ref": "git symbolic-ref --short HEAD", "observed_at_utc": "2026-08-24T01:30:00Z"},
-    {"id": "git.head", "status": "observed", "value": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4", "source_ref": "branch entry head", "observed_at_utc": "2026-08-24T01:30:00Z"},
+    {"id": "git.head", "status": "observed", "value": "c0bfcb515a1e9b91a3838b13fc504a8f5c972f9c", "source_ref": "current committed branch head before failure-disposition edits", "observed_at_utc": "2026-08-24T02:37:43Z"},
     {"id": "git.origin_main", "status": "observed", "value": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4", "source_ref": "GitHub ref and local origin/main", "observed_at_utc": "2026-08-24T01:30:00Z"},
     {"id": "checkpoint.accepted_main", "status": "observed", "value": {"commit": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4", "tree": "5b2bd2904b9164b8bd3c655998749cb024202148", "ci_run": 32679791900}, "source_ref": "merged PR 3, live main, tree comparison, and merge-triggered CI", "observed_at_utc": "2026-08-24T01:26:35Z"},
     {"id": "github.issue.4.state", "status": "observed", "value": "OPEN", "source_ref": "https://github.com/drwbkr1/burnlens-experiment-three/issues/4", "observed_at_utc": "2026-08-24T01:30:00Z"},
     {"id": "contract.active_id", "status": "observed", "value": "EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001", "source_ref": "profile 003 and issue 4", "observed_at_utc": "2026-08-24T01:30:00Z"},
     {"id": "scientific.outputs", "status": "observed", "value": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0}, "source_ref": "accepted M1 receipt and repository inventory", "observed_at_utc": "2026-08-24T01:30:00Z"},
-    {"id": "runtime.adoption", "status": "observed", "value": "none", "source_ref": "Exact runtime inventory and source gate pass for owner review; blank response retains zero decisions", "observed_at_utc": "2026-08-24T01:45:19Z"}
+    {"id": "runtime.adoption", "status": "observed", "value": "candidate_001_approved_activation_failed_candidate_002_unadopted", "source_ref": "Locked decision 001, activation failure 001, and blank successor review", "observed_at_utc": "2026-08-24T02:37:43Z"}
   ],
   "recorded_claims": [
     {"id": "profile.active_contract", "fact_id": "contract.active_id", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json", "scope": "current", "claimed_value": "EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001", "evidence_ref": "active_milestone_path"},
     {"id": "profile.current_branch", "fact_id": "git.branch", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json", "scope": "current", "claimed_value": "codex/synthetic-preflight-002", "evidence_ref": "current_checkpoint.expected_branch"},
-    {"id": "profile.current_head", "fact_id": "git.head", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json", "scope": "current", "claimed_value": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4", "evidence_ref": "current_checkpoint.expected_head"},
+    {"id": "profile.current_head", "fact_id": "git.head", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json", "scope": "current", "claimed_value": "c0bfcb515a1e9b91a3838b13fc504a8f5c972f9c", "evidence_ref": "current_checkpoint.expected_head"},
     {"id": "profile.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0}, "evidence_ref": "scientific_outputs"},
     {"id": "contract.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0}, "evidence_ref": "scientific_outputs"}
   ],
@@ -33,8 +33,10 @@
     "requested_action_class": "update_project_records",
     "intended_surfaces": ["docs/status/STATUS.md", "docs/roadmap/ROADMAP.md", "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json", "records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json"],
     "limitations": [
-      "Milestone 2 control activation, runtime inventory, source gate, and blank review create no runtime adoption authority.",
-      "No dependency installation, model execution, synthetic preflight, or scientific work has occurred.",
+      "Candidate 001 approval is preserved, but its activation failed and it is closed on this host.",
+      "The existing per-user Python was temporarily changed by installer maintenance and then restored on the specifically verified surfaces; recovery does not erase the retained failure.",
+      "Successor inventory, source gate, and blank review create no candidate 002 adoption authority.",
+      "No wheel installation, candidate import, model execution, synthetic preflight, or scientific work has occurred.",
       "The admitted benchmark remains inaccessible to synthetic inputs and cannot be used before later protocol gates."
     ]
   }

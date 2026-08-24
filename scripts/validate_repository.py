@@ -142,6 +142,9 @@ RUNTIME_BLANK_RESPONSE = Path(
     "records/decisions/reviews/"
     "EXPERIMENT-THREE-RUNTIME-ADOPTION-RESPONSE-BLANK-2026-001.json"
 )
+RUNTIME_ADOPTION_DECISION = Path(
+    "records/decisions/EXPERIMENT-THREE-RUNTIME-ADOPTION-DECISION-2026-001.json"
+)
 EXPECTED_RUNTIME_REVIEW_ID = "EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-2026-001"
 EXPECTED_RUNTIME_ITEM_ID = "exact-windows-cpu-runtime-candidate-001"
 EXPECTED_RUNTIME_INVENTORY_SHA256 = (
@@ -159,6 +162,49 @@ EXPECTED_RUNTIME_CONTRACT_SHA256 = (
 EXPECTED_RUNTIME_BLANK_SHA256 = (
     "45363c2a1d29200dab289031f9cfbd7a5811f4615f3a33a40629f05b2e37f039"
 )
+EXPECTED_RUNTIME_DECISION_SHA256 = (
+    "af559ec1ebeebea5338b5c8e8b0200dbb98026980111de56fbbfd4f364a8b4ee"
+)
+RUNTIME_ACTIVATION_FAILURE = Path(
+    "records/runtime/EXPERIMENT-THREE-RUNTIME-ACTIVATION-FAILURE-2026-001.json"
+)
+RUNTIME_SUCCESSOR_INVENTORY = Path(
+    "records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001.json"
+)
+RUNTIME_SUCCESSOR_SOURCE_GATE = Path(
+    "records/source-gates/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-SOURCE-GATE-2026-001.json"
+)
+RUNTIME_SUCCESSOR_REVIEW_ITEM = Path(
+    "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-ITEM-2026-001.json"
+)
+RUNTIME_SUCCESSOR_REVIEW_CONTRACT = Path(
+    "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-CONTRACT-2026-001.json"
+)
+RUNTIME_SUCCESSOR_BLANK_RESPONSE = Path(
+    "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-RESPONSE-BLANK-2026-001.json"
+)
+EXPECTED_RUNTIME_FAILURE_SHA256 = (
+    "a6f98a20371a1ee3a6ad36e7d272fc21fa952d41bf6a5fa9c6abdf28ed803512"
+)
+EXPECTED_RUNTIME_SUCCESSOR_INVENTORY_SHA256 = (
+    "ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967"
+)
+EXPECTED_RUNTIME_SUCCESSOR_SOURCE_GATE_SHA256 = (
+    "e8dcd17e040c846459090c42037b51e333f8d285286f8c94467c2ff62e9c42b3"
+)
+EXPECTED_RUNTIME_SUCCESSOR_ITEM_SHA256 = (
+    "f010073113c7268ba75c35a37dc5cded51c954af05f04fdb7f28d15c5175b615"
+)
+EXPECTED_RUNTIME_SUCCESSOR_CONTRACT_SHA256 = (
+    "bf50874168e2024f953f8748435f46f0b2554ca5beeff9ec701f5ce032f28d39"
+)
+EXPECTED_RUNTIME_SUCCESSOR_BLANK_SHA256 = (
+    "0e7b117acbfe1cf9517e1a05e2cf0bae39524123efea2b5907321196ba9b796b"
+)
+EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID = (
+    "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-2026-001"
+)
+EXPECTED_RUNTIME_SUCCESSOR_ITEM_ID = "exact-windows-cpu-runtime-successor-002"
 
 REQUIRED_FILES = (
     Path(".gitignore"),
@@ -199,6 +245,13 @@ REQUIRED_FILES = (
     RUNTIME_REVIEW_ITEM,
     RUNTIME_REVIEW_CONTRACT,
     RUNTIME_BLANK_RESPONSE,
+    RUNTIME_ADOPTION_DECISION,
+    RUNTIME_ACTIVATION_FAILURE,
+    RUNTIME_SUCCESSOR_INVENTORY,
+    RUNTIME_SUCCESSOR_SOURCE_GATE,
+    RUNTIME_SUCCESSOR_REVIEW_ITEM,
+    RUNTIME_SUCCESSOR_REVIEW_CONTRACT,
+    RUNTIME_SUCCESSOR_BLANK_RESPONSE,
     Path("records/prompt-build-log/2026-08-23-bootstrap.md"),
     Path("records/prompt-build-log/2026-08-24-milestone-one-intake.md"),
     Path("records/prompt-build-log/2026-08-24-milestone-two-runtime-gate.md"),
@@ -1572,6 +1625,7 @@ def check_runtime_adoption_review_preparation(root: Path) -> list[str]:
         RUNTIME_REVIEW_ITEM: EXPECTED_RUNTIME_ITEM_SHA256,
         RUNTIME_REVIEW_CONTRACT: EXPECTED_RUNTIME_CONTRACT_SHA256,
         RUNTIME_BLANK_RESPONSE: EXPECTED_RUNTIME_BLANK_SHA256,
+        RUNTIME_ADOPTION_DECISION: EXPECTED_RUNTIME_DECISION_SHA256,
     }
     errors: list[str] = []
     documents: dict[Path, dict[str, Any]] = {}
@@ -1676,6 +1730,39 @@ def check_runtime_adoption_review_preparation(root: Path) -> list[str]:
         if blank.get("responses") != [expected_response]:
             errors.append("runtime blank response must contain zero decisions")
 
+    resolved = documents.get(RUNTIME_ADOPTION_DECISION)
+    if resolved is not None:
+        if resolved.get("review_id") != EXPECTED_RUNTIME_REVIEW_ID:
+            errors.append("runtime adoption decision review_id changed")
+        if resolved.get("decision") != "yes":
+            errors.append("runtime adoption decision must equal yes")
+        aggregate = resolved.get("aggregate")
+        if not isinstance(aggregate, dict) or any(
+            aggregate.get(key) != value
+            for key, value in {
+                "expected_decisions": 1,
+                "received_decisions": 1,
+                "yes": 1,
+                "no": 0,
+                "ambiguous": 0,
+                "missing": 0,
+                "attestation_satisfied": True,
+                "exact_bundle_match": True,
+                "human_decisions_fabricated": False,
+            }.items()
+        ):
+            errors.append("runtime adoption aggregate is inconsistent")
+        locked = resolved.get("locked_review_evidence")
+        if not isinstance(locked, dict) or locked.get(
+            "raw_response_or_notes_committed"
+        ) is not False:
+            errors.append("runtime raw response and notes must remain private")
+        candidate = resolved.get("candidate_identity")
+        if not isinstance(candidate, dict) or candidate.get("inventory_sha256") != (
+            EXPECTED_RUNTIME_INVENTORY_SHA256
+        ):
+            errors.append("runtime adoption decision candidate binding changed")
+
     milestone_path = root / SYNTHETIC_PREFLIGHT_MILESTONE
     if milestone_path.is_file():
         try:
@@ -1690,12 +1777,149 @@ def check_runtime_adoption_review_preparation(root: Path) -> list[str]:
                 if isinstance(gate, dict)
                 and gate.get("id") == "M2-GATE-DEPENDENCY-RUNTIME"
             ]
-            if len(selected) != 1 or selected[0].get("status") != "waiting_for_owner":
-                errors.append("M2 runtime gate must be waiting_for_owner")
+            if len(selected) != 1 or selected[0].get("status") != "passed":
+                errors.append("M2 runtime gate must record the resolved pass")
             elif selected[0].get("review_preparation", {}).get(
                 "human_decisions_created"
-            ) != 0:
-                errors.append("M2 runtime review must record zero human decisions")
+            ) != 1:
+                errors.append("M2 runtime review must record one human decision")
+
+    return errors
+
+
+def check_runtime_failure_and_successor_review(root: Path) -> list[str]:
+    """Retain candidate 001 failure and keep candidate 002 exact and unadopted."""
+
+    expectations = {
+        RUNTIME_ACTIVATION_FAILURE: EXPECTED_RUNTIME_FAILURE_SHA256,
+        RUNTIME_SUCCESSOR_INVENTORY: EXPECTED_RUNTIME_SUCCESSOR_INVENTORY_SHA256,
+        RUNTIME_SUCCESSOR_SOURCE_GATE: EXPECTED_RUNTIME_SUCCESSOR_SOURCE_GATE_SHA256,
+        RUNTIME_SUCCESSOR_REVIEW_ITEM: EXPECTED_RUNTIME_SUCCESSOR_ITEM_SHA256,
+        RUNTIME_SUCCESSOR_REVIEW_CONTRACT: EXPECTED_RUNTIME_SUCCESSOR_CONTRACT_SHA256,
+        RUNTIME_SUCCESSOR_BLANK_RESPONSE: EXPECTED_RUNTIME_SUCCESSOR_BLANK_SHA256,
+    }
+    errors: list[str] = []
+    documents: dict[Path, dict[str, Any]] = {}
+    for relative, expected_sha in expectations.items():
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"runtime successor file is missing: {relative.as_posix()}")
+            continue
+        raw = path.read_bytes()
+        if _repository_text_sha256(raw) != expected_sha:
+            errors.append(f"runtime successor file hash changed: {relative.as_posix()}")
+        try:
+            value = json.loads(raw.decode("utf-8"))
+        except (UnicodeError, json.JSONDecodeError):
+            errors.append(f"runtime successor file must be UTF-8 JSON: {relative.as_posix()}")
+            continue
+        if not isinstance(value, dict):
+            errors.append(f"runtime successor file must be a JSON object: {relative.as_posix()}")
+            continue
+        documents[relative] = value
+
+    failure = documents.get(RUNTIME_ACTIVATION_FAILURE)
+    if failure is not None:
+        if failure.get("disposition") != "fail" or failure.get("route_status") != "closed_on_this_host":
+            errors.append("runtime candidate 001 must remain failed and closed")
+        attempt = failure.get("attempt")
+        if not isinstance(attempt, dict) or any(
+            attempt.get(key) != expected
+            for key, expected in {
+                "process_exit_code": 0,
+                "target_python_present": False,
+                "installer_action": "Modify",
+                "package_sync_started": False,
+                "wheels_downloaded": 0,
+                "candidate_imports_executed": 0,
+            }.items()
+        ):
+            errors.append("runtime candidate 001 failure facts changed")
+        recovery = failure.get("recovery")
+        if not isinstance(recovery, dict) or recovery.get("status") != "pass":
+            errors.append("runtime candidate 001 recovery status must remain scoped pass")
+        scientific = failure.get("scientific_boundary")
+        if not isinstance(scientific, dict) or any(
+            scientific.get(key) != expected
+            for key, expected in {
+                "synthetic_preflight_started": False,
+                "benchmark_accessed": False,
+                "training_runs": 0,
+                "checkpoints": 0,
+                "inference_runs": 0,
+                "evaluations": 0,
+            }.items()
+        ):
+            errors.append("runtime activation failure must preserve zero scientific work")
+
+    inventory = documents.get(RUNTIME_SUCCESSOR_INVENTORY)
+    if inventory is not None:
+        if inventory.get("candidate_id") != "CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002":
+            errors.append("runtime successor identity changed")
+        for field, expected in {
+            "adopted": False,
+            "downloaded_runtime_artifacts": 0,
+            "installed_packages": 0,
+            "executed_candidate_imports": 0,
+            "scientific_work_started": False,
+        }.items():
+            if inventory.get(field) != expected:
+                errors.append(f"runtime successor inventory {field} must equal {expected!r}")
+        python_record = inventory.get("python")
+        if not isinstance(python_record, dict) or python_record.get("artifact_sha256") != "4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3":
+            errors.append("runtime successor embeddable ZIP identity changed")
+        package_plan = inventory.get("package_plan")
+        if not isinstance(package_plan, dict) or package_plan.get("private_lock_sha256") != "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081":
+            errors.append("runtime successor must retain the exact wheel lock")
+
+    source_gate = documents.get(RUNTIME_SUCCESSOR_SOURCE_GATE)
+    if source_gate is not None:
+        decision = source_gate.get("decision")
+        if not isinstance(decision, dict) or decision.get("status") != "ready":
+            errors.append("runtime successor source gate must remain ready")
+        scope = source_gate.get("scope_dispositions")
+        if not isinstance(scope, dict) or scope.get("download_extract_vendor_or_execute") != "blocked_until_explicit_M2_U004C_yes":
+            errors.append("runtime successor source gate must block activation until exact yes")
+
+    expected_binding = {
+        "item_id": EXPECTED_RUNTIME_SUCCESSOR_ITEM_ID,
+        "evidence_sha256": EXPECTED_RUNTIME_SUCCESSOR_INVENTORY_SHA256,
+    }
+    item = documents.get(RUNTIME_SUCCESSOR_REVIEW_ITEM)
+    if item is not None:
+        if item.get("review_id") != EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID or item.get("item_id") != EXPECTED_RUNTIME_SUCCESSOR_ITEM_ID or item.get("evidence_sha256") != EXPECTED_RUNTIME_SUCCESSOR_INVENTORY_SHA256:
+            errors.append("runtime successor review item binding changed")
+        if set(item.get("allowed_decisions", {})) != {"yes", "no"}:
+            errors.append("runtime successor review must define only yes/no")
+
+    contract = documents.get(RUNTIME_SUCCESSOR_REVIEW_CONTRACT)
+    if contract is not None:
+        if contract.get("review_id") != EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID or contract.get("items") != [expected_binding] or contract.get("allowed_decisions") != ["yes", "no"] or contract.get("required_attestation") is not True:
+            errors.append("runtime successor review contract changed")
+
+    blank = documents.get(RUNTIME_SUCCESSOR_BLANK_RESPONSE)
+    if blank is not None:
+        expected_response = dict(expected_binding, decision=None, notes="")
+        if blank.get("review_id") != EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID or blank.get("completed") is not False or blank.get("reviewer") != {"attestation": False} or blank.get("responses") != [expected_response]:
+            errors.append("runtime successor blank response must contain zero decisions")
+
+    milestone_path = root / SYNTHETIC_PREFLIGHT_MILESTONE
+    if milestone_path.is_file():
+        try:
+            milestone = json.loads(milestone_path.read_text(encoding="utf-8"))
+        except (UnicodeError, json.JSONDecodeError):
+            milestone = None
+        if isinstance(milestone, dict):
+            units = {unit.get("id"): unit for unit in milestone.get("units", []) if isinstance(unit, dict)}
+            failed = units.get("M2-U004-LOCKED-RUNTIME-ACTIVATION", {})
+            successor = units.get("M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION", {})
+            if failed.get("status") != "failed" or failed.get("disposition") != "remediate":
+                errors.append("M2 must retain candidate 001 activation as failed with remediation disposition")
+            if successor.get("status") != "ready" or successor.get("human_gate") is not True:
+                errors.append("M2 successor decision must be the sole ready human gate")
+            gates = [gate for gate in milestone.get("human_gates", []) if isinstance(gate, dict) and gate.get("id") == "M2-GATE-DEPENDENCY-RUNTIME-SUCCESSOR"]
+            if len(gates) != 1 or gates[0].get("status") != "ready_for_review" or gates[0].get("review_preparation", {}).get("human_decisions_created") != 0:
+                errors.append("M2 successor gate must remain prepared with zero decisions")
 
     return errors
 
@@ -1712,6 +1936,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_owner_rights_review_preparation,
         check_milestone_one_admission_chain,
         check_runtime_adoption_review_preparation,
+        check_runtime_failure_and_successor_review,
     )
     errors: list[str] = []
     for check in checks:

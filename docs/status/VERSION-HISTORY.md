@@ -7,7 +7,7 @@ published releases. A version string does not by itself prove a release.
 | --- | --- | --- | --- | --- | --- |
 | `0.0.0-bootstrap` | 2026-08-23 | Accepted checkpoint; not a release | `4543a2dad5c2630249906aab763ae0cbf91097ba` | Governance, documentation, repository controls, and CI bootstrap only | None |
 | `0.1.0` | 2026-08-24 | Accepted checkpoint; not a release | `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4` | Hash-bound rights, source gate, readiness, and external controlled intake | None |
-| `0.2.0-m2-runtime-gate` | 2026-08-24 | Working-tree candidate; not accepted or released | Pending candidate commit | Synthetic-preflight controls and exact runtime owner gate | None |
+| `0.2.0-m2-runtime-gate` | 2026-08-24 | Active branch candidate; not accepted or released | `c0bfcb515a1e9b91a3838b13fc504a8f5c972f9c` plus uncommitted failure disposition | Synthetic-preflight controls, retained runtime activation failure, and exact successor owner gate | None |
 
 ## Incoming state
 
@@ -51,12 +51,18 @@ was closed after live verification.
 
 Issue [#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4)
 tracks synthetic preflight from the exact accepted Milestone 1 base. The
-working tree binds one CPython 3.12.10 / uv 0.10.7 / PyTorch 2.13.0+cpu
-Windows x64 candidate and its 20-package lock. Its source gate passes for
-owner review, but the immutable response remains blank. No runtime artifact has
-been downloaded or installed and no synthetic or scientific execution has
-begun. This candidate is not yet committed, reviewed, accepted, tagged, or
-released.
+branch first bound candidate 001 and its 20-package lock. One exact owner `yes`
+was locked and reconciled, and the exact signed installer entered controlled
+intake. Activation then `FAIL`ed: the same-version installer modified an
+existing per-user Python product instead of creating the isolated Active-only
+runtime. Inspected existing-install surfaces were restored, and no wheel sync,
+model import, synthetic execution, or scientific work began.
+
+Candidate 002 replaces only the interpreter artifact and construction route
+with Python.org's application-local embeddable ZIP while retaining the exact
+wheel lock. Its source gate is ready, but the immutable successor response is
+blank. This failure-disposition and successor-gate update is not yet committed,
+reviewed, accepted, tagged, or released.
 
 ## Versioning rules
 

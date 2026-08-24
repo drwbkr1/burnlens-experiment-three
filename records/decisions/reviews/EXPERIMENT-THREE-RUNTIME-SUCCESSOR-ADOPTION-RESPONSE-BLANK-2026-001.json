@@ -1,0 +1,18 @@
+{
+  "response_schema_version": "experiment-three-runtime-adoption-response-v1",
+  "review_id": "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-2026-001",
+  "completed": false,
+  "review_started_at_utc": null,
+  "review_completed_at_utc": null,
+  "reviewer": {
+    "attestation": false
+  },
+  "responses": [
+    {
+      "item_id": "exact-windows-cpu-runtime-successor-002",
+      "evidence_sha256": "ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967",
+      "decision": null,
+      "notes": ""
+    }
+  ]
+}

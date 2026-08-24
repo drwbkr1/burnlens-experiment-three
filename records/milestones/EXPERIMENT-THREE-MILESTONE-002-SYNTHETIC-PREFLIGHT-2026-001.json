@@ -65,10 +65,12 @@
       "CHANGELOG.md",
       "VERSION",
       "C:\\Projects\\Active\\burnlens-experiment-three-custody\\synthetic-preflight",
-      "C:\\Projects\\Active\\burnlens-experiment-three-runtime"
+      "C:\\Projects\\Active\\burnlens-experiment-three-runtime",
+      "C:\\Projects\\Active\\burnlens-experiment-three-private"
     ],
     "forbidden_work": [
-      "Install, download, adopt, import, or execute a materially new external dependency runtime before M2-U003 passes",
+      "Download, extract, vendor, adopt, import, or execute successor candidate 002 before M2-U004C passes",
+      "Retry candidate 001 or use its installer to create the Experiment Three runtime",
       "Use any Experiment One benchmark pixel value as synthetic input, target, training, threshold, or evaluation evidence",
       "Open the known test for Experiment Three evaluation",
       "Create a substantive training run, scientific checkpoint, inference run, evaluation, metric, render, tag, or release",
@@ -93,8 +95,8 @@
     {
       "id": "M2-BARRIER-RUNTIME",
       "status": "active",
-      "required_before": "M2-U004-LOCKED-RUNTIME-ACTIVATION",
-      "resolution": "One exact owner-approved runtime candidate from M2-U002"
+      "required_before": "M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION",
+      "resolution": "The first approved route failed closed; one fresh exact owner-approved successor from M2-U004C must activate and pass before dependent work"
     },
     {
       "id": "M2-BARRIER-BENCHMARK",
@@ -106,7 +108,7 @@
   "human_gates": [
     {
       "id": "M2-GATE-DEPENDENCY-RUNTIME",
-      "status": "waiting_for_owner",
+      "status": "passed",
       "unit_id": "M2-U003-RUNTIME-ADOPTION-DECISION",
       "purpose": "Approve or reject one exact dependency/runtime candidate after its identity, source, license, custody, reproducibility, and compatibility are known.",
       "review_preparation": {
@@ -121,14 +123,43 @@
         "review_contract_sha256": "b0743b466904a2580c90d4df7b8806e70eae1535a1702e14e6245eb30bbb18ce",
         "blank_response_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-RESPONSE-BLANK-2026-001.json",
         "blank_response_sha256": "45363c2a1d29200dab289031f9cfbd7a5811f4615f3a33a40629f05b2e37f039",
-        "human_decisions_created": 0,
-        "handoff_state": "ready_to_handoff_and_wait"
+        "human_decisions_created": 1,
+        "handoff_state": "completed_locked_and_reconciled",
+        "decision_record": "records/decisions/EXPERIMENT-THREE-RUNTIME-ADOPTION-DECISION-2026-001.json",
+        "decision_sha256": "af559ec1ebeebea5338b5c8e8b0200dbb98026980111de56fbbfd4f364a8b4ee"
       },
       "cannot_be_inferred_from": [
         "The approved use of CPU PyTorch in the scientific direction",
         "A runtime already installed for another project",
         "Successful import or version output",
         "Prior Experiment One or Experiment Two use"
+      ]
+    },
+    {
+      "id": "M2-GATE-DEPENDENCY-RUNTIME-SUCCESSOR",
+      "status": "ready_for_review",
+      "unit_id": "M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION",
+      "purpose": "Approve or reject the materially different official embeddable-package successor after retaining the failed installer route and binding exact identity, source, custody, construction, and compatibility risks.",
+      "review_preparation": {
+        "review_id": "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-2026-001",
+        "inventory_path": "records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001.json",
+        "inventory_sha256": "ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967",
+        "source_gate_path": "records/source-gates/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-SOURCE-GATE-2026-001.json",
+        "source_gate_sha256": "e8dcd17e040c846459090c42037b51e333f8d285286f8c94467c2ff62e9c42b3",
+        "review_item_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-ITEM-2026-001.json",
+        "review_item_sha256": "f010073113c7268ba75c35a37dc5cded51c954af05f04fdb7f28d15c5175b615",
+        "review_contract_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-CONTRACT-2026-001.json",
+        "review_contract_sha256": "bf50874168e2024f953f8748435f46f0b2554ca5beeff9ec701f5ce032f28d39",
+        "blank_response_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-RESPONSE-BLANK-2026-001.json",
+        "blank_response_sha256": "0e7b117acbfe1cf9517e1a05e2cf0bae39524123efea2b5907321196ba9b796b",
+        "human_decisions_created": 0,
+        "handoff_state": "prepared_blank_waiting_for_owner"
+      },
+      "cannot_be_inferred_from": [
+        "The owner yes for failed candidate 001",
+        "Successful rollback of the existing Python installation",
+        "The successor source gate being ready",
+        "The unchanged wheel lock"
       ]
     }
   ],
@@ -197,13 +228,13 @@
       "depends_on": ["M2-U002-RUNTIME-CANDIDATE-INVENTORY"],
       "action_class": "external_source_model_runtime_or_service_adoption",
       "human_gate": true,
-      "status": "ready",
+      "status": "complete",
       "inputs": ["Runtime inventory SHA-256 68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05", "Source gate READY with 4 sources, 32 required criteria, and zero blockers or warnings", "Prepared exact blank response with zero human decisions"],
-      "outputs": ["Locked and reconciled runtime decision"],
-      "gates": {"explicit_owner_response": "pending", "exact_candidate_binding": "pending", "no_inferred_adoption": "pending"},
-      "disposition": null,
+      "outputs": ["records/decisions/EXPERIMENT-THREE-RUNTIME-ADOPTION-DECISION-2026-001.json", "Private exact response, lock receipt, and reconciliation retained under Active-only custody"],
+      "gates": {"explicit_owner_response": "pass_yes", "exact_candidate_binding": "pass", "no_inferred_adoption": "pass"},
+      "disposition": "pass",
       "retained_failures": [],
-      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "unknown", "rationale": "Human decision pending."},
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "enables_dependency", "rationale": "One exact attested owner yes was locked before reveal and reconciled against the immutable runtime inventory. It authorizes only exact M2-U004 activation and does not itself prove runtime fitness or complete the runtime exit."},
       "next_dependency": "M2-U004-LOCKED-RUNTIME-ACTIVATION"
     },
     {
@@ -212,19 +243,64 @@
       "depends_on": ["M2-U003-RUNTIME-ADOPTION-DECISION"],
       "action_class": "synthetic_preflight",
       "human_gate": false,
-      "status": "planned",
+      "status": "failed",
       "inputs": ["Approved exact runtime candidate"],
-      "outputs": ["Lock, environment capture, import receipt, deterministic CPU receipt"],
-      "gates": {"approved_identity_only": "pending", "isolated_custody": "pending", "exact_lock": "pending", "cpu_only": "pending"},
+      "outputs": ["records/runtime/EXPERIMENT-THREE-RUNTIME-ACTIVATION-FAILURE-2026-001.json", "Private exact installer/Sigstore intake", "Private failed-transaction and recovery logs"],
+      "gates": {"approved_identity_only": "pass", "isolated_custody": "fail", "exact_lock": "not_reached", "cpu_only": "not_reached", "existing_install_recovery": "pass"},
+      "disposition": "remediate",
+      "retained_failures": ["The approved same-version installer entered Modify maintenance mode on the existing per-user CPython instead of constructing the requested Active-only runtime; exit code 0 was not activation success."],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "risk_reduction", "rationale": "The exact candidate is non-executable as an isolated side-by-side install on this host. Recovery restored inspected existing-Python surfaces, but cannot convert the candidate activation to a pass."},
+      "next_dependency": "M2-U004B-RUNTIME-SUCCESSOR-INVENTORY"
+    },
+    {
+      "id": "M2-U004B-RUNTIME-SUCCESSOR-INVENTORY",
+      "purpose": "Inventory the smallest materially distinct application-local runtime route read-only after retaining candidate 001's failure.",
+      "depends_on": ["M2-U004-LOCKED-RUNTIME-ACTIVATION"],
+      "action_class": "read_only_inspection",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Candidate 001 failure record", "Official CPython 3.12.10 release metadata", "Unchanged approved wheel lock"],
+      "outputs": ["records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001.json", "records/source-gates/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-SOURCE-GATE-2026-001.json", "Exact blank successor owner review"],
+      "gates": {"failure_retained": "pass", "no_download_or_execution": "pass", "exact_successor_identity": "pass", "source_gate": "ready", "prior_yes_not_carried_forward": "pass"},
+      "disposition": "pass",
+      "retained_failures": ["Candidate 001 activation remains FAIL and closed."],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "enables_dependency", "rationale": "The official embeddable package avoids Windows installer maintenance, but its application-local native-package fitness remains unproven and requires fresh exact owner approval."},
+      "next_dependency": "M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION"
+    },
+    {
+      "id": "M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION",
+      "purpose": "Obtain an explicit owner decision for the exact embeddable-package successor without inferring it from candidate 001 approval.",
+      "depends_on": ["M2-U004B-RUNTIME-SUCCESSOR-INVENTORY"],
+      "action_class": "external_source_model_runtime_or_service_adoption",
+      "human_gate": true,
+      "status": "ready",
+      "inputs": ["Successor inventory SHA-256 ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967", "Successor source gate READY", "Prepared blank response with zero decisions"],
+      "outputs": ["One exact locked yes/no decision or terminal rejection"],
+      "gates": {"explicit_owner_response": "pending", "exact_candidate_binding": "pass", "no_inferred_adoption": "pass"},
       "disposition": null,
-      "retained_failures": [],
-      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "unknown", "rationale": "Blocked by dependency decision."},
+      "retained_failures": ["Candidate 001 activation remains FAIL and cannot authorize candidate 002."],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "unknown", "rationale": "A materially new interpreter artifact and packaging route require an exact fresh decision."},
+      "next_dependency": "M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION"
+    },
+    {
+      "id": "M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION",
+      "purpose": "After an exact yes only, construct and validate the application-local successor under Active without benchmark access or existing-Python mutation.",
+      "depends_on": ["M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION"],
+      "action_class": "synthetic_preflight",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["Explicit owner-approved successor only"],
+      "outputs": ["Exact intake and extraction receipts", "Vendored-wheel and license capture", "Fresh-process import, CPU, native DLL/data, subprocess, deterministic, and synthetic compatibility receipts"],
+      "gates": {"approved_identity_only": "pending", "application_local_custody": "pending", "exact_lock": "pending", "native_imports": "pending", "cpu_only": "pending", "existing_python_unchanged": "pending"},
+      "disposition": null,
+      "retained_failures": ["Candidate 001 activation remains FAIL and closed."],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "unknown", "rationale": "Blocked by the successor owner decision."},
       "next_dependency": "M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION"
     },
     {
       "id": "M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION",
       "purpose": "Implement the fixed detector, safe state-dict package, synthetic generator, deterministic replay command, and tests without benchmark values.",
-      "depends_on": ["M2-U004-LOCKED-RUNTIME-ACTIVATION"],
+      "depends_on": ["M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION"],
       "action_class": "software_implementation",
       "human_gate": false,
       "status": "planned",
@@ -290,11 +366,11 @@
   "verification": {
     "changed_risks": ["dependency runtime", "neural implementation", "model serialization", "synthetic rendered evidence", "public claims"],
     "required_checks": ["repository controls", "profile and milestone schemas", "runtime identity and lock", "parameter and gradient audit", "safe fresh-process reload", "exact synthetic replay", "rendered proof review", "zero scientific outputs", "live PR and main verification"],
-    "completed_checks": ["Accepted Milestone 1 live-main identity and merge-triggered CI verified", "Runtime candidate inventory exact identities and private lock bound without adoption", "Runtime source gate valid and ready with 4 sources, 32 criteria, zero blockers, and zero warnings", "Human-review protocol self-test passed and blank response contains zero decisions"]
+    "completed_checks": ["Accepted Milestone 1 live-main identity and merge-triggered CI verified", "Runtime candidate 001 explicit owner yes locked and reconciled", "Candidate 001 official installer and Sigstore intake verified", "Candidate 001 activation retained as FAIL after maintenance-mode misroute; inspected existing-Python surfaces restored", "Successor candidate 002 source gate valid and ready with one materially new source plus three unchanged inherited sources", "Human-review protocol self-test passed and successor blank response contains zero decisions"]
   },
   "handoff": {
-    "current_checkpoint": "Milestone 1 is accepted at live main 32e5b0d. Milestone 2 has one exact source-ready runtime candidate and an immutable blank owner review. No candidate artifact has been downloaded or installed, no runtime has been adopted, and no synthetic or scientific execution has begun.",
-    "next_action": "Wait for the explicit M2-U003 yes/no owner decision bound to runtime inventory SHA-256 68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05. Do not infer a decision or begin activation.",
+    "current_checkpoint": "Candidate 001 received an explicit owner yes, but exact activation failed because the same-version Windows installer entered maintenance mode on an existing Python installation. Recovery passed for inspected surfaces, the failed route is closed, and no wheel sync, synthetic execution, or scientific work began. Candidate 002 is a read-only source-ready application-local embeddable-package successor with zero human decisions.",
+    "next_action": "Wait for an explicit M2-U004C yes/no decision bound to successor inventory SHA-256 ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967. Do not carry forward the candidate 001 yes or download, extract, vendor, or execute candidate 002 before that decision.",
     "do_not_carry_forward": [
       "Any Experiment One benchmark value into synthetic inputs, targets, or evidence",
       "Any unapproved dependency runtime or environment",

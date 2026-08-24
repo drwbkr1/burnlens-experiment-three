@@ -273,7 +273,7 @@ class RepositoryControlTests(unittest.TestCase):
             self.assertTrue(any("decision record hash changed" in error for error in errors))
             self.assertTrue(any("aggregate is inconsistent" in error for error in errors))
 
-    def test_runtime_adoption_review_remains_exact_and_blank(self) -> None:
+    def test_runtime_candidate_001_decision_and_original_blank_remain_exact(self) -> None:
         self.assertEqual([], validator.check_runtime_adoption_review_preparation(ROOT))
 
         with tempfile.TemporaryDirectory() as temporary:
@@ -299,6 +299,38 @@ class RepositoryControlTests(unittest.TestCase):
             )
 
             errors = validator.check_runtime_adoption_review_preparation(root)
+            self.assertTrue(any("file hash changed" in error for error in errors))
+            self.assertTrue(any("zero decisions" in error for error in errors))
+
+    def test_runtime_failure_and_successor_review_remain_exact(self) -> None:
+        self.assertEqual([], validator.check_runtime_failure_and_successor_review(ROOT))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = (
+                validator.SYNTHETIC_PREFLIGHT_MILESTONE,
+                validator.RUNTIME_ACTIVATION_FAILURE,
+                validator.RUNTIME_SUCCESSOR_INVENTORY,
+                validator.RUNTIME_SUCCESSOR_SOURCE_GATE,
+                validator.RUNTIME_SUCCESSOR_REVIEW_ITEM,
+                validator.RUNTIME_SUCCESSOR_REVIEW_CONTRACT,
+                validator.RUNTIME_SUCCESSOR_BLANK_RESPONSE,
+            )
+            for relative in paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+
+            blank_path = root / validator.RUNTIME_SUCCESSOR_BLANK_RESPONSE
+            blank = json.loads(blank_path.read_text(encoding="utf-8"))
+            blank["responses"][0]["decision"] = "yes"
+            blank["completed"] = True
+            blank["reviewer"]["attestation"] = True
+            blank_path.write_text(
+                json.dumps(blank, indent=2) + "\n", encoding="utf-8"
+            )
+
+            errors = validator.check_runtime_failure_and_successor_review(root)
             self.assertTrue(any("file hash changed" in error for error in errors))
             self.assertTrue(any("zero decisions" in error for error in errors))
 

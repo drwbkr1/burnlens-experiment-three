@@ -21,7 +21,9 @@
     },
     "custody_roots": [
       "C:\\Projects\\Active\\burnlens-experiment-three",
-      "C:\\Projects\\Active\\burnlens-experiment-three-custody"
+      "C:\\Projects\\Active\\burnlens-experiment-three-custody",
+      "C:\\Projects\\Active\\burnlens-experiment-three-private",
+      "C:\\Projects\\Active\\burnlens-experiment-three-runtime"
     ],
     "forbidden_roots": [
       "C:\\Users\\drewb\\OneDrive"
@@ -166,6 +168,11 @@
         "unit_id": "M2-U003-RUNTIME-ADOPTION-DECISION",
         "reason": "The exact dependency runtime is a materially new external dependency/runtime adoption and must be approved after a read-only candidate inventory.",
         "authority_ref": "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md"
+      },
+      {
+        "unit_id": "M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION",
+        "reason": "Candidate 001 failed activation; candidate 002 changes the exact interpreter artifact and application-local package construction route, so the earlier yes cannot authorize it.",
+        "authority_ref": "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md"
       }
     ],
     "amendment_required_to_change_active_gate": true
@@ -173,10 +180,10 @@
   "current_checkpoint": {
     "checkpoint_id": "MILESTONE-001-ACCEPTED-2026-08-24",
     "expected_branch": "codex/synthetic-preflight-002",
-    "expected_head": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4",
+    "expected_head": "c0bfcb515a1e9b91a3838b13fc504a8f5c972f9c",
     "accepted_main_head": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4",
     "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/4",
-    "candidate_status": "Milestone 1 accepted and live-verified; Milestone 2 runtime candidate inventory and source gate pass for owner review, with no candidate artifact downloaded or installed, no runtime adopted, and no synthetic or scientific execution yet",
-    "next_action": "Wait for the explicit M2-U003 yes/no owner response bound to inventory SHA-256 68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05; do not infer adoption or begin runtime activation"
+    "candidate_status": "Milestone 1 accepted and live-verified; runtime candidate 001 was explicitly approved but activation failed closed after the same-version installer entered maintenance mode on existing Python. Recovery passed for inspected surfaces. Candidate 002 is source-ready and wholly unadopted; zero synthetic or scientific execution has begun.",
+    "next_action": "Obtain an explicit yes/no for exact successor candidate 002 bound to inventory ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967; do not infer approval from candidate 001 or begin activation"
   }
 }

@@ -140,23 +140,38 @@ overwrite.
   reference. This decision creates no training, evaluation, redistribution, or
   scientific-claim authority.
 
+### E3-DEC-0012 - Exact runtime candidate 001 adoption
+
+- **Date prepared:** 2026-08-24
+- **State:** `APPROVED: yes`; one exact attested decision locked and reconciled
+- **Decision:** Adopt candidate
+  `CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001`, bound to
+  runtime inventory SHA-256
+  `68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05`.
+- **Boundary:** The `yes` authorized only exact Active-only download,
+  verification, isolated installation, license capture, and CPU/synthetic
+  compatibility checks; no benchmark or substantive scientific work.
+- **Outcome:** Activation `FAIL`. The installer entered same-version maintenance
+  mode on existing Python and did not create the requested isolated runtime.
+  Recovery passed for inspected existing-install surfaces. The candidate is
+  closed on this host; approval is preserved and cannot be reassigned.
+
 ## Decisions still pending evidence or binding
 
-### E3-DEC-PENDING-0012 - Exact runtime adoption
+### E3-DEC-PENDING-0013 - Exact runtime successor adoption
 
 - **Date prepared:** 2026-08-24
 - **State:** `PENDING`; zero human decisions recorded
 - **Question:** Approve or reject candidate
-  `CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001`, bound to
+  `CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002`, bound to
   runtime inventory SHA-256
-  `68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05`.
-- **Boundary:** A `yes` would authorize only exact Active-only download,
-  verification, isolated installation, license capture, and CPU/synthetic
-  compatibility checks. A `no` rejects the candidate. Neither authorizes
-  benchmark access or substantive scientific work.
-- **Non-inference rule:** The approved CPU PyTorch direction, another project's
-  installed environment, successful metadata resolution, silence, or general
-  chat cannot substitute for the exact response.
+  `ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967`.
+- **Boundary:** A `yes` would authorize only exact Active-only application-local
+  extraction, vendoring of the unchanged locked wheels, license capture, and
+  CPU/native-package/synthetic compatibility checks. A `no` rejects it.
+- **Non-inference rule:** Candidate 001's `yes`, successful recovery, the
+  unchanged wheel lock, silence, or general chat cannot substitute for this
+  exact response.
 
 Exact implementation bindings, the executable protocol artifact, and every
 scientific outcome remain pending their gated milestones. Their absence does

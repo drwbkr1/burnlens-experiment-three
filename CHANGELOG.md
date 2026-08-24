@@ -36,6 +36,19 @@ semantic versioning once a first release exists.
   observed uv 0.10.7 tool, and a 20-package lock led by PyTorch 2.13.0+cpu.
 - A four-source runtime gate with 32 required criteria and an immutable,
   one-item blank owner-adoption response containing zero decisions.
+- A public aggregate exact `yes` decision for runtime candidate 001, private
+  signed-installer/Sigstore intake, and an immutable activation-failure record.
+- A source-ready application-local successor using the official CPython 3.12.10
+  embeddable ZIP and unchanged 20-wheel lock, plus a new blank exact owner
+  review containing zero decisions.
+
+### Changed
+
+- Closed the approved normal-installer route after it entered maintenance mode
+  on an existing same-version Python installation instead of creating the
+  required isolated runtime. Restored and verified the specifically inspected
+  existing-install surfaces; no wheel sync, model import, synthetic execution,
+  or scientific work began.
 
 ### Verified
 
@@ -88,13 +101,18 @@ semantic versioning once a first release exists.
   sources, 32 criteria, 12 live observations, zero blockers, and zero warnings.
 - Passed the human-review protocol self-test and prepared one exact runtime
   response with one item and zero decisions.
+- Locked and reconciled one exact owner `yes` for candidate 001; verified its
+  official installer, Sigstore digest, and Authenticode signer before use.
+- Retained the activation `FAIL`, restored the specifically inspected
+  existing-Python surfaces, and validated the source-ready successor gate and
+  new zero-decision review.
 
 ### In progress
 
-- Milestone 2 awaits an explicit owner `yes` or `no` for the exact runtime
-  candidate. No candidate artifact has been downloaded or installed, no
-  runtime has been adopted, and all synthetic and scientific execution remains
-  unstarted.
+- Milestone 2 awaits an explicit owner `yes` or `no` for exact successor
+  candidate 002. No successor artifact has been downloaded or executed, no
+  Experiment Three runtime has activated, and all synthetic and scientific
+  execution remains unstarted.
 
 ### Not added
 

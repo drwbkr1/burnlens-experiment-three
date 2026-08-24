@@ -8,8 +8,8 @@
 | Working version | `0.2.0-m2-runtime-gate` (unreleased) |
 | Accepted checkpoint | `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4` on live `main` |
 | Active work | Milestone 2, issue [#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4) |
-| Active review | Exact runtime adoption review; blank response has zero decisions |
-| Overall state | Milestone 1 accepted; one exact source-ready CPU runtime candidate awaits explicit owner approval before any download, installation, adoption, or execution |
+| Active review | Exact runtime successor review; blank response has zero decisions |
+| Overall state | Candidate 001 was explicitly approved but failed activation; inspected existing-Python surfaces were restored. Candidate 002 is source-ready but requires a fresh exact owner decision before download or execution. |
 
 ## Current truth
 
@@ -31,7 +31,12 @@ Issue #2 is closed. There are still zero tags and zero releases.
 | Experiment Three dataset count | `1` | One retrospective benchmark input admitted to external controlled custody; no benchmark byte committed to Git |
 | Runtime candidate inventory | `PASS FOR OWNER REVIEW` | Exact CPython 3.12.10 / uv 0.10.7 / PyTorch 2.13.0+cpu Windows x64 candidate; 20 effective packages; private lock SHA-256 `66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081` |
 | Runtime source gate | `READY` | Four sources, 32 required criteria, 12 live observations, zero blockers or warnings; this creates no adoption authority |
-| Runtime adoption | `PENDING OWNER YES/NO` | Blank response prepared with one item and zero decisions; no artifact downloaded or installed |
+| Runtime candidate 001 adoption | `PASS: yes`, scoped | One exact attested owner response was locked and reconciled; public aggregate decision SHA-256 `af559ec1ebeebea5338b5c8e8b0200dbb98026980111de56fbbfd4f364a8b4ee` |
+| Runtime candidate 001 activation | `FAIL`, route closed | The signed installer entered same-version maintenance mode on existing Python instead of creating the Active-only runtime. Zero wheels or imports followed; failure record SHA-256 `a6f98a20371a1ee3a6ad36e7d272fc21fa952d41bf6a5fa9c6abdf28ed803512`. |
+| Existing-Python recovery | `PASS`, scoped | pip, test, tkinter/Tk, headers, files, launcher, user PATH, and recorded install features were restored and verified; this does not erase the failed transaction. |
+| Runtime successor inventory | `PASS FOR OWNER REVIEW` | Official CPython 3.12.10 embeddable ZIP plus unchanged 20-wheel lock; inventory SHA-256 `ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967` |
+| Runtime successor source gate | `READY` | One materially new source, eight required criteria, six live observations, zero blockers or warnings; three unchanged package sources inherit gate 001 |
+| Runtime successor adoption | `PENDING OWNER YES/NO` | Blank exact response contains zero decisions; no successor artifact has been downloaded, extracted, vendored, or executed |
 | Model implementation | `MISSING` | Fixed architecture direction only |
 | Training runs / checkpoints | `0 / 0` | Training remains unauthorized before later gates |
 | Inference runs / evaluations | `0 / 0` | Known test evidence has not been opened by Experiment Three |
@@ -71,15 +76,23 @@ separately approved Experiment 3B.
   a staged PNG as UTF-8 text. Resume reverified those 48 and promoted the
   remaining 83 with zero collisions, overwrites, or identity mismatches.
 - Prior BurnLens repositories remain read-only and unchanged.
+- Runtime candidate 001's signed installer was admitted exactly, but Windows
+  detected an existing same-version per-user product and performed a
+  maintenance `Modify` transaction instead of creating the requested isolated
+  runtime. The attempt is retained as `FAIL`. Recovery restored the specifically
+  inspected existing-install surfaces; no wheel download, model import,
+  synthetic run, or scientific work occurred.
 
 ## Immediate next gate
 
-Provide one explicit `yes` or `no` for runtime candidate
-`CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001`, bound to
+Provide one explicit `yes` or `no` for runtime successor
+`CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002`, bound to
 inventory SHA-256
-`68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05`.
-A `yes` permits exact Active-only download, verification, isolated
-construction, license capture, and CPU/synthetic compatibility tests. It does
+`ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967`.
+A `yes` permits exact Active-only ZIP download, verification, application-local
+extraction, vendoring of only the unchanged locked wheels, license capture,
+and CPU/native-package/synthetic compatibility tests. It does
 not permit benchmark access or substantive training. A `no` rejects the exact
-candidate and leaves Milestone 2 blocked pending a separately approved
-alternative. Do not infer a decision from silence or general chat.
+successor and leaves Milestone 2 blocked pending a separately approved
+alternative. Candidate 001's prior `yes`, silence, or general chat cannot be
+carried forward as this decision.

@@ -8,7 +8,7 @@
 | Active issue | `https://github.com/drwbkr1/burnlens-experiment-three/issues/4` |
 | Active branch | `codex/synthetic-preflight-002` |
 | Governing contract | `records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json` |
-| Current human gate | `M2-U003-RUNTIME-ADOPTION-DECISION` |
+| Current human gate | `M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION` |
 
 ## Direction applied
 
@@ -24,12 +24,18 @@ and prohibit benchmark values from synthetic preflight.
 3. Resolved one private lock under Active without installing packages.
 4. Bound official source, license, integrity, custody, compatibility, and risk
    evidence for one exact Windows CPU candidate.
-5. Prepared an immutable one-item owner review and blank response with zero
-   decisions.
+5. Prepared an immutable one-item owner review, locked the owner's exact `yes`,
+   and admitted the exact official installer and Sigstore bundle.
+6. Retained activation as `FAIL` when the same-version installer entered
+   maintenance mode on existing Python instead of creating the isolated root.
+7. Restored and verified the specifically inspected existing-Python surfaces.
+8. Prepared the smallest materially distinct application-local successor,
+   source gate, and immutable blank review with zero decisions.
 
 ## Deliberate stop
 
-Do not download or install the candidate, execute its imports, implement or run
-the neural model, access benchmark values, or start scientific work before the
-exact owner response is locked and reconciled as `yes`. Silence, a general
-endorsement, or an environment used by a different project is not approval.
+Do not download, extract, vendor, or execute successor candidate 002, implement
+or run the neural model, access benchmark values, or start scientific work
+before its exact owner response is locked and reconciled as `yes`. Candidate
+001's approval cannot be carried forward. Silence or a general endorsement is
+not approval.
