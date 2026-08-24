@@ -129,7 +129,7 @@ overwrite.
 ### E3-DEC-0011 - Admit the exact retrospective benchmark to external custody
 
 - **Date:** 2026-08-24
-- **State:** Active Milestone 1 candidate; public acceptance pending
+- **State:** Active and accepted at Milestone 1 checkpoint
 - **Decision:** Accept the locked owner/rightsholder `yes`, current six-source
   `READY` gate, and dataset-readiness `PASS` for the bounded controlled-intake
   role. Admit exactly 131 approved artifacts / 3,369,748 bytes without
@@ -142,8 +142,22 @@ overwrite.
 
 ## Decisions still pending evidence or binding
 
-Dependency-runtime admission, exact implementation bindings, the executable
-protocol artifact, and every scientific outcome remain pending their gated
-milestones. Their absence does not reopen the approved model or training
-choices for routine optimization. Milestone 1 acceptance itself remains
-pending integrated verification and reviewed live-main publication.
+### E3-DEC-PENDING-0012 - Exact runtime adoption
+
+- **Date prepared:** 2026-08-24
+- **State:** `PENDING`; zero human decisions recorded
+- **Question:** Approve or reject candidate
+  `CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001`, bound to
+  runtime inventory SHA-256
+  `68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05`.
+- **Boundary:** A `yes` would authorize only exact Active-only download,
+  verification, isolated installation, license capture, and CPU/synthetic
+  compatibility checks. A `no` rejects the candidate. Neither authorizes
+  benchmark access or substantive scientific work.
+- **Non-inference rule:** The approved CPU PyTorch direction, another project's
+  installed environment, successful metadata resolution, silence, or general
+  chat cannot substitute for the exact response.
+
+Exact implementation bindings, the executable protocol artifact, and every
+scientific outcome remain pending their gated milestones. Their absence does
+not reopen the approved model or training choices for routine optimization.

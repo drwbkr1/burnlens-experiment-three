@@ -30,6 +30,12 @@ semantic versioning once a first release exists.
 - An immutable external-custody admission of 131 approved retrospective
   benchmark artifacts totaling 3,369,748 bytes; no benchmark byte was added to
   Git.
+- Milestone 2 control profile, synthetic-only milestone contract, and live
+  state reconciliation from the accepted Milestone 1 checkpoint.
+- One exact Windows x64 CPU runtime candidate inventory: CPython 3.12.10, the
+  observed uv 0.10.7 tool, and a 20-package lock led by PyTorch 2.13.0+cpu.
+- A four-source runtime gate with 32 required criteria and an immutable,
+  one-item blank owner-adoption response containing zero decisions.
 
 ### Verified
 
@@ -73,12 +79,22 @@ semantic versioning once a first release exists.
 - Upgraded repository validation to bind the resolved review, source gate,
   readiness decision, admission manifest, and intake receipt while keeping the
   original blank response immutable.
+- Accepted Milestone 1 through pull request #3 at live `main` commit
+  `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4`, tree
+  `5b2bd2904b9164b8bd3c655998749cb024202148`. Candidate run
+  `32679733201`, pull-request run `32679735057`, and merge-triggered run
+  `32679791900` passed; required live blobs matched the candidate.
+- Validated the runtime source gate as `READY` for owner review with four
+  sources, 32 criteria, 12 live observations, zero blockers, and zero warnings.
+- Passed the human-review protocol self-test and prepared one exact runtime
+  response with one item and zero decisions.
 
 ### In progress
 
-- Milestone 1 identity, scoped source-rights, readiness, and controlled intake
-  pass locally. Integrated verification and reviewed PR acceptance remain;
-  repository redistribution and all scientific work remain unauthorized.
+- Milestone 2 awaits an explicit owner `yes` or `no` for the exact runtime
+  candidate. No candidate artifact has been downloaded or installed, no
+  runtime has been adopted, and all synthetic and scientific execution remains
+  unstarted.
 
 ### Not added
 

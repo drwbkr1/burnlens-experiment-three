@@ -48,13 +48,15 @@ training, evaluation, or release claim.
 
 ## Milestone 1 - Benchmark provenance and rights
 
-**State:** Active under issue
-[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2). Identity,
-the explicit owner-rightsholder review, the current six-source gate, dataset
-readiness, and controlled intake are complete locally. Exactly 131 approved
-artifacts / 3,369,748 bytes are admitted to isolated external custody with
-matching identities and no overwrite. Repository redistribution remains
-unauthorized. Integrated verification and reviewed PR acceptance remain.
+**State:** Accepted and live-verified through pull request
+[#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3) at commit
+[`32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4`](https://github.com/drwbkr1/burnlens-experiment-three/commit/32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4),
+tree `5b2bd2904b9164b8bd3c655998749cb024202148`, with successful
+merge-triggered CI run
+[`32679791900`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32679791900).
+Exactly 131 approved artifacts / 3,369,748 bytes are admitted to isolated
+external custody with matching identities and no overwrite. Repository
+redistribution remains unauthorized.
 
 **Deliverables**
 
@@ -65,15 +67,11 @@ unauthorized. Integrated verification and reviewed PR acceptance remain.
   byte-integrity evidence before copying any asset.
 - Create a machine-readable admission manifest and independent verification.
 
-**Current gate**
-
-- Independently replay the repository-owned gate, readiness, and receipt
-  chain; verify the 131-file external custody roster and the unchanged
-  Experiment One source revision.
-- Reconcile every current project surface, then publish and verify the exact
-  candidate through draft PR #3.
-- Keep model implementations, training, checkpoints, inference, evaluation,
-  metrics, and releases at zero until Milestone 1 is accepted.
+**Exit evidence:** Passed. Candidate push run `32679733201`, pull-request run
+`32679735057`, and merge-triggered main run `32679791900` passed. Candidate and
+live trees are identical, required live blobs match, issue #2 is closed, and
+the accepted checkpoint still has zero training runs, checkpoints, inference
+runs, evaluations, tags, or releases.
 
 **Exit gate**
 
@@ -84,7 +82,12 @@ unauthorized. Integrated verification and reviewed PR acceptance remain.
 
 ## Milestone 2 - Synthetic lifecycle preflight
 
-**State:** Pending.
+**State:** Active under issue
+[#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4).
+Control reconciliation and the exact runtime candidate inventory are complete.
+The four-source runtime gate is `READY` for owner review with 32 required
+criteria and zero blockers or warnings. No candidate artifact has been
+downloaded or installed, and the human response remains blank.
 
 **Deliverables**
 
@@ -95,6 +98,19 @@ unauthorized. Integrated verification and reviewed PR acceptance remain.
   safe checkpoint reconstruction, and identical reconstructed logits.
 - Validate metric fixtures and geospatial write/reopen behavior without opening
   evaluation evidence.
+
+**Current gate**
+
+- Obtain one explicit owner `yes` or `no` for the exact CPython 3.12.10,
+  uv 0.10.7, PyTorch 2.13.0+cpu Windows x64 candidate bound to inventory
+  SHA-256
+  `68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05`.
+- A `yes` releases only exact Active-only runtime activation and synthetic
+  compatibility validation. A `no` rejects the candidate. Neither decision
+  authorizes benchmark access or substantive training.
+- Do not infer adoption from the already-approved CPU PyTorch direction, an
+  environment used by another project, successful metadata resolution, or
+  silence.
 
 **Exit gate**
 

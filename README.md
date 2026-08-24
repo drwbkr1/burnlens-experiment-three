@@ -13,12 +13,13 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-24, the truthful bootstrap remains the accepted live `main`
-checkpoint at
-[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba).
-Milestone 1 is active under issue
-[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2) and draft
-pull request [#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3).
+As of 2026-08-24, Milestone 1 is accepted and live-verified on `main` at
+[`32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4`](https://github.com/drwbkr1/burnlens-experiment-three/commit/32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4),
+tree `5b2bd2904b9164b8bd3c655998749cb024202148`. Merge-triggered GitHub
+Actions run
+[`32679791900`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32679791900)
+passed. Milestone 2 is active under issue
+[#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4).
 
 The exact owner/rightsholder review is now complete and reconciled as `yes` for
 rights the owner controls. A separate current six-source gate is `READY`, and
@@ -29,11 +30,17 @@ source, staging, and destination identity matched. No benchmark byte is stored
 in this Git repository, and repository redistribution was not authorized by
 the intake.
 
-This is a data-admission checkpoint candidate, not a scientific result. No
-Experiment Three model implementation, training run, checkpoint, inference,
-evaluation, metric, rendered result, tag, or release exists. Substantive model
-work remains prohibited until Milestone 1 is reviewed and accepted, followed
-by the synthetic-preflight and executable-protocol gates.
+The exact source-ready runtime candidate is now documented for owner review:
+CPython 3.12.10, the already-observed uv 0.10.7 tool, and a locked 20-package
+Windows CPU closure led by PyTorch 2.13.0+cpu. No candidate installer or wheel
+has been downloaded, no package has been installed, and no runtime has been
+adopted or executed. The immutable blank review contains zero decisions.
+
+This is an engineering-control checkpoint candidate, not a scientific result.
+No Experiment Three model implementation, training run, checkpoint, inference,
+evaluation, metric, rendered result, tag, or release exists. The next action is
+an explicit owner `yes` or `no` for the exact runtime candidate; silence or a
+general endorsement cannot be treated as adoption.
 
 ## Research question
 
@@ -159,6 +166,11 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Current source gate](records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json)
 - [Dataset readiness decision](records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-DECISION-2026-001.json)
 - [Controlled-intake receipt](records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json)
+- [Runtime candidate inventory](records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json)
+- [Runtime source gate](records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json)
+- [Runtime adoption review item](records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-ITEM-2026-001.json)
+- [Runtime adoption review contract](records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-CONTRACT-2026-001.json)
+- [Blank runtime adoption response](records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-RESPONSE-BLANK-2026-001.json)
 - [Bootstrap devlog](docs/devlog/2026-08-23-empty-bootstrap.md)
 - [Contributing rules](CONTRIBUTING.md)
 

@@ -1,0 +1,306 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json",
+  "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json",
+  "status": "active",
+  "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/4",
+  "accepted_base_commit": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4",
+  "active_branch": "codex/synthetic-preflight-002",
+  "scientific_outputs": {
+    "datasets": 1,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "inference_runs": 0,
+    "evaluations": 0,
+    "releases": 0
+  },
+  "output_policy": {
+    "synthetic_artifacts_are_scientific_outputs": false,
+    "synthetic_artifact_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\synthetic-preflight",
+    "benchmark_values_allowed": false,
+    "substantive_training_allowed": false,
+    "test_opening_allowed": false,
+    "repository_model_binaries_allowed": false
+  },
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": [
+      "read_only_inspection",
+      "deterministic_validation",
+      "metadata_capture",
+      "evidence_recording",
+      "project_control",
+      "update_project_records",
+      "reversible_remediation",
+      "version_control_write",
+      "github_issue_management",
+      "github_pull_request_management",
+      "external_state_verification",
+      "public_repository_publication",
+      "software_implementation",
+      "synthetic_preflight"
+    ],
+    "user_instruction": "Build a complete real neural lifecycle without changing the frozen model family or using known benchmark evaluation evidence; stop before materially new dependency-runtime adoption.",
+    "repository_controls": [
+      "AGENTS.md",
+      "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md",
+      "docs/governance/CHECKPOINT-POLICY.md"
+    ],
+    "active_contract": "records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json",
+    "verified_at_utc": "2026-08-24T01:26:35Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Prove on wholly synthetic inputs that the fixed 137-parameter detector and its packaging surface support finite forward, loss, backward, optimizer, checkpoint, fresh-process reload, deterministic inference, and exact replay before any substantive training.",
+    "allowed_paths": [
+      ".github/",
+      "docs/",
+      "records/",
+      "scripts/",
+      "src/",
+      "tests/",
+      "README.md",
+      "CHANGELOG.md",
+      "VERSION",
+      "C:\\Projects\\Active\\burnlens-experiment-three-custody\\synthetic-preflight",
+      "C:\\Projects\\Active\\burnlens-experiment-three-runtime"
+    ],
+    "forbidden_work": [
+      "Install, download, adopt, import, or execute a materially new external dependency runtime before M2-U003 passes",
+      "Use any Experiment One benchmark pixel value as synthetic input, target, training, threshold, or evaluation evidence",
+      "Open the known test for Experiment Three evaluation",
+      "Create a substantive training run, scientific checkpoint, inference run, evaluation, metric, render, tag, or release",
+      "Change the fixed 137-parameter model family or any approved protocol value",
+      "Modify another BurnLens repository",
+      "Commit dependency caches, environments, benchmark bytes, synthetic model binaries, or secrets"
+    ],
+    "reversible_actions": [
+      "Inspect installed runtimes and lock metadata read-only",
+      "Create repository source, tests, validators, and synthetic fixtures",
+      "Create and delete disposable synthetic weights and outputs under the approved external custody root",
+      "Create issue-backed branches, commits, pull requests, and verified merge checkpoints"
+    ],
+    "stop_conditions": [
+      "Exact dependency runtime adoption decision is required",
+      "Candidate runtime requires terms acceptance, credentials, spending, a paid service, a secret, or custody expansion",
+      "Synthetic preflight would require benchmark values, model-family change, protocol change, or unsupported claim",
+      "Any irreversible action or unverifiable publication is proposed"
+    ]
+  },
+  "dependency_barriers": [
+    {
+      "id": "M2-BARRIER-RUNTIME",
+      "status": "active",
+      "required_before": "M2-U004-LOCKED-RUNTIME-ACTIVATION",
+      "resolution": "One exact owner-approved runtime candidate from M2-U002"
+    },
+    {
+      "id": "M2-BARRIER-BENCHMARK",
+      "status": "active_through_milestone",
+      "required_before": "all_units",
+      "resolution": "No benchmark values may enter synthetic preflight"
+    }
+  ],
+  "human_gates": [
+    {
+      "id": "M2-GATE-DEPENDENCY-RUNTIME",
+      "status": "waiting_for_owner",
+      "unit_id": "M2-U003-RUNTIME-ADOPTION-DECISION",
+      "purpose": "Approve or reject one exact dependency/runtime candidate after its identity, source, license, custody, reproducibility, and compatibility are known.",
+      "review_preparation": {
+        "review_id": "EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-2026-001",
+        "inventory_path": "records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json",
+        "inventory_sha256": "68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05",
+        "source_gate_path": "records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json",
+        "source_gate_sha256": "1db59fb03c55051ce50a7327f45f7f9515eefce0dd7035640a07e35eb34f6e47",
+        "review_item_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-ITEM-2026-001.json",
+        "review_item_sha256": "e0af6dcd8dcca8d945ed82fe9df9ab12792e89c70e0ce44d531dfa8b2add998d",
+        "review_contract_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-CONTRACT-2026-001.json",
+        "review_contract_sha256": "b0743b466904a2580c90d4df7b8806e70eae1535a1702e14e6245eb30bbb18ce",
+        "blank_response_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-RESPONSE-BLANK-2026-001.json",
+        "blank_response_sha256": "45363c2a1d29200dab289031f9cfbd7a5811f4615f3a33a40629f05b2e37f039",
+        "human_decisions_created": 0,
+        "handoff_state": "ready_to_handoff_and_wait"
+      },
+      "cannot_be_inferred_from": [
+        "The approved use of CPU PyTorch in the scientific direction",
+        "A runtime already installed for another project",
+        "Successful import or version output",
+        "Prior Experiment One or Experiment Two use"
+      ]
+    }
+  ],
+  "entry_conditions": [
+    {
+      "id": "ENTRY-M2-ACCEPTED-M1",
+      "status": "pass",
+      "evidence": [
+        "Live main commit 32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4, tree 5b2bd2904b9164b8bd3c655998749cb024202148",
+        "Merge-triggered GitHub Actions run 32679791900 passed",
+        "Issue 2 closed only after live tree and blob verification"
+      ]
+    },
+    {
+      "id": "ENTRY-M2-SCIENTIFIC-ZERO",
+      "status": "pass",
+      "evidence": [
+        "One admitted retrospective dataset; zero training runs, checkpoints, inference runs, evaluations, and releases"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-M2-CONTROL", "status": "pass", "evidence": ["Issue 4 and codex/synthetic-preflight-002 begin from accepted M1"]},
+    {"id": "EXIT-M2-RUNTIME", "status": "pending", "evidence": []},
+    {"id": "EXIT-M2-MODEL", "status": "pending", "evidence": []},
+    {"id": "EXIT-M2-GRADIENT", "status": "pending", "evidence": []},
+    {"id": "EXIT-M2-RELOAD", "status": "pending", "evidence": []},
+    {"id": "EXIT-M2-REPLAY", "status": "pending", "evidence": []},
+    {"id": "EXIT-M2-SCIENTIFIC-BOUNDARY", "status": "pending", "evidence": []},
+    {"id": "EXIT-M2-VERIFIED-CHECKPOINT", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {
+      "id": "M2-U001-RECONCILIATION-CONTROL",
+      "purpose": "Reconcile accepted Milestone 1 and activate a synthetic-only contract.",
+      "depends_on": [],
+      "action_class": "project_control",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Accepted main 32e5b0d", "Issue 4", "Active long-running goal"],
+      "outputs": ["Profile 003", "Milestone 2 contract", "State reconciliation 003"],
+      "gates": {"accepted_base": "pass", "scientific_output_zero": "pass", "synthetic_only_scope": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-CONTROL"], "observed": ["EXIT-M2-CONTROL"], "decision_value": "advances_exit", "rationale": "The branch and issue begin from the exact live-verified M1 checkpoint with no scientific output."},
+      "next_dependency": "M2-U002-RUNTIME-CANDIDATE-INVENTORY"
+    },
+    {
+      "id": "M2-U002-RUNTIME-CANDIDATE-INVENTORY",
+      "purpose": "Inspect candidate CPU PyTorch runtimes read-only and bind exact executable, package, license, source, compatibility, and custody facts without adoption.",
+      "depends_on": ["M2-U001-RECONCILIATION-CONTROL"],
+      "action_class": "read_only_inspection",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Installed local runtimes beneath C:\\Projects\\Active", "Approved CPU PyTorch direction"],
+      "outputs": ["records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json", "records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json", "One exact blank owner adoption review with zero decisions"],
+      "gates": {"no_install_or_adoption": "pass", "exact_identity": "pass", "license_and_source": "pass", "cpu_compatibility": "pass_for_owner_review_not_activation", "candidate_minimization": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "enables_dependency", "rationale": "One exact CPython 3.12.10, uv 0.10.7, PyTorch 2.13.0+cpu Windows candidate and its 20-package lock, source gate, license inventory, Active-only custody, and risks are bound without downloading, installing, adopting, or executing the candidate."},
+      "next_dependency": "M2-U003-RUNTIME-ADOPTION-DECISION"
+    },
+    {
+      "id": "M2-U003-RUNTIME-ADOPTION-DECISION",
+      "purpose": "Obtain an explicit owner decision for one exact dependency runtime or record a terminal rejection.",
+      "depends_on": ["M2-U002-RUNTIME-CANDIDATE-INVENTORY"],
+      "action_class": "external_source_model_runtime_or_service_adoption",
+      "human_gate": true,
+      "status": "ready",
+      "inputs": ["Runtime inventory SHA-256 68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05", "Source gate READY with 4 sources, 32 required criteria, and zero blockers or warnings", "Prepared exact blank response with zero human decisions"],
+      "outputs": ["Locked and reconciled runtime decision"],
+      "gates": {"explicit_owner_response": "pending", "exact_candidate_binding": "pending", "no_inferred_adoption": "pending"},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "unknown", "rationale": "Human decision pending."},
+      "next_dependency": "M2-U004-LOCKED-RUNTIME-ACTIVATION"
+    },
+    {
+      "id": "M2-U004-LOCKED-RUNTIME-ACTIVATION",
+      "purpose": "After approval only, activate one isolated, reproducible CPU runtime under C:\\Projects\\Active and prove exact imports without benchmark access.",
+      "depends_on": ["M2-U003-RUNTIME-ADOPTION-DECISION"],
+      "action_class": "synthetic_preflight",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["Approved exact runtime candidate"],
+      "outputs": ["Lock, environment capture, import receipt, deterministic CPU receipt"],
+      "gates": {"approved_identity_only": "pending", "isolated_custody": "pending", "exact_lock": "pending", "cpu_only": "pending"},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "unknown", "rationale": "Blocked by dependency decision."},
+      "next_dependency": "M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION"
+    },
+    {
+      "id": "M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION",
+      "purpose": "Implement the fixed detector, safe state-dict package, synthetic generator, deterministic replay command, and tests without benchmark values.",
+      "depends_on": ["M2-U004-LOCKED-RUNTIME-ACTIVATION"],
+      "action_class": "software_implementation",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["Approved runtime", "Fixed architecture and scientific boundaries"],
+      "outputs": ["Source", "tests", "synthetic fixtures", "safe package and replay interfaces"],
+      "gates": {"parameter_count_137": "pending", "arbitrary_hw": "pending", "benchmark_independence": "pending", "safe_state_dict_only": "pending"},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-MODEL"], "observed": [], "decision_value": "unknown", "rationale": "Implementation pending."},
+      "next_dependency": "M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION"
+    },
+    {
+      "id": "M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION",
+      "purpose": "Execute and record forward, balanced masked loss, backward, optimizer change, checkpoint, fresh-process reload, deterministic inference, and exact replay on generated synthetic data.",
+      "depends_on": ["M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION"],
+      "action_class": "synthetic_preflight",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["Verified implementation", "Deterministic synthetic-only fixture"],
+      "outputs": ["Machine-readable preflight receipt", "External disposable checkpoint and outputs", "Human-readable rendered proof"],
+      "gates": {"finite_forward_and_loss": "pending", "nonzero_gradients": "pending", "changed_weights": "pending", "fresh_process_reload": "pending", "bitwise_replay": "pending", "rendered_surface": "pending"},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY"], "observed": [], "decision_value": "unknown", "rationale": "Execution pending."},
+      "next_dependency": "M2-U007-INTEGRATED-VERIFICATION"
+    },
+    {
+      "id": "M2-U007-INTEGRATED-VERIFICATION",
+      "purpose": "Independently validate runtime, source, synthetic receipts, fresh-process replay, rendered proof, repository boundaries, and zero scientific outputs.",
+      "depends_on": ["M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION"],
+      "action_class": "deterministic_validation",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["Complete synthetic candidate"],
+      "outputs": ["Validated evidence and reconciled project records"],
+      "gates": {"all_receipts_replay": "pending", "render_review": "pending", "scientific_boundary": "pending", "complete_diff": "pending"},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME", "EXIT-M2-MODEL", "EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY", "EXIT-M2-SCIENTIFIC-BOUNDARY"], "observed": [], "decision_value": "unknown", "rationale": "Verification pending."},
+      "next_dependency": "M2-U008-REVIEWED-PR-VERIFICATION"
+    },
+    {
+      "id": "M2-U008-REVIEWED-PR-VERIFICATION",
+      "purpose": "Publish the exact verified synthetic checkpoint through a reviewed PR and directly verify live main without a release.",
+      "depends_on": ["M2-U007-INTEGRATED-VERIFICATION"],
+      "action_class": "public_repository_publication",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["Exact verified candidate", "Issue 4 and codex/synthetic-preflight-002"],
+      "outputs": ["Merged checkpoint and live verification receipt"],
+      "gates": {"required_checks": "pending", "reviewed_pr": "pending", "live_main": "pending", "no_release": "pending"},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-VERIFIED-CHECKPOINT"], "observed": [], "decision_value": "unknown", "rationale": "Publication pending."},
+      "next_dependency": null
+    }
+  ],
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": ["dependency runtime", "neural implementation", "model serialization", "synthetic rendered evidence", "public claims"],
+    "required_checks": ["repository controls", "profile and milestone schemas", "runtime identity and lock", "parameter and gradient audit", "safe fresh-process reload", "exact synthetic replay", "rendered proof review", "zero scientific outputs", "live PR and main verification"],
+    "completed_checks": ["Accepted Milestone 1 live-main identity and merge-triggered CI verified", "Runtime candidate inventory exact identities and private lock bound without adoption", "Runtime source gate valid and ready with 4 sources, 32 criteria, zero blockers, and zero warnings", "Human-review protocol self-test passed and blank response contains zero decisions"]
+  },
+  "handoff": {
+    "current_checkpoint": "Milestone 1 is accepted at live main 32e5b0d. Milestone 2 has one exact source-ready runtime candidate and an immutable blank owner review. No candidate artifact has been downloaded or installed, no runtime has been adopted, and no synthetic or scientific execution has begun.",
+    "next_action": "Wait for the explicit M2-U003 yes/no owner decision bound to runtime inventory SHA-256 68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05. Do not infer a decision or begin activation.",
+    "do_not_carry_forward": [
+      "Any Experiment One benchmark value into synthetic inputs, targets, or evidence",
+      "Any unapproved dependency runtime or environment",
+      "Any Experiment Two or Two-B implementation or authority",
+      "Any scientific checkpoint, training, inference, evaluation, metric, or release",
+      "Any assumption that synthetic success validates benchmark performance"
+    ]
+  }
+}

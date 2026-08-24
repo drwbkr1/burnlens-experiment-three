@@ -6,7 +6,8 @@ published releases. A version string does not by itself prove a release.
 | Version | Date | State | Revision | Scope | Scientific result |
 | --- | --- | --- | --- | --- | --- |
 | `0.0.0-bootstrap` | 2026-08-23 | Accepted checkpoint; not a release | `4543a2dad5c2630249906aab763ae0cbf91097ba` | Governance, documentation, repository controls, and CI bootstrap only | None |
-| `0.1.0-m1-candidate` | 2026-08-24 | Working-tree candidate; not accepted or released | Pending candidate commit | Hash-bound rights, source gate, readiness, and external controlled intake | None |
+| `0.1.0` | 2026-08-24 | Accepted checkpoint; not a release | `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4` | Hash-bound rights, source gate, readiness, and external controlled intake | None |
+| `0.2.0-m2-runtime-gate` | 2026-08-24 | Working-tree candidate; not accepted or released | Pending candidate commit | Synthetic-preflight controls and exact runtime owner gate | None |
 
 ## Incoming state
 
@@ -21,35 +22,41 @@ releases. There is no earlier Experiment Three software or scientific version.
   accepted checkpoint.
 - Public repository description: corrected to the bounded retrospective
   framing.
-- Next work: Milestone 1 under issue #2, limited at entry to read-only
-  provenance and rights reconciliation with no benchmark bytes admitted.
+- Milestone 1 acceptance: commit
+  `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4`, tree
+  `5b2bd2904b9164b8bd3c655998749cb024202148`; candidate, pull-request, and
+  merge-triggered checks passed, including main run `32679791900`.
 
-## Unreleased Milestone 1 candidate
+## Accepted Milestone 1
 
-Draft pull request
-[#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3) carries the
-Milestone 1 control transition. Its published transition commit
-`74171043ddd543979e9773d5ffdd06da116bbaa1` passed push CI run `32674532003`
-and pull-request CI run `32674546780`. The subsequent metadata-only identity
-inventory and controlled-intake records form a locally and independently
-validated issue-backed branch candidate. The dataset is admitted to external
-custody, but this is not an accepted public version, release, or scientific
-result.
+Pull request [#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3)
+merged the exact verified Milestone 1 tree to live `main` at
+`32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4`. Candidate run
+`32679733201`, pull-request run `32679735057`, and merge-triggered main run
+`32679791900` passed. Direct verification confirmed the live tree and required
+blobs match the accepted candidate. This is an accepted data-admission
+checkpoint, not a release or scientific result.
 
 The owner-rightsholder decision is now an exact scoped `yes`, the current
 source gate is `READY`, readiness is `PASS`, and controlled intake admitted 131
 approved artifacts / 3,369,748 bytes to external custody with matching
 identities. Repository redistribution remains unauthorized. This candidate
-still requires integrated verification, successful PR checks, reviewed merge,
-and direct live-main verification before it becomes accepted.
+is now accepted for the bounded local retrospective role.
 
-The inventory was published at branch commit
-`b17176d07d34f34ab385acbc91cf1876471afe06`, with successful push run
-`32676766091` and pull-request run `32676767882`. A hash-bound, blank
-owner-rights response was prepared and remains immutable as the review
-interface. The completed response is private; its public aggregate decision is
-hash-bound. This remains an unmerged branch candidate, not an accepted
-checkpoint or release.
+The original blank owner-rights response remains immutable. The completed
+response is private; only its hash-bound aggregate decision is public. Issue #2
+was closed after live verification.
+
+## Unreleased Milestone 2 runtime-gate candidate
+
+Issue [#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4)
+tracks synthetic preflight from the exact accepted Milestone 1 base. The
+working tree binds one CPython 3.12.10 / uv 0.10.7 / PyTorch 2.13.0+cpu
+Windows x64 candidate and its 20-package lock. Its source gate passes for
+owner review, but the immutable response remains blank. No runtime artifact has
+been downloaded or installed and no synthetic or scientific execution has
+begun. This candidate is not yet committed, reviewed, accepted, tagged, or
+released.
 
 ## Versioning rules
 

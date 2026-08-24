@@ -273,6 +273,35 @@ class RepositoryControlTests(unittest.TestCase):
             self.assertTrue(any("decision record hash changed" in error for error in errors))
             self.assertTrue(any("aggregate is inconsistent" in error for error in errors))
 
+    def test_runtime_adoption_review_remains_exact_and_blank(self) -> None:
+        self.assertEqual([], validator.check_runtime_adoption_review_preparation(ROOT))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = (
+                validator.SYNTHETIC_PREFLIGHT_MILESTONE,
+                validator.RUNTIME_INVENTORY,
+                validator.RUNTIME_SOURCE_GATE,
+                validator.RUNTIME_REVIEW_ITEM,
+                validator.RUNTIME_REVIEW_CONTRACT,
+                validator.RUNTIME_BLANK_RESPONSE,
+            )
+            for relative in paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+
+            blank_path = root / validator.RUNTIME_BLANK_RESPONSE
+            blank = json.loads(blank_path.read_text(encoding="utf-8"))
+            blank["responses"][0]["decision"] = "yes"
+            blank_path.write_text(
+                json.dumps(blank, indent=2) + "\n", encoding="utf-8"
+            )
+
+            errors = validator.check_runtime_adoption_review_preparation(root)
+            self.assertTrue(any("file hash changed" in error for error in errors))
+            self.assertTrue(any("zero decisions" in error for error in errors))
+
     def test_admission_chain_is_exact_and_rejects_receipt_drift(self) -> None:
         self.assertEqual([], validator.check_milestone_one_admission_chain(ROOT))
 
@@ -350,7 +379,7 @@ class RepositoryControlTests(unittest.TestCase):
             profile_path.parent.mkdir(parents=True)
             profile_path.write_text(
                 json.dumps(
-                    {"active_milestone_path": "records/milestones/MILESTONE-002.json"}
+                    {"active_milestone_path": "records/milestones/MILESTONE-999.json"}
                 ),
                 encoding="utf-8",
             )

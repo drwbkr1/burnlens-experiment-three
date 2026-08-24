@@ -1,0 +1,47 @@
+{
+  "schema_version": "experiment-three-runtime-adoption-review-item/v1",
+  "template": false,
+  "review_id": "EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-2026-001",
+  "item_id": "exact-windows-cpu-runtime-candidate-001",
+  "evidence_sha256": "68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05",
+  "candidate_identity": {
+    "candidate_id": "CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001",
+    "inventory_path": "records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json",
+    "inventory_bytes": 12103,
+    "inventory_sha256": "68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05",
+    "source_gate_path": "records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json",
+    "source_gate_bytes": 16226,
+    "source_gate_sha256": "1db59fb03c55051ce50a7327f45f7f9515eefce0dd7035640a07e35eb34f6e47",
+    "private_pyproject_sha256": "2a26d771dc9b880699d5bb26b987772d73847adc9dc96ef076fb97af8343f4a6",
+    "private_lock_sha256": "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081",
+    "python_installer_sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+    "uv_executable_sha256": "e756c553075d7a6582c885adfcdd07f72c79a5c7dc4e6284246eb2537536d27",
+    "torch_cpu_wheel_sha256": "a8b450c1e58e5800e5b4691dac412f8d2d65a1dc3298166f91596603a3531e6f",
+    "effective_windows_packages": 20
+  },
+  "plain_language_summary": "This candidate creates a fresh, isolated CPU-only Python environment for Experiment Three rather than copying or mutating the Experiment One environment. It fixes CPython 3.12.10, the exact observed uv 0.10.7 tool, and a 20-package Windows lock led by PyTorch 2.13.0+cpu, NumPy 2.5.1, Pillow 12.3.0, and Rasterio 1.5.0. Every installer and wheel must match the recorded hash, all custody stays under C:\\Projects\\Active, and any mismatch stops activation.",
+  "question": "Do you approve adoption of exact runtime candidate CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001, bound to inventory SHA-256 68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05 and private lock SHA-256 66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081, for isolated Active-only construction and synthetic Milestone 2 preflight?",
+  "allowed_decisions": {
+    "yes": "Authorizes download into Active-only private custody of the exact official CPython installer, Sigstore material, and hash-locked wheels; exact hash/signature verification; isolated runtime construction; exact package installation; license capture; and CPU-only import, deterministic-algorithm, and synthetic compatibility preflight. It does not authorize benchmark access or substantive training, inference, evaluation, tuning, or publication.",
+    "no": "Rejects this exact candidate. No candidate artifact is downloaded or installed, and Milestone 2 remains blocked unless a different exact runtime candidate is separately proposed and approved."
+  },
+  "grant_limits": [
+    "No version substitution, dependency addition, source build, unverified artifact, or reuse of the Experiment One virtual environment.",
+    "No credential, secret, purchase, paid service, terms acceptance, administrator installation, system PATH change, launcher installation, file association, OneDrive custody, or prior-repository mutation.",
+    "No Experiment One benchmark pixel access and no substantive training, scientific checkpoint, inference, evaluation, metric, threshold, tuning, render, tag, or release.",
+    "No model-family, frozen-protocol, cohort, label, split, metric, threshold, decision-rule, or claim-envelope change.",
+    "A runtime activation mismatch or failed preflight must be retained and fail closed; approval does not imply technical success."
+  ],
+  "required_attestation": "The reviewer is the Experiment Three owner and explicitly approves or rejects only the exact candidate and bounded actions above after reviewing its identity, sources, licenses, custody, risks, and exclusions.",
+  "downstream_gate": "A yes permits only M2-U004 exact runtime activation and its synthetic-only validation. M2-U005 and later units remain dependency-ordered, and benchmark or scientific work remains prohibited in Milestone 2.",
+  "current_state": {
+    "source_assessment": "READY_FOR_OWNER_DECISION",
+    "owner_decision": "PENDING",
+    "runtime_downloaded": false,
+    "runtime_installed": false,
+    "runtime_adopted": false,
+    "candidate_import_executed": false,
+    "synthetic_preflight_started": false,
+    "scientific_work_started": false
+  }
+}

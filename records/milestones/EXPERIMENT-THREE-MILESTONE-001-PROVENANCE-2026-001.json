@@ -3,7 +3,7 @@
   "milestone_id": "EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001",
   "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
   "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
-  "status": "active",
+  "status": "complete",
   "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/2",
   "accepted_base_commit": "4543a2dad5c2630249906aab763ae0cbf91097ba",
   "active_branch": "codex/benchmark-provenance-001",
@@ -286,8 +286,14 @@
     },
     {
       "id": "EXIT-M1-VERIFIED-CHECKPOINT",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "PR 3 merged at 2026-08-24T01:26:35Z to live main commit 32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4",
+        "Verified candidate and live main tree 5b2bd2904b9164b8bd3c655998749cb024202148 are identical",
+        "GitHub Actions push run 32679733201, pull-request run 32679735057, and merge-triggered main run 32679791900 passed",
+        "Live README, source-gate, readiness-decision, and intake-receipt blobs match the verified candidate",
+        "Issue 2 closed after live verification; zero tags and releases"
+      ]
     }
   ],
   "units": [
@@ -586,7 +592,7 @@
       ],
       "action_class": "public_repository_publication",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "Exact locally verified Milestone 1 candidate",
         "Issue 2 and codex/benchmark-provenance-001",
@@ -598,22 +604,24 @@
         "Reconciled accepted checkpoint records"
       ],
       "gates": {
-        "issue_branch_and_base_identity": "pending",
-        "required_checks": "pending",
-        "reviewed_pull_request": "pending",
-        "exact_merge_commit": "pending",
-        "live_main_verification": "pending",
-        "no_release_or_scientific_claim": "pending"
+        "issue_branch_and_base_identity": "pass_b40a106_from_accepted_4543a2d",
+        "required_checks": "pass_push_32679733201_pr_32679735057_main_32679791900",
+        "reviewed_pull_request": "pass_pr_3_ready_clean_and_exact_diff_reviewed",
+        "exact_merge_commit": "pass_32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4",
+        "live_main_verification": "pass_tree_and_four_key_blobs_match_candidate",
+        "no_release_or_scientific_claim": "pass_zero_tags_releases_and_scientific_outputs"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "exit_condition_delta": {
         "expected": [
           "EXIT-M1-VERIFIED-CHECKPOINT"
         ],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Milestone 1 is not accepted until live PR and main verification pass."
+        "observed": [
+          "EXIT-M1-VERIFIED-CHECKPOINT"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "PR 3 merged the exact verified b40a106 candidate to live main commit 32e5b0d at 2026-08-24T01:26:35Z. The merge-triggered main run 32679791900 passed, candidate and live trees are identical at 5b2bd2904b9164b8bd3c655998749cb024202148, four critical live blobs match, and zero tags or releases exist."
       },
       "next_dependency": null
     }
@@ -650,8 +658,8 @@
     ]
   },
   "handoff": {
-    "current_checkpoint": "M1-U006 integrated verification PASS. Exactly 131 approved assets / 3,369,748 bytes are hash-verified in isolated external custody; the complete repository-owned decision and receipt chain validates; zero model, training, checkpoint, inference, evaluation, or release outputs exist.",
-    "next_action": "Execute M1-U007: publish the exact candidate through draft PR 3, verify required checks and review, merge only the verified candidate, then directly verify live main. Do not begin Milestone 2 until Milestone 1 is accepted.",
+    "current_checkpoint": "Milestone 1 accepted at live main commit 32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4, tree 5b2bd2904b9164b8bd3c655998749cb024202148. Exactly 131 approved assets / 3,369,748 bytes remain hash-verified in isolated external custody; zero model, training, checkpoint, inference, evaluation, or release outputs exist.",
+    "next_action": "Begin separately controlled Milestone 2 from the exact accepted checkpoint, limited to runtime gating and synthetic neural lifecycle preflight. Do not use benchmark values for training or evaluation and do not begin substantive training.",
     "do_not_carry_forward": [
       "Milestone 0's consumed direct-main exception",
       "Any assumption that prior use, repository presence, a software license, or public access proves asset rights",
