@@ -21,7 +21,7 @@ overwrite.
 ### E3-DEC-0002 - Use a 137-parameter pointwise neural detector
 
 - **Date:** 2026-08-23
-- **State:** Active and owner-approved; executable protocol freeze pending
+- **State:** Active, owner-approved, and frozen in protocol candidate 001
 - **Decision:** Use biased `1x1` convolutions `6 -> 8 -> 8 -> 1`, with ReLU
   after the first two layers, for exactly 137 trainable parameters.
 - **Reason:** This is a real fully convolutional neural model sized to extremely
@@ -94,7 +94,7 @@ overwrite.
 ### E3-DEC-0009 - Bind the approved bounded neural protocol
 
 - **Date:** 2026-08-23
-- **State:** Active and owner-approved; executable protocol artifact pending
+- **State:** Active and frozen in protocol candidate 001; live acceptance pending
 - **Decision:** Use event-class-balanced masked BCE; deterministic float32
   local CPU PyTorch; Adam with learning rate `0.001`; batch size `4`; maximum
   `200` epochs with patience `25`; seeds `20260725`, `20260726`, and `20260727`

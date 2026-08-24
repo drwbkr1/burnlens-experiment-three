@@ -13,13 +13,13 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-24, Milestone 1 is accepted and live-verified on `main` at
-[`32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4`](https://github.com/drwbkr1/burnlens-experiment-three/commit/32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4),
-tree `5b2bd2904b9164b8bd3c655998749cb024202148`. Merge-triggered GitHub
+As of 2026-08-24, Milestone 2 is accepted and live-verified on `main` at
+[`8b0636d6cc117d524256a0f7f2bd699fb64a232b`](https://github.com/drwbkr1/burnlens-experiment-three/commit/8b0636d6cc117d524256a0f7f2bd699fb64a232b),
+tree `fe91a423cee4f4ad69cad88a643bb730c8647005`. Merge-triggered GitHub
 Actions run
-[`32679791900`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32679791900)
-passed. Milestone 2 is active under issue
-[#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4).
+[`32687957764`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32687957764)
+passed. Milestone 3 is active under issue
+[#6](https://github.com/drwbkr1/burnlens-experiment-three/issues/6).
 
 The exact owner/rightsholder review is now complete and reconciled as `yes` for
 rights the owner controls. A separate current six-source gate is `READY`, and
@@ -41,12 +41,16 @@ CPU lock. The fixed 137-parameter model now passes a wholly synthetic lifecycle:
 finite gradients, changed weights, reduced loss, strict state-dict packaging,
 fresh-process reload, byte-identical replay, GeoTIFF reopen, and rendered proof.
 
-This is an engineering-control checkpoint candidate, not a scientific result.
-No Experiment Three model implementation, training run, checkpoint, inference,
-evaluation metric, scientific rendered result, tag, or release exists. The
-synthetic diagnostic and render are engineering evidence only. The next action
-is to publish and live-verify this Milestone 2 checkpoint through draft PR #5;
-substantive training remains unauthorized until protocol freeze.
+The complete executable protocol is now frozen as a locally verified candidate
+at canonical-LF SHA-256 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`.
+It fixes all data roles, normalization, masks, training order, checkpoint and
+shared-threshold rules, metrics, collapse gates, artifacts, replay, test
+opening, decision logic, and claim limits. Exact metadata bindings, fabricated
+replay, and all 39 approved-runtime tests pass without decoding a benchmark
+array. This is still engineering-control evidence, not a scientific result:
+no substantive training run, scientific checkpoint, inference, evaluation,
+metric, result render, tag, or release exists. Training remains unauthorized
+until the freeze is reviewed, merged, and verified on live `main`.
 
 ## Research question
 
@@ -172,6 +176,8 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Current source gate](records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json)
 - [Dataset readiness decision](records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-DECISION-2026-001.json)
 - [Controlled-intake receipt](records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json)
+- [Frozen executable protocol](protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json)
+- [Protocol-freeze evidence record](records/protocol/EXPERIMENT-THREE-PROTOCOL-FREEZE-2026-001.json)
 - [Runtime candidate inventory](records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json)
 - [Runtime source gate](records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json)
 - [Runtime adoption review item](records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-ITEM-2026-001.json)

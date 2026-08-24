@@ -8,6 +8,12 @@ semantic versioning once a first release exists.
 
 ### Added
 
+- A complete executable Experiment Three protocol, fixed before benchmark
+  training, with exact data-role, model, runtime, checkpoint, shared-threshold,
+  metric, collapse, artifact, replay, opening, decision, and claim rules.
+- Pure-Python protocol validation, checkpoint and threshold selection, binary
+  metric semantics, a fabricated nonbenchmark dry-run, and seven focused tests.
+
 - Truthful Milestone 0 documentation for an empty public repository.
 - The bounded Experiment Three research question and separate lifecycle and
   comparative outcome model.
@@ -47,6 +53,9 @@ semantic versioning once a first release exists.
   replay receipts, synthetic GeoTIFF, and rendered comparison panel.
 
 ### Changed
+
+- Accepted Milestone 2 at live `main` commit `8b0636d6cc117d524256a0f7f2bd699fb64a232b`
+  and advanced active control to issue #6 and Milestone 3.
 
 - Closed the approved normal-installer route after it entered maintenance mode
   on an existing same-version Python installation instead of creating the
@@ -113,12 +122,12 @@ semantic versioning once a first release exists.
 
 ### In progress
 
-- Milestone 2 awaits reviewed PR publication and direct live-main verification.
-  Runtime activation and synthetic lifecycle pass; substantive training and all
-  scientific execution remain unstarted.
+- Milestone 3 awaits reviewed PR publication and direct live-main verification.
+  The executable protocol passes locally; substantive training and all
+  scientific execution remain unstarted until acceptance.
 
 ### Not added
 
-- No benchmark byte in Git, model implementation, training run, checkpoint,
-  inference run, Experiment Three metric, scientific pipeline, replay package,
-  rendered result, tag, or release.
+- No benchmark byte in Git, substantive training run, scientific checkpoint,
+  benchmark inference, Experiment Three performance metric, scientific replay
+  package, rendered result, tag, or release.

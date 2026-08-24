@@ -98,9 +98,10 @@ Run from `C:\Projects\Active\burnlens-experiment-three`:
 ```powershell
 python scripts/validate_repository.py
 python -m unittest discover -s tests -v
-python C:\Users\drewb\.codex\skills\standardize-project-control-plane\scripts\validate_project_control.py records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json --project-root . --verify-paths --milestone-contract records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json
-python C:\Users\drewb\.codex\skills\run-controlled-milestone\scripts\validate_milestone.py records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json --project-profile records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json
-python C:\Users\drewb\.codex\skills\reconcile-project-state\scripts\evaluate_project_state.py records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json --project-root . --verify-paths
+python C:\Users\drewb\.codex\skills\standardize-project-control-plane\scripts\validate_project_control.py records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json --project-root . --verify-paths --milestone-contract records/milestones/EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001.json
+python C:\Users\drewb\.codex\skills\run-controlled-milestone\scripts\validate_milestone.py records/milestones/EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001.json --project-profile records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json
+python C:\Users\drewb\.codex\skills\reconcile-project-state\scripts\evaluate_project_state.py records/reconciliations/EXPERIMENT-THREE-STATE-2026-004.json --project-root . --verify-paths
+python scripts/validate_frozen_protocol.py --custody-root C:\Projects\Active\burnlens-experiment-three-custody
 ```
 
 Use the active milestone path in place of the Milestone 0 path after handoff. Tool validation never creates authority or proves scientific success.
