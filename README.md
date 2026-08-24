@@ -13,48 +13,27 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-23, the truthful empty bootstrap is accepted on live `main` at
-commit
-[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba)
-(tree `6387e91f071609605f7fcc3a05842782423fbb6d`). Public validation
-[run 32671370937](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32671370937)
-completed successfully, and the live README and execution-goal blobs matched
-the verified local checkpoint. Issue
-[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2) now tracks
-Milestone 1's read-only benchmark-provenance and rights work. Draft pull
-request [#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3)
-contains the accepted-checkpoint-to-Milestone-1 control transition; transition
-commit `74171043ddd543979e9773d5ffdd06da116bbaa1` passed push run
-`32674532003` and pull-request run `32674546780`.
+As of 2026-08-24, the truthful bootstrap remains the accepted live `main`
+checkpoint at
+[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba).
+Milestone 1 is active under issue
+[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2) and draft
+pull request [#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3).
 
-The metadata inventory is now published on that draft PR at commit
-`b17176d07d34f34ab385acbc91cf1876471afe06`; push run `32676766091` and
-pull-request run `32676767882` both passed. The exact owner-rights review item,
-contract, and blank response are prepared with zero human decisions. The review
-is waiting for one explicit `yes` or `no` response.
+The exact owner/rightsholder review is now complete and reconciled as `yes` for
+rights the owner controls. A separate current six-source gate is `READY`, and
+the benchmark readiness audit is `PASS`. Controlled intake promoted exactly
+131 approved artifacts (3,369,748 bytes) into isolated local custody at
+`C:\Projects\Active\burnlens-experiment-three-custody\benchmark`; every
+source, staging, and destination identity matched. No benchmark byte is stored
+in this Git repository, and repository redistribution was not authorized by
+the intake.
 
-- No dataset or benchmark bytes have been admitted.
-- A metadata-only identity inventory now binds the clean Experiment 1 source
-  revision, all 48 declared benchmark arrays, all eight historical U-Net
-  prediction/probability arrays, and the relevant source and terms records.
-  Every inventoried byte identity matches, but this is not asset admission.
-- No model code, model weights, checkpoints, or predictions exist here.
-- No training or evaluation has run here.
-- No Experiment Three metrics, scientific result, or release exists.
-- A bootstrap-only repository validator, focused tests, and pinned CI workflow
-  are present on live `main` and have passed. No scientific pipeline, model
-  replay command, or rendered evidence surface exists yet.
-- Prior BurnLens repositories are read-only provenance sources. Their files and
-  decisions are not Experiment Three evidence until they are explicitly
-  hash-bound and admitted.
-
-The accepted bootstrap establishes scope and truthful state. Milestone 1's
-metadata identity gate is `PASS`; controlled copying and scientific use remain
-`DEFER`, and repository or raw-provider redistribution remains `BLOCK`. The
-current stop is an explicit owner/rightsholder decision about the exact
-project-authored derivative artifacts. No benchmark byte may enter Experiment
-Three custody before that decision and a separate current upstream-source gate
-permit it. Substantive training and evaluation remain unauthorized.
+This is a data-admission checkpoint candidate, not a scientific result. No
+Experiment Three model implementation, training run, checkpoint, inference,
+evaluation, metric, rendered result, tag, or release exists. Substantive model
+work remains prohibited until Milestone 1 is reviewed and accepted, followed
+by the synthetic-preflight and executable-protocol gates.
 
 ## Research question
 
@@ -107,11 +86,11 @@ Experiment 3B.
 
 ## Compatibility benchmark and claim limits
 
-Experiment Three is designed to bind the exact Experiment 1 dataset, whole-
-event split, masks, normalization, metrics, RBR result, canonical U-Net result,
-and constant-class controls. Until provenance, integrity, and rights checks are
-complete, those materials remain external read-only references and are not
-part of this repository.
+Experiment Three has hash-bound and admitted the exact Experiment 1 dataset,
+whole-event split, masks, normalization, metrics, RBR result, canonical U-Net
+result, and constant-class-control definitions to external controlled custody.
+The bytes are not part of this Git repository and retain their source,
+attribution, restriction, and claim boundaries.
 
 The inherited test has already been observed. Therefore:
 
@@ -176,6 +155,10 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Owner-rights review item](records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-ITEM-2026-001.json)
 - [Owner-rights review contract](records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-CONTRACT-2026-001.json)
 - [Blank owner-rights response](records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-RESPONSE-BLANK-2026-001.json)
+- [Owner-rights decision](records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json)
+- [Current source gate](records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json)
+- [Dataset readiness decision](records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-DECISION-2026-001.json)
+- [Controlled-intake receipt](records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json)
 - [Bootstrap devlog](docs/devlog/2026-08-23-empty-bootstrap.md)
 - [Contributing rules](CONTRIBUTING.md)
 

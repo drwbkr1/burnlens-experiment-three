@@ -24,6 +24,12 @@ semantic versioning once a first release exists.
   prediction, source, and terms identities without copying source bytes.
 - A one-item, hash-bound owner-rights review contract and blank response with
   zero human decisions.
+- A public aggregate owner/rightsholder decision record, current six-source
+  gate, dataset-readiness contract and decision, and controlled-intake manifest
+  and receipt.
+- An immutable external-custody admission of 131 approved retrospective
+  benchmark artifacts totaling 3,369,748 bytes; no benchmark byte was added to
+  Git.
 
 ### Verified
 
@@ -55,16 +61,27 @@ semantic versioning once a first release exists.
   pull-request run `32676767882` passed, and draft PR #3 remained unmerged.
 - Passed 21/21 local tests for the owner-rights handoff candidate, including a
   mutation test that rejects any prefilled decision in the blank response.
+- Locked and reconciled one exact attested owner/rightsholder `yes`; retained
+  the raw response privately and published only the bounded aggregate record.
+- Validated the current six-source gate as `READY` with 48 required criteria,
+  15 live observations, and zero blockers or warnings.
+- Passed dataset readiness across ten required gates and nine exact count
+  checks. The audit created no training authority.
+- Reverified and promoted 131 approved assets without replacement. Source,
+  staging, and destination hashes match; the destination roster is
+  `0daf93b2b3a21330d501c9e222d907738c19e4d5b9e00ebbdd169b65aadb89f4`.
+- Upgraded repository validation to bind the resolved review, source gate,
+  readiness decision, admission manifest, and intake receipt while keeping the
+  original blank response immutable.
 
 ### In progress
 
-- Milestone 1 identity reconciliation is complete with metadata identity
-  `PASS`. Controlled copying and scientific use are `DEFER`; redistribution is
-  `BLOCK`; the explicit owner/rightsholder review is prepared and waiting for
-  one completed `yes` or `no`. No benchmark bytes have been admitted.
+- Milestone 1 identity, scoped source-rights, readiness, and controlled intake
+  pass locally. Integrated verification and reviewed PR acceptance remain;
+  repository redistribution and all scientific work remain unauthorized.
 
 ### Not added
 
-- No benchmark data, labels, source imagery, model implementation, checkpoint,
-  prediction, scientific metric, scientific pipeline, replay package, or
-  rendered result.
+- No benchmark byte in Git, model implementation, training run, checkpoint,
+  inference run, Experiment Three metric, scientific pipeline, replay package,
+  rendered result, tag, or release.

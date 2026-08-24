@@ -49,14 +49,12 @@ training, evaluation, or release claim.
 ## Milestone 1 - Benchmark provenance and rights
 
 **State:** Active under issue
-[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2), initially
-limited to read-only provenance and rights reconciliation. No benchmark bytes
-have been admitted. The metadata identity unit is complete: the clean source
-revision, 48 dataset arrays, eight historical U-Net prediction/probability
-arrays, and supporting source/terms records all rehash as declared. This
-establishes identity only. Controlled copy/use remain deferred and
-redistribution remains blocked pending the explicit rights decision and a
-current upstream-source gate.
+[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2). Identity,
+the explicit owner-rightsholder review, the current six-source gate, dataset
+readiness, and controlled intake are complete locally. Exactly 131 approved
+artifacts / 3,369,748 bytes are admitted to isolated external custody with
+matching identities and no overwrite. Repository redistribution remains
+unauthorized. Integrated verification and reviewed PR acceptance remain.
 
 **Deliverables**
 
@@ -69,15 +67,13 @@ current upstream-source gate.
 
 **Current gate**
 
-- Obtain an explicit yes/no owner/rightsholder decision for the exact
-  hash-bound project-authored derivative artifacts. A yes does not override
-  third-party terms; a separate current upstream-source gate must still pass.
-- Review `EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001` is prepared with a
-  3,213-byte item at SHA-256
-  `2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581`
-  and a blank response containing zero human decisions.
-- Until then, keep the inventory metadata-only and retain zero admitted bytes,
-  datasets, models, training runs, inference runs, evaluations, and releases.
+- Independently replay the repository-owned gate, readiness, and receipt
+  chain; verify the 131-file external custody roster and the unchanged
+  Experiment One source revision.
+- Reconcile every current project surface, then publish and verify the exact
+  candidate through draft PR #3.
+- Keep model implementations, training, checkpoints, inference, evaluation,
+  metrics, and releases at zero until Milestone 1 is accepted.
 
 **Exit gate**
 

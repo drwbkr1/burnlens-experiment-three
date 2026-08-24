@@ -5,7 +5,7 @@
   "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/2",
   "scientific_state": "not_started",
   "scientific_outputs": {
-    "datasets": 0,
+    "datasets": 1,
     "training_runs": 0,
     "checkpoints": 0,
     "inference_runs": 0,
@@ -75,6 +75,7 @@
       "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json",
       "records/milestones/EXPERIMENT-THREE-MILESTONE-000-BOOTSTRAP-2026-001.json",
       "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json",
+      "records/reconciliations/EXPERIMENT-THREE-STATE-2026-002.json",
       "CHANGELOG.md",
       "docs/status/VERSION-HISTORY.md",
       "records/decisions/DECISION-REGISTER.md",
@@ -124,7 +125,7 @@
         "data",
         "security"
       ],
-      "procedure_ref": "command:python C:\\Users\\drewb\\.codex\\skills\\reconcile-project-state\\scripts\\evaluate_project_state.py records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json --project-root . --verify-paths",
+      "procedure_ref": "command:python C:\\Users\\drewb\\.codex\\skills\\reconcile-project-state\\scripts\\evaluate_project_state.py records/reconciliations/EXPERIMENT-THREE-STATE-2026-002.json --project-root . --verify-paths",
       "receipt_root": "records/reconciliations",
       "external": false
     },
@@ -201,19 +202,19 @@
     "explicit_human_gates": [
       {
         "unit_id": "M1-U003-SOURCE-RIGHTS-GATE",
-        "reason": "Current evidence does not establish cross-repository rights for the exact project-authored Experiment One dataset, label, model, prediction, and render artifacts. The execution goal requires an explicit owner/rightsholder disposition after M1-U002 binds the final inventory; it cannot be inferred from repository presence, prior use, or the MIT software license.",
-        "authority_ref": "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md"
+        "reason": "The exact owner/rightsholder artifact grant could not be inferred from repository presence, software licensing, or general project approval; the gate is retained as completed history after one locked and reconciled response.",
+        "authority_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json#M1-GATE-OWNER-ARTIFACT-RIGHTS"
       }
     ],
     "amendment_required_to_change_active_gate": true
   },
   "current_checkpoint": {
-    "checkpoint_id": "MILESTONE-001-OWNER-RIGHTS-REVIEW-PREPARED-2026-08-24",
+    "checkpoint_id": "MILESTONE-001-INTEGRATED-VERIFICATION-CANDIDATE-2026-08-24",
     "expected_branch": "codex/benchmark-provenance-001",
-    "expected_head": "b17176d07d34f34ab385acbc91cf1876471afe06",
+    "expected_head": "bd404db48f9843051bee8f3eb161dad4bc0b0e0f",
     "accepted_main_head": "4543a2dad5c2630249906aab763ae0cbf91097ba",
     "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/2",
-    "candidate_status": "M1-U002 identity inventory is published and CI-verified on the draft issue-backed branch; the blank M1-U003 owner-rights review is prepared with zero human decisions and remains a branch candidate until reviewed, merged, and live-verified",
-    "next_action": "Hand off EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001 and wait for one explicit completed yes-or-no response; do not infer a decision, copy benchmark bytes, run the external-source gate, or begin scientific work before the exact response is locked and reconciled"
+    "candidate_status": "M1-U006 integrated verification PASS beyond published branch head bd404db; 131 approved assets / 3,369,748 bytes are admitted only to hash-verified external custody, the complete repository decision chain validates, and model, training, checkpoint, inference, evaluation, and release outputs remain zero",
+    "next_action": "Execute M1-U007 reviewed PR verification: publish the exact candidate, verify checks and review, merge only the verified revision, and directly verify live main; do not begin Milestone 2 or scientific work until Milestone 1 is accepted"
   }
 }

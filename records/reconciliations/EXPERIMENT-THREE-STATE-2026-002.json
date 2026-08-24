@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0",
+  "reconciliation_id": "EXPERIMENT-THREE-STATE-2026-002",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": [
+      "deterministic_validation",
+      "evidence_recording",
+      "project_control",
+      "update_project_records",
+      "public_repository_publication"
+    ],
+    "verified_at_utc": "2026-08-24T01:05:02Z",
+    "expires_at_utc": null
+  },
+  "observed_at_utc": "2026-08-24T01:05:02Z",
+  "live_facts": [
+    {
+      "id": "project.root",
+      "status": "observed",
+      "value": "C:\\Projects\\Active\\burnlens-experiment-three",
+      "source_ref": "canonical checkout verification",
+      "observed_at_utc": "2026-08-24T01:05:02Z"
+    },
+    {
+      "id": "git.branch",
+      "status": "observed",
+      "value": "codex/benchmark-provenance-001",
+      "source_ref": "git symbolic-ref --short HEAD",
+      "observed_at_utc": "2026-08-24T01:05:02Z"
+    },
+    {
+      "id": "git.head",
+      "status": "observed",
+      "value": "bd404db48f9843051bee8f3eb161dad4bc0b0e0f",
+      "source_ref": "published branch base before this integrated-verification candidate",
+      "observed_at_utc": "2026-08-24T01:05:02Z"
+    },
+    {
+      "id": "git.origin_main",
+      "status": "observed",
+      "value": "4543a2dad5c2630249906aab763ae0cbf91097ba",
+      "source_ref": "accepted Milestone 0 checkpoint",
+      "observed_at_utc": "2026-08-24T01:05:02Z"
+    },
+    {
+      "id": "contract.active_id",
+      "status": "observed",
+      "value": "EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001",
+      "source_ref": "active profile and issue 2",
+      "observed_at_utc": "2026-08-24T01:05:02Z"
+    },
+    {
+      "id": "scientific.outputs",
+      "status": "observed",
+      "value": {
+        "datasets": 1,
+        "training_runs": 0,
+        "checkpoints": 0,
+        "inference_runs": 0,
+        "evaluations": 0,
+        "releases": 0
+      },
+      "source_ref": "validated admission manifest and final controlled-intake receipt",
+      "observed_at_utc": "2026-08-24T01:05:02Z"
+    },
+    {
+      "id": "benchmark.intake",
+      "status": "observed",
+      "value": {
+        "assets": 131,
+        "bytes": 3369748,
+        "roster_sha256": "0daf93b2b3a21330d501c9e222d907738c19e4d5b9e00ebbdd169b65aadb89f4",
+        "custody": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\benchmark",
+        "repository_bytes": 0
+      },
+      "source_ref": "records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json",
+      "observed_at_utc": "2026-08-24T01:05:02Z"
+    },
+    {
+      "id": "experiment_one.source_state",
+      "status": "observed",
+      "value": {
+        "branch": "main",
+        "head": "a741111d82e69689022d2058118ed8f4b9bf3546",
+        "tree": "bc679254030eb57a65f58ac2af10880866fc52be",
+        "worktree_clean": true,
+        "mode": "read_only_provenance"
+      },
+      "source_ref": "source identity reverified before transfer and after intake",
+      "observed_at_utc": "2026-08-24T01:05:02Z"
+    }
+  ],
+  "recorded_claims": [
+    {
+      "id": "profile.scientific_outputs",
+      "fact_id": "scientific.outputs",
+      "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
+      "scope": "current",
+      "claimed_value": {
+        "datasets": 1,
+        "training_runs": 0,
+        "checkpoints": 0,
+        "inference_runs": 0,
+        "evaluations": 0,
+        "releases": 0
+      },
+      "evidence_ref": "scientific_outputs"
+    },
+    {
+      "id": "contract.scientific_outputs",
+      "fact_id": "scientific.outputs",
+      "surface_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json",
+      "scope": "current",
+      "claimed_value": {
+        "datasets": 1,
+        "training_runs": 0,
+        "checkpoints": 0,
+        "inference_runs": 0,
+        "evaluations": 0,
+        "releases": 0
+      },
+      "evidence_ref": "scientific_outputs"
+    },
+    {
+      "id": "status.benchmark_intake",
+      "fact_id": "benchmark.intake",
+      "surface_ref": "docs/status/STATUS.md",
+      "scope": "current",
+      "claimed_value": {
+        "assets": 131,
+        "bytes": 3369748,
+        "roster_sha256": "0daf93b2b3a21330d501c9e222d907738c19e4d5b9e00ebbdd169b65aadb89f4",
+        "custody": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\benchmark",
+        "repository_bytes": 0
+      },
+      "evidence_ref": "Current truth and custody sections"
+    }
+  ],
+  "required_fact_ids": [
+    "project.root",
+    "git.branch",
+    "git.head",
+    "git.origin_main",
+    "contract.active_id",
+    "scientific.outputs",
+    "benchmark.intake",
+    "experiment_one.source_state"
+  ],
+  "reconciliation": {
+    "requested_action_class": "update_project_records",
+    "intended_surfaces": [
+      "README.md",
+      "docs/status/STATUS.md",
+      "docs/roadmap/ROADMAP.md",
+      "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
+      "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json"
+    ],
+    "limitations": [
+      "This snapshot is a locally verified Milestone 1 candidate until reviewed PR merge and live verification pass.",
+      "One admitted retrospective dataset is not a new scientific result.",
+      "Repository redistribution and native provider bytes remain unauthorized.",
+      "No model implementation, training, checkpoint, inference, evaluation, metric, render, or release exists."
+    ]
+  }
+}

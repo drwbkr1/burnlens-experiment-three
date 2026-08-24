@@ -247,6 +247,59 @@ class RepositoryControlTests(unittest.TestCase):
             self.assertTrue(any("file hash changed" in error for error in errors))
             self.assertTrue(any("zero decisions" in error for error in errors))
 
+    def test_resolved_owner_review_rejects_public_decision_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = (
+                validator.PROVENANCE_MILESTONE,
+                validator.OWNER_RIGHTS_REVIEW_ITEM,
+                validator.OWNER_RIGHTS_REVIEW_CONTRACT,
+                validator.OWNER_RIGHTS_BLANK_RESPONSE,
+                validator.OWNER_RIGHTS_DECISION,
+                validator.SOURCE_GATE,
+            )
+            for relative in paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+
+            decision_path = root / validator.OWNER_RIGHTS_DECISION
+            decision = json.loads(decision_path.read_text(encoding="utf-8"))
+            decision["aggregate"]["yes"] = 0
+            decision_path.write_text(
+                json.dumps(decision, indent=2) + "\n", encoding="utf-8"
+            )
+            errors = validator.check_owner_rights_review_preparation(root)
+            self.assertTrue(any("decision record hash changed" in error for error in errors))
+            self.assertTrue(any("aggregate is inconsistent" in error for error in errors))
+
+    def test_admission_chain_is_exact_and_rejects_receipt_drift(self) -> None:
+        self.assertEqual([], validator.check_milestone_one_admission_chain(ROOT))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = (
+                validator.OWNER_RIGHTS_DECISION,
+                validator.SOURCE_GATE,
+                validator.READINESS_INPUT,
+                validator.READINESS_DECISION,
+                validator.ADMISSION_MANIFEST,
+                validator.INTAKE_RECEIPT,
+            )
+            for relative in paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+
+            receipt_path = root / validator.INTAKE_RECEIPT
+            receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+            receipt["assets"][0]["observed"]["promoted_size_bytes"] -= 1
+            receipt_path.write_text(
+                json.dumps(receipt, indent=2) + "\n", encoding="utf-8"
+            )
+            errors = validator.check_milestone_one_admission_chain(root)
+            self.assertTrue(any("intake receipt" in error for error in errors))
+
     def test_workflow_pins_checkout_to_full_sha(self) -> None:
         workflow = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")
         match = re.search(r"uses:\s*actions/checkout@([0-9a-f]{40})\b", workflow)

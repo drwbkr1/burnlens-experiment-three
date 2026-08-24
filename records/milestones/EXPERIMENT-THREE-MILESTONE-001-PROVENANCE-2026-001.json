@@ -8,7 +8,7 @@
   "accepted_base_commit": "4543a2dad5c2630249906aab763ae0cbf91097ba",
   "active_branch": "codex/benchmark-provenance-001",
   "scientific_outputs": {
-    "datasets": 0,
+    "datasets": 1,
     "training_runs": 0,
     "checkpoints": 0,
     "inference_runs": 0,
@@ -144,7 +144,7 @@
   "human_gates": [
     {
       "id": "M1-GATE-OWNER-ARTIFACT-RIGHTS",
-      "status": "pending",
+      "status": "passed",
       "unit_id": "M1-U003-SOURCE-RIGHTS-GATE",
       "purpose": "Obtain an explicit yes-or-no owner/rightsholder disposition for the exact project-authored Experiment One derivative artifacts after M1-U002 hash-binds the final inventory.",
       "review_preparation": {
@@ -156,8 +156,9 @@
         "review_contract_sha256": "0be9b7f10037cc67c3747778b4751ed4e4e7348d9d219e95d997094b06726ac3",
         "blank_response_path": "records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-RESPONSE-BLANK-2026-001.json",
         "blank_response_sha256": "3abf9c707da4c96657898fc20dbd01723daa01fca0f8779412d009e5d06b080e",
-        "human_decisions_created": 0,
-        "handoff_state": "ready_to_handoff_and_wait"
+        "human_decisions_created": 1,
+        "handoff_state": "completed_locked_and_reconciled",
+        "decision_record": "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json"
       },
       "cannot_be_inferred_from": [
         "Public repository presence",
@@ -165,7 +166,15 @@
         "Prior Experiment One use or publication",
         "Attribution records",
         "The standing operational authority for controlled intake"
-      ]
+      ],
+      "review_outcome": {
+        "decision": "yes",
+        "received_decisions": 1,
+        "ambiguous": 0,
+        "response_sha256": "23e4bda2c388585899cc814b0cb202ea94a7d3523a8bd639cc0758c2e38233f1",
+        "reconciliation_sha256": "f7e48b2dbccd6c75d25faf0b21081cbd0632b2ee7ee9bf1117c6f7853a0f9608",
+        "raw_response_committed": false
+      }
     }
   ],
   "entry_conditions": [
@@ -241,25 +250,38 @@
     },
     {
       "id": "EXIT-M1-SOURCE-RIGHTS",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json SHA-256 ce7efbbf6eb70713211f46228ffdd6b98fdd5d154afab91fdd75fa1cd887e1bf",
+        "records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json SHA-256 cd54bc87af84785c59f6018307d84d8ad4ebf49b9f6270e90543b9d2bada5de5",
+        "Source-gate validator: READY; 6 sources, 48 criteria, 15 fresh live observations, zero blockers/warnings"
+      ]
     },
     {
       "id": "EXIT-M1-READINESS",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-2026-001.json SHA-256 61f8afe7952d9b6ec30db5cbcb61af25830941f763aa45286e65e88d29079ce3",
+        "records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-DECISION-2026-001.json SHA-256 8fa1d50a4e02bcd2545421569cc78fe28203ad1647e274d6ec23805e45272cb7",
+        "Decision PASS; 10 required gates and 9 count checks pass; training_authorized false"
+      ]
     },
     {
       "id": "EXIT-M1-INTAKE-DISPOSITION",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "records/intake/EXPERIMENT-ONE-BENCHMARK-ADMISSION-MANIFEST-2026-001.json SHA-256 159c79d4394df73db2817cb8e7659e13501158c9f1f2d9152fc8d396bf3781ea",
+        "records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json SHA-256 6734472a7891078b6916c1b9ceba891214616f7670261348fcb7e81c93126c76",
+        "131 promoted assets / 3,369,748 bytes; destination roster SHA-256 0daf93b2b3a21330d501c9e222d907738c19e4d5b9e00ebbdd169b65aadb89f4; zero collisions, overwrites, or identity mismatches"
+      ]
     },
     {
       "id": "EXIT-M1-SCIENTIFIC-BOUNDARY",
       "status": "pass",
       "evidence": [
-        "Milestone 1 currently has zero admitted datasets and zero training runs, checkpoints, inference runs, evaluations, and releases",
-        "A successful controlled benchmark intake may change only datasets from 0 to 1; model, training, inference, evaluation, release, and fresh-confirmation outputs remain prohibited"
+        "One admitted retrospective benchmark input is recorded; this is not a newly produced scientific result",
+        "Training runs, checkpoints, inference runs, evaluations, and releases remain exactly zero",
+        "Repository redistribution, native provider bytes, restricted Tepee BARC4/BARC256 material, and fresh-event evidence remain prohibited"
       ]
     },
     {
@@ -375,7 +397,7 @@
       ],
       "action_class": "metadata_capture",
       "human_gate": true,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "Validated Experiment One identity inventory",
         "Explicit yes-or-no owner/rightsholder response for the exact hash-bound project-authored derivative artifacts; do not infer it",
@@ -387,26 +409,28 @@
         "records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json"
       ],
       "gates": {
-        "owner_artifact_rights_response": "pending_human_review",
-        "identity": "pending",
-        "authority": "pending",
-        "access": "pending",
-        "rights": "pending",
-        "provenance": "pending",
-        "integrity": "pending",
-        "fitness": "pending",
-        "privacy_security": "pending",
-        "fresh_live_evidence_where_required": "pending"
+        "owner_artifact_rights_response": "pass_yes",
+        "identity": "pass",
+        "authority": "pass",
+        "access": "pass",
+        "rights": "pass_scoped",
+        "provenance": "pass",
+        "integrity": "pass",
+        "fitness": "pass_retrospective_only",
+        "privacy_security": "pass",
+        "fresh_live_evidence_where_required": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "exit_condition_delta": {
         "expected": [
           "EXIT-M1-SOURCE-RIGHTS"
         ],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Current evidence supports metadata inspection but leaves project-authored non-software artifact rights ambiguous. Stop after U002 and obtain the exact owner response; do not infer a source or rights disposition from repository presence, the MIT software license, or prior use."
+        "observed": [
+          "EXIT-M1-SOURCE-RIGHTS"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "One exact owner-rightsholder yes was locked and reconciled. The six-source external gate validates READY with 48 required criteria, 15 fresh live observations, and zero blockers or warnings for controlled local intake and later bounded local use. Native provider bytes, restricted Tepee BARC4/BARC256 material, repository redistribution, and scientific authority remain excluded."
       },
       "next_dependency": "M1-U004-DATASET-READINESS-AUDIT"
     },
@@ -418,7 +442,7 @@
       ],
       "action_class": "deterministic_validation",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "Validated immutable candidate inventory",
         "Structurally valid source-gate record that is ready, or blocked solely by affirmative failure, explicit owner refusal, or definitive exclusion for the exact controlled-intake role; unknown, stale, missing, ambiguous, or deferred evidence cannot start this unit"
@@ -428,27 +452,31 @@
         "records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-DECISION-2026-001.json"
       ],
       "gates": {
-        "candidate_manifest_sha256": "pending",
-        "source_and_terms": "pending",
-        "provenance_and_custody": "pending",
-        "schema_and_quality": "pending",
-        "coverage_and_balance": "pending",
-        "uncertainty_and_exclusions": "pending",
-        "leakage_and_split_fitness": "pending",
-        "reproducibility": "pending",
-        "evaluation_design": "pending",
-        "human_review_if_applicable": "pending",
+        "candidate_manifest_sha256": "pass",
+        "source_and_terms": "pass",
+        "provenance_and_custody": "pass",
+        "schema_and_quality": "pass",
+        "coverage_and_balance": "pass",
+        "uncertainty_and_exclusions": "pass",
+        "leakage_and_split_fitness": "pass",
+        "reproducibility": "pass",
+        "evaluation_design": "pass",
+        "human_review_if_applicable": "pass",
         "training_authority": "prohibited_in_milestone_1"
       },
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "The first focused-validator attempt used system Python and failed three imports because rasterio was absent; six split-only tests passed. The same 25 focused tests then passed in the locked Experiment One .venv. The failed attempt remains evidence of runtime selection, not dataset drift."
+      ],
       "exit_condition_delta": {
         "expected": [
           "EXIT-M1-READINESS"
         ],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "The audit has not run and creates no authority."
+        "observed": [
+          "EXIT-M1-READINESS"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "All ten required non-count readiness gates pass for the exact retrospective candidate. Nine exact count checks support but do not create readiness. The audit releases only the inherited controlled_benchmark_intake action and creates no training authority."
       },
       "next_dependency": "M1-U005-CONTROLLED-BENCHMARK-INTAKE"
     },
@@ -460,7 +488,7 @@
       ],
       "action_class": "controlled_benchmark_intake",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "Resolved source-gate decision for the controlled local-copy role",
         "Dataset-readiness decision for the exact candidate manifest",
@@ -472,28 +500,32 @@
         "C:\\Projects\\Active\\burnlens-experiment-three-custody\\benchmark only on dual pass; otherwise no custody directory and zero copied bytes"
       ],
       "gates": {
-        "source_gate_ready_or_definitively_blocked": "required_before_start",
-        "dataset_readiness_resolved": "required_before_start",
-        "copy_requires_source_gate_ready": "required",
-        "copy_requires_dataset_readiness_pass": "required",
-        "copy_requires_authorized_next_action": "controlled_benchmark_intake",
-        "admission_manifest_required_for_every_outcome": "required",
-        "no_overwrite_custody": "pending",
-        "source_destination_sha256_identity": "pending",
-        "restriction_propagation": "pending",
-        "source_repository_unchanged": "pending",
+        "source_gate_ready_or_definitively_blocked": "pass",
+        "dataset_readiness_resolved": "pass",
+        "copy_requires_source_gate_ready": "pass",
+        "copy_requires_dataset_readiness_pass": "pass",
+        "copy_requires_authorized_next_action": "pass",
+        "admission_manifest_required_for_every_outcome": "pass",
+        "no_overwrite_custody": "pass",
+        "source_destination_sha256_identity": "pass",
+        "restriction_propagation": "pass",
+        "source_repository_unchanged": "pass",
         "repository_redistribution": "not_authorized_by_this_unit",
         "resolved_nonpass_behavior": "write_zero_admission_manifest_and_receipt_without_copy_or_custody_directory"
       },
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "Batch attempt 001 stopped after 48 promotions when the structural checker used the staging .part suffix and misclassified the first PNG as UTF-8 text. The source and staged bytes matched; no overwrite or identity mismatch occurred. A validated resume reverified the 48 promotions, promoted the remaining 83 assets, and retained the failed checker attempt in the final receipt."
+      ],
       "exit_condition_delta": {
         "expected": [
           "EXIT-M1-INTAKE-DISPOSITION"
         ],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Both decisions must be resolved before this unit. Dual pass permits the already authorized controlled copy; any resolved nonpass produces only a zero-admission manifest and receipt. Rights ambiguity is not resolved and stops before this unit."
+        "observed": [
+          "EXIT-M1-INTAKE-DISPOSITION"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "The dual-pass source and readiness decisions released the inherited controlled intake. Exactly 131 approved assets / 3,369,748 bytes were promoted without replacement to C:\\Projects\\Active\\burnlens-experiment-three-custody\\benchmark; staging and destination identities match, roster SHA-256 is 0daf93b2b3a21330d501c9e222d907738c19e4d5b9e00ebbdd169b65aadb89f4, and the source repository remains unchanged."
       },
       "next_dependency": "M1-U006-INTEGRATED-VERIFICATION"
     },
@@ -505,7 +537,7 @@
       ],
       "action_class": "deterministic_validation",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "Complete Milestone 1 candidate records and either hash-verified custody receipts or a machine-readable zero-admission manifest and receipt"
       ],
@@ -514,17 +546,17 @@
         "Reconciled current status, roadmap, evidence ledger, decisions, changelog, version history, devlog, and prompt log"
       ],
       "gates": {
-        "repository_controls": "pending",
-        "profile_and_contract_schemas": "pending",
-        "source_gate_schema_and_decision": "pending",
-        "dataset_readiness_schema_and_decision": "pending",
-        "intake_manifest_and_hash_replay": "pending",
-        "source_repository_non_mutation": "pending",
-        "prohibited_model_training_inference_evaluation_release_outputs_zero": "pending",
-        "dataset_counter_matches_admission_manifest": "pending",
-        "complete_diff_and_claim_review": "pending"
+        "repository_controls": "pass_37_required_files_and_23_tests",
+        "profile_and_contract_schemas": "pass_zero_findings_errors_warnings",
+        "source_gate_schema_and_decision": "pass_ready_6_sources_48_criteria",
+        "dataset_readiness_schema_and_decision": "pass_exact_semantic_replay",
+        "intake_manifest_and_hash_replay": "pass_131_assets_3369748_bytes",
+        "source_repository_non_mutation": "pass_clean_head_and_tree_unchanged",
+        "prohibited_model_training_inference_evaluation_release_outputs_zero": "pass",
+        "dataset_counter_matches_admission_manifest": "pass_one_admitted_dataset",
+        "complete_diff_and_claim_review": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "exit_condition_delta": {
         "expected": [
@@ -534,9 +566,15 @@
           "EXIT-M1-INTAKE-DISPOSITION",
           "EXIT-M1-SCIENTIFIC-BOUNDARY"
         ],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Integrated verification has not run."
+        "observed": [
+          "EXIT-M1-IDENTITY",
+          "EXIT-M1-SOURCE-RIGHTS",
+          "EXIT-M1-READINESS",
+          "EXIT-M1-INTAKE-DISPOSITION",
+          "EXIT-M1-SCIENTIFIC-BOUNDARY"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "The repository validator, 23 mutation-focused tests, project-control and milestone schemas, source-gate validator, semantic readiness replay, file-verifying intake validator, reconciliation evaluator, JSON and link checks, Python compile, diff check, secret-pattern scan, custody replay, and source non-mutation checks all pass. One retrospective dataset is admitted; every prohibited scientific or release output remains zero."
       },
       "next_dependency": "M1-U007-REVIEWED-PR-VERIFICATION"
     },
@@ -612,8 +650,8 @@
     ]
   },
   "handoff": {
-    "current_checkpoint": "M1-U002 identity PASS in records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json against Experiment One clean main a741111d82e69689022d2058118ed8f4b9bf3546; source-rights, controlled copy, downstream use, and redistribution remain nonpass; no scientific output or benchmark byte is admitted",
-    "next_action": "Stop at M1-GATE-OWNER-ARTIFACT-RIGHTS and obtain the owner's explicit yes-or-no rightsholder disposition for the exact inventory before M1-U003 begins; do not infer permission from repository presence, prior use, or the MIT software license",
+    "current_checkpoint": "M1-U006 integrated verification PASS. Exactly 131 approved assets / 3,369,748 bytes are hash-verified in isolated external custody; the complete repository-owned decision and receipt chain validates; zero model, training, checkpoint, inference, evaluation, or release outputs exist.",
+    "next_action": "Execute M1-U007: publish the exact candidate through draft PR 3, verify required checks and review, merge only the verified candidate, then directly verify live main. Do not begin Milestone 2 until Milestone 1 is accepted.",
     "do_not_carry_forward": [
       "Milestone 0's consumed direct-main exception",
       "Any assumption that prior use, repository presence, a software license, or public access proves asset rights",

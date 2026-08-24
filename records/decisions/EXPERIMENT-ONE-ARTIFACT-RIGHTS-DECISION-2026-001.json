@@ -1,0 +1,59 @@
+{
+  "schema_version": "experiment-three-owner-artifact-rights-decision/v1",
+  "decision_id": "EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001",
+  "review_id": "EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001",
+  "recorded_at_utc": "2026-08-24T00:44:17Z",
+  "candidate_identity": {
+    "inventory_path": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+    "inventory_bytes": 90576,
+    "inventory_sha256": "187c9d8aac67038e1269548d0477192ef6f3c6b8113190626c1aada2bed89529",
+    "experiment_one_head": "a741111d82e69689022d2058118ed8f4b9bf3546",
+    "experiment_one_tree": "bc679254030eb57a65f58ac2af10880866fc52be"
+  },
+  "prepared_bundle": {
+    "item_path": "records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-ITEM-2026-001.json",
+    "item_bytes": 3213,
+    "item_sha256": "2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581",
+    "contract_path": "records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-CONTRACT-2026-001.json",
+    "contract_bytes": 1370,
+    "contract_sha256": "0be9b7f10037cc67c3747778b4751ed4e4e7348d9d219e95d997094b06726ac3",
+    "blank_response_path": "records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-RESPONSE-BLANK-2026-001.json",
+    "blank_response_bytes": 521,
+    "blank_response_sha256": "3abf9c707da4c96657898fc20dbd01723daa01fca0f8779412d009e5d06b080e"
+  },
+  "locked_review_evidence": {
+    "custody": "private_hash_only",
+    "response_bytes": 556,
+    "response_sha256": "23e4bda2c388585899cc814b0cb202ea94a7d3523a8bd639cc0758c2e38233f1",
+    "lock_receipt_bytes": 1078,
+    "lock_receipt_sha256": "8b853048c2dbd4a91a8e11dde16a8daaa89a564264ec431d115bd3df23566c4b",
+    "reconciliation_bytes": 1035,
+    "reconciliation_sha256": "f7e48b2dbccd6c75d25faf0b21081cbd0632b2ee7ee9bf1117c6f7853a0f9608",
+    "review_started_at_utc": "2026-08-24T00:31:55Z",
+    "review_completed_at_utc": "2026-08-24T00:43:50Z",
+    "locked_at_utc": "2026-08-24T00:44:17Z",
+    "raw_response_or_notes_committed": false
+  },
+  "aggregate": {
+    "expected_decisions": 1,
+    "received_decisions": 1,
+    "yes": 1,
+    "no": 0,
+    "ambiguous": 0,
+    "missing": 0,
+    "attestation_satisfied": true,
+    "exact_bundle_match": true,
+    "human_decisions_fabricated": false
+  },
+  "decision": "yes",
+  "interpretation": "To the extent of rights the owner controls, the exact hash-bound Experiment One project-authored derivative artifacts may be copied into controlled Experiment Three custody, reproduced and used for the frozen retrospective experiment, and redistributed through Experiment Three only where a separate current upstream-source gate also permits.",
+  "limits": [
+    "The decision grants no right the reviewer does not own or control.",
+    "It does not override Copernicus, MTBS, BAER, RAVG, USGS, USDA Forest Service, or other upstream terms.",
+    "It does not authorize native provider bytes, restricted Tepee BARC4 or BARC256 material, credentials, private routes, raw review material, Experiment Two or Two-B artifacts, or fresh-event material.",
+    "It does not authorize training, evaluation, publication, protocol changes, operational wildfire claims, or unsupported scientific claims.",
+    "Attribution, provenance, custody, privacy-security, integrity, fitness, and claim limits continue to apply."
+  ],
+  "authorized_next_step": "Run the separate current upstream-source gate and, only if it is ready, the dataset-readiness audit.",
+  "downstream_authorization_created": false
+}

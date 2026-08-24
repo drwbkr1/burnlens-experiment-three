@@ -6,6 +6,7 @@ published releases. A version string does not by itself prove a release.
 | Version | Date | State | Revision | Scope | Scientific result |
 | --- | --- | --- | --- | --- | --- |
 | `0.0.0-bootstrap` | 2026-08-23 | Accepted checkpoint; not a release | `4543a2dad5c2630249906aab763ae0cbf91097ba` | Governance, documentation, repository controls, and CI bootstrap only | None |
+| `0.1.0-m1-candidate` | 2026-08-24 | Working-tree candidate; not accepted or released | Pending candidate commit | Hash-bound rights, source gate, readiness, and external controlled intake | None |
 
 ## Incoming state
 
@@ -30,20 +31,25 @@ Draft pull request
 Milestone 1 control transition. Its published transition commit
 `74171043ddd543979e9773d5ffdd06da116bbaa1` passed push CI run `32674532003`
 and pull-request CI run `32674546780`. The subsequent metadata-only identity
-inventory is a locally and independently validated issue-backed branch
-candidate; it is not an accepted version, release, dataset admission, or
-scientific result.
+inventory and controlled-intake records form a locally and independently
+validated issue-backed branch candidate. The dataset is admitted to external
+custody, but this is not an accepted public version, release, or scientific
+result.
 
-The inventory reports identity `PASS`, controlled copy/use `DEFER`, and
-redistribution `BLOCK`. No version may advance on identity alone; an explicit
-rights decision, current source gate, readiness result, and zero-copy or
-admission receipt must close Milestone 1 first.
+The owner-rightsholder decision is now an exact scoped `yes`, the current
+source gate is `READY`, readiness is `PASS`, and controlled intake admitted 131
+approved artifacts / 3,369,748 bytes to external custody with matching
+identities. Repository redistribution remains unauthorized. This candidate
+still requires integrated verification, successful PR checks, reviewed merge,
+and direct live-main verification before it becomes accepted.
 
 The inventory was published at branch commit
 `b17176d07d34f34ab385acbc91cf1876471afe06`, with successful push run
 `32676766091` and pull-request run `32676767882`. A hash-bound, blank
-owner-rights response is now prepared. This is still an unmerged branch
-candidate, not an accepted checkpoint or release.
+owner-rights response was prepared and remains immutable as the review
+interface. The completed response is private; its public aggregate decision is
+hash-bound. This remains an unmerged branch candidate, not an accepted
+checkpoint or release.
 
 ## Versioning rules
 

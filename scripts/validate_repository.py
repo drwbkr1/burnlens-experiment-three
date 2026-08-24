@@ -75,6 +75,47 @@ EXPECTED_OWNER_REVIEW_CONTRACT_SHA256 = (
 EXPECTED_OWNER_RIGHTS_BLANK_SHA256 = (
     "3abf9c707da4c96657898fc20dbd01723daa01fca0f8779412d009e5d06b080e"
 )
+OWNER_RIGHTS_DECISION = Path(
+    "records/decisions/EXPERIMENT-ONE-ARTIFACT-RIGHTS-DECISION-2026-001.json"
+)
+SOURCE_GATE = Path(
+    "records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json"
+)
+READINESS_INPUT = Path(
+    "records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-2026-001.json"
+)
+READINESS_DECISION = Path(
+    "records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-DECISION-2026-001.json"
+)
+ADMISSION_MANIFEST = Path(
+    "records/intake/EXPERIMENT-ONE-BENCHMARK-ADMISSION-MANIFEST-2026-001.json"
+)
+INTAKE_RECEIPT = Path(
+    "records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json"
+)
+EXPECTED_OWNER_RIGHTS_DECISION_SHA256 = (
+    "ce7efbbf6eb70713211f46228ffdd6b98fdd5d154afab91fdd75fa1cd887e1bf"
+)
+EXPECTED_SOURCE_GATE_SHA256 = (
+    "cd54bc87af84785c59f6018307d84d8ad4ebf49b9f6270e90543b9d2bada5de5"
+)
+EXPECTED_READINESS_INPUT_SHA256 = (
+    "61f8afe7952d9b6ec30db5cbcb61af25830941f763aa45286e65e88d29079ce3"
+)
+EXPECTED_READINESS_DECISION_SHA256 = (
+    "8fa1d50a4e02bcd2545421569cc78fe28203ad1647e274d6ec23805e45272cb7"
+)
+EXPECTED_ADMISSION_MANIFEST_SHA256 = (
+    "159c79d4394df73db2817cb8e7659e13501158c9f1f2d9152fc8d396bf3781ea"
+)
+EXPECTED_INTAKE_RECEIPT_SHA256 = (
+    "6734472a7891078b6916c1b9ceba891214616f7670261348fcb7e81c93126c76"
+)
+EXPECTED_INTAKE_ASSET_COUNT = 131
+EXPECTED_INTAKE_BYTES = 3_369_748
+EXPECTED_INTAKE_ROSTER_SHA256 = (
+    "0daf93b2b3a21330d501c9e222d907738c19e4d5b9e00ebbdd169b65aadb89f4"
+)
 
 REQUIRED_FILES = (
     Path(".gitignore"),
@@ -90,6 +131,7 @@ REQUIRED_FILES = (
     Path("docs/status/STATUS.md"),
     Path("docs/status/VERSION-HISTORY.md"),
     Path("docs/devlog/2026-08-23-empty-bootstrap.md"),
+    Path("docs/devlog/2026-08-24-milestone-one-intake.md"),
     Path("records/decisions/DECISION-REGISTER.md"),
     Path("records/evidence/EVIDENCE-LEDGER.md"),
     Path("records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md"),
@@ -98,7 +140,15 @@ REQUIRED_FILES = (
     BOOTSTRAP_MILESTONE,
     PROVENANCE_MILESTONE,
     STATE_RECONCILIATION,
+    Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-002.json"),
+    OWNER_RIGHTS_DECISION,
+    SOURCE_GATE,
+    READINESS_INPUT,
+    READINESS_DECISION,
+    ADMISSION_MANIFEST,
+    INTAKE_RECEIPT,
     Path("records/prompt-build-log/2026-08-23-bootstrap.md"),
+    Path("records/prompt-build-log/2026-08-24-milestone-one-intake.md"),
     Path("scripts/validate_repository.py"),
     Path("tests/test_repository_controls.py"),
     Path(".github/ISSUE_TEMPLATE/config.yml"),
@@ -1119,7 +1169,7 @@ def check_milestone_one_identity_inventory(root: Path) -> list[str]:
 
 
 def check_owner_rights_review_preparation(root: Path) -> list[str]:
-    """Keep the prepared human-rights handoff exact and decision-free."""
+    """Keep the prepared bundle exact and bind either pending or resolved state."""
 
     milestone_path = root / PROVENANCE_MILESTONE
     if not milestone_path.is_file():
@@ -1148,6 +1198,7 @@ def check_owner_rights_review_preparation(root: Path) -> list[str]:
     errors: list[str] = []
     if not isinstance(preparation, dict):
         return ["owner-rights review_preparation must be a JSON object"]
+    resolved = gates[0].get("status") == "passed"
     expected_preparation: dict[str, Any] = {
         "review_id": EXPECTED_OWNER_REVIEW_ID,
         "review_item_path": OWNER_RIGHTS_REVIEW_ITEM.as_posix(),
@@ -1156,14 +1207,20 @@ def check_owner_rights_review_preparation(root: Path) -> list[str]:
         "review_contract_sha256": EXPECTED_OWNER_REVIEW_CONTRACT_SHA256,
         "blank_response_path": OWNER_RIGHTS_BLANK_RESPONSE.as_posix(),
         "blank_response_sha256": EXPECTED_OWNER_RIGHTS_BLANK_SHA256,
-        "human_decisions_created": 0,
-        "handoff_state": "ready_to_handoff_and_wait",
+        "human_decisions_created": 1 if resolved else 0,
+        "handoff_state": (
+            "completed_locked_and_reconciled"
+            if resolved
+            else "ready_to_handoff_and_wait"
+        ),
     }
     for field, expected in expected_preparation.items():
         actual = preparation.get(field)
         if type(expected) is int:
             if type(actual) is not int or actual != expected:
-                errors.append(f"owner-rights review_preparation.{field} must equal 0")
+                errors.append(
+                    f"owner-rights review_preparation.{field} must equal {expected}"
+                )
         elif actual != expected:
             errors.append(
                 f"owner-rights review_preparation.{field} must equal {expected}"
@@ -1259,6 +1316,174 @@ def check_owner_rights_review_preparation(root: Path) -> list[str]:
             errors.append("owner-rights blank response attestation must remain false")
         if blank.get("responses") != expected_responses:
             errors.append("owner-rights blank response must contain zero decisions")
+
+    if resolved:
+        if preparation.get("decision_record") != OWNER_RIGHTS_DECISION.as_posix():
+            errors.append("resolved owner-rights review must bind the public decision record")
+        decision_path = root / OWNER_RIGHTS_DECISION
+        if not decision_path.is_file():
+            errors.append("resolved owner-rights decision record is missing")
+        else:
+            raw = decision_path.read_bytes()
+            if hashlib.sha256(raw).hexdigest() != EXPECTED_OWNER_RIGHTS_DECISION_SHA256:
+                errors.append("resolved owner-rights decision record hash changed")
+            try:
+                decision = json.loads(raw.decode("utf-8"))
+            except (UnicodeError, json.JSONDecodeError):
+                decision = None
+                errors.append("resolved owner-rights decision must be UTF-8 JSON")
+            if isinstance(decision, dict):
+                aggregate = decision.get("aggregate")
+                locked = decision.get("locked_review_evidence")
+                if decision.get("review_id") != EXPECTED_OWNER_REVIEW_ID:
+                    errors.append("resolved owner-rights decision review_id changed")
+                if decision.get("decision") != "yes":
+                    errors.append("resolved owner-rights decision must equal yes")
+                if not isinstance(aggregate, dict) or any(
+                    aggregate.get(key) != value
+                    for key, value in {
+                        "expected_decisions": 1,
+                        "received_decisions": 1,
+                        "yes": 1,
+                        "no": 0,
+                        "ambiguous": 0,
+                        "missing": 0,
+                        "attestation_satisfied": True,
+                        "exact_bundle_match": True,
+                        "human_decisions_fabricated": False,
+                    }.items()
+                ):
+                    errors.append("resolved owner-rights aggregate is inconsistent")
+                if (
+                    not isinstance(locked, dict)
+                    or locked.get("raw_response_or_notes_committed") is not False
+                ):
+                    errors.append("raw owner-rights response or notes must not be committed")
+                outcome = gates[0].get("review_outcome")
+                if not isinstance(outcome, dict) or any(
+                    outcome.get(key) != value
+                    for key, value in {
+                        "decision": "yes",
+                        "received_decisions": 1,
+                        "ambiguous": 0,
+                        "raw_response_committed": False,
+                    }.items()
+                ):
+                    errors.append("resolved owner-rights milestone outcome is inconsistent")
+                elif isinstance(locked, dict) and (
+                    outcome.get("response_sha256") != locked.get("response_sha256")
+                    or outcome.get("reconciliation_sha256")
+                    != locked.get("reconciliation_sha256")
+                ):
+                    errors.append("resolved owner-rights private evidence hashes disagree")
+
+        source_path = root / SOURCE_GATE
+        if not source_path.is_file():
+            errors.append("resolved owner-rights review requires the source-gate record")
+        else:
+            try:
+                source_gate = _load_json(source_path)
+            except (OSError, UnicodeError, json.JSONDecodeError):
+                source_gate = None
+            if (
+                not isinstance(source_gate, dict)
+                or not isinstance(source_gate.get("decision"), dict)
+                or source_gate["decision"].get("status") != "ready"
+            ):
+                errors.append("resolved owner-rights downstream source gate must be ready")
+    return errors
+
+
+def check_milestone_one_admission_chain(root: Path) -> list[str]:
+    """Bind the admitted dataset count to immutable gate, audit, and intake receipts."""
+
+    records = {
+        OWNER_RIGHTS_DECISION: EXPECTED_OWNER_RIGHTS_DECISION_SHA256,
+        SOURCE_GATE: EXPECTED_SOURCE_GATE_SHA256,
+        READINESS_INPUT: EXPECTED_READINESS_INPUT_SHA256,
+        READINESS_DECISION: EXPECTED_READINESS_DECISION_SHA256,
+        ADMISSION_MANIFEST: EXPECTED_ADMISSION_MANIFEST_SHA256,
+        INTAKE_RECEIPT: EXPECTED_INTAKE_RECEIPT_SHA256,
+    }
+    loaded: dict[Path, dict[str, Any]] = {}
+    errors: list[str] = []
+    if not (root / INTAKE_RECEIPT).is_file():
+        return errors
+    for relative, expected_sha in records.items():
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"admission-chain record is missing: {relative.as_posix()}")
+            continue
+        raw = path.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != expected_sha:
+            errors.append(f"admission-chain record hash changed: {relative.as_posix()}")
+        try:
+            value = json.loads(raw.decode("utf-8"))
+        except (UnicodeError, json.JSONDecodeError):
+            errors.append(f"admission-chain record is invalid JSON: {relative.as_posix()}")
+            continue
+        if isinstance(value, dict):
+            loaded[relative] = value
+
+    source_gate = loaded.get(SOURCE_GATE, {})
+    readiness = loaded.get(READINESS_DECISION, {})
+    readiness_input = loaded.get(READINESS_INPUT, {})
+    manifest = loaded.get(ADMISSION_MANIFEST, {})
+    receipt = loaded.get(INTAKE_RECEIPT, {})
+    if source_gate.get("decision", {}).get("status") != "ready":
+        errors.append("admission chain requires source-gate ready")
+    if readiness.get("decision") != "pass":
+        errors.append("admission chain requires readiness pass")
+    if readiness.get("training_authorized") is not False:
+        errors.append("readiness decision must not authorize training")
+    input_raw = root / READINESS_INPUT
+    if input_raw.is_file() and readiness.get("audit_input_sha256") != hashlib.sha256(
+        input_raw.read_bytes()
+    ).hexdigest():
+        errors.append("readiness decision input hash does not match")
+
+    manifest_assets = manifest.get("assets")
+    receipt_assets = receipt.get("assets")
+    if not isinstance(manifest_assets, list) or len(manifest_assets) != EXPECTED_INTAKE_ASSET_COUNT:
+        errors.append("admission manifest must enumerate exactly 131 assets")
+    if not isinstance(receipt_assets, list) or len(receipt_assets) != EXPECTED_INTAKE_ASSET_COUNT:
+        errors.append("intake receipt must enumerate exactly 131 assets")
+    if isinstance(manifest_assets, list) and isinstance(receipt_assets, list):
+        manifest_identity = [
+            (a.get("asset_id"), a.get("destination_relative_path"), a.get("expected"))
+            for a in manifest_assets if isinstance(a, dict)
+        ]
+        receipt_identity = [
+            (a.get("asset_id"), a.get("destination_relative_path"), a.get("expected"))
+            for a in receipt_assets if isinstance(a, dict)
+        ]
+        if manifest_identity != receipt_identity:
+            errors.append("admission manifest and intake receipt asset identities disagree")
+        if any(a.get("state") != "promoted" for a in receipt_assets if isinstance(a, dict)):
+            errors.append("every intake receipt asset must be promoted")
+        promoted_bytes = sum(
+            a.get("observed", {}).get("promoted_size_bytes", 0)
+            for a in receipt_assets if isinstance(a, dict)
+        )
+        if promoted_bytes != EXPECTED_INTAKE_BYTES:
+            errors.append("intake receipt promoted-byte sum must equal 3369748")
+    completion = receipt.get("extensions", {}).get("completion", {})
+    for field, expected in {
+        "promoted_assets": EXPECTED_INTAKE_ASSET_COUNT,
+        "promoted_bytes": EXPECTED_INTAKE_BYTES,
+        "destination_roster_sha256": EXPECTED_INTAKE_ROSTER_SHA256,
+        "staging_reverified": True,
+        "destination_reverified": True,
+        "source_identity_reverified_before_transfer": True,
+        "source_repository_unchanged": True,
+        "identity_mismatches": 0,
+        "destination_collisions": 0,
+        "overwrite_events": 0,
+    }.items():
+        if completion.get(field) != expected:
+            errors.append(f"intake receipt completion.{field} is inconsistent")
+    if receipt.get("extensions", {}).get("training_authority_created") is not False:
+        errors.append("intake receipt must not create training authority")
     return errors
 
 
@@ -1272,6 +1497,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_truthful_bootstrap_state,
         check_milestone_one_identity_inventory,
         check_owner_rights_review_preparation,
+        check_milestone_one_admission_chain,
     )
     errors: list[str] = []
     for check in checks:
