@@ -1,0 +1,384 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json",
+  "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json",
+  "status": "active",
+  "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/4",
+  "accepted_base_commit": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4",
+  "active_branch": "codex/synthetic-preflight-002",
+  "scientific_outputs": {
+    "datasets": 1,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "inference_runs": 0,
+    "evaluations": 0,
+    "releases": 0
+  },
+  "output_policy": {
+    "synthetic_artifacts_are_scientific_outputs": false,
+    "synthetic_artifact_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\synthetic-preflight",
+    "benchmark_values_allowed": false,
+    "substantive_training_allowed": false,
+    "test_opening_allowed": false,
+    "repository_model_binaries_allowed": false
+  },
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": [
+      "read_only_inspection",
+      "deterministic_validation",
+      "metadata_capture",
+      "evidence_recording",
+      "project_control",
+      "update_project_records",
+      "reversible_remediation",
+      "version_control_write",
+      "github_issue_management",
+      "github_pull_request_management",
+      "external_state_verification",
+      "public_repository_publication",
+      "software_implementation",
+      "synthetic_preflight"
+    ],
+    "user_instruction": "Build a complete real neural lifecycle without changing the frozen model family or using known benchmark evaluation evidence; stop before materially new dependency-runtime adoption.",
+    "repository_controls": [
+      "AGENTS.md",
+      "docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md",
+      "docs/governance/CHECKPOINT-POLICY.md"
+    ],
+    "active_contract": "records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json",
+    "verified_at_utc": "2026-08-24T01:26:35Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Prove on wholly synthetic inputs that the fixed 137-parameter detector and its packaging surface support finite forward, loss, backward, optimizer, checkpoint, fresh-process reload, deterministic inference, and exact replay before any substantive training.",
+    "allowed_paths": [
+      ".github/",
+      "docs/",
+      "records/",
+      "scripts/",
+      "src/",
+      "tests/",
+      "README.md",
+      "CHANGELOG.md",
+      "VERSION",
+      "C:\\Projects\\Active\\burnlens-experiment-three-custody\\synthetic-preflight",
+      "C:\\Projects\\Active\\burnlens-experiment-three-runtime",
+      "C:\\Projects\\Active\\burnlens-experiment-three-private"
+    ],
+    "forbidden_work": [
+      "Download, extract, vendor, adopt, import, or execute successor candidate 002 before M2-U004C passes",
+      "Retry candidate 001 or use its installer to create the Experiment Three runtime",
+      "Use any Experiment One benchmark pixel value as synthetic input, target, training, threshold, or evaluation evidence",
+      "Open the known test for Experiment Three evaluation",
+      "Create a substantive training run, scientific checkpoint, inference run, evaluation, metric, render, tag, or release",
+      "Change the fixed 137-parameter model family or any approved protocol value",
+      "Modify another BurnLens repository",
+      "Commit dependency caches, environments, benchmark bytes, synthetic model binaries, or secrets"
+    ],
+    "reversible_actions": [
+      "Inspect installed runtimes and lock metadata read-only",
+      "Create repository source, tests, validators, and synthetic fixtures",
+      "Create and delete disposable synthetic weights and outputs under the approved external custody root",
+      "Create issue-backed branches, commits, pull requests, and verified merge checkpoints"
+    ],
+    "stop_conditions": [
+      "Exact dependency runtime adoption decision is required",
+      "Candidate runtime requires terms acceptance, credentials, spending, a paid service, a secret, or custody expansion",
+      "Synthetic preflight would require benchmark values, model-family change, protocol change, or unsupported claim",
+      "Any irreversible action or unverifiable publication is proposed"
+    ]
+  },
+  "dependency_barriers": [
+    {
+      "id": "M2-BARRIER-RUNTIME",
+      "status": "resolved",
+      "required_before": "M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION",
+      "resolution": "Candidate 001 failed and remains closed; exact owner-approved candidate 002 activated and passed under record 2026-001"
+    },
+    {
+      "id": "M2-BARRIER-BENCHMARK",
+      "status": "active_through_milestone",
+      "required_before": "all_units",
+      "resolution": "No benchmark values may enter synthetic preflight"
+    }
+  ],
+  "human_gates": [
+    {
+      "id": "M2-GATE-DEPENDENCY-RUNTIME",
+      "status": "passed",
+      "unit_id": "M2-U003-RUNTIME-ADOPTION-DECISION",
+      "purpose": "Approve or reject one exact dependency/runtime candidate after its identity, source, license, custody, reproducibility, and compatibility are known.",
+      "review_preparation": {
+        "review_id": "EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-2026-001",
+        "inventory_path": "records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json",
+        "inventory_sha256": "68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05",
+        "source_gate_path": "records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json",
+        "source_gate_sha256": "1db59fb03c55051ce50a7327f45f7f9515eefce0dd7035640a07e35eb34f6e47",
+        "review_item_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-ITEM-2026-001.json",
+        "review_item_sha256": "e0af6dcd8dcca8d945ed82fe9df9ab12792e89c70e0ce44d531dfa8b2add998d",
+        "review_contract_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-CONTRACT-2026-001.json",
+        "review_contract_sha256": "b0743b466904a2580c90d4df7b8806e70eae1535a1702e14e6245eb30bbb18ce",
+        "blank_response_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-RESPONSE-BLANK-2026-001.json",
+        "blank_response_sha256": "45363c2a1d29200dab289031f9cfbd7a5811f4615f3a33a40629f05b2e37f039",
+        "human_decisions_created": 1,
+        "handoff_state": "completed_locked_and_reconciled",
+        "decision_record": "records/decisions/EXPERIMENT-THREE-RUNTIME-ADOPTION-DECISION-2026-001.json",
+        "decision_sha256": "af559ec1ebeebea5338b5c8e8b0200dbb98026980111de56fbbfd4f364a8b4ee"
+      },
+      "cannot_be_inferred_from": [
+        "The approved use of CPU PyTorch in the scientific direction",
+        "A runtime already installed for another project",
+        "Successful import or version output",
+        "Prior Experiment One or Experiment Two use"
+      ]
+    },
+    {
+      "id": "M2-GATE-DEPENDENCY-RUNTIME-SUCCESSOR",
+      "status": "passed",
+      "unit_id": "M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION",
+      "purpose": "Approve or reject the materially different official embeddable-package successor after retaining the failed installer route and binding exact identity, source, custody, construction, and compatibility risks.",
+      "review_preparation": {
+        "review_id": "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-2026-001",
+        "inventory_path": "records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001.json",
+        "inventory_sha256": "ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967",
+        "source_gate_path": "records/source-gates/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-SOURCE-GATE-2026-001.json",
+        "source_gate_sha256": "e8dcd17e040c846459090c42037b51e333f8d285286f8c94467c2ff62e9c42b3",
+        "review_item_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-ITEM-2026-001.json",
+        "review_item_sha256": "f010073113c7268ba75c35a37dc5cded51c954af05f04fdb7f28d15c5175b615",
+        "review_contract_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-CONTRACT-2026-001.json",
+        "review_contract_sha256": "bf50874168e2024f953f8748435f46f0b2554ca5beeff9ec701f5ce032f28d39",
+        "blank_response_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-RESPONSE-BLANK-2026-001.json",
+        "blank_response_sha256": "0e7b117acbfe1cf9517e1a05e2cf0bae39524123efea2b5907321196ba9b796b",
+        "human_decisions_created": 1,
+        "handoff_state": "completed_locked_and_reconciled",
+        "decision_record": "records/decisions/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-DECISION-2026-001.json",
+        "decision_sha256": "0bb8daafca4198b995f09952404fd93d185e4dccccb0ed45fc072143d491a29e"
+      },
+      "cannot_be_inferred_from": [
+        "The owner yes for failed candidate 001",
+        "Successful rollback of the existing Python installation",
+        "The successor source gate being ready",
+        "The unchanged wheel lock"
+      ]
+    }
+  ],
+  "entry_conditions": [
+    {
+      "id": "ENTRY-M2-ACCEPTED-M1",
+      "status": "pass",
+      "evidence": [
+        "Live main commit 32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4, tree 5b2bd2904b9164b8bd3c655998749cb024202148",
+        "Merge-triggered GitHub Actions run 32679791900 passed",
+        "Issue 2 closed only after live tree and blob verification"
+      ]
+    },
+    {
+      "id": "ENTRY-M2-SCIENTIFIC-ZERO",
+      "status": "pass",
+      "evidence": [
+        "One admitted retrospective dataset; zero training runs, checkpoints, inference runs, evaluations, and releases"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-M2-CONTROL", "status": "pass", "evidence": ["Issue 4 and codex/synthetic-preflight-002 begin from accepted M1"]},
+    {"id": "EXIT-M2-RUNTIME", "status": "pass", "evidence": ["records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ACTIVATION-2026-001.json SHA-256 991d843e0dcfae6a2568fd837389d4ee5b64e36f1077f8299399a4f37e21083a"]},
+    {"id": "EXIT-M2-MODEL", "status": "pass", "evidence": ["records/synthetic/EXPERIMENT-THREE-SYNTHETIC-PREFLIGHT-2026-001.json SHA-256 88fa5c37134c2f91b74d9435cb353ab57664384ef19536b7984f89cccf487c10"]},
+    {"id": "EXIT-M2-GRADIENT", "status": "pass", "evidence": ["Finite nonzero gradient norm 0.07114846019345532; exact changed weight hashes"]},
+    {"id": "EXIT-M2-RELOAD", "status": "pass", "evidence": ["Fresh embedded process weights_only state-dict reconstruction produced exact logits and probabilities"]},
+    {"id": "EXIT-M2-REPLAY", "status": "pass", "evidence": ["Primary and replay seven-file rosters and receipts match exactly at roster 9c008f10 and receipt 7a3fde99"]},
+    {"id": "EXIT-M2-SCIENTIFIC-BOUNDARY", "status": "pass", "evidence": ["Both exact receipts and public preflight record classify outputs synthetic/non-scientific and record benchmark_accessed false; source inspection contains no benchmark custody locator or loader"]},
+    {"id": "EXIT-M2-VERIFIED-CHECKPOINT", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {
+      "id": "M2-U001-RECONCILIATION-CONTROL",
+      "purpose": "Reconcile accepted Milestone 1 and activate a synthetic-only contract.",
+      "depends_on": [],
+      "action_class": "project_control",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Accepted main 32e5b0d", "Issue 4", "Active long-running goal"],
+      "outputs": ["Profile 003", "Milestone 2 contract", "State reconciliation 003"],
+      "gates": {"accepted_base": "pass", "scientific_output_zero": "pass", "synthetic_only_scope": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-CONTROL"], "observed": ["EXIT-M2-CONTROL"], "decision_value": "advances_exit", "rationale": "The branch and issue begin from the exact live-verified M1 checkpoint with no scientific output."},
+      "next_dependency": "M2-U002-RUNTIME-CANDIDATE-INVENTORY"
+    },
+    {
+      "id": "M2-U002-RUNTIME-CANDIDATE-INVENTORY",
+      "purpose": "Inspect candidate CPU PyTorch runtimes read-only and bind exact executable, package, license, source, compatibility, and custody facts without adoption.",
+      "depends_on": ["M2-U001-RECONCILIATION-CONTROL"],
+      "action_class": "read_only_inspection",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Installed local runtimes beneath C:\\Projects\\Active", "Approved CPU PyTorch direction"],
+      "outputs": ["records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json", "records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json", "One exact blank owner adoption review with zero decisions"],
+      "gates": {"no_install_or_adoption": "pass", "exact_identity": "pass", "license_and_source": "pass", "cpu_compatibility": "pass_for_owner_review_not_activation", "candidate_minimization": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "enables_dependency", "rationale": "One exact CPython 3.12.10, uv 0.10.7, PyTorch 2.13.0+cpu Windows candidate and its 20-package lock, source gate, license inventory, Active-only custody, and risks are bound without downloading, installing, adopting, or executing the candidate."},
+      "next_dependency": "M2-U003-RUNTIME-ADOPTION-DECISION"
+    },
+    {
+      "id": "M2-U003-RUNTIME-ADOPTION-DECISION",
+      "purpose": "Obtain an explicit owner decision for one exact dependency runtime or record a terminal rejection.",
+      "depends_on": ["M2-U002-RUNTIME-CANDIDATE-INVENTORY"],
+      "action_class": "external_source_model_runtime_or_service_adoption",
+      "human_gate": true,
+      "status": "complete",
+      "inputs": ["Runtime inventory SHA-256 68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05", "Source gate READY with 4 sources, 32 required criteria, and zero blockers or warnings", "Prepared exact blank response with zero human decisions"],
+      "outputs": ["records/decisions/EXPERIMENT-THREE-RUNTIME-ADOPTION-DECISION-2026-001.json", "Private exact response, lock receipt, and reconciliation retained under Active-only custody"],
+      "gates": {"explicit_owner_response": "pass_yes", "exact_candidate_binding": "pass", "no_inferred_adoption": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "enables_dependency", "rationale": "One exact attested owner yes was locked before reveal and reconciled against the immutable runtime inventory. It authorizes only exact M2-U004 activation and does not itself prove runtime fitness or complete the runtime exit."},
+      "next_dependency": "M2-U004-LOCKED-RUNTIME-ACTIVATION"
+    },
+    {
+      "id": "M2-U004-LOCKED-RUNTIME-ACTIVATION",
+      "purpose": "After approval only, activate one isolated, reproducible CPU runtime under C:\\Projects\\Active and prove exact imports without benchmark access.",
+      "depends_on": ["M2-U003-RUNTIME-ADOPTION-DECISION"],
+      "action_class": "synthetic_preflight",
+      "human_gate": false,
+      "status": "failed",
+      "inputs": ["Approved exact runtime candidate"],
+      "outputs": ["records/runtime/EXPERIMENT-THREE-RUNTIME-ACTIVATION-FAILURE-2026-001.json", "Private exact installer/Sigstore intake", "Private failed-transaction and recovery logs"],
+      "gates": {"approved_identity_only": "pass", "isolated_custody": "fail", "exact_lock": "not_reached", "cpu_only": "not_reached", "existing_install_recovery": "pass"},
+      "disposition": "remediate",
+      "retained_failures": ["The approved same-version installer entered Modify maintenance mode on the existing per-user CPython instead of constructing the requested Active-only runtime; exit code 0 was not activation success."],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "risk_reduction", "rationale": "The exact candidate is non-executable as an isolated side-by-side install on this host. Recovery restored inspected existing-Python surfaces, but cannot convert the candidate activation to a pass."},
+      "next_dependency": "M2-U004B-RUNTIME-SUCCESSOR-INVENTORY"
+    },
+    {
+      "id": "M2-U004B-RUNTIME-SUCCESSOR-INVENTORY",
+      "purpose": "Inventory the smallest materially distinct application-local runtime route read-only after retaining candidate 001's failure.",
+      "depends_on": ["M2-U004-LOCKED-RUNTIME-ACTIVATION"],
+      "action_class": "read_only_inspection",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Candidate 001 failure record", "Official CPython 3.12.10 release metadata", "Unchanged approved wheel lock"],
+      "outputs": ["records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001.json", "records/source-gates/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-SOURCE-GATE-2026-001.json", "Exact blank successor owner review"],
+      "gates": {"failure_retained": "pass", "no_download_or_execution": "pass", "exact_successor_identity": "pass", "source_gate": "ready", "prior_yes_not_carried_forward": "pass"},
+      "disposition": "pass",
+      "retained_failures": ["Candidate 001 activation remains FAIL and closed."],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "enables_dependency", "rationale": "The official embeddable package avoids Windows installer maintenance, but its application-local native-package fitness remains unproven and requires fresh exact owner approval."},
+      "next_dependency": "M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION"
+    },
+    {
+      "id": "M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION",
+      "purpose": "Obtain an explicit owner decision for the exact embeddable-package successor without inferring it from candidate 001 approval.",
+      "depends_on": ["M2-U004B-RUNTIME-SUCCESSOR-INVENTORY"],
+      "action_class": "external_source_model_runtime_or_service_adoption",
+      "human_gate": true,
+      "status": "complete",
+      "inputs": ["Successor inventory SHA-256 ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967", "Successor source gate READY", "Prepared blank response with zero decisions"],
+      "outputs": ["records/decisions/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-DECISION-2026-001.json", "Private exact response, lock receipt, and reconciliation retained under Active-only custody"],
+      "gates": {"explicit_owner_response": "pass_yes", "exact_candidate_binding": "pass", "no_inferred_adoption": "pass"},
+      "disposition": "pass",
+      "retained_failures": ["Candidate 001 activation remains FAIL and cannot authorize candidate 002."],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "enables_dependency", "rationale": "One exact attested owner yes was locked before reveal and reconciled against successor inventory ae95bc39; it releases candidate 002 activation only."},
+      "next_dependency": "M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION"
+    },
+    {
+      "id": "M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION",
+      "purpose": "After an exact yes only, construct and validate the application-local successor under Active without benchmark access or existing-Python mutation.",
+      "depends_on": ["M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION"],
+      "action_class": "synthetic_preflight",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Explicit owner-approved successor only"],
+      "outputs": ["records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ACTIVATION-2026-001.json", "Private exact interpreter intake", "Activated application-local runtime beneath Active"],
+      "gates": {"approved_identity_only": "pass", "application_local_custody": "pass", "exact_lock": "pass", "native_imports": "pass", "cpu_only": "pass", "existing_python_unchanged": "pass"},
+      "disposition": "pass",
+      "retained_failures": ["Candidate 001 activation remains FAIL and closed."],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": ["EXIT-M2-RUNTIME"], "decision_value": "advances_exit", "rationale": "Exact ZIP/Sigstore identity, application-local extraction, 20-package hash-enforced closure, native imports, CPU gradient, Rasterio roundtrip, subprocess, safe reload, deterministic fresh-process replay, runtime roster, and existing-Python isolation all passed."},
+      "next_dependency": "M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION"
+    },
+    {
+      "id": "M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION",
+      "purpose": "Implement the fixed detector, safe state-dict package, synthetic generator, deterministic replay command, and tests without benchmark values.",
+      "depends_on": ["M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION"],
+      "action_class": "software_implementation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Approved runtime", "Fixed architecture and scientific boundaries"],
+      "outputs": ["src/burnlens_experiment_three", "scripts/run_synthetic_preflight.py", "tests/test_synthetic_neural_lifecycle.py", "records/synthetic/EXPERIMENT-THREE-SYNTHETIC-PREFLIGHT-2026-001.json"],
+      "gates": {"parameter_count_137": "pass", "arbitrary_hw": "pass", "benchmark_independence": "pass", "safe_state_dict_only": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-MODEL"], "observed": ["EXIT-M2-MODEL"], "decision_value": "advances_exit", "rationale": "Six runtime tests prove the exact 137-parameter 1x1 architecture, arbitrary HxW, mask-preserving balanced loss, deterministic fixture, and strict safe state-dict package with tamper rejection."},
+      "next_dependency": "M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION"
+    },
+    {
+      "id": "M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION",
+      "purpose": "Execute and record forward, balanced masked loss, backward, optimizer change, checkpoint, fresh-process reload, deterministic inference, and exact replay on generated synthetic data.",
+      "depends_on": ["M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION"],
+      "action_class": "synthetic_preflight",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Verified implementation", "Deterministic synthetic-only fixture"],
+      "outputs": ["Two exact seven-file external output rosters", "Machine-readable preflight receipts", "State-dict packages", "GeoTIFFs", "Rendered comparison panels"],
+      "gates": {"finite_forward_and_loss": "pass", "nonzero_gradients": "pass", "changed_weights": "pass", "fresh_process_reload": "pass", "bitwise_replay": "pass", "rendered_surface": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY"], "observed": ["EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY"], "decision_value": "advances_exit", "rationale": "Primary and independent replay produced identical receipts and all seven artifact bytes, finite gradients, changed weights, reduced synthetic loss, exact fresh-process reconstruction, exact GeoTIFF reopen, and a visually reviewed render."},
+      "next_dependency": "M2-U007-INTEGRATED-VERIFICATION"
+    },
+    {
+      "id": "M2-U007-INTEGRATED-VERIFICATION",
+      "purpose": "Independently validate runtime, source, synthetic receipts, fresh-process replay, rendered proof, repository boundaries, and zero scientific outputs.",
+      "depends_on": ["M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION"],
+      "action_class": "deterministic_validation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["Complete synthetic candidate"],
+      "outputs": ["scripts/verify_synthetic_preflight.py", "Independent external roster/receipt/GeoTIFF/render verification", "Validated public synthetic record"],
+      "gates": {"all_receipts_replay": "pass", "render_review": "pass", "scientific_boundary": "pass", "complete_diff": "pass"},
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME", "EXIT-M2-MODEL", "EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY", "EXIT-M2-SCIENTIFIC-BOUNDARY"], "observed": ["EXIT-M2-RUNTIME", "EXIT-M2-MODEL", "EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY", "EXIT-M2-SCIENTIFIC-BOUNDARY"], "decision_value": "advances_exit", "rationale": "The independent verifier rehashed every source and external output, proved exact primary/replay file identity, re-opened and hashed GeoTIFF values/tags, inspected the PNG structure, and preserved zero benchmark/scientific work."},
+      "next_dependency": "M2-U008-REVIEWED-PR-VERIFICATION"
+    },
+    {
+      "id": "M2-U008-REVIEWED-PR-VERIFICATION",
+      "purpose": "Publish the exact verified synthetic checkpoint through a reviewed PR and directly verify live main without a release.",
+      "depends_on": ["M2-U007-INTEGRATED-VERIFICATION"],
+      "action_class": "public_repository_publication",
+      "human_gate": false,
+      "status": "ready",
+      "inputs": ["Exact verified candidate", "Issue 4 and codex/synthetic-preflight-002"],
+      "outputs": ["Merged checkpoint and live verification receipt"],
+      "gates": {"required_checks": "pending", "reviewed_pr": "pending", "live_main": "pending", "no_release": "pending"},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {"expected": ["EXIT-M2-VERIFIED-CHECKPOINT"], "observed": [], "decision_value": "unknown", "rationale": "Publication pending."},
+      "next_dependency": null
+    }
+  ],
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": ["dependency runtime", "neural implementation", "model serialization", "synthetic rendered evidence", "public claims"],
+    "required_checks": ["repository controls", "profile and milestone schemas", "runtime identity and lock", "parameter and gradient audit", "safe fresh-process reload", "exact synthetic replay", "rendered proof review", "zero scientific outputs", "live PR and main verification"],
+    "completed_checks": ["Accepted Milestone 1 live-main identity and merge-triggered CI verified", "Runtime candidate 001 explicit owner yes locked and reconciled", "Candidate 001 official installer and Sigstore intake verified", "Candidate 001 activation retained as FAIL after maintenance-mode misroute; inspected existing-Python surfaces restored", "Successor candidate 002 source gate valid and ready with one materially new source plus three unchanged inherited sources", "Human-review protocol self-test passed and successor blank response contains zero decisions"]
+  },
+  "handoff": {
+    "current_checkpoint": "Candidate 001 received an explicit owner yes, but exact activation failed because the same-version Windows installer entered maintenance mode on an existing Python installation. Recovery passed for inspected surfaces, the failed route is closed, and no wheel sync, synthetic execution, or scientific work began. Candidate 002 is a read-only source-ready application-local embeddable-package successor with zero human decisions.",
+    "next_action": "Wait for an explicit M2-U004C yes/no decision bound to successor inventory SHA-256 ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967. Do not carry forward the candidate 001 yes or download, extract, vendor, or execute candidate 002 before that decision.",
+    "do_not_carry_forward": [
+      "Any Experiment One benchmark value into synthetic inputs, targets, or evidence",
+      "Any unapproved dependency runtime or environment",
+      "Any Experiment Two or Two-B implementation or authority",
+      "Any scientific checkpoint, training, inference, evaluation, metric, or release",
+      "Any assumption that synthetic success validates benchmark performance"
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "experiment-three-runtime-candidate-inventory/v1",
+  "inventory_id": "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001",
+  "recorded_at_utc": "2026-08-24T02:37:43Z",
+  "candidate_id": "CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002",
+  "supersedes_failed_route": "CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001",
+  "disposition": "ready_for_owner_adoption_decision",
+  "adopted": false,
+  "downloaded_runtime_artifacts": 0,
+  "installed_packages": 0,
+  "executed_candidate_imports": 0,
+  "scientific_work_started": false,
+  "purpose": "Create an application-local CPython 3.12.10 runtime beneath C:\\Projects\\Active without invoking Windows installer maintenance mode, then vendor the unchanged exact 20-package Windows closure for synthetic-only Milestone 2 validation.",
+  "authority": {
+    "mode": "inherited_read_only",
+    "authority_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json#M2-U004B-RUNTIME-SUCCESSOR-INVENTORY",
+    "adoption_gate": "M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION"
+  },
+  "platform": {
+    "operating_system": "Windows",
+    "architecture": "x86_64",
+    "python_abi": "cp312",
+    "device": "CPU only",
+    "floating_point": "float32"
+  },
+  "python": {
+    "implementation": "CPython",
+    "version": "3.12.10",
+    "artifact": "python-3.12.10-embed-amd64.zip",
+    "distribution_type": "official Windows embeddable package",
+    "official_release": "https://www.python.org/downloads/release/python-31210/",
+    "artifact_url": "https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip",
+    "artifact_bytes": 11133606,
+    "artifact_sha256": "4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3",
+    "sigstore_url": "https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip.sigstore",
+    "sha256_source": "Official Sigstore bundle message digest; artifact bytes have not been downloaded.",
+    "license": "Python Software Foundation License Version 2 and incorporated notices",
+    "license_url": "https://docs.python.org/3.12/license.html",
+    "official_behavior": "The embeddable package is an almost fully isolated application-local distribution. It does not include pip, and Python documentation says ordinary pip dependency management is not supported; an application installer may provide third-party packages alongside it.",
+    "status": "not_downloaded_not_extracted"
+  },
+  "package_plan": {
+    "resolver": "Use the already-observed uv 0.10.7 executable only as external tooling.",
+    "private_lock_sha256": "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081",
+    "effective_windows_packages": 20,
+    "torch_cpu_wheel_sha256": "a8b450c1e58e5800e5b4691dac412f8d2d65a1dc3298166f91596603a3531e6f",
+    "versions_and_wheel_hashes": "Unchanged from records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json",
+    "installation_mode": "Download every exact lock-selected wheel into private Active-only custody, verify hashes and notices, extract or install the wheels into an application-local Lib/site-packages directory using external tooling, and explicitly configure python312._pth to admit only the application root, standard-library zip, Lib/site-packages, and site import required by the verified package layout.",
+    "pip_inside_runtime": false,
+    "source_builds": false,
+    "version_substitution": false
+  },
+  "prospective_custody": {
+    "runtime_root": "C:\\Projects\\Active\\burnlens-experiment-three-runtime\\cpython-3.12.10-embed",
+    "download_root": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-downloads",
+    "cache_root": "C:\\Projects\\Active\\burnlens-experiment-three-private\\uv-cache",
+    "synthetic_output_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\synthetic-preflight",
+    "forbidden_root": "C:\\Users\\drewb\\OneDrive",
+    "repository_distribution": "No runtime, wheel, cache, synthetic checkpoint, or generated model output may be committed."
+  },
+  "approval_scope": {
+    "yes_would_authorize": [
+      "Download and verify the exact official embeddable ZIP, its Sigstore bundle, and the unchanged exact lock-selected wheels into Active-only private custody",
+      "Extract the ZIP without registry, PATH, launcher, association, shortcut, administrator, or existing-Python mutation",
+      "Vendor the exact wheels into the application-local runtime and make only the minimal python312._pth change needed for the verified package layout",
+      "Capture licenses and execute import, dependency, CPU-only, deterministic-algorithm, subprocess, and synthetic compatibility preflights"
+    ],
+    "yes_would_not_authorize": [
+      "Any alternate artifact, dependency, version, source build, installer reuse, system mutation, credential, terms acceptance, spend, paid service, secret, OneDrive custody, or prior-repository mutation",
+      "Benchmark access or substantive training, checkpointing, inference, evaluation, tuning, or publication",
+      "Any model-family, protocol, cohort, label, split, metric, threshold, decision-rule, or claim change"
+    ]
+  },
+  "risk_assessment": {
+    "known_risks": [
+      "This is a materially different CPython artifact and packaging route from candidate 001.",
+      "The embeddable package is not a normal pip-managed environment; vendored packages and native DLL/data discovery must be proven on the exact host.",
+      "PyTorch and Rasterio include native libraries whose loading, subprocess behavior, and data-path discovery may fail in an embedded layout.",
+      "A new interpreter and binary wheels execute third-party native code if adopted."
+    ],
+    "mitigations": [
+      "Exact official artifact, Sigstore digest, unchanged wheel lock, and fail-closed hashes",
+      "Application-local extraction with no Windows installer transaction or existing-Python mutation",
+      "No pip bootstrap inside the runtime and no source build",
+      "Fresh-process import, DLL, Rasterio data, PyTorch gradient, serialization, and exact-replay gates before use"
+    ],
+    "residual_risk": "bounded_nonzero_pending_owner_adoption_and_activation_validation"
+  },
+  "decision_boundary": "Because the interpreter artifact and package construction mechanism differ materially from the previously approved exact candidate, the prior yes does not authorize this successor."
+}

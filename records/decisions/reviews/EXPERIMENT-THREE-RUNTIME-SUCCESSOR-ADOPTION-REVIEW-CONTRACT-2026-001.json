@@ -1,0 +1,27 @@
+{
+  "contract_version": "human-review-contract-v1",
+  "template": false,
+  "review_id": "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-2026-001",
+  "response_schema_version": "experiment-three-runtime-adoption-response-v1",
+  "workflow_authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL/records-milestones:EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001#M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION",
+    "authorized_action_classes": ["metadata_capture", "evidence_recording", "read_only_inspection", "deterministic_validation", "update_project_records"],
+    "verified_at_utc": "2026-08-24T02:37:43Z",
+    "expires_at_utc": null,
+    "review_required": true,
+    "lock_authorized": true,
+    "reconcile_authorized": true,
+    "post_review_actions": ["metadata_capture", "evidence_recording", "read_only_inspection", "deterministic_validation", "update_project_records"]
+  },
+  "allowed_decisions": ["yes", "no"],
+  "required_attestation": true,
+  "max_notes_length": 2000,
+  "hash_prefix_length": 16,
+  "items": [
+    {
+      "item_id": "exact-windows-cpu-runtime-successor-002",
+      "evidence_sha256": "ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967"
+    }
+  ]
+}

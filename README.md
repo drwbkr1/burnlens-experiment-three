@@ -13,12 +13,13 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-24, the truthful bootstrap remains the accepted live `main`
-checkpoint at
-[`4543a2dad5c2630249906aab763ae0cbf91097ba`](https://github.com/drwbkr1/burnlens-experiment-three/commit/4543a2dad5c2630249906aab763ae0cbf91097ba).
-Milestone 1 is active under issue
-[#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2) and draft
-pull request [#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3).
+As of 2026-08-24, Milestone 1 is accepted and live-verified on `main` at
+[`32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4`](https://github.com/drwbkr1/burnlens-experiment-three/commit/32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4),
+tree `5b2bd2904b9164b8bd3c655998749cb024202148`. Merge-triggered GitHub
+Actions run
+[`32679791900`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32679791900)
+passed. Milestone 2 is active under issue
+[#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4).
 
 The exact owner/rightsholder review is now complete and reconciled as `yes` for
 rights the owner controls. A separate current six-source gate is `READY`, and
@@ -29,11 +30,23 @@ source, staging, and destination identity matched. No benchmark byte is stored
 in this Git repository, and repository redistribution was not authorized by
 the intake.
 
-This is a data-admission checkpoint candidate, not a scientific result. No
-Experiment Three model implementation, training run, checkpoint, inference,
-evaluation, metric, rendered result, tag, or release exists. Substantive model
-work remains prohibited until Milestone 1 is reviewed and accepted, followed
-by the synthetic-preflight and executable-protocol gates.
+Runtime candidate 001 received an exact owner `yes`, but its signed normal
+installer entered maintenance mode on an existing same-version Python product
+instead of creating the required isolated runtime. That activation is retained
+as `FAIL`; inspected existing-Python surfaces were restored, and no wheels,
+model imports, synthetic runs, or scientific work followed. Candidate 002 then
+received a separate exact owner `yes` and passed application-local activation
+with Python.org's official embeddable ZIP and the unchanged 20-package Windows
+CPU lock. The fixed 137-parameter model now passes a wholly synthetic lifecycle:
+finite gradients, changed weights, reduced loss, strict state-dict packaging,
+fresh-process reload, byte-identical replay, GeoTIFF reopen, and rendered proof.
+
+This is an engineering-control checkpoint candidate, not a scientific result.
+No Experiment Three model implementation, training run, checkpoint, inference,
+evaluation metric, scientific rendered result, tag, or release exists. The
+synthetic diagnostic and render are engineering evidence only. The next action
+is to publish and live-verify this Milestone 2 checkpoint through draft PR #5;
+substantive training remains unauthorized until protocol freeze.
 
 ## Research question
 
@@ -159,6 +172,11 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Current source gate](records/source-gates/EXPERIMENT-ONE-BENCHMARK-SOURCE-GATE-2026-001.json)
 - [Dataset readiness decision](records/readiness/EXPERIMENT-ONE-BENCHMARK-READINESS-DECISION-2026-001.json)
 - [Controlled-intake receipt](records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json)
+- [Runtime candidate inventory](records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json)
+- [Runtime source gate](records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json)
+- [Runtime adoption review item](records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-ITEM-2026-001.json)
+- [Runtime adoption review contract](records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-CONTRACT-2026-001.json)
+- [Blank runtime adoption response](records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-RESPONSE-BLANK-2026-001.json)
 - [Bootstrap devlog](docs/devlog/2026-08-23-empty-bootstrap.md)
 - [Contributing rules](CONTRIBUTING.md)
 

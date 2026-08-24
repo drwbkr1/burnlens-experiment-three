@@ -1,0 +1,63 @@
+{
+  "schema_version": "experiment-three-runtime-adoption-decision/v1",
+  "decision_id": "EXPERIMENT-THREE-RUNTIME-ADOPTION-DECISION-2026-001",
+  "review_id": "EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-2026-001",
+  "recorded_at_utc": "2026-08-24T02:20:20Z",
+  "candidate_identity": {
+    "candidate_id": "CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001",
+    "inventory_path": "records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json",
+    "inventory_bytes": 12103,
+    "inventory_sha256": "68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05",
+    "source_gate_path": "records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json",
+    "source_gate_bytes": 16226,
+    "source_gate_sha256": "1db59fb03c55051ce50a7327f45f7f9515eefce0dd7035640a07e35eb34f6e47",
+    "private_pyproject_sha256": "2a26d771dc9b880699d5bb26b987772d73847adc9dc96ef076fb97af8343f4a6",
+    "private_lock_sha256": "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081"
+  },
+  "prepared_bundle": {
+    "item_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-ITEM-2026-001.json",
+    "item_bytes": 4559,
+    "item_sha256": "e0af6dcd8dcca8d945ed82fe9df9ab12792e89c70e0ce44d531dfa8b2add998d",
+    "contract_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-CONTRACT-2026-001.json",
+    "contract_bytes": 1322,
+    "contract_sha256": "b0743b466904a2580c90d4df7b8806e70eae1535a1702e14e6245eb30bbb18ce",
+    "blank_response_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-RESPONSE-BLANK-2026-001.json",
+    "blank_response_bytes": 514,
+    "blank_response_sha256": "45363c2a1d29200dab289031f9cfbd7a5811f4615f3a33a40629f05b2e37f039"
+  },
+  "locked_review_evidence": {
+    "custody": "private_hash_only",
+    "response_bytes": 549,
+    "response_sha256": "1fef4d3f874bc4d9982e00f9a352bf534cab1cae7903ceb4722c95509ac1b9ad",
+    "lock_receipt_bytes": 1071,
+    "lock_receipt_sha256": "68650e9fdeb9cd0766394eaf586cb771eee7cbe3cafae501aba4a9b92d4b6742",
+    "reconciliation_bytes": 1204,
+    "reconciliation_sha256": "e205f7a554ffd454e2697193223584b52389d2291979301081cc7cffceff2ed2",
+    "review_started_at_utc": "2026-08-24T02:20:20Z",
+    "review_completed_at_utc": "2026-08-24T02:20:20Z",
+    "locked_at_utc": "2026-08-24T02:20:20Z",
+    "raw_response_or_notes_committed": false
+  },
+  "aggregate": {
+    "expected_decisions": 1,
+    "received_decisions": 1,
+    "yes": 1,
+    "no": 0,
+    "ambiguous": 0,
+    "missing": 0,
+    "attestation_satisfied": true,
+    "exact_bundle_match": true,
+    "human_decisions_fabricated": false
+  },
+  "decision": "yes",
+  "interpretation": "The exact Windows x64 CPU runtime candidate may be downloaded into Active-only private custody, verified, installed into the isolated approved runtime root, and used for license capture plus CPU-only import, deterministic-algorithm, and synthetic compatibility preflight.",
+  "limits": [
+    "Only the exact CPython installer, observed uv executable, private lock, package versions, wheel identities, sources, custody roots, and actions bound by the review item are approved.",
+    "No version substitution, dependency addition, source build, unverified artifact, prior-environment reuse, administrator installation, system PATH mutation, credential, secret, terms acceptance, spend, paid service, or OneDrive custody.",
+    "No benchmark access, substantive training, scientific checkpoint, inference, evaluation, metric, threshold, tuning, model-family change, protocol change, tag, release, or unsupported claim.",
+    "Any hash, signature, package, import, CPU, deterministic-setting, license, or custody mismatch fails closed and is retained."
+  ],
+  "authorized_next_step": "Execute M2-U004-LOCKED-RUNTIME-ACTIVATION for the exact approved candidate, then validate the activation before any dependent synthetic implementation unit.",
+  "downstream_authorization_created": false,
+  "authorization_source": "Explicit owner yes plus the existing Experiment Three standing authority and Milestone 2 dependency order."
+}

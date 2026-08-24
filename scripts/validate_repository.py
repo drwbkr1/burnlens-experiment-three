@@ -18,9 +18,13 @@ HISTORICAL_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-001.json"
 )
-CONTROL_PROFILE = Path(
+MILESTONE_ONE_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json"
+)
+CONTROL_PROFILE = Path(
+    "records/governance/"
+    "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-003.json"
 )
 BOOTSTRAP_MILESTONE = Path(
     "records/milestones/"
@@ -29,6 +33,10 @@ BOOTSTRAP_MILESTONE = Path(
 PROVENANCE_MILESTONE = Path(
     "records/milestones/"
     "EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json"
+)
+SYNTHETIC_PREFLIGHT_MILESTONE = Path(
+    "records/milestones/"
+    "EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json"
 )
 STATE_RECONCILIATION = Path(
     "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json"
@@ -116,6 +124,115 @@ EXPECTED_INTAKE_BYTES = 3_369_748
 EXPECTED_INTAKE_ROSTER_SHA256 = (
     "0daf93b2b3a21330d501c9e222d907738c19e4d5b9e00ebbdd169b65aadb89f4"
 )
+RUNTIME_INVENTORY = Path(
+    "records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json"
+)
+RUNTIME_SOURCE_GATE = Path(
+    "records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json"
+)
+RUNTIME_REVIEW_ITEM = Path(
+    "records/decisions/reviews/"
+    "EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-ITEM-2026-001.json"
+)
+RUNTIME_REVIEW_CONTRACT = Path(
+    "records/decisions/reviews/"
+    "EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-CONTRACT-2026-001.json"
+)
+RUNTIME_BLANK_RESPONSE = Path(
+    "records/decisions/reviews/"
+    "EXPERIMENT-THREE-RUNTIME-ADOPTION-RESPONSE-BLANK-2026-001.json"
+)
+RUNTIME_ADOPTION_DECISION = Path(
+    "records/decisions/EXPERIMENT-THREE-RUNTIME-ADOPTION-DECISION-2026-001.json"
+)
+EXPECTED_RUNTIME_REVIEW_ID = "EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-2026-001"
+EXPECTED_RUNTIME_ITEM_ID = "exact-windows-cpu-runtime-candidate-001"
+EXPECTED_RUNTIME_INVENTORY_SHA256 = (
+    "68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05"
+)
+EXPECTED_RUNTIME_SOURCE_GATE_SHA256 = (
+    "1db59fb03c55051ce50a7327f45f7f9515eefce0dd7035640a07e35eb34f6e47"
+)
+EXPECTED_RUNTIME_ITEM_SHA256 = (
+    "e0af6dcd8dcca8d945ed82fe9df9ab12792e89c70e0ce44d531dfa8b2add998d"
+)
+EXPECTED_RUNTIME_CONTRACT_SHA256 = (
+    "b0743b466904a2580c90d4df7b8806e70eae1535a1702e14e6245eb30bbb18ce"
+)
+EXPECTED_RUNTIME_BLANK_SHA256 = (
+    "45363c2a1d29200dab289031f9cfbd7a5811f4615f3a33a40629f05b2e37f039"
+)
+EXPECTED_RUNTIME_DECISION_SHA256 = (
+    "af559ec1ebeebea5338b5c8e8b0200dbb98026980111de56fbbfd4f364a8b4ee"
+)
+RUNTIME_ACTIVATION_FAILURE = Path(
+    "records/runtime/EXPERIMENT-THREE-RUNTIME-ACTIVATION-FAILURE-2026-001.json"
+)
+RUNTIME_SUCCESSOR_INVENTORY = Path(
+    "records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001.json"
+)
+RUNTIME_SUCCESSOR_SOURCE_GATE = Path(
+    "records/source-gates/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-SOURCE-GATE-2026-001.json"
+)
+RUNTIME_SUCCESSOR_REVIEW_ITEM = Path(
+    "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-ITEM-2026-001.json"
+)
+RUNTIME_SUCCESSOR_REVIEW_CONTRACT = Path(
+    "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-CONTRACT-2026-001.json"
+)
+RUNTIME_SUCCESSOR_BLANK_RESPONSE = Path(
+    "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-RESPONSE-BLANK-2026-001.json"
+)
+RUNTIME_SUCCESSOR_ADOPTION_DECISION = Path(
+    "records/decisions/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-DECISION-2026-001.json"
+)
+RUNTIME_SUCCESSOR_ACTIVATION = Path(
+    "records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ACTIVATION-2026-001.json"
+)
+EXPECTED_RUNTIME_FAILURE_SHA256 = (
+    "a6f98a20371a1ee3a6ad36e7d272fc21fa952d41bf6a5fa9c6abdf28ed803512"
+)
+EXPECTED_RUNTIME_SUCCESSOR_INVENTORY_SHA256 = (
+    "ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967"
+)
+EXPECTED_RUNTIME_SUCCESSOR_SOURCE_GATE_SHA256 = (
+    "e8dcd17e040c846459090c42037b51e333f8d285286f8c94467c2ff62e9c42b3"
+)
+EXPECTED_RUNTIME_SUCCESSOR_ITEM_SHA256 = (
+    "f010073113c7268ba75c35a37dc5cded51c954af05f04fdb7f28d15c5175b615"
+)
+EXPECTED_RUNTIME_SUCCESSOR_CONTRACT_SHA256 = (
+    "bf50874168e2024f953f8748435f46f0b2554ca5beeff9ec701f5ce032f28d39"
+)
+EXPECTED_RUNTIME_SUCCESSOR_BLANK_SHA256 = (
+    "0e7b117acbfe1cf9517e1a05e2cf0bae39524123efea2b5907321196ba9b796b"
+)
+EXPECTED_RUNTIME_SUCCESSOR_DECISION_SHA256 = (
+    "0bb8daafca4198b995f09952404fd93d185e4dccccb0ed45fc072143d491a29e"
+)
+EXPECTED_RUNTIME_SUCCESSOR_ACTIVATION_SHA256 = (
+    "991d843e0dcfae6a2568fd837389d4ee5b64e36f1077f8299399a4f37e21083a"
+)
+EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID = (
+    "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-2026-001"
+)
+EXPECTED_RUNTIME_SUCCESSOR_ITEM_ID = "exact-windows-cpu-runtime-successor-002"
+SYNTHETIC_PREFLIGHT_RECORD = Path(
+    "records/synthetic/EXPERIMENT-THREE-SYNTHETIC-PREFLIGHT-2026-001.json"
+)
+SYNTHETIC_SOURCE_IDENTITIES = {
+    Path("src/burnlens_experiment_three/__init__.py"): "7f51f0ead6abda4b9c7b18e6b65371e06de7ca069cfdd5173fa4cbc6e371a5eb",
+    Path("src/burnlens_experiment_three/model.py"): "f7e68601c4d00d11a6569ee1f870815b7a0f16f7e1b1a116dbcd936312665313",
+    Path("src/burnlens_experiment_three/losses.py"): "aec40aae4e98042d5f73d59baeed3948c8073b18ed131f2c0e263749b5ed60a9",
+    Path("src/burnlens_experiment_three/synthetic.py"): "baa3640ff1db93f098a419f8b55fb2258d6ceccd714e441cd1a6373bca6955a6",
+    Path("src/burnlens_experiment_three/checkpoint.py"): "529870f28236592472d363a085ba9bf0a47c247af322fc114c57b515927805f8",
+    Path("scripts/run_synthetic_preflight.py"): "044946c5ddbc13dc023434ccf0faa0428921c9c5b3a722134fa274b4d01ca351",
+    Path("scripts/verify_synthetic_preflight.py"): "a79be6988b69149e0680aca9d92fe64f20d9e63b06918506caa25790f3bfefbf",
+    Path("tests/test_synthetic_neural_lifecycle.py"): "92ddf8e89b599d2f447a0d74444789b7c09532e6973bc1cad5c39dcf2f6feb4c",
+}
+EXPECTED_SYNTHETIC_PREFLIGHT_RECORD_SHA256 = (
+    "88fa5c37134c2f91b74d9435cb353ab57664384ef19536b7984f89cccf487c10"
+)
 
 REQUIRED_FILES = (
     Path(".gitignore"),
@@ -132,23 +249,44 @@ REQUIRED_FILES = (
     Path("docs/status/VERSION-HISTORY.md"),
     Path("docs/devlog/2026-08-23-empty-bootstrap.md"),
     Path("docs/devlog/2026-08-24-milestone-one-intake.md"),
+    Path("docs/devlog/2026-08-24-milestone-two-runtime-gate.md"),
     Path("records/decisions/DECISION-REGISTER.md"),
     Path("records/evidence/EVIDENCE-LEDGER.md"),
     Path("records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md"),
     HISTORICAL_CONTROL_PROFILE,
+    MILESTONE_ONE_CONTROL_PROFILE,
     CONTROL_PROFILE,
     BOOTSTRAP_MILESTONE,
     PROVENANCE_MILESTONE,
+    SYNTHETIC_PREFLIGHT_MILESTONE,
     STATE_RECONCILIATION,
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-002.json"),
+    Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-003.json"),
     OWNER_RIGHTS_DECISION,
     SOURCE_GATE,
     READINESS_INPUT,
     READINESS_DECISION,
     ADMISSION_MANIFEST,
     INTAKE_RECEIPT,
+    RUNTIME_INVENTORY,
+    RUNTIME_SOURCE_GATE,
+    RUNTIME_REVIEW_ITEM,
+    RUNTIME_REVIEW_CONTRACT,
+    RUNTIME_BLANK_RESPONSE,
+    RUNTIME_ADOPTION_DECISION,
+    RUNTIME_ACTIVATION_FAILURE,
+    RUNTIME_SUCCESSOR_INVENTORY,
+    RUNTIME_SUCCESSOR_SOURCE_GATE,
+    RUNTIME_SUCCESSOR_REVIEW_ITEM,
+    RUNTIME_SUCCESSOR_REVIEW_CONTRACT,
+    RUNTIME_SUCCESSOR_BLANK_RESPONSE,
+    RUNTIME_SUCCESSOR_ADOPTION_DECISION,
+    RUNTIME_SUCCESSOR_ACTIVATION,
+    SYNTHETIC_PREFLIGHT_RECORD,
+    *SYNTHETIC_SOURCE_IDENTITIES.keys(),
     Path("records/prompt-build-log/2026-08-23-bootstrap.md"),
     Path("records/prompt-build-log/2026-08-24-milestone-one-intake.md"),
+    Path("records/prompt-build-log/2026-08-24-milestone-two-runtime-gate.md"),
     Path("scripts/validate_repository.py"),
     Path("tests/test_repository_controls.py"),
     Path(".github/ISSUE_TEMPLATE/config.yml"),
@@ -268,6 +406,12 @@ def _relative_name(root: Path, path: Path) -> str:
 def _load_json(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def _repository_text_sha256(raw: bytes) -> str:
+    """Hash canonical LF repository text independent of Windows checkout mode."""
+
+    return hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest()
 
 
 def _canonical_roster_sha256(
@@ -393,7 +537,9 @@ def check_no_cloud_sync_references(root: Path) -> list[str]:
         "disallow",
         "exclude",
         "forbid",
+        "limit",
         "no_go",
+        "not_authorize",
         "prohibit",
     )
     prose_policy_cues = (
@@ -405,6 +551,7 @@ def check_no_cloud_sync_references(root: Path) -> list[str]:
         "must never",
         "must not",
         "never ",
+        "no ",
         "no-go",
         "non-",
         "outside ",
@@ -474,6 +621,8 @@ def _active_pre_model_policy(profile: Any) -> str | None:
         return "bootstrap"
     if "milestone-001" in active_name or "provenance" in active_name:
         return "milestone_1"
+    if "milestone-002" in active_name or "synthetic-preflight" in active_name:
+        return "milestone_2"
     return None
 
 
@@ -490,7 +639,11 @@ def check_no_scientific_artifacts(root: Path) -> list[str]:
             return []
 
     errors: list[str] = []
-    policy_label = "bootstrap" if policy == "bootstrap" else "milestone 1"
+    policy_label = {
+        "bootstrap": "bootstrap",
+        "milestone_1": "milestone 1",
+        "milestone_2": "milestone 2",
+    }.get(policy, "pre-model")
     for path in _repository_files(root):
         relative = path.relative_to(root)
         suffix = path.suffix.casefold()
@@ -597,6 +750,11 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
     policy = _active_pre_model_policy(profile)
     if policy is None:
         return errors
+    policy_label = {
+        "bootstrap": "bootstrap",
+        "milestone_1": "milestone 1",
+        "milestone_2": "milestone 2",
+    }.get(policy, "pre-model")
 
     active_relative, error = _checked_relative_path(
         profile.get("active_milestone_path"), "active_milestone_path"
@@ -606,12 +764,11 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
 
     state = profile.get("scientific_state")
     if not isinstance(state, str) or state.casefold() != "not_started":
-        policy_label = "bootstrap" if policy == "bootstrap" else "milestone 1"
         errors.append(f"{policy_label} scientific_state must be 'not_started'")
 
     profile_outputs = profile.get("scientific_outputs")
-    if policy == "milestone_1" and not isinstance(profile_outputs, dict):
-        errors.append("milestone 1 profile scientific_outputs must be a JSON object")
+    if policy in {"milestone_1", "milestone_2"} and not isinstance(profile_outputs, dict):
+        errors.append(f"{policy_label} profile scientific_outputs must be a JSON object")
 
     milestone_path = root / active_relative
     if not milestone_path.is_file():
@@ -624,11 +781,9 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
         return errors
     outputs = milestone.get("scientific_outputs")
     if not isinstance(outputs, dict):
-        policy_label = "bootstrap" if policy == "bootstrap" else "milestone 1"
         return errors + [
             f"{policy_label} milestone scientific_outputs must be a JSON object"
         ]
-    policy_label = "bootstrap" if policy == "bootstrap" else "milestone 1"
     zero_fields = (
         EMPTY_OUTPUT_FIELDS
         if policy == "bootstrap"
@@ -642,12 +797,12 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
                 f"scientific_outputs.{field} must be integer 0"
             )
 
-    if policy == "milestone_1" and isinstance(profile_outputs, dict):
+    if policy in {"milestone_1", "milestone_2"} and isinstance(profile_outputs, dict):
         for field in MILESTONE_ONE_ZERO_OUTPUT_FIELDS:
             value = profile_outputs.get(field)
             if type(value) is not int or value != 0:
                 errors.append(
-                    "milestone 1 profile "
+                    f"{policy_label} profile "
                     f"scientific_outputs.{field} must be integer 0"
                 )
 
@@ -659,8 +814,8 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
         ):
             if type(value) is not int or value not in (0, 1):
                 errors.append(
-                    f"milestone 1 {location} scientific_outputs.datasets "
-                    "must be integer 0 or 1"
+                    f"{policy_label} {location} scientific_outputs.datasets "
+                    + ("must be integer 1" if policy == "milestone_2" else "must be integer 0 or 1")
                 )
         if (
             type(profile_datasets) is int
@@ -668,10 +823,16 @@ def check_truthful_bootstrap_state(root: Path) -> list[str]:
             and profile_datasets != milestone_datasets
         ):
             errors.append(
-                "milestone 1 profile and milestone "
+                f"{policy_label} profile and milestone "
                 "scientific_outputs.datasets must match"
             )
 
+        if policy == "milestone_2" and (
+            profile_datasets != 1 or milestone_datasets != 1
+        ):
+            errors.append("milestone 2 requires exactly one admitted dataset")
+
+    if policy == "milestone_1" and isinstance(profile_outputs, dict):
         units = milestone.get("units")
         intake_unit = None
         if isinstance(units, list):
@@ -1238,7 +1399,7 @@ def check_owner_rights_review_preparation(root: Path) -> list[str]:
             errors.append(f"prepared owner-rights review file is missing: {relative.as_posix()}")
             continue
         raw = path.read_bytes()
-        if hashlib.sha256(raw).hexdigest() != expected_sha256:
+        if _repository_text_sha256(raw) != expected_sha256:
             errors.append(
                 f"prepared owner-rights review file hash changed: {relative.as_posix()}"
             )
@@ -1325,7 +1486,7 @@ def check_owner_rights_review_preparation(root: Path) -> list[str]:
             errors.append("resolved owner-rights decision record is missing")
         else:
             raw = decision_path.read_bytes()
-            if hashlib.sha256(raw).hexdigest() != EXPECTED_OWNER_RIGHTS_DECISION_SHA256:
+            if _repository_text_sha256(raw) != EXPECTED_OWNER_RIGHTS_DECISION_SHA256:
                 errors.append("resolved owner-rights decision record hash changed")
             try:
                 decision = json.loads(raw.decode("utf-8"))
@@ -1415,7 +1576,7 @@ def check_milestone_one_admission_chain(root: Path) -> list[str]:
             errors.append(f"admission-chain record is missing: {relative.as_posix()}")
             continue
         raw = path.read_bytes()
-        if hashlib.sha256(raw).hexdigest() != expected_sha:
+        if _repository_text_sha256(raw) != expected_sha:
             errors.append(f"admission-chain record hash changed: {relative.as_posix()}")
         try:
             value = json.loads(raw.decode("utf-8"))
@@ -1437,9 +1598,9 @@ def check_milestone_one_admission_chain(root: Path) -> list[str]:
     if readiness.get("training_authorized") is not False:
         errors.append("readiness decision must not authorize training")
     input_raw = root / READINESS_INPUT
-    if input_raw.is_file() and readiness.get("audit_input_sha256") != hashlib.sha256(
-        input_raw.read_bytes()
-    ).hexdigest():
+    if input_raw.is_file() and readiness.get(
+        "audit_input_sha256"
+    ) != _repository_text_sha256(input_raw.read_bytes()):
         errors.append("readiness decision input hash does not match")
 
     manifest_assets = manifest.get("assets")
@@ -1487,6 +1648,438 @@ def check_milestone_one_admission_chain(root: Path) -> list[str]:
     return errors
 
 
+def check_runtime_adoption_review_preparation(root: Path) -> list[str]:
+    """Bind the exact M2 runtime candidate while preserving zero decisions."""
+
+    expectations = {
+        RUNTIME_INVENTORY: EXPECTED_RUNTIME_INVENTORY_SHA256,
+        RUNTIME_SOURCE_GATE: EXPECTED_RUNTIME_SOURCE_GATE_SHA256,
+        RUNTIME_REVIEW_ITEM: EXPECTED_RUNTIME_ITEM_SHA256,
+        RUNTIME_REVIEW_CONTRACT: EXPECTED_RUNTIME_CONTRACT_SHA256,
+        RUNTIME_BLANK_RESPONSE: EXPECTED_RUNTIME_BLANK_SHA256,
+        RUNTIME_ADOPTION_DECISION: EXPECTED_RUNTIME_DECISION_SHA256,
+    }
+    errors: list[str] = []
+    documents: dict[Path, dict[str, Any]] = {}
+    for relative, expected_sha in expectations.items():
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"runtime review file is missing: {relative.as_posix()}")
+            continue
+        raw = path.read_bytes()
+        if _repository_text_sha256(raw) != expected_sha:
+            errors.append(f"runtime review file hash changed: {relative.as_posix()}")
+        try:
+            value = json.loads(raw.decode("utf-8"))
+        except (UnicodeError, json.JSONDecodeError):
+            errors.append(f"runtime review file must be UTF-8 JSON: {relative.as_posix()}")
+            continue
+        if not isinstance(value, dict):
+            errors.append(f"runtime review file must be a JSON object: {relative.as_posix()}")
+            continue
+        documents[relative] = value
+
+    inventory = documents.get(RUNTIME_INVENTORY)
+    if inventory is not None:
+        if inventory.get("candidate_id") != (
+            "CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001"
+        ):
+            errors.append("runtime candidate identity changed")
+        for field, expected in {
+            "adopted": False,
+            "downloaded_runtime_artifacts": 0,
+            "installed_packages": 0,
+            "executed_candidate_imports": 0,
+            "scientific_work_started": False,
+        }.items():
+            if inventory.get(field) != expected:
+                errors.append(f"runtime inventory {field} must equal {expected!r}")
+        resolution = inventory.get("package_resolution")
+        if not isinstance(resolution, dict) or resolution.get(
+            "effective_windows_packages"
+        ) != 20:
+            errors.append("runtime inventory must bind 20 effective Windows packages")
+        private = inventory.get("private_resolution_inputs")
+        if not isinstance(private, dict) or private.get("lock_sha256") != (
+            "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081"
+        ):
+            errors.append("runtime private lock identity changed")
+
+    source_gate = documents.get(RUNTIME_SOURCE_GATE)
+    if source_gate is not None:
+        decision = source_gate.get("decision")
+        if not isinstance(decision, dict) or decision.get("status") != "ready":
+            errors.append("runtime source gate must remain ready for owner review")
+        scope = source_gate.get("scope_dispositions")
+        if not isinstance(scope, dict) or scope.get("download_install_or_execute") != (
+            "blocked_until_explicit_M2_U003_yes"
+        ):
+            errors.append("runtime source gate must block adoption until explicit yes")
+
+    expected_binding = {
+        "item_id": EXPECTED_RUNTIME_ITEM_ID,
+        "evidence_sha256": EXPECTED_RUNTIME_INVENTORY_SHA256,
+    }
+    item = documents.get(RUNTIME_REVIEW_ITEM)
+    if item is not None:
+        if item.get("template") is not False:
+            errors.append("runtime review item template must be false")
+        if item.get("review_id") != EXPECTED_RUNTIME_REVIEW_ID:
+            errors.append("runtime review item review_id changed")
+        if item.get("item_id") != EXPECTED_RUNTIME_ITEM_ID:
+            errors.append("runtime review item item_id changed")
+        if item.get("evidence_sha256") != EXPECTED_RUNTIME_INVENTORY_SHA256:
+            errors.append("runtime review item inventory binding changed")
+        if set(item.get("allowed_decisions", {})) != {"yes", "no"}:
+            errors.append("runtime review item must define only yes/no decisions")
+
+    contract = documents.get(RUNTIME_REVIEW_CONTRACT)
+    if contract is not None:
+        if contract.get("template") is not False:
+            errors.append("runtime review contract template must be false")
+        if contract.get("review_id") != EXPECTED_RUNTIME_REVIEW_ID:
+            errors.append("runtime review contract review_id changed")
+        if contract.get("allowed_decisions") != ["yes", "no"]:
+            errors.append("runtime review contract decisions must be yes/no")
+        if contract.get("required_attestation") is not True:
+            errors.append("runtime review contract must require attestation")
+        if contract.get("items") != [expected_binding]:
+            errors.append("runtime review contract item binding changed")
+
+    blank = documents.get(RUNTIME_BLANK_RESPONSE)
+    if blank is not None:
+        expected_response = dict(expected_binding, decision=None, notes="")
+        if blank.get("review_id") != EXPECTED_RUNTIME_REVIEW_ID:
+            errors.append("runtime blank response review_id changed")
+        if blank.get("completed") is not False:
+            errors.append("runtime blank response must remain incomplete")
+        if blank.get("review_started_at_utc") is not None or blank.get(
+            "review_completed_at_utc"
+        ) is not None:
+            errors.append("runtime blank response timestamps must remain null")
+        if blank.get("reviewer") != {"attestation": False}:
+            errors.append("runtime blank response attestation must remain false")
+        if blank.get("responses") != [expected_response]:
+            errors.append("runtime blank response must contain zero decisions")
+
+    resolved = documents.get(RUNTIME_ADOPTION_DECISION)
+    if resolved is not None:
+        if resolved.get("review_id") != EXPECTED_RUNTIME_REVIEW_ID:
+            errors.append("runtime adoption decision review_id changed")
+        if resolved.get("decision") != "yes":
+            errors.append("runtime adoption decision must equal yes")
+        aggregate = resolved.get("aggregate")
+        if not isinstance(aggregate, dict) or any(
+            aggregate.get(key) != value
+            for key, value in {
+                "expected_decisions": 1,
+                "received_decisions": 1,
+                "yes": 1,
+                "no": 0,
+                "ambiguous": 0,
+                "missing": 0,
+                "attestation_satisfied": True,
+                "exact_bundle_match": True,
+                "human_decisions_fabricated": False,
+            }.items()
+        ):
+            errors.append("runtime adoption aggregate is inconsistent")
+        locked = resolved.get("locked_review_evidence")
+        if not isinstance(locked, dict) or locked.get(
+            "raw_response_or_notes_committed"
+        ) is not False:
+            errors.append("runtime raw response and notes must remain private")
+        candidate = resolved.get("candidate_identity")
+        if not isinstance(candidate, dict) or candidate.get("inventory_sha256") != (
+            EXPECTED_RUNTIME_INVENTORY_SHA256
+        ):
+            errors.append("runtime adoption decision candidate binding changed")
+
+    milestone_path = root / SYNTHETIC_PREFLIGHT_MILESTONE
+    if milestone_path.is_file():
+        try:
+            milestone = json.loads(milestone_path.read_text(encoding="utf-8"))
+        except (UnicodeError, json.JSONDecodeError):
+            milestone = None
+        if isinstance(milestone, dict):
+            gates = milestone.get("human_gates")
+            selected = [
+                gate
+                for gate in gates or []
+                if isinstance(gate, dict)
+                and gate.get("id") == "M2-GATE-DEPENDENCY-RUNTIME"
+            ]
+            if len(selected) != 1 or selected[0].get("status") != "passed":
+                errors.append("M2 runtime gate must record the resolved pass")
+            elif selected[0].get("review_preparation", {}).get(
+                "human_decisions_created"
+            ) != 1:
+                errors.append("M2 runtime review must record one human decision")
+
+    return errors
+
+
+def check_runtime_failure_and_successor_review(root: Path) -> list[str]:
+    """Retain candidate 001 failure and keep candidate 002 exact and unadopted."""
+
+    expectations = {
+        RUNTIME_ACTIVATION_FAILURE: EXPECTED_RUNTIME_FAILURE_SHA256,
+        RUNTIME_SUCCESSOR_INVENTORY: EXPECTED_RUNTIME_SUCCESSOR_INVENTORY_SHA256,
+        RUNTIME_SUCCESSOR_SOURCE_GATE: EXPECTED_RUNTIME_SUCCESSOR_SOURCE_GATE_SHA256,
+        RUNTIME_SUCCESSOR_REVIEW_ITEM: EXPECTED_RUNTIME_SUCCESSOR_ITEM_SHA256,
+        RUNTIME_SUCCESSOR_REVIEW_CONTRACT: EXPECTED_RUNTIME_SUCCESSOR_CONTRACT_SHA256,
+        RUNTIME_SUCCESSOR_BLANK_RESPONSE: EXPECTED_RUNTIME_SUCCESSOR_BLANK_SHA256,
+        RUNTIME_SUCCESSOR_ADOPTION_DECISION: EXPECTED_RUNTIME_SUCCESSOR_DECISION_SHA256,
+        RUNTIME_SUCCESSOR_ACTIVATION: EXPECTED_RUNTIME_SUCCESSOR_ACTIVATION_SHA256,
+    }
+    errors: list[str] = []
+    documents: dict[Path, dict[str, Any]] = {}
+    for relative, expected_sha in expectations.items():
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"runtime successor file is missing: {relative.as_posix()}")
+            continue
+        raw = path.read_bytes()
+        if _repository_text_sha256(raw) != expected_sha:
+            errors.append(f"runtime successor file hash changed: {relative.as_posix()}")
+        try:
+            value = json.loads(raw.decode("utf-8"))
+        except (UnicodeError, json.JSONDecodeError):
+            errors.append(f"runtime successor file must be UTF-8 JSON: {relative.as_posix()}")
+            continue
+        if not isinstance(value, dict):
+            errors.append(f"runtime successor file must be a JSON object: {relative.as_posix()}")
+            continue
+        documents[relative] = value
+
+    failure = documents.get(RUNTIME_ACTIVATION_FAILURE)
+    if failure is not None:
+        if failure.get("disposition") != "fail" or failure.get("route_status") != "closed_on_this_host":
+            errors.append("runtime candidate 001 must remain failed and closed")
+        attempt = failure.get("attempt")
+        if not isinstance(attempt, dict) or any(
+            attempt.get(key) != expected
+            for key, expected in {
+                "process_exit_code": 0,
+                "target_python_present": False,
+                "installer_action": "Modify",
+                "package_sync_started": False,
+                "wheels_downloaded": 0,
+                "candidate_imports_executed": 0,
+            }.items()
+        ):
+            errors.append("runtime candidate 001 failure facts changed")
+        recovery = failure.get("recovery")
+        if not isinstance(recovery, dict) or recovery.get("status") != "pass":
+            errors.append("runtime candidate 001 recovery status must remain scoped pass")
+        scientific = failure.get("scientific_boundary")
+        if not isinstance(scientific, dict) or any(
+            scientific.get(key) != expected
+            for key, expected in {
+                "synthetic_preflight_started": False,
+                "benchmark_accessed": False,
+                "training_runs": 0,
+                "checkpoints": 0,
+                "inference_runs": 0,
+                "evaluations": 0,
+            }.items()
+        ):
+            errors.append("runtime activation failure must preserve zero scientific work")
+
+    inventory = documents.get(RUNTIME_SUCCESSOR_INVENTORY)
+    if inventory is not None:
+        if inventory.get("candidate_id") != "CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002":
+            errors.append("runtime successor identity changed")
+        for field, expected in {
+            "adopted": False,
+            "downloaded_runtime_artifacts": 0,
+            "installed_packages": 0,
+            "executed_candidate_imports": 0,
+            "scientific_work_started": False,
+        }.items():
+            if inventory.get(field) != expected:
+                errors.append(f"runtime successor inventory {field} must equal {expected!r}")
+        python_record = inventory.get("python")
+        if not isinstance(python_record, dict) or python_record.get("artifact_sha256") != "4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3":
+            errors.append("runtime successor embeddable ZIP identity changed")
+        package_plan = inventory.get("package_plan")
+        if not isinstance(package_plan, dict) or package_plan.get("private_lock_sha256") != "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081":
+            errors.append("runtime successor must retain the exact wheel lock")
+
+    source_gate = documents.get(RUNTIME_SUCCESSOR_SOURCE_GATE)
+    if source_gate is not None:
+        decision = source_gate.get("decision")
+        if not isinstance(decision, dict) or decision.get("status") != "ready":
+            errors.append("runtime successor source gate must remain ready")
+        scope = source_gate.get("scope_dispositions")
+        if not isinstance(scope, dict) or scope.get("download_extract_vendor_or_execute") != "blocked_until_explicit_M2_U004C_yes":
+            errors.append("runtime successor source gate must block activation until exact yes")
+
+    expected_binding = {
+        "item_id": EXPECTED_RUNTIME_SUCCESSOR_ITEM_ID,
+        "evidence_sha256": EXPECTED_RUNTIME_SUCCESSOR_INVENTORY_SHA256,
+    }
+    item = documents.get(RUNTIME_SUCCESSOR_REVIEW_ITEM)
+    if item is not None:
+        if item.get("review_id") != EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID or item.get("item_id") != EXPECTED_RUNTIME_SUCCESSOR_ITEM_ID or item.get("evidence_sha256") != EXPECTED_RUNTIME_SUCCESSOR_INVENTORY_SHA256:
+            errors.append("runtime successor review item binding changed")
+        if set(item.get("allowed_decisions", {})) != {"yes", "no"}:
+            errors.append("runtime successor review must define only yes/no")
+
+    contract = documents.get(RUNTIME_SUCCESSOR_REVIEW_CONTRACT)
+    if contract is not None:
+        if contract.get("review_id") != EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID or contract.get("items") != [expected_binding] or contract.get("allowed_decisions") != ["yes", "no"] or contract.get("required_attestation") is not True:
+            errors.append("runtime successor review contract changed")
+
+    blank = documents.get(RUNTIME_SUCCESSOR_BLANK_RESPONSE)
+    if blank is not None:
+        expected_response = dict(expected_binding, decision=None, notes="")
+        if blank.get("review_id") != EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID or blank.get("completed") is not False or blank.get("reviewer") != {"attestation": False} or blank.get("responses") != [expected_response]:
+            errors.append("runtime successor blank response must contain zero decisions")
+
+    decision_record = documents.get(RUNTIME_SUCCESSOR_ADOPTION_DECISION)
+    if decision_record is not None:
+        if decision_record.get("review_id") != EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID or decision_record.get("decision") != "yes":
+            errors.append("runtime successor adoption decision changed")
+        aggregate = decision_record.get("aggregate")
+        if not isinstance(aggregate, dict) or any(
+            aggregate.get(key) != value
+            for key, value in {
+                "expected_decisions": 1,
+                "received_decisions": 1,
+                "yes": 1,
+                "no": 0,
+                "ambiguous": 0,
+                "missing": 0,
+                "attestation_satisfied": True,
+                "exact_bundle_match": True,
+                "human_decisions_fabricated": False,
+            }.items()
+        ):
+            errors.append("runtime successor adoption aggregate is inconsistent")
+        locked = decision_record.get("locked_review_evidence")
+        if not isinstance(locked, dict) or locked.get("raw_response_or_notes_committed") is not False:
+            errors.append("runtime successor raw response and notes must remain private")
+
+    activation = documents.get(RUNTIME_SUCCESSOR_ACTIVATION)
+    if activation is not None:
+        if activation.get("disposition") != "pass" or activation.get("decision_sha256") != EXPECTED_RUNTIME_SUCCESSOR_DECISION_SHA256:
+            errors.append("runtime successor activation disposition or decision binding changed")
+        installed = activation.get("package_installation")
+        if not isinstance(installed, dict) or installed.get("installed_package_count") != 20 or installed.get("private_uv_lock_sha256") != "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081":
+            errors.append("runtime successor activation lock or package count changed")
+        checks = activation.get("activation_checks")
+        if not isinstance(checks, dict) or any(
+            checks.get(key) is not True
+            for key in ("rasterio_memoryfile_geotiff_roundtrip", "fresh_process_replay_exact_match", "safe_weights_only_reload")
+        ) or checks.get("cuda_available") is not False:
+            errors.append("runtime successor activation checks changed")
+        scientific = activation.get("scientific_boundary")
+        if not isinstance(scientific, dict) or any(scientific.get(key) != 0 for key in ("training_runs", "checkpoints", "inference_runs", "evaluations")) or scientific.get("benchmark_accessed") is not False or scientific.get("model_implementation_started") is not False:
+            errors.append("runtime successor activation must preserve zero scientific/model work")
+
+    milestone_path = root / SYNTHETIC_PREFLIGHT_MILESTONE
+    if milestone_path.is_file():
+        try:
+            milestone = json.loads(milestone_path.read_text(encoding="utf-8"))
+        except (UnicodeError, json.JSONDecodeError):
+            milestone = None
+        if isinstance(milestone, dict):
+            units = {unit.get("id"): unit for unit in milestone.get("units", []) if isinstance(unit, dict)}
+            failed = units.get("M2-U004-LOCKED-RUNTIME-ACTIVATION", {})
+            successor = units.get("M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION", {})
+            if failed.get("status") != "failed" or failed.get("disposition") != "remediate":
+                errors.append("M2 must retain candidate 001 activation as failed with remediation disposition")
+            activated = units.get("M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION", {})
+            model_unit = units.get("M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION", {})
+            if successor.get("status") != "complete" or successor.get("disposition") != "pass" or successor.get("human_gate") is not True:
+                errors.append("M2 successor decision must record the resolved pass")
+            if activated.get("status") != "complete" or activated.get("disposition") != "pass":
+                errors.append("M2 successor activation must record complete pass")
+            lifecycle_unit = units.get("M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION", {})
+            verification_unit = units.get("M2-U007-INTEGRATED-VERIFICATION", {})
+            if model_unit.get("status") != "complete" or model_unit.get("disposition") != "pass":
+                errors.append("M2 model implementation must record complete pass")
+            if lifecycle_unit.get("status") != "complete" or lifecycle_unit.get("disposition") != "pass":
+                errors.append("M2 synthetic lifecycle must record complete pass")
+            publication_unit = units.get("M2-U008-REVIEWED-PR-VERIFICATION", {})
+            if verification_unit.get("status") != "complete" or verification_unit.get("disposition") != "pass":
+                errors.append("M2 integrated verification must record complete pass")
+            if publication_unit.get("status") != "ready":
+                errors.append("M2 reviewed publication must be the ready successor dependency")
+            gates = [gate for gate in milestone.get("human_gates", []) if isinstance(gate, dict) and gate.get("id") == "M2-GATE-DEPENDENCY-RUNTIME-SUCCESSOR"]
+            if len(gates) != 1 or gates[0].get("status") != "passed" or gates[0].get("review_preparation", {}).get("human_decisions_created") != 1:
+                errors.append("M2 successor gate must record one resolved human decision")
+
+    return errors
+
+
+def check_synthetic_preflight_record(root: Path) -> list[str]:
+    """Bind the fixed source and synthetic-only replay evidence without importing torch."""
+
+    errors: list[str] = []
+    record_path = root / SYNTHETIC_PREFLIGHT_RECORD
+    if not record_path.is_file():
+        return ["synthetic preflight record is missing"]
+    raw = record_path.read_bytes()
+    if _repository_text_sha256(raw) != EXPECTED_SYNTHETIC_PREFLIGHT_RECORD_SHA256:
+        errors.append("synthetic preflight record hash changed")
+    try:
+        record = json.loads(raw.decode("utf-8"))
+    except (UnicodeError, json.JSONDecodeError):
+        return errors + ["synthetic preflight record must be UTF-8 JSON"]
+    if record.get("disposition") != "pass" or record.get("scope") != "wholly_synthetic_engineering_evidence_only":
+        errors.append("synthetic preflight disposition or scope changed")
+    if record.get("benchmark_accessed") is not False or record.get("scientific_output") is not False:
+        errors.append("synthetic preflight must remain benchmark-free and non-scientific")
+    implementation = record.get("implementation")
+    if not isinstance(implementation, dict) or implementation.get("architecture_id") != "burnlens-exp3-pointwise-6x8x8x1-v1" or implementation.get("parameter_count") != 137:
+        errors.append("synthetic model architecture identity changed")
+    declared_sources = {
+        Path(item.get("path")): item
+        for item in implementation.get("source_files", [])
+        if isinstance(item, dict) and isinstance(item.get("path"), str)
+    } if isinstance(implementation, dict) else {}
+    if set(declared_sources) != set(SYNTHETIC_SOURCE_IDENTITIES):
+        errors.append("synthetic source roster changed")
+    for relative, expected_sha in SYNTHETIC_SOURCE_IDENTITIES.items():
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"synthetic source missing: {relative.as_posix()}")
+            continue
+        raw_source = path.read_bytes()
+        if _repository_text_sha256(raw_source) != expected_sha:
+            errors.append(f"synthetic source hash changed: {relative.as_posix()}")
+        declared = declared_sources.get(relative)
+        if not isinstance(declared, dict) or declared.get("sha256") != expected_sha:
+            errors.append(f"synthetic record source binding changed: {relative.as_posix()}")
+    for role in ("primary_execution", "independent_replay"):
+        value = record.get(role)
+        if not isinstance(value, dict) or value.get("files") != 7 or value.get("bytes") != 20628 or value.get("roster_sha256") != "9c008f10e73d6829710fabce0a20de500e6b403a6f807c9a3cb45222555913f3" or value.get("receipt_sha256") != "7a3fde9902b528f3c5457eaf9a12c2c8444f9de5f6fb88ed07bddc97bded7b28":
+            errors.append(f"synthetic {role} binding changed")
+    deterministic = record.get("deterministic_evidence")
+    if not isinstance(deterministic, dict) or deterministic.get("fingerprint") != "d13ec92fc783300cd56730e7ce050b88d2f2fc03ce3d805fcae8485ecffbd607" or any(
+        deterministic.get(key) is not True
+        for key in (
+            "loss_decreased",
+            "finite_nonzero_gradients",
+            "initial_and_final_weights_differ",
+            "fresh_process_logits_exact",
+            "fresh_process_probabilities_exact",
+            "checkpoint_tensor_state_exact",
+            "primary_and_replay_checkpoint_bytes_exact",
+            "primary_and_replay_geotiff_bytes_exact",
+            "primary_and_replay_render_bytes_exact",
+            "primary_and_replay_history_bytes_exact",
+        )
+    ):
+        errors.append("synthetic deterministic evidence changed")
+    gates = record.get("gates")
+    if not isinstance(gates, dict) or any(value != "pass" for value in gates.values()):
+        errors.append("synthetic preflight gates must all pass")
+    return errors
+
+
 def validate_repository(root: Path = ROOT) -> list[str]:
     checks = (
         check_required_files,
@@ -1498,6 +2091,9 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_milestone_one_identity_inventory,
         check_owner_rights_review_preparation,
         check_milestone_one_admission_chain,
+        check_runtime_adoption_review_preparation,
+        check_runtime_failure_and_successor_review,
+        check_synthetic_preflight_record,
     )
     errors: list[str] = []
     for check in checks:

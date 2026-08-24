@@ -30,6 +30,29 @@ semantic versioning once a first release exists.
 - An immutable external-custody admission of 131 approved retrospective
   benchmark artifacts totaling 3,369,748 bytes; no benchmark byte was added to
   Git.
+- Milestone 2 control profile, synthetic-only milestone contract, and live
+  state reconciliation from the accepted Milestone 1 checkpoint.
+- One exact Windows x64 CPU runtime candidate inventory: CPython 3.12.10, the
+  observed uv 0.10.7 tool, and a 20-package lock led by PyTorch 2.13.0+cpu.
+- A four-source runtime gate with 32 required criteria and an immutable,
+  one-item blank owner-adoption response containing zero decisions.
+- A public aggregate exact `yes` decision for runtime candidate 001, private
+  signed-installer/Sigstore intake, and an immutable activation-failure record.
+- A source-ready application-local successor using the official CPython 3.12.10
+  embeddable ZIP and unchanged 20-wheel lock, plus a new blank exact owner
+  review containing zero decisions.
+- A scoped successor `yes`, exact interpreter intake, activated 20-package
+  application-local runtime, fixed 137-parameter implementation, synthetic
+  lifecycle runner, independent verifier, safe state-dict package, exact
+  replay receipts, synthetic GeoTIFF, and rendered comparison panel.
+
+### Changed
+
+- Closed the approved normal-installer route after it entered maintenance mode
+  on an existing same-version Python installation instead of creating the
+  required isolated runtime. Restored and verified the specifically inspected
+  existing-install surfaces; no wheel sync, model import, synthetic execution,
+  or scientific work began.
 
 ### Verified
 
@@ -73,12 +96,26 @@ semantic versioning once a first release exists.
 - Upgraded repository validation to bind the resolved review, source gate,
   readiness decision, admission manifest, and intake receipt while keeping the
   original blank response immutable.
+- Accepted Milestone 1 through pull request #3 at live `main` commit
+  `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4`, tree
+  `5b2bd2904b9164b8bd3c655998749cb024202148`. Candidate run
+  `32679733201`, pull-request run `32679735057`, and merge-triggered run
+  `32679791900` passed; required live blobs matched the candidate.
+- Validated the runtime source gate as `READY` for owner review with four
+  sources, 32 criteria, 12 live observations, zero blockers, and zero warnings.
+- Passed the human-review protocol self-test and prepared one exact runtime
+  response with one item and zero decisions.
+- Locked and reconciled one exact owner `yes` for candidate 001; verified its
+  official installer, Sigstore digest, and Authenticode signer before use.
+- Retained the activation `FAIL`, restored the specifically inspected
+  existing-Python surfaces, and validated the source-ready successor gate and
+  new zero-decision review.
 
 ### In progress
 
-- Milestone 1 identity, scoped source-rights, readiness, and controlled intake
-  pass locally. Integrated verification and reviewed PR acceptance remain;
-  repository redistribution and all scientific work remain unauthorized.
+- Milestone 2 awaits reviewed PR publication and direct live-main verification.
+  Runtime activation and synthetic lifecycle pass; substantive training and all
+  scientific execution remain unstarted.
 
 ### Not added
 

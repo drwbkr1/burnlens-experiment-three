@@ -1,0 +1,62 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-SOURCE-GATE-2026-001",
+  "assessed_at": "2026-08-24T02:37:43Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json#M2-U004B-RUNTIME-SUCCESSOR-INVENTORY",
+    "authorized_actions": ["metadata review", "record assessment evidence", "prepare exact owner adoption review"],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Assess the materially new official CPython 3.12.10 Windows embeddable package route. The uv executable and exact 20-wheel closure remain byte-for-byte bound by runtime source gate 001; this gate does not weaken or replace those source findings. Ready permits owner review only.",
+    "planned_actions": ["metadata review", "record assessment evidence", "prepare exact owner adoption review"]
+  },
+  "sources": [
+    {
+      "source_id": "python-org-cpython-3.12.10-windows-x64-embeddable",
+      "name": "CPython 3.12.10 official Windows 64-bit embeddable package and Sigstore bundle",
+      "locator": "https://www.python.org/downloads/release/python-31210/",
+      "criteria": [
+        {"id":"identity","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://www.python.org/downloads/release/python-31210/","observed_at":"2026-08-24T02:37:43Z","note":"The official release page identifies the Windows embeddable package for CPython 3.12.10."},{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001.json","note":"The inventory binds filename, 11,133,606-byte metadata identity, official URLs, and Sigstore message digest 4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3."}],"note":"No ZIP byte was downloaded."},
+        {"id":"authority","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://www.python.org/downloads/release/python-31210/","observed_at":"2026-08-24T02:37:43Z","note":"python.org is the Python Software Foundation release surface."}],"note":"Official publisher established."},
+        {"id":"access","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip","observed_at":"2026-08-24T02:37:43Z","note":"Metadata-only request found public HTTPS availability and Content-Length 11,133,606 with no authentication or terms-acceptance step."}],"note":"Actual download remains owner-gated."},
+        {"id":"rights","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://docs.python.org/3.12/license.html","observed_at":"2026-08-24T02:37:43Z","note":"Official documentation publishes the PSF license and incorporated notices for Python 3.12."}],"note":"License capture remains required during activation."},
+        {"id":"provenance","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip.sigstore","observed_at":"2026-08-24T02:37:43Z","note":"The official Sigstore bundle binds the exact ZIP digest and transparency-log material."}],"note":"Downloaded bytes must be reverified before extraction."},
+        {"id":"integrity","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001.json","note":"Exact byte count, SHA-256, Sigstore URL, and fail-closed verification are fixed."}],"note":"Metadata identity passes; byte verification is deferred until approval."},
+        {"id":"fitness","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://docs.python.org/3/using/windows.html","observed_at":"2026-08-24T02:37:43Z","note":"Official Windows documentation describes the embeddable package as application-local and almost fully isolated, notes that pip management is not supported, and permits an application installer to provide third-party packages alongside it."},{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-ACTIVATION-FAILURE-2026-001.json","note":"The failed same-version installer route demonstrates why a non-installer application-local artifact is required on this host."}],"note":"Metadata supports owner review, not runtime fitness; native package loading and fresh-process behavior remain activation gates."},
+        {"id":"privacy-security","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-CANDIDATE-INVENTORY-2026-001.json","note":"The route uses application-local extraction beneath Active with no registry, PATH, launcher, associations, shortcuts, administrator access, credentials, or system installer transaction."}],"note":"New executable and native wheel code remain a retained owner-gated risk."}
+      ]
+    }
+  ],
+  "inherited_unchanged_sources": {
+    "source_gate_path": "records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json",
+    "source_gate_sha256": "1db59fb03c55051ce50a7327f45f7f9515eefce0dd7035640a07e35eb34f6e47",
+    "sources": ["astral-uv-0.10.7-observed-tooling", "pypi-exact-windows-wheel-closure", "pytorch-cpu-2.13.0-windows-cp312"],
+    "unchanged_private_lock_sha256": "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081",
+    "interpretation": "These sources and exact wheel identities are unchanged. Their earlier ready assessment remains evidence, while the materially different interpreter artifact and application-local packaging route require this new gate and a new owner decision."
+  },
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": ["metadata review", "record assessment evidence", "prepare exact owner adoption review"]
+  },
+  "scope_dispositions": {
+    "present_exact_successor_for_owner_decision": "ready",
+    "download_extract_vendor_or_execute": "blocked_until_explicit_M2_U004C_yes",
+    "substitute_any_version_artifact_or_package": "blocked",
+    "benchmark_access_or_scientific_work": "blocked_in_runtime_activation",
+    "repository_redistribution_of_runtime_binaries": "blocked",
+    "credentials_terms_spend_paid_service_or_secret": "not_required_and_not_authorized"
+  },
+  "binding_attribution_and_claim_limits": [
+    "Ready means source metadata is sufficient for an exact owner decision; it does not prove the embedded package can load the locked native wheels.",
+    "Synthetic lifecycle success would establish engineering executability only, not benchmark performance or scientific validity.",
+    "The prior owner yes applies only to candidate 001 and cannot be carried forward to candidate 002."
+  ],
+  "write_boundary": {
+    "permitted_without_further_authorization": ["read supplied metadata", "record assessment evidence", "prepare exact owner decision bundle", "validate repository controls"],
+    "requires_explicit_authorization": ["download the embeddable package", "extract or execute the successor", "vendor packages into it", "adopt the successor runtime", "substitute any identity", "authenticate", "accept terms", "purchase", "use a credential or secret", "access benchmark values", "begin substantive training, inference, or evaluation"]
+  }
+}

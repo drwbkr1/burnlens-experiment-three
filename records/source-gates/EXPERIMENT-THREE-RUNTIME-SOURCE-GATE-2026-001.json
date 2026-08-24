@@ -1,0 +1,101 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001",
+  "assessed_at": "2026-08-24T01:45:19Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json#M2-U002-RUNTIME-CANDIDATE-INVENTORY",
+    "authorized_actions": ["metadata review", "record assessment evidence", "prepare exact owner adoption review"],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Assess official source, access, rights, provenance, integrity, compatibility, and security facts for one exact Windows x64 CPU runtime candidate. A ready source disposition permits only presentation of the exact candidate to the owner. Download, installation, adoption, or execution requires a separate explicit yes decision under M2-U003.",
+    "planned_actions": ["metadata review", "record assessment evidence", "prepare exact owner adoption review"]
+  },
+  "sources": [
+    {
+      "source_id": "python-org-cpython-3.12.10-windows-x64",
+      "name": "CPython 3.12.10 official Windows 64-bit installer and Sigstore bundle",
+      "locator": "https://www.python.org/downloads/release/python-31210/",
+      "criteria": [
+        {"id":"identity","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://www.python.org/downloads/release/python-31210/","observed_at":"2026-08-24T01:45:19Z","note":"The official release page identifies CPython 3.12.10, release date, Windows 64-bit installer, Sigstore, SPDX, and GPG surfaces."},{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The inventory binds python-3.12.10-amd64.exe, 26,964,224 bytes, and SHA-256 67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb from the official Sigstore bundle."}],"note":"No installer byte was downloaded."},
+        {"id":"authority","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://www.python.org/downloads/release/python-31210/","observed_at":"2026-08-24T01:45:19Z","note":"python.org is the Python Software Foundation release surface."}],"note":"Official publisher established."},
+        {"id":"access","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe","observed_at":"2026-08-24T01:45:19Z","note":"A metadata-only HEAD request returned public HTTPS availability, exact Content-Length, and no authentication or terms-acceptance step."}],"note":"Actual download remains owner-gated."},
+        {"id":"rights","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://docs.python.org/3.12/license.html","observed_at":"2026-08-24T01:45:19Z","note":"The official documentation publishes the PSF license and incorporated notices for Python 3.12."}],"note":"License capture remains required during activation."},
+        {"id":"provenance","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe.sigstore","observed_at":"2026-08-24T01:45:19Z","note":"The official Sigstore bundle binds the exact installer digest and transparency-log material."}],"note":"Signature verification will be repeated against downloaded bytes if approved."},
+        {"id":"integrity","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"Exact byte count, SHA-256, Sigstore URL, and fail-closed verification requirement are fixed."}],"note":"Metadata identity passes; byte verification is intentionally deferred until owner approval."},
+        {"id":"fitness","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"CPython 3.12.10 matches the observed known-good ABI lineage and every selected Windows wheel."}],"note":"Runtime fitness still requires isolated import and synthetic preflight."},
+        {"id":"privacy-security","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The prospective install disables launcher, PATH changes, file associations, shortcuts, bundled pip, documentation, and tests and stays beneath Active."}],"note":"New executable code is a retained risk and is owner-gated."}
+      ]
+    },
+    {
+      "source_id": "astral-uv-0.10.7-observed-tooling",
+      "name": "uv 0.10.7 already-installed resolution and installation tooling",
+      "locator": "https://github.com/astral-sh/uv",
+      "criteria": [
+        {"id":"identity","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The observed executable is version 0.10.7, 64,638,976 bytes, SHA-256 e756c553075d7a6582c885adfcdd07f72c79a5c7dc4e6284246eb2537536d27."}],"note":"The executable will not be copied into project custody."},
+        {"id":"authority","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://github.com/astral-sh/uv","observed_at":"2026-08-24T01:45:19Z","note":"The Astral repository is the official uv project surface."}],"note":"Official upstream established."},
+        {"id":"access","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The binary is already locally accessible without authentication, download, terms acceptance, or mutation."}],"note":"Only exact observed tooling is in scope."},
+        {"id":"rights","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://github.com/astral-sh/uv","observed_at":"2026-08-24T01:45:19Z","note":"The official repository publishes dual Apache-2.0 or MIT licensing."}],"note":"License is compatible with the bounded tooling role."},
+        {"id":"provenance","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://github.com/astral-sh/uv/blob/main/CHANGELOG.md","observed_at":"2026-08-24T01:45:19Z","note":"The official changelog provides version lineage; the local version and executable hash are separately bound."}],"note":"No claim that the local executable was independently rebuilt from source."},
+        {"id":"integrity","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"Version, size, and SHA-256 are exact; lock inputs and outputs are separately hashed."}],"note":"Any executable drift fails closed."},
+        {"id":"fitness","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"uv 0.10.7 resolved the exact CPython 3.12 Windows closure without installing packages."}],"note":"Installation and sync fitness remains activation evidence."},
+        {"id":"privacy-security","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"Cache, lock, download, environment, and output roots are explicitly Active-only; no credentials or secrets are required."}],"note":"Network actions remain limited to exact official artifacts after approval."}
+      ]
+    },
+    {
+      "source_id": "pypi-exact-windows-wheel-closure",
+      "name": "Exact PyPI wheel closure for 19 non-torch packages",
+      "locator": "https://pypi.org/simple",
+      "criteria": [
+        {"id":"identity","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"Nineteen names, versions, exact wheel hashes, four platform-specific wheel URLs, and lock SHA-256 are fixed."}],"note":"No floating version or source distribution is allowed."},
+        {"id":"authority","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://pypi.org/simple","observed_at":"2026-08-24T01:45:19Z","note":"The official Python Package Index is the selected registry for the non-torch closure."}],"note":"Package authors remain the upstream publishers."},
+        {"id":"access","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"Resolution metadata was public and required no account, credential, purchase, or terms acceptance."}],"note":"Wheel downloads remain owner-gated."},
+        {"id":"rights","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"Installed-lineage metadata records permissive BSD, MIT, MPL-2.0, PSF-2.0, and related bundled notices for the exact versions."}],"note":"Exact license files and bundled notices must be captured after approved download."},
+        {"id":"provenance","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"Each selected wheel is bound through the private uv lock; source-environment version observations are retained as lineage only."}],"note":"No package byte is imported from the prior repository."},
+        {"id":"integrity","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The private pyproject and lock have exact byte counts and SHA-256 identities, and every selected wheel has a lock-provided SHA-256."}],"note":"All downloaded wheel hashes must match exactly."},
+        {"id":"fitness","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The selected Windows cp312 closure matches the observed versions used by the accepted Experiment One lineage and includes Rasterio for later geospatial packaging."}],"note":"Binary imports, GDAL data discovery, and deterministic behavior remain unproven until activation."},
+        {"id":"privacy-security","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"Official registry URLs, exact hashes, private Active-only caches, no source builds, and no repository commit of dependencies reduce supply-chain and custody exposure."}],"note":"Native wheel execution is retained as bounded nonzero risk."}
+      ]
+    },
+    {
+      "source_id": "pytorch-cpu-2.13.0-windows-cp312",
+      "name": "PyTorch 2.13.0+cpu Windows cp312 wheel",
+      "locator": "https://download.pytorch.org/whl/cpu/torch/",
+      "criteria": [
+        {"id":"identity","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The exact Windows wheel URL and SHA-256 a8b450c1e58e5800e5b4691dac412f8d2d65a1dc3298166f91596603a3531e6f are lock-bound."}],"note":"Only the CPU build is eligible."},
+        {"id":"authority","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://github.com/pytorch/pytorch/releases","observed_at":"2026-08-24T01:45:19Z","note":"The official PyTorch repository identifies the 2.13 release lineage."}],"note":"Official project and wheel index established."},
+        {"id":"access","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://download.pytorch.org/whl/cpu/torch/","observed_at":"2026-08-24T01:45:19Z","note":"The official CPU wheel index publicly lists platform builds without authentication or purchase."}],"note":"Wheel download remains owner-gated."},
+        {"id":"rights","required":true,"requires_live":true,"status":"pass","evidence":[{"type":"live","locator":"https://github.com/pytorch/pytorch/blob/main/LICENSE","observed_at":"2026-08-24T01:45:19Z","note":"The official project publishes its main license; exact installed metadata also enumerates bundled Apache, BSD, BSL, LLVM-exception, and MIT terms."}],"note":"Bundled notices must be captured after approved download."},
+        {"id":"provenance","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The private lock selects the official pytorch-cpu index and the exact Windows cp312 CPU wheel."}],"note":"No Lightning, TorchVision, pretrained model, or model hub is included."},
+        {"id":"integrity","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The lock-provided SHA-256 is mandatory and any mismatch blocks activation."}],"note":"Artifact bytes are not yet downloaded."},
+        {"id":"fitness","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The CPU cp312 wheel matches the approved direct-PyTorch direction and the observed Experiment One version lineage."}],"note":"Import, CPU-only enforcement, gradients, serialization, and replay remain separate tests."},
+        {"id":"privacy-security","required":true,"requires_live":false,"status":"pass","evidence":[{"type":"static","locator":"records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json","note":"The candidate excludes CUDA, pretrained weights, remote execution, telemetry services, credentials, secrets, and model hubs."}],"note":"Third-party native code remains an adoption risk requiring explicit owner approval."}
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": ["metadata review", "record assessment evidence", "prepare exact owner adoption review"]
+  },
+  "scope_dispositions": {
+    "present_exact_candidate_for_owner_decision": "ready",
+    "download_install_or_execute": "blocked_until_explicit_M2_U003_yes",
+    "substitute_any_version_or_artifact": "blocked",
+    "benchmark_access_or_scientific_work": "blocked_in_runtime_activation",
+    "repository_redistribution_of_runtime_binaries": "blocked",
+    "credentials_terms_spend_paid_service_or_secret": "not_required_and_not_authorized"
+  },
+  "binding_attribution_and_claim_limits": [
+    "Synthetic lifecycle success establishes engineering executability only.",
+    "It does not establish benchmark performance, scientific validity, accuracy, generalization, superiority, or operational suitability.",
+    "The old Experiment One environment is lineage evidence only and is neither adopted nor reused.",
+    "Every executable and wheel must match the exact approved identity and its license notices must be retained."
+  ],
+  "write_boundary": {
+    "permitted_without_further_authorization": ["read supplied metadata", "record assessment evidence", "prepare exact owner decision bundle", "validate repository controls"],
+    "requires_explicit_authorization": ["download runtime artifacts", "install or execute the candidate", "adopt the candidate runtime", "substitute any version", "authenticate", "accept terms", "purchase", "use a credential or secret", "access benchmark values", "begin substantive training, inference, or evaluation"]
+  }
+}

@@ -129,7 +129,7 @@ overwrite.
 ### E3-DEC-0011 - Admit the exact retrospective benchmark to external custody
 
 - **Date:** 2026-08-24
-- **State:** Active Milestone 1 candidate; public acceptance pending
+- **State:** Active and accepted at Milestone 1 checkpoint
 - **Decision:** Accept the locked owner/rightsholder `yes`, current six-source
   `READY` gate, and dataset-readiness `PASS` for the bounded controlled-intake
   role. Admit exactly 131 approved artifacts / 3,369,748 bytes without
@@ -140,10 +140,43 @@ overwrite.
   reference. This decision creates no training, evaluation, redistribution, or
   scientific-claim authority.
 
+### E3-DEC-0012 - Exact runtime candidate 001 adoption
+
+- **Date prepared:** 2026-08-24
+- **State:** `APPROVED: yes`; one exact attested decision locked and reconciled
+- **Decision:** Adopt candidate
+  `CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001`, bound to
+  runtime inventory SHA-256
+  `68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05`.
+- **Boundary:** The `yes` authorized only exact Active-only download,
+  verification, isolated installation, license capture, and CPU/synthetic
+  compatibility checks; no benchmark or substantive scientific work.
+- **Outcome:** Activation `FAIL`. The installer entered same-version maintenance
+  mode on existing Python and did not create the requested isolated runtime.
+  Recovery passed for inspected existing-install surfaces. The candidate is
+  closed on this host; approval is preserved and cannot be reassigned.
+
+### E3-DEC-0013 - Exact runtime successor adoption
+
+- **Date prepared:** 2026-08-24
+- **State:** `APPROVED: yes`; one exact attested decision locked and reconciled
+- **Decision:** Adopt candidate
+  `CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002`, bound to
+  runtime inventory SHA-256
+  `ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967`.
+- **Boundary:** The `yes` authorized only exact Active-only application-local
+  extraction, vendoring of the unchanged locked wheels, license capture, and
+  CPU/native-package/synthetic compatibility checks.
+- **Non-inference rule:** Candidate 001's `yes`, successful recovery, the
+  unchanged wheel lock, silence, or general chat cannot substitute for this
+  exact response.
+- **Outcome:** Activation `PASS`. Exact ZIP/Sigstore identity, 20-package lock,
+  native imports, CPU-only behavior, Rasterio roundtrip, subprocess, safe
+  reload, deterministic replay, runtime roster, and existing-Python isolation
+  passed. This creates no scientific training or evaluation authority.
+
 ## Decisions still pending evidence or binding
 
-Dependency-runtime admission, exact implementation bindings, the executable
-protocol artifact, and every scientific outcome remain pending their gated
-milestones. Their absence does not reopen the approved model or training
-choices for routine optimization. Milestone 1 acceptance itself remains
-pending integrated verification and reviewed live-main publication.
+Exact implementation bindings, the executable protocol artifact, and every
+scientific outcome remain pending their gated milestones. Their absence does
+not reopen the approved model or training choices for routine optimization.

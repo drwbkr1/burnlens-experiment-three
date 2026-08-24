@@ -1,0 +1,18 @@
+{
+  "response_schema_version": "experiment-three-runtime-adoption-response-v1",
+  "review_id": "EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-2026-001",
+  "completed": false,
+  "review_started_at_utc": null,
+  "review_completed_at_utc": null,
+  "reviewer": {
+    "attestation": false
+  },
+  "responses": [
+    {
+      "item_id": "exact-windows-cpu-runtime-candidate-001",
+      "evidence_sha256": "68f34338b61da111e0fc20a9a2a02cca7e02ff97262fd5f9d0185d351fc69f05",
+      "decision": null,
+      "notes": ""
+    }
+  ]
+}

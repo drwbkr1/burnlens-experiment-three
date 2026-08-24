@@ -1,0 +1,115 @@
+{
+  "schema_version": "experiment-three-synthetic-preflight/v1",
+  "record_id": "EXPERIMENT-THREE-SYNTHETIC-PREFLIGHT-2026-001",
+  "recorded_at_utc": "2026-08-24T03:36:00Z",
+  "runtime_activation_ref": "records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ACTIVATION-2026-001.json",
+  "runtime_activation_sha256": "991d843e0dcfae6a2568fd837389d4ee5b64e36f1077f8299399a4f37e21083a",
+  "disposition": "pass",
+  "scope": "wholly_synthetic_engineering_evidence_only",
+  "benchmark_accessed": false,
+  "scientific_output": false,
+  "implementation": {
+    "architecture_id": "burnlens-exp3-pointwise-6x8x8x1-v1",
+    "parameter_count": 137,
+    "layers": [
+      "Conv2d 6->8 kernel 1x1 bias true",
+      "ReLU",
+      "Conv2d 8->8 kernel 1x1 bias true",
+      "ReLU",
+      "Conv2d 8->1 kernel 1x1 bias true"
+    ],
+    "source_files": [
+      {"path":"src/burnlens_experiment_three/__init__.py","bytes":223,"sha256":"7f51f0ead6abda4b9c7b18e6b65371e06de7ca069cfdd5173fa4cbc6e371a5eb"},
+      {"path":"src/burnlens_experiment_three/model.py","bytes":1435,"sha256":"f7e68601c4d00d11a6569ee1f870815b7a0f16f7e1b1a116dbcd936312665313"},
+      {"path":"src/burnlens_experiment_three/losses.py","bytes":2096,"sha256":"aec40aae4e98042d5f73d59baeed3948c8073b18ed131f2c0e263749b5ed60a9"},
+      {"path":"src/burnlens_experiment_three/synthetic.py","bytes":2104,"sha256":"baa3640ff1db93f098a419f8b55fb2258d6ceccd714e441cd1a6373bca6955a6"},
+      {"path":"src/burnlens_experiment_three/checkpoint.py","bytes":3406,"sha256":"529870f28236592472d363a085ba9bf0a47c247af322fc114c57b515927805f8"},
+      {"path":"scripts/run_synthetic_preflight.py","bytes":15230,"sha256":"044946c5ddbc13dc023434ccf0faa0428921c9c5b3a722134fa274b4d01ca351"},
+      {"path":"scripts/verify_synthetic_preflight.py","bytes":5655,"sha256":"a79be6988b69149e0680aca9d92fe64f20d9e63b06918506caa25790f3bfefbf"},
+      {"path":"tests/test_synthetic_neural_lifecycle.py","bytes":4768,"sha256":"92ddf8e89b599d2f447a0d74444789b7c09532e6973bc1cad5c39dcf2f6feb4c"}
+    ],
+    "unit_tests": {
+      "runtime": "approved embedded CPython 3.12.10 / torch 2.13.0+cpu",
+      "passed": 6,
+      "failed": 0,
+      "coverage_roles": ["exact parameter and layer audit", "arbitrary HxW", "event-class-balanced masked BCE", "unknown-mask preservation", "state-dict safe reload and tamper rejection", "synthetic fixture determinism"]
+    }
+  },
+  "primary_execution": {
+    "root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\synthetic-preflight\\m2-2026-001-primary",
+    "files": 7,
+    "bytes": 20628,
+    "roster_sha256": "9c008f10e73d6829710fabce0a20de500e6b403a6f807c9a3cb45222555913f3",
+    "receipt_path": "preflight-receipt.json",
+    "receipt_sha256": "7a3fde9902b528f3c5457eaf9a12c2c8444f9de5f6fb88ed07bddc97bded7b28"
+  },
+  "independent_replay": {
+    "root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\synthetic-preflight\\m2-2026-001-replay",
+    "files": 7,
+    "bytes": 20628,
+    "roster_sha256": "9c008f10e73d6829710fabce0a20de500e6b403a6f807c9a3cb45222555913f3",
+    "receipt_path": "preflight-receipt.json",
+    "receipt_sha256": "7a3fde9902b528f3c5457eaf9a12c2c8444f9de5f6fb88ed07bddc97bded7b28",
+    "exact_roster_match": true,
+    "exact_receipt_match": true
+  },
+  "deterministic_evidence": {
+    "fingerprint": "d13ec92fc783300cd56730e7ce050b88d2f2fc03ce3d805fcae8485ecffbd607",
+    "seed": 20260725,
+    "steps": 120,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "initial_loss": 0.6965426802635193,
+    "final_loss": 0.5614569187164307,
+    "loss_decreased": true,
+    "gradient_norm": 0.07114846019345532,
+    "finite_nonzero_gradients": true,
+    "initial_and_final_weights_differ": true,
+    "fresh_process_logits_exact": true,
+    "fresh_process_probabilities_exact": true,
+    "checkpoint_tensor_state_exact": true,
+    "primary_and_replay_checkpoint_bytes_exact": true,
+    "primary_and_replay_geotiff_bytes_exact": true,
+    "primary_and_replay_render_bytes_exact": true,
+    "primary_and_replay_history_bytes_exact": true,
+    "synthetic_valid_accuracy_diagnostic_only": 0.8993589743589744
+  },
+  "artifact_checks": {
+    "safe_state_dict_only_package": "pass",
+    "weights_only_fresh_process_reload": "pass",
+    "geotiff": {
+      "driver": "GTiff",
+      "shape": [32, 32],
+      "dtype": "float32",
+      "crs": "EPSG:32610",
+      "reopen_values_exact": true,
+      "synthetic_and_nonoperational_tags": true
+    },
+    "render": {
+      "path": "synthetic-comparison.png",
+      "dimensions": [768, 216],
+      "visually_reviewed": true,
+      "review_finding": "Four labeled panels are legible at native size. Gray masked locations remain distinct, probability variation is visible, and red/green error encoding corresponds to the 0.5 synthetic diagnostic. No real event imagery or claim appears."
+    }
+  },
+  "gates": {
+    "parameter_count_137": "pass",
+    "arbitrary_hw": "pass",
+    "benchmark_independence": "pass",
+    "finite_forward_loss_gradients": "pass",
+    "nonzero_gradients": "pass",
+    "optimizer_changed_weights": "pass",
+    "loss_reduction": "pass",
+    "safe_checkpoint": "pass",
+    "fresh_process_reload": "pass",
+    "exact_replay": "pass",
+    "geospatial_reopen": "pass",
+    "rendered_surface": "pass"
+  },
+  "retained_warnings": [
+    "Rasterio/NumPy emitted a shape-assignment deprecation warning while reopening the synthetic GeoTIFF; values and bytes remained exact across replay. This is recorded as a compatibility warning, not hidden.",
+    "The synthetic valid-location accuracy is an engineering diagnostic only and cannot be reported as Experiment Three scientific performance."
+  ],
+  "claim_limit": "This PASS proves the fixed model's synthetic engineering lifecycle only. It is not substantive training, benchmark inference, evaluation, accuracy, generalization, superiority, dense segmentation, significance, or operational evidence.",
+  "next_step": "Independently validate repository source, runtime and external receipts, replay the command from a clean output root, re-open the GeoTIFF, and inspect the render before publishing the Milestone 2 checkpoint."
+}

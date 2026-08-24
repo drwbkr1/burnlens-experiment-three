@@ -1,0 +1,68 @@
+{
+  "schema_version": "experiment-three-runtime-activation-failure/v1",
+  "record_id": "EXPERIMENT-THREE-RUNTIME-ACTIVATION-FAILURE-2026-001",
+  "recorded_at_utc": "2026-08-24T02:37:43Z",
+  "unit_id": "M2-U004-LOCKED-RUNTIME-ACTIVATION",
+  "candidate_id": "CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001",
+  "decision_ref": "records/decisions/EXPERIMENT-THREE-RUNTIME-ADOPTION-DECISION-2026-001.json",
+  "disposition": "fail",
+  "route_status": "closed_on_this_host",
+  "summary": "The exact approved CPython installer returned exit code 0 but entered Modify maintenance mode for an existing per-user CPython 3.12.10 installation instead of creating the requested isolated Active-only runtime. The target runtime contained no python.exe, so activation failed closed before any wheel sync or candidate import.",
+  "approved_artifact_intake": {
+    "installer_path": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-downloads\\python\\python-3.12.10-amd64.exe",
+    "installer_bytes": 26964224,
+    "installer_sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+    "sigstore_path": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-downloads\\python\\python-3.12.10-amd64.exe.sigstore",
+    "sigstore_bytes": 5059,
+    "sigstore_sha256": "7afb12068e14450b609d752df3bfdebf3ccfe14d476fa6b951e8fdb77fc9f29d",
+    "sigstore_digest_match": true,
+    "authenticode_status": "Valid",
+    "authenticode_signer": "Python Software Foundation",
+    "authenticode_thumbprint": "DE01DAAE82D04F466A576E178F6B07A839238953"
+  },
+  "attempt": {
+    "requested_target": "C:\\Projects\\Active\\burnlens-experiment-three-runtime\\cpython-3.12.10",
+    "requested_mode": "quiet non-admin per-user install with launcher, PATH, associations, shortcuts, documentation, tests, Tcl/Tk, development files, and bundled pip disabled",
+    "process_exit_code": 0,
+    "target_python_present": false,
+    "detected_existing_product": "C:\\Users\\drewb\\AppData\\Local\\Programs\\Python\\Python312",
+    "installer_action": "Modify",
+    "unintended_effect": "The maintenance transaction removed selected optional components and user integration from the pre-existing same-version installation according to the supplied disabled-feature flags.",
+    "package_sync_started": false,
+    "wheels_downloaded": 0,
+    "candidate_imports_executed": 0
+  },
+  "failure_evidence": {
+    "private_log_path": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-failures\\2026-001\\Python 3.12.10 (64-bit)_20260823223011.log",
+    "log_bytes": 73343,
+    "log_sha256": "ca44694663cf2d26bf38156fd64e892ce06fbe99d0e47bcf2fcdc809e80652dd",
+    "retained_original_temp_log": true,
+    "interpretation": "Exit code 0 represented a successful maintenance transaction, not successful construction of the approved isolated runtime. Missing target python.exe is the activation gate failure."
+  },
+  "recovery": {
+    "status": "pass",
+    "method": "The same exact signed installer was run against the detected existing per-user installation with all components observed before the failed transaction re-enabled.",
+    "private_log_path": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-failures\\2026-001\\Python 3.12.10 (64-bit)_20260823223230.log",
+    "log_bytes": 78689,
+    "log_sha256": "ed85cf8a390d36f39e203f635b76db9554d843ff65252dd0a29bcdbe14926344",
+    "verified_surfaces": [
+      "python executable and python312.dll present",
+      "pip 25.0.1 imports and python -m pip --version succeeds",
+      "test and tkinter packages import; Tk reports 8.6",
+      "Include/Python.h, Lib/test, Lib/tkinter, and pip files present",
+      "Python launcher and prior user PATH entries restored",
+      "registry InstallPath and InstalledFeatures restored to the detected per-user product"
+    ],
+    "claim_limit": "Recovery verifies restoration of the specifically inspected pre-existing installation surfaces. It does not erase the failed maintenance transaction or prove identity for every byte outside those surfaces."
+  },
+  "scientific_boundary": {
+    "synthetic_preflight_started": false,
+    "benchmark_accessed": false,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "inference_runs": 0,
+    "evaluations": 0
+  },
+  "closure_reason": "Official installer maintenance semantics do not permit changing the install directory for an already installed same-version product. Repeating this exact candidate would not create the required side-by-side isolated runtime and is prohibited.",
+  "next_step": "Inventory a materially distinct isolated runtime artifact read-only and obtain a fresh exact owner adoption decision before any download, installation, execution, or synthetic implementation."
+}

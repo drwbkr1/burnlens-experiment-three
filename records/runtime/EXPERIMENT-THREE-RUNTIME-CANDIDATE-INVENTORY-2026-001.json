@@ -1,0 +1,156 @@
+{
+  "schema_version": "experiment-three-runtime-candidate-inventory/v1",
+  "inventory_id": "EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001",
+  "recorded_at_utc": "2026-08-24T01:45:19Z",
+  "candidate_id": "CPYTHON-3.12.10-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-001",
+  "disposition": "ready_for_owner_adoption_decision",
+  "adopted": false,
+  "downloaded_runtime_artifacts": 0,
+  "installed_packages": 0,
+  "executed_candidate_imports": 0,
+  "scientific_work_started": false,
+  "purpose": "One isolated Windows x64 CPU runtime for the synthetic-only Milestone 2 neural lifecycle preflight. This inventory does not authorize or perform download, installation, adoption, model execution, benchmark access, training, inference, or evaluation.",
+  "authority": {
+    "mode": "inherited_read_only",
+    "authority_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json#M2-U002-RUNTIME-CANDIDATE-INVENTORY",
+    "adoption_gate": "M2-U003-RUNTIME-ADOPTION-DECISION"
+  },
+  "platform": {
+    "operating_system": "Windows",
+    "architecture": "x86_64",
+    "python_abi": "cp312",
+    "device": "CPU only",
+    "floating_point": "float32"
+  },
+  "python": {
+    "implementation": "CPython",
+    "version": "3.12.10",
+    "artifact": "python-3.12.10-amd64.exe",
+    "official_release": "https://www.python.org/downloads/release/python-31210/",
+    "artifact_url": "https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe",
+    "artifact_bytes": 26964224,
+    "artifact_sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+    "sigstore_url": "https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe.sigstore",
+    "sha256_source": "The SHA-256 is the message digest in the official Sigstore bundle; the artifact itself was not downloaded.",
+    "license": "Python Software Foundation License Version 2 and incorporated notices",
+    "license_url": "https://docs.python.org/3.12/license.html",
+    "prospective_install_mode": "Per-user, non-admin, quiet installation into the exact Active-only runtime root with launcher, PATH mutation, associations, shortcuts, documentation, tests, and bundled pip disabled.",
+    "status": "not_downloaded_not_installed"
+  },
+  "resolver": {
+    "name": "uv",
+    "version": "0.10.7",
+    "observed_binary": "C:\\Users\\drewb\\.local\\bin\\uv.exe",
+    "observed_binary_bytes": 64638976,
+    "observed_binary_sha256": "e756c553075d7a6582c885adfcdd07f72c79a5c7dc4e6284246eb2537536d27",
+    "upstream": "https://github.com/astral-sh/uv",
+    "license": "Apache-2.0 OR MIT",
+    "role": "Already-installed resolution and installation tooling only; the executable is not copied into project custody and is not the candidate Python runtime.",
+    "network_metadata_action": "uv lock resolved registry metadata only with UV_CACHE_DIR under C:\\Projects\\Active; no package was installed or downloaded into a runtime."
+  },
+  "private_resolution_inputs": {
+    "root": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-candidate",
+    "pyproject_path": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-candidate\\pyproject.toml",
+    "pyproject_bytes": 702,
+    "pyproject_sha256": "2a26d771dc9b880699d5bb26b987772d73847adc9dc96ef076fb97af8343f4a6",
+    "lock_path": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-candidate\\uv.lock",
+    "lock_bytes": 28986,
+    "lock_sha256": "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081",
+    "cache_root": "C:\\Projects\\Active\\burnlens-experiment-three-private\\uv-cache",
+    "repository_distribution": "excluded_private_resolution_inputs"
+  },
+  "lineage_observation": {
+    "source_environment": "C:\\Projects\\Active\\burnlens-deschutes\\.venv",
+    "source_repository_role": "read_only_provenance_only",
+    "observed_python": "CPython 3.12.10",
+    "observed_torch_metadata": "2.13.0",
+    "observed_torch_runtime": "2.13.0+cpu",
+    "observed_cuda_available": false,
+    "observed_key_versions": {
+      "numpy": "2.5.1",
+      "pillow": "12.3.0",
+      "rasterio": "1.5.0"
+    },
+    "source_python_executable_sha256": "0b471133e110cfb53a061cad528cee8e517d7b9ac41a0a396c39ad795a487fc14",
+    "reuse_prohibited": "The source virtual environment and its interpreter are not copied, modified, executed as the Experiment Three runtime, or adopted. Only version and metadata lineage informed this minimized candidate."
+  },
+  "package_resolution": {
+    "direct_requirements": 20,
+    "effective_windows_packages": 20,
+    "lock_entries": 21,
+    "lock_entry_note": "The extra lock entry is the non-Windows torch 2.13.0 variant; Windows resolves exactly torch 2.13.0+cpu.",
+    "registries": [
+      "https://pypi.org/simple",
+      "https://download.pytorch.org/whl/cpu"
+    ],
+    "packages": [
+      {"name":"affine","version":"2.4.0","license":"BSD","wheel_sha256":"8a3df80e2b2378aef598a83c1392efd47967afec4242021a0b06b4c7cbc61a92"},
+      {"name":"attrs","version":"26.1.0","license":"MIT","wheel_sha256":"c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"},
+      {"name":"certifi","version":"2026.6.17","license":"MPL-2.0","wheel_sha256":"2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db"},
+      {"name":"click","version":"8.4.2","license":"BSD-3-Clause","wheel_sha256":"e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76"},
+      {"name":"cligj","version":"0.7.2","license":"BSD","wheel_sha256":"c1ca117dbce1fe20a5809dc96f01e1c2840f6dcc939b3ddbb1111bf330ba82df"},
+      {"name":"colorama","version":"0.4.6","license":"BSD","wheel_sha256":"4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
+      {"name":"filelock","version":"3.32.0","license":"MIT","wheel_sha256":"d396bea984af47333ef05e50eae7eff88c84256de6112aea0ec48a233c064fe3"},
+      {"name":"fsspec","version":"2026.6.0","license":"BSD-3-Clause","wheel_sha256":"02e0b71817df9b2169dc30a16832045764def1191b43dcff5bb85bdee212d2a1"},
+      {"name":"Jinja2","version":"3.1.6","license":"BSD","wheel_sha256":"85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"},
+      {"name":"MarkupSafe","version":"3.0.3","license":"BSD-3-Clause","wheel_sha256":"26a5784ded40c9e318cfc2bdb30fe164bdb8665ded9cd64d500a34fb42067b1c"},
+      {"name":"mpmath","version":"1.3.0","license":"BSD","wheel_sha256":"a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c"},
+      {"name":"networkx","version":"3.6.1","license":"BSD-3-Clause","wheel_sha256":"d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762"},
+      {"name":"numpy","version":"2.5.1","license":"BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0","wheel_sha256":"f7d60026c0bdb1380e83bfa7a0419c4577ee4b9a08880afcb6dadeb74c649fa2"},
+      {"name":"Pillow","version":"12.3.0","license":"MIT-CMU","wheel_sha256":"a2b55dd6b2a4c4b7d87ffa56bdb33fdc5fdb9a462173861a7bc097f17d91cb09"},
+      {"name":"pyparsing","version":"3.3.2","license":"MIT","wheel_sha256":"850ba148bd908d7e2411587e247a1e4f0327839c40e2e5e6d05a007ecc69911d"},
+      {"name":"rasterio","version":"1.5.0","license":"BSD-3-Clause with bundled GDAL data and binary notices","wheel_sha256":"ac8d04eee66ca8060763ead607800e5611d857dd005905d920365e24a16ba20a"},
+      {"name":"setuptools","version":"82.0.0","license":"MIT","wheel_sha256":"70b18734b607bd1da571d097d236cfcfacaf01de45717d59e6e04b96877532e0"},
+      {"name":"sympy","version":"1.14.0","license":"BSD","wheel_sha256":"e091cc3e99d2141a0ba2847328f5479b05d94a6635cb96148ccb3f34671bd8f5"},
+      {"name":"torch","version":"2.13.0+cpu","license":"Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT","wheel_sha256":"a8b450c1e58e5800e5b4691dac412f8d2d65a1dc3298166f91596603a3531e6f"},
+      {"name":"typing-extensions","version":"4.16.0","license":"PSF-2.0","wheel_sha256":"481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"}
+    ],
+    "platform_specific_wheels": [
+      {"name":"MarkupSafe","url":"https://files.pythonhosted.org/packages/aa/5b/bec5aa9bbbb2c946ca2733ef9c4ca91c91b6a24580193e891b5f7dbe8e1e/markupsafe-3.0.3-cp312-cp312-win_amd64.whl","bytes":15105,"sha256":"26a5784ded40c9e318cfc2bdb30fe164bdb8665ded9cd64d500a34fb42067b1c"},
+      {"name":"numpy","url":"https://files.pythonhosted.org/packages/65/66/53f31807a48a750f9d748da273bc3fcedd12b27ff1f3e373bfec55ef2dc0/numpy-2.5.1-cp312-cp312-win_amd64.whl","bytes":12430966,"sha256":"f7d60026c0bdb1380e83bfa7a0419c4577ee4b9a08880afcb6dadeb74c649fa2"},
+      {"name":"Pillow","url":"https://files.pythonhosted.org/packages/45/89/da2f7971a317f83d807fdd4065c0af40208e59e692cc43d315a71a0e96d1/pillow-12.3.0-cp312-cp312-win_amd64.whl","bytes":7227137,"sha256":"a2b55dd6b2a4c4b7d87ffa56bdb33fdc5fdb9a462173861a7bc097f17d91cb09"},
+      {"name":"rasterio","url":"https://files.pythonhosted.org/packages/57/d6/fe8826f813c98b046d8d4c3bc83053c89c71f367f89257d211fe5dd0b0ba/rasterio-1.5.0-cp312-cp312-win_amd64.whl","bytes":30142328,"sha256":"ac8d04eee66ca8060763ead607800e5611d857dd005905d920365e24a16ba20a"},
+      {"name":"torch","url":"https://download-r2.pytorch.org/whl/cpu/torch-2.13.0%2Bcpu-cp312-cp312-win_amd64.whl","bytes":null,"sha256":"a8b450c1e58e5800e5b4691dac412f8d2d65a1dc3298166f91596603a3531e6f"}
+    ]
+  },
+  "prospective_custody": {
+    "runtime_root": "C:\\Projects\\Active\\burnlens-experiment-three-runtime",
+    "download_root": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-downloads",
+    "cache_root": "C:\\Projects\\Active\\burnlens-experiment-three-private\\uv-cache",
+    "synthetic_output_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\synthetic-preflight",
+    "forbidden_root": "C:\\Users\\drewb\\OneDrive",
+    "repository_commit_policy": "No runtime, dependency cache, installer, wheel, synthetic checkpoint, or generated model output may be committed."
+  },
+  "approval_scope": {
+    "yes_would_authorize": [
+      "Download the exact official CPython installer, Sigstore bundle, and exact locked wheels into Active-only private custody",
+      "Verify every available size, SHA-256, and official signature binding before use",
+      "Construct the isolated runtime at the exact Active-only root without system PATH, file-association, launcher, or admin changes",
+      "Install only the exact Windows closure bound by lock SHA-256 66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081",
+      "Capture licenses and execute import, CPU-only, deterministic-algorithm, and synthetic compatibility preflights"
+    ],
+    "yes_would_not_authorize": [
+      "Benchmark access or substantive training, checkpointing, inference, evaluation, tuning, or publication",
+      "Any version substitution, dependency addition, credential, terms acceptance, spend, paid service, secret, OneDrive custody, or prior-repository mutation",
+      "Any model-family, frozen-protocol, cohort, label, split, metric, threshold, or claim change"
+    ],
+    "no_effect": "Rejects this exact candidate. Milestone 2 remains blocked unless the owner separately approves a different exact runtime candidate."
+  },
+  "risk_assessment": {
+    "known_risks": [
+      "A new executable and binary wheels will execute third-party native code if adopted.",
+      "Rasterio wheels bundle GDAL and supporting data whose exact runtime behavior must be checked on the target Windows host.",
+      "CPU deterministic settings reduce but do not automatically prove replay; exact synthetic replay remains a separate gate.",
+      "The installed Experiment One lineage is evidence of compatibility, not evidence that the fresh isolated runtime will pass."
+    ],
+    "mitigations": [
+      "Exact artifact and lock identities",
+      "Official sources only",
+      "Active-only private download, cache, runtime, and output roots",
+      "No source-environment reuse",
+      "No benchmark access during runtime activation",
+      "Fail closed on any hash, signature, import, CPU, dependency, or custody mismatch"
+    ],
+    "residual_risk": "bounded_nonzero_pending_owner_adoption_and_activation_validation"
+  }
+}
