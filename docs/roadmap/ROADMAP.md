@@ -51,7 +51,12 @@ training, evaluation, or release claim.
 **State:** Active under issue
 [#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2), initially
 limited to read-only provenance and rights reconciliation. No benchmark bytes
-have been admitted.
+have been admitted. The metadata identity unit is complete: the clean source
+revision, 48 dataset arrays, eight historical U-Net prediction/probability
+arrays, and supporting source/terms records all rehash as declared. This
+establishes identity only. Controlled copy/use remain deferred and
+redistribution remains blocked pending the explicit rights decision and a
+current upstream-source gate.
 
 **Deliverables**
 
@@ -61,6 +66,14 @@ have been admitted.
 - Record source lineage, terms, attribution, redistribution rights, custody, and
   byte-integrity evidence before copying any asset.
 - Create a machine-readable admission manifest and independent verification.
+
+**Current gate**
+
+- Obtain an explicit yes/no owner/rightsholder decision for the exact
+  hash-bound project-authored derivative artifacts. A yes does not override
+  third-party terms; a separate current upstream-source gate must still pass.
+- Until then, keep the inventory metadata-only and retain zero admitted bytes,
+  datasets, models, training runs, inference runs, evaluations, and releases.
 
 **Exit gate**
 

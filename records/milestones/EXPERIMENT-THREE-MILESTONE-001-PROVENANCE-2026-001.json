@@ -218,8 +218,14 @@
     },
     {
       "id": "EXIT-M1-IDENTITY",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+        "Inventory record 90,576 bytes, SHA-256 187c9d8aac67038e1269548d0477192ef6f3c6b8113190626c1aada2bed89529",
+        "Experiment One clean main and origin/main a741111d82e69689022d2058118ed8f4b9bf3546, tree bc679254030eb57a65f58ac2af10880866fc52be",
+        "All 48 dataset arrays (1,333,248 bytes), 37 direct candidate bindings, five supplemental transitive records, and eight U-Net prediction arrays (82,944 bytes) matched their recorded identities",
+        "Zero source bytes copied, transformed, or admitted; no source code executed and no .npy or .pt artifact loaded or deserialized"
+      ]
     },
     {
       "id": "EXIT-M1-SOURCE-RIGHTS",
@@ -315,7 +321,7 @@
       ],
       "action_class": "read_only_inspection",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "C:\\Projects\\Active\\burnlens-deschutes at clean main a741111d82e69689022d2058118ed8f4b9bf3546",
         "Experiment Three execution goal inherited-artifact list",
@@ -325,21 +331,27 @@
         "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json"
       ],
       "gates": {
-        "source_repository_read_only": "pending",
-        "exact_git_and_path_identity": "pending",
-        "sha256_every_candidate": "pending",
-        "role_and_exposure_classification": "pending",
-        "missing_rejected_ambiguous_retained": "pending"
+        "source_repository_read_only": "pass",
+        "exact_git_and_path_identity": "pass",
+        "sha256_every_candidate": "pass",
+        "role_and_exposure_classification": "pass",
+        "missing_rejected_ambiguous_retained": "pass"
       },
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "Full-test RBR arrays are incomplete and constant-control arrays are absent; later reconstruction remains dependency-gated.",
+        "The direct candidate manifest omits part of the transitive McKay/Tepee provenance enumeration; the supplemental chain is retained explicitly.",
+        "Artifact-level rights for non-software derived bytes remain unresolved and are not converted into an identity failure or a rights pass."
+      ],
       "exit_condition_delta": {
         "expected": [
           "EXIT-M1-IDENTITY"
         ],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Identity evidence is not yet collected."
+        "observed": [
+          "EXIT-M1-IDENTITY"
+        ],
+        "decision_value": "advances_exit",
+        "rationale": "Read-only verification hash-bound every intended benchmark and comparator role, retained missing and ambiguous evidence, and produced no copied byte or scientific output. Controlled copy and downstream use remain deferred behind the explicit source-rights gate."
       },
       "next_dependency": "M1-U003-SOURCE-RIGHTS-GATE"
     },
@@ -583,12 +595,13 @@
       "Live entry reconciliation at 2026-08-23T22:45:27Z matched current branch and accepted bootstrap commit",
       "Project-state snapshot evaluator: aligned with zero drift or blockers",
       "Project-control profile validator with --verify-paths and Milestone 1 gate lint: valid with zero findings",
-      "Controlled milestone validator with profile 002: valid with M1-U002 as the only authorized ready unit"
+      "Controlled milestone validator with profile 002: valid with M1-U002 as the only authorized ready unit",
+      "M1-U002 read-only identity inventory: 48 dataset arrays, 37 direct bindings, five supplemental transitive records, and eight U-Net prediction arrays all matched; zero bytes copied, no source code executed, and no .npy or .pt artifact loaded"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Accepted bootstrap main commit 4543a2dad5c2630249906aab763ae0cbf91097ba; Milestone 1 control setup is active on codex/benchmark-provenance-001 under issue 2; no scientific output or benchmark byte is admitted",
-    "next_action": "Execute M1-U002 read-only identity inventory against Experiment One clean main a741111d82e69689022d2058118ed8f4b9bf3546; do not copy, execute, transform, or mutate candidate bytes",
+    "current_checkpoint": "M1-U002 identity PASS in records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json against Experiment One clean main a741111d82e69689022d2058118ed8f4b9bf3546; source-rights, controlled copy, downstream use, and redistribution remain nonpass; no scientific output or benchmark byte is admitted",
+    "next_action": "Stop at M1-GATE-OWNER-ARTIFACT-RIGHTS and obtain the owner's explicit yes-or-no rightsholder disposition for the exact inventory before M1-U003 begins; do not infer permission from repository presence, prior use, or the MIT software license",
     "do_not_carry_forward": [
       "Milestone 0's consumed direct-main exception",
       "Any assumption that prior use, repository presence, a software license, or public access proves asset rights",

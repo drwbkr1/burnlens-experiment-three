@@ -16,7 +16,7 @@
     "verified_at_utc": "2026-08-23T22:23:46Z",
     "expires_at_utc": null
   },
-  "observed_at_utc": "2026-08-23T22:45:27Z",
+  "observed_at_utc": "2026-08-24T00:02:49Z",
   "live_facts": [
     {
       "id": "project.root",
@@ -35,9 +35,9 @@
     {
       "id": "git.head",
       "status": "observed",
-      "value": "4543a2dad5c2630249906aab763ae0cbf91097ba",
-      "source_ref": "git rev-parse HEAD",
-      "observed_at_utc": "2026-08-23T22:45:27Z"
+      "value": "74171043ddd543979e9773d5ffdd06da116bbaa1",
+      "source_ref": "git rev-parse HEAD and git ls-remote origin refs/heads/codex/benchmark-provenance-001 after draft PR 3 control transition publication",
+      "observed_at_utc": "2026-08-24T00:02:49Z"
     },
     {
       "id": "git.entry_worktree_clean",
@@ -168,7 +168,7 @@
       "fact_id": "git.head",
       "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-002.json",
       "scope": "current",
-      "claimed_value": "4543a2dad5c2630249906aab763ae0cbf91097ba",
+      "claimed_value": "74171043ddd543979e9773d5ffdd06da116bbaa1",
       "evidence_ref": "current_checkpoint.expected_head"
     },
     {

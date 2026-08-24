@@ -111,9 +111,25 @@ overwrite.
   implementations, tolerances, artifact schemas, and exception/terminal rules
   before substantive training. It may not replace the approved values above.
 
+### E3-DEC-0010 - Separate byte identity from permission and admission
+
+- **Date:** 2026-08-23
+- **State:** Active
+- **Decision:** Accept the exact Experiment One inventory as a metadata
+  identity `PASS` while keeping controlled copy and scientific use `DEFER` and
+  repository/raw-provider redistribution `BLOCK`.
+- **Reason:** Matching hashes establish which bytes exist and whether they
+  drifted. They do not establish ownership, license, current upstream terms,
+  attribution sufficiency, or permission to copy, use, or redistribute.
+- **Gate:** Require an explicit owner/rightsholder yes/no response for the
+  exact project-authored derivative artifacts, followed by a separate current
+  upstream-source gate and readiness audit before any admission. Ambiguity or
+  silence is not permission.
+
 ## Decisions still pending evidence or binding
 
-Dependency-runtime admission, benchmark-byte admission, exact implementation
-bindings, rights dispositions, and the executable protocol artifact remain
-pending their gated milestones. Their absence does not reopen the approved
-model or training choices for routine optimization.
+The owner/rightsholder artifact-rights response, current upstream-source
+disposition, benchmark-byte admission, dependency-runtime admission, exact
+implementation bindings, and executable protocol artifact remain pending their
+gated milestones. Their absence does not reopen the approved model or training
+choices for routine optimization.

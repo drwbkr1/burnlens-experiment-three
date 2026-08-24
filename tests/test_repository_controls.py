@@ -13,8 +13,214 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class RepositoryControlTests(unittest.TestCase):
+    def _write_completed_identity_fixture(
+        self, root: Path, *, write_inventory: bool = True
+    ) -> tuple[dict[str, object], Path, dict[str, object], Path]:
+        profile_path = root / validator.CONTROL_PROFILE
+        milestone_path = root / validator.PROVENANCE_MILESTONE
+        inventory_path = root / validator.PROVENANCE_IDENTITY_INVENTORY
+        profile_path.parent.mkdir(parents=True)
+        milestone_path.parent.mkdir(parents=True)
+        profile_path.write_text(
+            json.dumps(
+                {
+                    "active_milestone_path": (
+                        validator.PROVENANCE_MILESTONE.as_posix()
+                    )
+                }
+            ),
+            encoding="utf-8",
+        )
+        expected_gates = {
+            "source_repository_read_only": "pass",
+            "exact_git_and_path_identity": "pass",
+            "sha256_every_candidate": "pass",
+            "role_and_exposure_classification": "pass",
+            "missing_rejected_ambiguous_retained": "pass",
+        }
+        milestone: dict[str, object] = {
+            "units": [
+                {
+                    "id": "M1-U002-READ-ONLY-IDENTITY-INVENTORY",
+                    "status": "complete",
+                    "disposition": "pass",
+                    "outputs": [validator.PROVENANCE_IDENTITY_INVENTORY.as_posix()],
+                    "gates": expected_gates,
+                    "exit_condition_delta": {
+                        "expected": ["EXIT-M1-IDENTITY"],
+                        "observed": ["EXIT-M1-IDENTITY"],
+                        "decision_value": "advances_exit",
+                    },
+                }
+            ],
+            "exit_conditions": [
+                {
+                    "id": "EXIT-M1-IDENTITY",
+                    "status": "pass",
+                    "evidence": [
+                        validator.PROVENANCE_IDENTITY_INVENTORY.as_posix()
+                    ],
+                }
+            ],
+        }
+        milestone_path.write_text(
+            json.dumps(milestone, indent=2), encoding="utf-8"
+        )
+        inventory = json.loads(
+            (ROOT / validator.PROVENANCE_IDENTITY_INVENTORY).read_text(
+                encoding="utf-8"
+            )
+        )
+        if write_inventory:
+            inventory_path.parent.mkdir(parents=True)
+            inventory_path.write_text(
+                json.dumps(inventory, indent=2), encoding="utf-8"
+            )
+        return inventory, inventory_path, milestone, milestone_path
+
     def test_repository_passes_all_control_checks(self) -> None:
         self.assertEqual([], validator.validate_repository(ROOT))
+
+    def test_completed_u002_inventory_is_self_consistent_without_source_access(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._write_completed_identity_fixture(root)
+            self.assertEqual(
+                [], validator.check_milestone_one_identity_inventory(root)
+            )
+
+    def test_completed_u002_requires_a_nonempty_inventory(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            _, inventory_path, _, _ = self._write_completed_identity_fixture(
+                root, write_inventory=False
+            )
+            errors = validator.check_milestone_one_identity_inventory(root)
+            self.assertTrue(any("inventory is missing" in error for error in errors))
+
+            inventory_path.parent.mkdir(parents=True)
+            inventory_path.write_text("", encoding="utf-8")
+            errors = validator.check_milestone_one_identity_inventory(root)
+            self.assertTrue(any("must be non-empty" in error for error in errors))
+
+    def test_completed_u002_recomputes_dataset_and_unet_rosters(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            inventory, inventory_path, _, _ = self._write_completed_identity_fixture(
+                root
+            )
+            dataset_row = inventory["dataset"]["arrays"][0]
+            dataset_row["observed_sha256"] = "0" * 64
+            dataset_row["expected_sha256"] = "0" * 64
+            inventory_path.write_text(
+                json.dumps(inventory, indent=2), encoding="utf-8"
+            )
+            errors = validator.check_milestone_one_identity_inventory(root)
+            self.assertTrue(
+                any("dataset array roster SHA-256" in error for error in errors)
+            )
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            inventory, inventory_path, _, _ = self._write_completed_identity_fixture(
+                root
+            )
+            prediction = inventory["comparison_artifacts"]["canonical_unet"][
+                "predictions"
+            ][0]
+            prediction["observed_sha256"] = "0" * 64
+            prediction["expected_sha256"] = "0" * 64
+            inventory_path.write_text(
+                json.dumps(inventory, indent=2), encoding="utf-8"
+            )
+            errors = validator.check_milestone_one_identity_inventory(root)
+            self.assertTrue(
+                any("U-Net prediction roster SHA-256" in error for error in errors)
+            )
+
+    def test_completed_u002_enforces_binding_counts_and_source_roster(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            inventory, inventory_path, _, _ = self._write_completed_identity_fixture(
+                root
+            )
+            inventory["source_and_terms_evidence"]["direct_bindings"][
+                "proposals"
+            ].pop()
+            inventory["source_and_terms_evidence"][
+                "supplemental_transitive_chain"
+            ].pop()
+            inventory["source_and_terms_evidence"]["source_terms_roster"][
+                "aggregate_bytes"
+            ] = 0
+            inventory_path.write_text(
+                json.dumps(inventory, indent=2), encoding="utf-8"
+            )
+            errors = validator.check_milestone_one_identity_inventory(root)
+            self.assertTrue(
+                any(
+                    "direct bindings proposals must contain exactly 5" in error
+                    for error in errors
+                )
+            )
+            self.assertTrue(
+                any(
+                    "supplemental transitive records must contain exactly 5" in error
+                    for error in errors
+                )
+            )
+            self.assertTrue(
+                any("source_terms_roster.aggregate_bytes" in error for error in errors)
+            )
+
+    def test_completed_u002_enforces_boundaries_and_exit_consistency(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            inventory, inventory_path, milestone, milestone_path = (
+                self._write_completed_identity_fixture(root)
+            )
+            inventory["lane_dispositions"]["controlled_local_copy"] = "PASS"
+            inventory["lane_dispositions"]["bytes_copied"] = 1
+            inventory["scientific_outputs_created"]["evaluations"] = 1
+            inventory_path.write_text(
+                json.dumps(inventory, indent=2), encoding="utf-8"
+            )
+            milestone["units"][0]["gates"]["sha256_every_candidate"] = "fail"
+            milestone["exit_conditions"][0]["status"] = "pending"
+            milestone_path.write_text(
+                json.dumps(milestone, indent=2), encoding="utf-8"
+            )
+            errors = validator.check_milestone_one_identity_inventory(root)
+            self.assertTrue(
+                any("controlled_local_copy must equal DEFER" in error for error in errors)
+            )
+            self.assertTrue(any("bytes_copied must equal 0" in error for error in errors))
+            self.assertTrue(
+                any("scientific_outputs_created.evaluations" in error for error in errors)
+            )
+            self.assertTrue(
+                any("gates.sha256_every_candidate" in error for error in errors)
+            )
+            self.assertTrue(
+                any("EXIT-M1-IDENTITY status must be 'pass'" in error for error in errors)
+            )
+
+    def test_completed_u002_binds_exact_experiment_one_git_identity(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            inventory, inventory_path, _, _ = self._write_completed_identity_fixture(
+                root
+            )
+            inventory["source_repository"]["tree"] = "0" * 40
+            inventory_path.write_text(
+                json.dumps(inventory, indent=2), encoding="utf-8"
+            )
+            errors = validator.check_milestone_one_identity_inventory(root)
+            self.assertTrue(
+                any("source_repository.tree" in error for error in errors)
+            )
 
     def test_workflow_pins_checkout_to_full_sha(self) -> None:
         workflow = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")

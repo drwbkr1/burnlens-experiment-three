@@ -23,6 +23,22 @@ releases. There is no earlier Experiment Three software or scientific version.
 - Next work: Milestone 1 under issue #2, limited at entry to read-only
   provenance and rights reconciliation with no benchmark bytes admitted.
 
+## Unreleased Milestone 1 candidate
+
+Draft pull request
+[#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3) carries the
+Milestone 1 control transition. Its published transition commit
+`74171043ddd543979e9773d5ffdd06da116bbaa1` passed push CI run `32674532003`
+and pull-request CI run `32674546780`. The subsequent metadata-only identity
+inventory is a locally and independently validated issue-backed branch
+candidate; it is not an accepted version, release, dataset admission, or
+scientific result.
+
+The inventory reports identity `PASS`, controlled copy/use `DEFER`, and
+redistribution `BLOCK`. No version may advance on identity alone; an explicit
+rights decision, current source gate, readiness result, and zero-copy or
+admission receipt must close Milestone 1 first.
+
 ## Versioning rules
 
 - `VERSION`, `CHANGELOG.md`, this history, status, and release metadata must

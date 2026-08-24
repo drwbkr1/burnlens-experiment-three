@@ -116,3 +116,25 @@ admitted until its identity, source terms, attribution, redistribution
 boundary, custody role, and integrity decision are explicit. Subsequent work
 must continue from the exact accepted bootstrap checkpoint rather than from
 implementation by assumption.
+
+## Milestone 1 follow-through
+
+Draft pull request
+[#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3) carries the
+accepted-checkpoint-to-Milestone-1 control transition. Published transition
+commit `74171043ddd543979e9773d5ffdd06da116bbaa1` passed push run
+`32674532003` and pull-request run `32674546780`.
+
+The first metadata-only evidence unit then bound the clean Experiment One
+source revision, all 48 declared benchmark arrays, all eight historical U-Net
+prediction/probability arrays, and the relevant direct plus transitive
+source/terms records. The inventory's matching hashes establish identity and
+integrity only. It records zero copied bytes, controlled copy/use `DEFER`, and
+redistribution `BLOCK`.
+
+The next action is the explicit owner/rightsholder rights decision for the
+exact hash-bound project-authored derivative artifacts. No affirmative response
+can relicense third-party material; a separate current upstream-source gate and
+readiness audit remain mandatory. No data admission, model implementation,
+training, inference, evaluation, metric, scientific render, or release has
+occurred.

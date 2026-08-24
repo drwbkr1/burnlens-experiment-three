@@ -21,9 +21,17 @@ commit
 completed successfully, and the live README and execution-goal blobs matched
 the verified local checkpoint. Issue
 [#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2) now tracks
-Milestone 1's read-only benchmark-provenance and rights work.
+Milestone 1's read-only benchmark-provenance and rights work. Draft pull
+request [#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3)
+contains the accepted-checkpoint-to-Milestone-1 control transition; transition
+commit `74171043ddd543979e9773d5ffdd06da116bbaa1` passed push run
+`32674532003` and pull-request run `32674546780`.
 
 - No dataset or benchmark bytes have been admitted.
+- A metadata-only identity inventory now binds the clean Experiment 1 source
+  revision, all 48 declared benchmark arrays, all eight historical U-Net
+  prediction/probability arrays, and the relevant source and terms records.
+  Every inventoried byte identity matches, but this is not asset admission.
 - No model code, model weights, checkpoints, or predictions exist here.
 - No training or evaluation has run here.
 - No Experiment Three metrics, scientific result, or release exists.
@@ -34,11 +42,13 @@ Milestone 1's read-only benchmark-provenance and rights work.
   decisions are not Experiment Three evidence until they are explicitly
   hash-bound and admitted.
 
-The accepted bootstrap establishes scope and truthful state. Milestone 1
-authorizes read-only provenance, integrity, attribution, and rights review; it
-does not yet admit benchmark bytes or authorize substantive training or
-opening evaluation evidence. The approved protocol values still require their
-executable, hash-bound Milestone 3 freeze before training.
+The accepted bootstrap establishes scope and truthful state. Milestone 1's
+metadata identity gate is `PASS`; controlled copying and scientific use remain
+`DEFER`, and repository or raw-provider redistribution remains `BLOCK`. The
+current stop is an explicit owner/rightsholder decision about the exact
+project-authored derivative artifacts. No benchmark byte may enter Experiment
+Three custody before that decision and a separate current upstream-source gate
+permit it. Substantive training and evaluation remain unauthorized.
 
 ## Research question
 
@@ -156,6 +166,7 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Changelog](CHANGELOG.md)
 - [Evidence ledger](records/evidence/EVIDENCE-LEDGER.md)
 - [Decision register](records/decisions/DECISION-REGISTER.md)
+- [Experiment One benchmark identity inventory](records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json)
 - [Bootstrap devlog](docs/devlog/2026-08-23-empty-bootstrap.md)
 - [Contributing rules](CONTRIBUTING.md)
 

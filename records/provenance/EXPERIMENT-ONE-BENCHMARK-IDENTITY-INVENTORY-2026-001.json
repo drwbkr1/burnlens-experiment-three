@@ -1,0 +1,1791 @@
+{
+  "inventory_schema_version": "burnlens-experiment-one-benchmark-identity-inventory/v1",
+  "inventory_id": "EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001",
+  "observed_at_utc": "2026-08-24T00:02:49Z",
+  "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+  "milestone_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001.json",
+  "inspection_mode": "read_only_metadata_only_no_copy_no_execution",
+  "source_repository": {
+    "path": "C:\\Projects\\Active\\burnlens-deschutes",
+    "remote": "https://github.com/drwbkr1/burnlens-deschutes.git",
+    "branch": "main",
+    "head": "a741111d82e69689022d2058118ed8f4b9bf3546",
+    "origin_main": "a741111d82e69689022d2058118ed8f4b9bf3546",
+    "tree": "bc679254030eb57a65f58ac2af10880866fc52be",
+    "worktree_clean": true,
+    "license": {
+      "path": "LICENSE",
+      "bytes": 1067,
+      "sha256": "accec00dfaedd030895e2c9cd0c7038380265fec320e6d94429ee1978ebd97d8",
+      "scope_finding": "MIT clearly covers software and associated documentation; it does not by itself settle cross-repository rights for every derived dataset, label, model, prediction, or render artifact."
+    },
+    "source_mutated": false
+  },
+  "intended_roles": {
+    "dataset_arrays": "Exact frozen Experiment One inputs, sparse label states, validity masks, and loss masks for a retrospective compatibility benchmark only.",
+    "split_and_normalization": "Exact whole-event roles and train-only normalization; no event substitution, date shopping, or test-driven selection.",
+    "rbr": "Historical RBR comparator on the same sparse selected cores; compatibility evidence, not independent accuracy or generalization.",
+    "constant_controls": "Deterministic constant-background and constant-burned collapse controls.",
+    "canonical_unet": "Historical trained and evaluated rejected comparator; not a candidate architecture for Experiment Three.",
+    "renders": "Reviewer reference surfaces subject to separate rights and attribution clearance."
+  },
+  "identity_summary": {
+    "repository_identity": "pass",
+    "dataset_array_count": 48,
+    "dataset_array_bytes": 1333248,
+    "dataset_array_mismatches": 0,
+    "direct_binding_counts": {
+      "proposals": 5,
+      "owner_intakes": 5,
+      "source_records": 13,
+      "terms_records": 14
+    },
+    "direct_binding_bytes": {
+      "proposals": 59837,
+      "owner_intakes": 37771,
+      "source_records": 43001,
+      "terms_records": 32421
+    },
+    "direct_binding_mismatches": {
+      "proposals": 0,
+      "owner_intakes": 0,
+      "source_records": 0,
+      "terms_records": 0
+    },
+    "supplemental_transitive_record_count": 5,
+    "unet_prediction_array_count": 8,
+    "unet_prediction_array_bytes": 82944,
+    "bytes_copied_to_experiment_three": 0,
+    "source_code_files_executed": 0,
+    "npy_or_pt_files_loaded_or_deserialized": 0
+  },
+  "benchmark_definition": {
+    "task": "Binary pre/post Sentinel-2 burn-change compatibility classification on sparse owner-approved prototype cores.",
+    "channels": [
+      "pre_B04",
+      "pre_B8A",
+      "pre_B12",
+      "post_B04",
+      "post_B8A",
+      "post_B12"
+    ],
+    "patch_shape": [
+      64,
+      64
+    ],
+    "event_count": 6,
+    "patch_count": 12,
+    "selected_core_pixels": 287,
+    "background_core_pixels": 140,
+    "burned_core_pixels": 147,
+    "unknown_ring_pixels": 531,
+    "independent_unit": "event",
+    "split_roles": {
+      "train": [
+        "event-green-ridge-0684-cs-2020",
+        "event-tepee-1144-ne-2018"
+      ],
+      "validation": [
+        "event-grandview-0558-od-2021",
+        "event-mckay-1035-ne-2017"
+      ],
+      "retrospective_test_known": [
+        "event-ward-creek-2019",
+        "event-windigo-2022"
+      ]
+    },
+    "test_exposure": "Ward Creek 2019 and Windigo 2022 were opened once in Experiment One and are known retrospective compatibility evidence.",
+    "inspection_boundary": "Hashing known test-role bytes during read-only identity inventory is not an Experiment Three evaluation opening. Test bytes remain prohibited from model, checkpoint, threshold, or protocol decisions.",
+    "claim_limits": [
+      "Sparse selected prototype-core agreement only.",
+      "No independent ground truth, dense-scar accuracy, field validation, significance, population, operational, emergency, or generalization claim.",
+      "Events, not pixels, are the independent units.",
+      "RBR perfect agreement is structurally favored by the disclosed label construction and is not independent accuracy."
+    ],
+    "split_record_id": "WHOLE-EVENT-SPLIT-2026-001"
+  },
+  "dataset": {
+    "contract": {
+      "role": "dataset_build_contract",
+      "path": "records/phase-two/manifests/DATASET-BUILD-CONTRACT-2026-001.json",
+      "bytes": 29653,
+      "sha256": "f6106691d42692f39684ed43c35f7c097d51f08b13c3dc3bf1e030ca9687b67f",
+      "integrity_status": "pass"
+    },
+    "candidate": {
+      "role": "dataset_candidate",
+      "path": "records/phase-two/readiness/DATASET-CANDIDATE-2026-002.json",
+      "bytes": 30504,
+      "sha256": "4a9646af493cdce81d0cd57405ebccf0dfecf5ca77c96930d0837c3b7d4e65f2",
+      "integrity_status": "pass"
+    },
+    "manifest": {
+      "role": "dataset_manifest",
+      "path": "samples/datasets/burnlens-dataset-v0.1.0/DATASET-MANIFEST.json",
+      "bytes": 55308,
+      "sha256": "e0b7ac666a70e96f979c386a9d503ad45ed0baea8f21e3838ba4530d5e3d2d16",
+      "integrity_status": "pass"
+    },
+    "split": {
+      "role": "whole_event_split",
+      "path": "records/phase-two/manifests/WHOLE-EVENT-SPLIT-2026-001.json",
+      "bytes": 12312,
+      "sha256": "a62e66f4f81a95a56a727b29bb382cb87369306f11e2f2a4527d1c7fb68d0b99",
+      "integrity_status": "pass"
+    },
+    "normalization": {
+      "role": "train_normalization",
+      "path": "records/phase-two/manifests/TRAIN-NORMALIZATION-2026-001.json",
+      "bytes": 2694,
+      "sha256": "6344861677753e9c96840f47e7a038a15f12a0c29759285c073f5cc6ea4bc255",
+      "integrity_status": "pass"
+    },
+    "qa": {
+      "json": {
+        "role": "dataset_qa_json",
+        "path": "samples/qa/phase-two/dataset-v0.1.0/DATASET-QA-2026-001.json",
+        "bytes": 5648,
+        "sha256": "90aafef4c9deb8e9d06c2c2dc63f4f238e0229e4615dc29e1686803efa342f5a",
+        "integrity_status": "pass"
+      },
+      "html": {
+        "role": "dataset_qa_html",
+        "path": "samples/qa/phase-two/dataset-v0.1.0/DATASET-QA-2026-001.html",
+        "bytes": 4794,
+        "sha256": "6092266fc4518950524c01c93c922e0a2366cd0f8d0503ef1307650855c3a899",
+        "integrity_status": "pass"
+      },
+      "png": {
+        "role": "dataset_qa_png",
+        "path": "samples/qa/phase-two/dataset-v0.1.0/DATASET-QA-2026-001.png",
+        "bytes": 281760,
+        "sha256": "c1f8fe50b326f2ae75fdd6babc4103eaf9599c6ea4ad3b04811954ab7a5becde",
+        "integrity_status": "pass"
+      }
+    },
+    "array_roster": {
+      "canonicalization": "Sort dataset-root-relative path strings ordinally; encode each row as UTF-8 path TAB decimal-bytes TAB lowercase-sha256 LF, including one terminal LF.",
+      "sha256": "5f186ccd240db26483195421701baf83b7e85436e92a851ace638c249d0b43dd",
+      "alternate_without_terminal_lf_sha256": "dd192d8a0f11e83a24cefc3b49b953db7adde5d10ed4e3a957248deee0bec96d",
+      "alternate_note": "The alternate differs only by the omitted final LF; it is retained to prevent canonicalization from being mistaken for byte drift.",
+      "file_count": 48,
+      "aggregate_bytes": 1333248,
+      "all_match": true
+    },
+    "arrays": [
+      {
+        "patch_id": "test--event-ward-creek-2019--WCP-001--r168c236h64w64",
+        "event_group_id": "event-ward-creek-2019",
+        "candidate_id": "WCP-001",
+        "class": "burned",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-ward-creek-2019--WCP-001--r168c236h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-ward-creek-2019--WCP-001--r168c236h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "4034070f6913c00028cb4980375ee6d5719a2bcda545ee0b364a99fa760727e3",
+        "observed_sha256": "4034070f6913c00028cb4980375ee6d5719a2bcda545ee0b364a99fa760727e3",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-ward-creek-2019--WCP-001--r168c236h64w64",
+        "event_group_id": "event-ward-creek-2019",
+        "candidate_id": "WCP-001",
+        "class": "burned",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-ward-creek-2019--WCP-001--r168c236h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-ward-creek-2019--WCP-001--r168c236h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "observed_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-ward-creek-2019--WCP-001--r168c236h64w64",
+        "event_group_id": "event-ward-creek-2019",
+        "candidate_id": "WCP-001",
+        "class": "burned",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-ward-creek-2019--WCP-001--r168c236h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-ward-creek-2019--WCP-001--r168c236h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "43842138739e72655876b7a3d298a6d671fd9c91f8deadbc4bdbbbe504ff69b1",
+        "observed_sha256": "43842138739e72655876b7a3d298a6d671fd9c91f8deadbc4bdbbbe504ff69b1",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-ward-creek-2019--WCP-001--r168c236h64w64",
+        "event_group_id": "event-ward-creek-2019",
+        "candidate_id": "WCP-001",
+        "class": "burned",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-ward-creek-2019--WCP-001--r168c236h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-ward-creek-2019--WCP-001--r168c236h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "0ddc8acaf4a4c2f73d5a60f58006f7b1520b9efb99a494e37544014bdfb4f2c9",
+        "observed_sha256": "0ddc8acaf4a4c2f73d5a60f58006f7b1520b9efb99a494e37544014bdfb4f2c9",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-ward-creek-2019--WCP-002--r68c401h64w64",
+        "event_group_id": "event-ward-creek-2019",
+        "candidate_id": "WCP-002",
+        "class": "background",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-ward-creek-2019--WCP-002--r68c401h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-ward-creek-2019--WCP-002--r68c401h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "0cac49a855d07d91c743e8024f0f1cf04a3f23301fc1dcfe8985c9d0caf3ca50",
+        "observed_sha256": "0cac49a855d07d91c743e8024f0f1cf04a3f23301fc1dcfe8985c9d0caf3ca50",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-ward-creek-2019--WCP-002--r68c401h64w64",
+        "event_group_id": "event-ward-creek-2019",
+        "candidate_id": "WCP-002",
+        "class": "background",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-ward-creek-2019--WCP-002--r68c401h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-ward-creek-2019--WCP-002--r68c401h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "observed_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-ward-creek-2019--WCP-002--r68c401h64w64",
+        "event_group_id": "event-ward-creek-2019",
+        "candidate_id": "WCP-002",
+        "class": "background",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-ward-creek-2019--WCP-002--r68c401h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-ward-creek-2019--WCP-002--r68c401h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "f1ac5ebb76908fcf0553316db36d298bce901c8d208003868bd403a498f4fa46",
+        "observed_sha256": "f1ac5ebb76908fcf0553316db36d298bce901c8d208003868bd403a498f4fa46",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-ward-creek-2019--WCP-002--r68c401h64w64",
+        "event_group_id": "event-ward-creek-2019",
+        "candidate_id": "WCP-002",
+        "class": "background",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-ward-creek-2019--WCP-002--r68c401h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-ward-creek-2019--WCP-002--r68c401h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "923109ba696fbade72da3b2b1a49c3ed3ee8191cb35551a0133b99a5a5b07fa1",
+        "observed_sha256": "923109ba696fbade72da3b2b1a49c3ed3ee8191cb35551a0133b99a5a5b07fa1",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-windigo-2022--WDP-001--r180c151h64w64",
+        "event_group_id": "event-windigo-2022",
+        "candidate_id": "WDP-001",
+        "class": "burned",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-windigo-2022--WDP-001--r180c151h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-windigo-2022--WDP-001--r180c151h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "ee05b92709836c19064a57f652cb61166f23929225daa7b6ef88396bce9089a3",
+        "observed_sha256": "ee05b92709836c19064a57f652cb61166f23929225daa7b6ef88396bce9089a3",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-windigo-2022--WDP-001--r180c151h64w64",
+        "event_group_id": "event-windigo-2022",
+        "candidate_id": "WDP-001",
+        "class": "burned",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-windigo-2022--WDP-001--r180c151h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-windigo-2022--WDP-001--r180c151h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "0836bbab60907a9edecaf4e5db9468d57c5f9b12f573b4cc38310186dad6589d",
+        "observed_sha256": "0836bbab60907a9edecaf4e5db9468d57c5f9b12f573b4cc38310186dad6589d",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-windigo-2022--WDP-001--r180c151h64w64",
+        "event_group_id": "event-windigo-2022",
+        "candidate_id": "WDP-001",
+        "class": "burned",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-windigo-2022--WDP-001--r180c151h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-windigo-2022--WDP-001--r180c151h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "269a9b91438e1b5f880cf25c5051401e6aa86169e0c39cbec213863396b68847",
+        "observed_sha256": "269a9b91438e1b5f880cf25c5051401e6aa86169e0c39cbec213863396b68847",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-windigo-2022--WDP-001--r180c151h64w64",
+        "event_group_id": "event-windigo-2022",
+        "candidate_id": "WDP-001",
+        "class": "burned",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-windigo-2022--WDP-001--r180c151h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-windigo-2022--WDP-001--r180c151h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "3e89e3c2bdb5e07b32bebf490a3aef53b1832d95fedb82f1419d5e4c088fc453",
+        "observed_sha256": "3e89e3c2bdb5e07b32bebf490a3aef53b1832d95fedb82f1419d5e4c088fc453",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-windigo-2022--WDP-002--r103c393h64w64",
+        "event_group_id": "event-windigo-2022",
+        "candidate_id": "WDP-002",
+        "class": "background",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-windigo-2022--WDP-002--r103c393h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-windigo-2022--WDP-002--r103c393h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "e07ce3cd2c89ece9801a8bd227a8bfff9be3c78de6527c6fd62d17e38bc87d06",
+        "observed_sha256": "e07ce3cd2c89ece9801a8bd227a8bfff9be3c78de6527c6fd62d17e38bc87d06",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-windigo-2022--WDP-002--r103c393h64w64",
+        "event_group_id": "event-windigo-2022",
+        "candidate_id": "WDP-002",
+        "class": "background",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-windigo-2022--WDP-002--r103c393h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-windigo-2022--WDP-002--r103c393h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "observed_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-windigo-2022--WDP-002--r103c393h64w64",
+        "event_group_id": "event-windigo-2022",
+        "candidate_id": "WDP-002",
+        "class": "background",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-windigo-2022--WDP-002--r103c393h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-windigo-2022--WDP-002--r103c393h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "8a22f97e9b381f61a938551105cc5cceeabee429137b14990e5d01c756f2f743",
+        "observed_sha256": "8a22f97e9b381f61a938551105cc5cceeabee429137b14990e5d01c756f2f743",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "test--event-windigo-2022--WDP-002--r103c393h64w64",
+        "event_group_id": "event-windigo-2022",
+        "candidate_id": "WDP-002",
+        "class": "background",
+        "split_role": "retrospective_test_known",
+        "path": "patches/test--event-windigo-2022--WDP-002--r103c393h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/test--event-windigo-2022--WDP-002--r103c393h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "aadc1d9c2707c56df5354ed02d6a667143c5c7d22e89eafa6e7c54717e74d3a4",
+        "observed_sha256": "aadc1d9c2707c56df5354ed02d6a667143c5c7d22e89eafa6e7c54717e74d3a4",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64",
+        "event_group_id": "event-green-ridge-0684-cs-2020",
+        "candidate_id": "GRP-001",
+        "class": "burned",
+        "split_role": "train",
+        "path": "patches/train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "427c78c5d398d3cacb5a6e8bdbeb24578f88bfa4ec0bd51a2fe25c28f7db1c22",
+        "observed_sha256": "427c78c5d398d3cacb5a6e8bdbeb24578f88bfa4ec0bd51a2fe25c28f7db1c22",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64",
+        "event_group_id": "event-green-ridge-0684-cs-2020",
+        "candidate_id": "GRP-001",
+        "class": "burned",
+        "split_role": "train",
+        "path": "patches/train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "observed_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64",
+        "event_group_id": "event-green-ridge-0684-cs-2020",
+        "candidate_id": "GRP-001",
+        "class": "burned",
+        "split_role": "train",
+        "path": "patches/train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "be64273a917c1a5b17c4db43d58837b18e7a18c9e30890f3d7ddcb4401c19cc4",
+        "observed_sha256": "be64273a917c1a5b17c4db43d58837b18e7a18c9e30890f3d7ddcb4401c19cc4",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64",
+        "event_group_id": "event-green-ridge-0684-cs-2020",
+        "candidate_id": "GRP-001",
+        "class": "burned",
+        "split_role": "train",
+        "path": "patches/train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-green-ridge-0684-cs-2020--GRP-001--r252c149h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "c8bbf36ef78710220cb17fad81bb33eaee7667520191ba20b0303c23a571c50c",
+        "observed_sha256": "c8bbf36ef78710220cb17fad81bb33eaee7667520191ba20b0303c23a571c50c",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64",
+        "event_group_id": "event-green-ridge-0684-cs-2020",
+        "candidate_id": "GRP-002",
+        "class": "background",
+        "split_role": "train",
+        "path": "patches/train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "3d5755a6733f5e4b636c9055ac135af3698d094811da00d4c18feae75b304edd",
+        "observed_sha256": "3d5755a6733f5e4b636c9055ac135af3698d094811da00d4c18feae75b304edd",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64",
+        "event_group_id": "event-green-ridge-0684-cs-2020",
+        "candidate_id": "GRP-002",
+        "class": "background",
+        "split_role": "train",
+        "path": "patches/train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "observed_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64",
+        "event_group_id": "event-green-ridge-0684-cs-2020",
+        "candidate_id": "GRP-002",
+        "class": "background",
+        "split_role": "train",
+        "path": "patches/train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "403d49de4a12a0268be7402d21e9ca6eba7e0663ce35a9ea804a31f9bbd18e67",
+        "observed_sha256": "403d49de4a12a0268be7402d21e9ca6eba7e0663ce35a9ea804a31f9bbd18e67",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64",
+        "event_group_id": "event-green-ridge-0684-cs-2020",
+        "candidate_id": "GRP-002",
+        "class": "background",
+        "split_role": "train",
+        "path": "patches/train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-green-ridge-0684-cs-2020--GRP-002--r438c580h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "65c7602337577c438d1ed8f1c85ccd8de32565a3f2aa4d7d8044dca9df9d02aa",
+        "observed_sha256": "65c7602337577c438d1ed8f1c85ccd8de32565a3f2aa4d7d8044dca9df9d02aa",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64",
+        "event_group_id": "event-tepee-1144-ne-2018",
+        "candidate_id": "RCP-005",
+        "class": "background",
+        "split_role": "train",
+        "path": "patches/train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "7463fb44dec3e83109141fdbf021beb0f29c9ad572033fb05b092a7da883701e",
+        "observed_sha256": "7463fb44dec3e83109141fdbf021beb0f29c9ad572033fb05b092a7da883701e",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64",
+        "event_group_id": "event-tepee-1144-ne-2018",
+        "candidate_id": "RCP-005",
+        "class": "background",
+        "split_role": "train",
+        "path": "patches/train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "b7628d131ef9947d6033dad0442c00a241a727c54b2aa5cc06df7c66f9ab0aab",
+        "observed_sha256": "b7628d131ef9947d6033dad0442c00a241a727c54b2aa5cc06df7c66f9ab0aab",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64",
+        "event_group_id": "event-tepee-1144-ne-2018",
+        "candidate_id": "RCP-005",
+        "class": "background",
+        "split_role": "train",
+        "path": "patches/train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "10d18c0f68c8916ee7a7fa37ec819a5a7ff13764d6d22aeacaf9dceca3c6ef71",
+        "observed_sha256": "10d18c0f68c8916ee7a7fa37ec819a5a7ff13764d6d22aeacaf9dceca3c6ef71",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64",
+        "event_group_id": "event-tepee-1144-ne-2018",
+        "candidate_id": "RCP-005",
+        "class": "background",
+        "split_role": "train",
+        "path": "patches/train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-tepee-1144-ne-2018--RCP-005--r3c287h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "b4c80fdd8d9cd7d66c6f0c51927af00feef04cbee9121a484e7b19408fb40aca",
+        "observed_sha256": "b4c80fdd8d9cd7d66c6f0c51927af00feef04cbee9121a484e7b19408fb40aca",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64",
+        "event_group_id": "event-tepee-1144-ne-2018",
+        "candidate_id": "RCP-006",
+        "class": "burned",
+        "split_role": "train",
+        "path": "patches/train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "1a5a3dc12dd4cc206d565e2b935607cfdad8d42d52eb97af1fc96033cc236de8",
+        "observed_sha256": "1a5a3dc12dd4cc206d565e2b935607cfdad8d42d52eb97af1fc96033cc236de8",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64",
+        "event_group_id": "event-tepee-1144-ne-2018",
+        "candidate_id": "RCP-006",
+        "class": "burned",
+        "split_role": "train",
+        "path": "patches/train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "093b5aee782a863ace20832e39c758688524cba6eed7c38859683e2dddd15039",
+        "observed_sha256": "093b5aee782a863ace20832e39c758688524cba6eed7c38859683e2dddd15039",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64",
+        "event_group_id": "event-tepee-1144-ne-2018",
+        "candidate_id": "RCP-006",
+        "class": "burned",
+        "split_role": "train",
+        "path": "patches/train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "7386ee38fa47a2f785ed6cfff3d25d57e43d9f258edf246a165ea542e2e886ed",
+        "observed_sha256": "7386ee38fa47a2f785ed6cfff3d25d57e43d9f258edf246a165ea542e2e886ed",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64",
+        "event_group_id": "event-tepee-1144-ne-2018",
+        "candidate_id": "RCP-006",
+        "class": "burned",
+        "split_role": "train",
+        "path": "patches/train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/train--event-tepee-1144-ne-2018--RCP-006--r6c219h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "aa3d4a04315f002d7c994221784d422d92fcf16ccb15d7c62545026b33d7b7b8",
+        "observed_sha256": "aa3d4a04315f002d7c994221784d422d92fcf16ccb15d7c62545026b33d7b7b8",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64",
+        "event_group_id": "event-grandview-0558-od-2021",
+        "candidate_id": "GVP-001",
+        "class": "burned",
+        "split_role": "validation",
+        "path": "patches/validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "4ef40aaaf2fab0f00706a2b5706e70e332d030ee20f77335960c72974626db48",
+        "observed_sha256": "4ef40aaaf2fab0f00706a2b5706e70e332d030ee20f77335960c72974626db48",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64",
+        "event_group_id": "event-grandview-0558-od-2021",
+        "candidate_id": "GVP-001",
+        "class": "burned",
+        "split_role": "validation",
+        "path": "patches/validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "06c97d4153038f8ea9b2b79fd7f2c75860e89be6c2d80fd54a70f3623205a67f",
+        "observed_sha256": "06c97d4153038f8ea9b2b79fd7f2c75860e89be6c2d80fd54a70f3623205a67f",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64",
+        "event_group_id": "event-grandview-0558-od-2021",
+        "candidate_id": "GVP-001",
+        "class": "burned",
+        "split_role": "validation",
+        "path": "patches/validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "47c76fd2b2a8f3e0eef42bb42980125353f282ba5349501737847cd19348fbfb",
+        "observed_sha256": "47c76fd2b2a8f3e0eef42bb42980125353f282ba5349501737847cd19348fbfb",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64",
+        "event_group_id": "event-grandview-0558-od-2021",
+        "candidate_id": "GVP-001",
+        "class": "burned",
+        "split_role": "validation",
+        "path": "patches/validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-grandview-0558-od-2021--GVP-001--r197c297h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "9fc0f3124f54e8c9ac2d3ff396767b6432cd6908559d5bba3941ce822d59d875",
+        "observed_sha256": "9fc0f3124f54e8c9ac2d3ff396767b6432cd6908559d5bba3941ce822d59d875",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64",
+        "event_group_id": "event-grandview-0558-od-2021",
+        "candidate_id": "GVP-002",
+        "class": "background",
+        "split_role": "validation",
+        "path": "patches/validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "3a2aee3de820b6981ea0dd42d37484c879fe2da178fbb4c11300c9ea8618fbfa",
+        "observed_sha256": "3a2aee3de820b6981ea0dd42d37484c879fe2da178fbb4c11300c9ea8618fbfa",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64",
+        "event_group_id": "event-grandview-0558-od-2021",
+        "candidate_id": "GVP-002",
+        "class": "background",
+        "split_role": "validation",
+        "path": "patches/validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "8ed3c2a5957159c54d0b0867559f8cac341956adc1eee5ba3647b29198011bd9",
+        "observed_sha256": "8ed3c2a5957159c54d0b0867559f8cac341956adc1eee5ba3647b29198011bd9",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64",
+        "event_group_id": "event-grandview-0558-od-2021",
+        "candidate_id": "GVP-002",
+        "class": "background",
+        "split_role": "validation",
+        "path": "patches/validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "297a75576670aa5f20efe6a0a6c4b3f9d84c139f342b32e0b3dbf1e9921b239e",
+        "observed_sha256": "297a75576670aa5f20efe6a0a6c4b3f9d84c139f342b32e0b3dbf1e9921b239e",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64",
+        "event_group_id": "event-grandview-0558-od-2021",
+        "candidate_id": "GVP-002",
+        "class": "background",
+        "split_role": "validation",
+        "path": "patches/validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-grandview-0558-od-2021--GVP-002--r598c339h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "42bfd335013cf5a0e875c1712b1c541d108c6e01937a9f604389a26a3e19c715",
+        "observed_sha256": "42bfd335013cf5a0e875c1712b1c541d108c6e01937a9f604389a26a3e19c715",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64",
+        "event_group_id": "event-mckay-1035-ne-2017",
+        "candidate_id": "RCP-003",
+        "class": "background",
+        "split_role": "validation",
+        "path": "patches/validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "a91d87bc8846a5c74f56914dc7fc7b144732f369d5c589854bac5e548b45e61f",
+        "observed_sha256": "a91d87bc8846a5c74f56914dc7fc7b144732f369d5c589854bac5e548b45e61f",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64",
+        "event_group_id": "event-mckay-1035-ne-2017",
+        "candidate_id": "RCP-003",
+        "class": "background",
+        "split_role": "validation",
+        "path": "patches/validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "observed_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64",
+        "event_group_id": "event-mckay-1035-ne-2017",
+        "candidate_id": "RCP-003",
+        "class": "background",
+        "split_role": "validation",
+        "path": "patches/validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "44b1466e08250a97b1ea1a1ac428c1083e6d9832bee560f2251384b349ba80e2",
+        "observed_sha256": "44b1466e08250a97b1ea1a1ac428c1083e6d9832bee560f2251384b349ba80e2",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64",
+        "event_group_id": "event-mckay-1035-ne-2017",
+        "candidate_id": "RCP-003",
+        "class": "background",
+        "split_role": "validation",
+        "path": "patches/validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-mckay-1035-ne-2017--RCP-003--r0c7h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "9c43287bd1a73c438d312044af5d9d409d0ad57b3e8a8a07e877a361d0ec344b",
+        "observed_sha256": "9c43287bd1a73c438d312044af5d9d409d0ad57b3e8a8a07e877a361d0ec344b",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64",
+        "event_group_id": "event-mckay-1035-ne-2017",
+        "candidate_id": "RCP-004",
+        "class": "burned",
+        "split_role": "validation",
+        "path": "patches/validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64/features.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64/features.npy",
+        "expected_bytes": 98432,
+        "observed_bytes": 98432,
+        "expected_sha256": "59556bfa3e28a14816ba6fd5f073e911670afec2450795cb904b324e72de5dc5",
+        "observed_sha256": "59556bfa3e28a14816ba6fd5f073e911670afec2450795cb904b324e72de5dc5",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64",
+        "event_group_id": "event-mckay-1035-ne-2017",
+        "candidate_id": "RCP-004",
+        "class": "burned",
+        "split_role": "validation",
+        "path": "patches/validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64/input_valid.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64/input_valid.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "observed_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64",
+        "event_group_id": "event-mckay-1035-ne-2017",
+        "candidate_id": "RCP-004",
+        "class": "burned",
+        "split_role": "validation",
+        "path": "patches/validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64/loss_mask.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64/loss_mask.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "78e786c001af7220c5bfcc60f7bbaaf929766845e52f34a6a58f14bf9751fb9a",
+        "observed_sha256": "78e786c001af7220c5bfcc60f7bbaaf929766845e52f34a6a58f14bf9751fb9a",
+        "integrity_status": "pass"
+      },
+      {
+        "patch_id": "validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64",
+        "event_group_id": "event-mckay-1035-ne-2017",
+        "candidate_id": "RCP-004",
+        "class": "burned",
+        "split_role": "validation",
+        "path": "patches/validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64/state.npy",
+        "source_repo_path": "samples/datasets/burnlens-dataset-v0.1.0/patches/validation--event-mckay-1035-ne-2017--RCP-004--r21c66h64w64/state.npy",
+        "expected_bytes": 4224,
+        "observed_bytes": 4224,
+        "expected_sha256": "0964755e4517760e51c7803870cf86f411f85ebc6d821e4bab27eb4f59320ce1",
+        "observed_sha256": "0964755e4517760e51c7803870cf86f411f85ebc6d821e4bab27eb4f59320ce1",
+        "integrity_status": "pass"
+      }
+    ]
+  },
+  "comparison_artifacts": {
+    "essential_identities": [
+      {
+        "role": "experiment_one_license",
+        "path": "LICENSE",
+        "bytes": 1067,
+        "sha256": "accec00dfaedd030895e2c9cd0c7038380265fec320e6d94429ee1978ebd97d8",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "dataset_build_contract",
+        "path": "records/phase-two/manifests/DATASET-BUILD-CONTRACT-2026-001.json",
+        "bytes": 29653,
+        "sha256": "f6106691d42692f39684ed43c35f7c097d51f08b13c3dc3bf1e030ca9687b67f",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "dataset_candidate",
+        "path": "records/phase-two/readiness/DATASET-CANDIDATE-2026-002.json",
+        "bytes": 30504,
+        "sha256": "4a9646af493cdce81d0cd57405ebccf0dfecf5ca77c96930d0837c3b7d4e65f2",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "dataset_manifest",
+        "path": "samples/datasets/burnlens-dataset-v0.1.0/DATASET-MANIFEST.json",
+        "bytes": 55308,
+        "sha256": "e0b7ac666a70e96f979c386a9d503ad45ed0baea8f21e3838ba4530d5e3d2d16",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "whole_event_split",
+        "path": "records/phase-two/manifests/WHOLE-EVENT-SPLIT-2026-001.json",
+        "bytes": 12312,
+        "sha256": "a62e66f4f81a95a56a727b29bb382cb87369306f11e2f2a4527d1c7fb68d0b99",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "train_normalization",
+        "path": "records/phase-two/manifests/TRAIN-NORMALIZATION-2026-001.json",
+        "bytes": 2694,
+        "sha256": "6344861677753e9c96840f47e7a038a15f12a0c29759285c073f5cc6ea4bc255",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "dataset_qa_json",
+        "path": "samples/qa/phase-two/dataset-v0.1.0/DATASET-QA-2026-001.json",
+        "bytes": 5648,
+        "sha256": "90aafef4c9deb8e9d06c2c2dc63f4f238e0229e4615dc29e1686803efa342f5a",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "dataset_qa_html",
+        "path": "samples/qa/phase-two/dataset-v0.1.0/DATASET-QA-2026-001.html",
+        "bytes": 4794,
+        "sha256": "6092266fc4518950524c01c93c922e0a2366cd0f8d0503ef1307650855c3a899",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "dataset_qa_png",
+        "path": "samples/qa/phase-two/dataset-v0.1.0/DATASET-QA-2026-001.png",
+        "bytes": 281760,
+        "sha256": "c1f8fe50b326f2ae75fdd6babc4103eaf9599c6ea4ad3b04811954ab7a5becde",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "baseline_preregistration",
+        "path": "records/phase-two/manifests/BASELINE-PREREGISTRATION-2026-001.json",
+        "bytes": 6301,
+        "sha256": "31eb08ae88ee0b4425dce8af3e47475e38a4d9adb9249af7381fc5d608799bb5",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "baseline_selection",
+        "path": "records/phase-two/manifests/BASELINE-SELECTION-2026-001.json",
+        "bytes": 37091,
+        "sha256": "061596f7df68844319cc3c5a5d8d0b19124cecc812e59c3a7eda9d5d3e68c1c3",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "baseline_primary_sources",
+        "path": "records/phase-two/sources/BASELINE-PRIMARY-SOURCES-2026-001.json",
+        "bytes": 5813,
+        "sha256": "88a3ac0bb98890e9a5c779b45223a3e9079b8fc2faa94c6f50f3a9560d43972b",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "baseline_evaluation_json",
+        "path": "samples/baselines/burnlens-baseline-v0.1.0/BASELINE-EVALUATION-2026-001.json",
+        "bytes": 21257,
+        "sha256": "a8ba82f999a87a8114c7fc417126b96c1f031e7eb9e24311df20fe32d7edb221",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "baseline_evaluation_html",
+        "path": "samples/baselines/burnlens-baseline-v0.1.0/BASELINE-EVALUATION-2026-001.html",
+        "bytes": 3921,
+        "sha256": "109075ca31cb1c01137bdccff5786c862105eb15dc1cbe15c8603dcf3d15fd99",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "baseline_evaluation_png",
+        "path": "samples/baselines/burnlens-baseline-v0.1.0/BASELINE-EVALUATION-2026-001.png",
+        "bytes": 169275,
+        "sha256": "49bf3686fd7b109572fcbff8abb8e35d7d9054c7b2dd9e26e70cc26975700060",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_reference_record",
+        "path": "records/phase-three/implementations/BOUNDED-UNET-REFERENCE-2026-001.json",
+        "bytes": 7892,
+        "sha256": "e40c55571b2d1ef0f467d301e4c789c38acdc733eed58cab5f88e279aa7863c6",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_training_contract",
+        "path": "records/phase-two/manifests/BOUNDED-UNET-TRAINING-CONTRACT-2026-001.json",
+        "bytes": 8992,
+        "sha256": "670dbb0712768dd0b8ef47a2c5305b736b21139029017a194e4ed747029c9166",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_environment_capture",
+        "path": "records/phase-three/environments/MODEL-ENVIRONMENT-CAPTURE-2026-001.json",
+        "bytes": 8146,
+        "sha256": "009effea6c4b17b884c8d4e66ad51b4981c18ebfa1aed1b332391b1be8524e36",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_protocol",
+        "path": "records/phase-three/manifests/BOUNDED-UNET-EXPERIMENT-PROTOCOL-2026-001.json",
+        "bytes": 12308,
+        "sha256": "e2a0146ebcef4102b246f7a2117e09d21f441354eda0ceb4df764bbaebe940a6",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_training_record",
+        "path": "records/phase-three/training/BOUNDED-UNET-TRAINING-RECORD-2026-001.json",
+        "bytes": 9969,
+        "sha256": "140aee087a22b5a0ad5e3918dad42644c9e277d7fe80ec9f68a1da16ddbc3ba6",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_training_config",
+        "path": "samples/models/burnlens-unet-binary-v0.1.0/TRAINING-CONFIG-2026-001.json",
+        "bytes": 12238,
+        "sha256": "1f939540e23a331a7814113a02f4ad7f148197dfa294990617ad62a01d1b003b",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_training_history",
+        "path": "samples/models/burnlens-unet-binary-v0.1.0/TRAINING-HISTORY-2026-001.json",
+        "bytes": 112949,
+        "sha256": "94195a92fac24ca087d977f3957106aa3b92dc3b18aec06746bd6a72ea70a2a8",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_checkpoint_selection",
+        "path": "samples/models/burnlens-unet-binary-v0.1.0/CHECKPOINT-SELECTION-2026-001.json",
+        "bytes": 3683,
+        "sha256": "6dcae9af8d1a27c97a77ea90afaceaa8b0eee15cf3cfe207818380ef5e1db0c4",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_selected_checkpoint",
+        "path": "samples/models/burnlens-unet-binary-v0.1.0/selected-checkpoint.pt",
+        "bytes": 1441007,
+        "sha256": "5c867cda6fc41d1105330e6bc9af87286e16f4db3bbc5fbd99e40e714a90dd4c",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_nonselected_final_checkpoint",
+        "path": "samples/models/burnlens-unet-binary-v0.1.0/final-checkpoint.pt",
+        "bytes": 1441007,
+        "sha256": "6ba5d90f76bcb5e9c6ae54d5d0c8b0d836417bd83ed848dcaa8335c356bc4cc3",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_portable_weights",
+        "path": "samples/models/burnlens-unet-binary-v0.1.0/burnlens-unet-binary-v0.1.0.pt",
+        "bytes": 479573,
+        "sha256": "703d92577e2b82a4cfdec0c5e43b8d7a064253483de4ccea909209f54b802334",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_evaluation_control_record",
+        "path": "records/phase-three/evaluations/BOUNDED-UNET-TEST-EVALUATION-RECORD-2026-001.json",
+        "bytes": 8810,
+        "sha256": "1d02b26535ef492eedc8ef5211ffafdbcb3a605f76aee2ef95eb1949bff1e2cc",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_evaluation_json",
+        "path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/BOUNDED-UNET-TEST-EVALUATION-2026-001.json",
+        "bytes": 26268,
+        "sha256": "8d3e0652b71f0052ea54ac67caa280eaa15aad3e4055568948e58306b4c72e35",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_evaluation_html",
+        "path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/BOUNDED-UNET-TEST-EVALUATION-2026-001.html",
+        "bytes": 7022,
+        "sha256": "15944fb9fdd577727bc899220b61859b3fc77895e9552858e019821f7f4114f7",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_evaluation_png",
+        "path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/BOUNDED-UNET-TEST-EVALUATION-2026-001.png",
+        "bytes": 217578,
+        "sha256": "9a8b13e63c7c65015c8065c56805c1fbb264154095ebddd32921268b5d9b7459",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_rejected_package_record",
+        "path": "records/phase-three/packages/BOUNDED-UNET-REJECTED-PACKAGE-RECORD-2026-001.json",
+        "bytes": 9916,
+        "sha256": "22552092843ad5e83fcacdcaaf1d9c035a09d9e75e260503cbb560b9d2dc3443",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_model_package_manifest",
+        "path": "samples/model-packages/burnlens-unet-binary-v0.1.0/MODEL-PACKAGE-MANIFEST.json",
+        "bytes": 7112,
+        "sha256": "6bdeea3c07ed154d959468c8364e9d08a346d2d453776cb3f76c9cdbb5910441",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_reproducibility_report",
+        "path": "samples/model-packages/burnlens-unet-binary-v0.1.0/REPRODUCIBILITY-REPORT.json",
+        "bytes": 7962,
+        "sha256": "25d1873d36751aec1e547213dd34b9f46ffc8cc3541235cd0f11321f12e3101c",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_model_decision_html",
+        "path": "samples/model-packages/burnlens-unet-binary-v0.1.0/PHASE-THREE-MODEL-DECISION.html",
+        "bytes": 3981,
+        "sha256": "36986bcfa4ab22ded2ed7b736730a769f2223fdaf70318e1b5bf60e537aafc1e",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "unet_model_decision_png",
+        "path": "samples/model-packages/burnlens-unet-binary-v0.1.0/PHASE-THREE-MODEL-DECISION.png",
+        "bytes": 79512,
+        "sha256": "7ff4065232ebe72740ce9e80726748d6cc4e4a7d593aa6bd9e491c39af9e9c08",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "current_bounded_unet_source",
+        "path": "burnlens/bounded_unet.py",
+        "bytes": 24229,
+        "sha256": "e35e307a69095c3a6e54a59f90a9b246cac656dffaf16414256e1051fbbc96c1",
+        "integrity_status": "pass"
+      }
+    ],
+    "rbr_and_constants": {
+      "frozen_threshold": 0.041043221950531006,
+      "retrospective_test_event_count": 2,
+      "retrospective_test_core_pixels": 89,
+      "rbr_event_class_macro_dice": 1,
+      "rbr_event_class_macro_iou": 1,
+      "rbr_worst_event_macro_dice": 1,
+      "constant_background_event_class_macro_dice": 0.36197916666666663,
+      "constant_burned_event_class_macro_dice": 0.29874213836477986,
+      "output_completeness": {
+        "rbr_full_test_arrays": "missing_for_windigo",
+        "constant_control_arrays": "missing_but_deterministically_reconstructable_after_intake",
+        "consequence": "Do not infer array completeness from the historical metrics. Reconstruct only under the later frozen comparator replay after intake is authorized."
+      }
+    },
+    "canonical_unet": {
+      "trainable_parameters": 117473,
+      "selected_epoch": 10,
+      "threshold": 0.5,
+      "retrospective_test_core_pixels": 89,
+      "predicted_burned_core_pixels": 89,
+      "event_class_macro_dice": 0.29874213836477986,
+      "event_class_macro_iou": 0.21474358974358976,
+      "worst_event_macro_dice": 0.2641509433962264,
+      "disposition": "valid_trained_and_evaluated_lifecycle_rejected_comparative_outcome",
+      "selected_checkpoint_security": "Do not transfer or load the historical optimizer checkpoint through a weights_only=false path. If later approved, reconstruct from the exact architecture and hash-verified portable state-dict weights using weights_only=true, or use the existing prediction arrays.",
+      "prediction_roster": {
+        "canonicalization": "Sort evaluation-root-relative predictions/... paths ordinally; encode each row as UTF-8 path TAB decimal-bytes TAB lowercase-sha256 LF, including one terminal LF.",
+        "sha256": "665510bb89920bf192a6342d0a968613ecc4d01998bd374fa5cfc19c0a7c8dfb",
+        "alternate_repo_relative_without_terminal_lf_sha256": "b361f9f3c97e29c415e6be7b305e9faa80f424df484ceb521389ec3c550cb4ac",
+        "alternate_note": "The alternate used repository-relative paths and omitted the terminal LF; it is a canonicalization variant, not output drift.",
+        "file_count": 8,
+        "aggregate_bytes": 82944,
+        "all_match": true
+      },
+      "predictions": [
+        {
+          "patch_id": "test--event-ward-creek-2019--WCP-001--r168c236h64w64",
+          "event_group_id": "event-ward-creek-2019",
+          "output_type": "probability",
+          "path": "predictions/test--event-ward-creek-2019--WCP-001--r168c236h64w64/probability.npy",
+          "source_repo_path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/predictions/test--event-ward-creek-2019--WCP-001--r168c236h64w64/probability.npy",
+          "expected_bytes": 16512,
+          "observed_bytes": 16512,
+          "expected_sha256": "7a702a3c147b8f04885d6049d59f48d0a75511931ec4a30a3717e5777c90ce33",
+          "observed_sha256": "7a702a3c147b8f04885d6049d59f48d0a75511931ec4a30a3717e5777c90ce33",
+          "integrity_status": "pass"
+        },
+        {
+          "patch_id": "test--event-ward-creek-2019--WCP-001--r168c236h64w64",
+          "event_group_id": "event-ward-creek-2019",
+          "output_type": "prediction",
+          "path": "predictions/test--event-ward-creek-2019--WCP-001--r168c236h64w64/prediction.npy",
+          "source_repo_path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/predictions/test--event-ward-creek-2019--WCP-001--r168c236h64w64/prediction.npy",
+          "expected_bytes": 4224,
+          "observed_bytes": 4224,
+          "expected_sha256": "9209ad1a5f35fbf60e7599ffce489ce32c672763e6956a29a7d7671c60c51e36",
+          "observed_sha256": "9209ad1a5f35fbf60e7599ffce489ce32c672763e6956a29a7d7671c60c51e36",
+          "integrity_status": "pass"
+        },
+        {
+          "patch_id": "test--event-ward-creek-2019--WCP-002--r68c401h64w64",
+          "event_group_id": "event-ward-creek-2019",
+          "output_type": "probability",
+          "path": "predictions/test--event-ward-creek-2019--WCP-002--r68c401h64w64/probability.npy",
+          "source_repo_path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/predictions/test--event-ward-creek-2019--WCP-002--r68c401h64w64/probability.npy",
+          "expected_bytes": 16512,
+          "observed_bytes": 16512,
+          "expected_sha256": "559bc7949f2764f4b8c176eb4c274fe70f1b39ef050ba493ed4f743f7ffc9564",
+          "observed_sha256": "559bc7949f2764f4b8c176eb4c274fe70f1b39ef050ba493ed4f743f7ffc9564",
+          "integrity_status": "pass"
+        },
+        {
+          "patch_id": "test--event-ward-creek-2019--WCP-002--r68c401h64w64",
+          "event_group_id": "event-ward-creek-2019",
+          "output_type": "prediction",
+          "path": "predictions/test--event-ward-creek-2019--WCP-002--r68c401h64w64/prediction.npy",
+          "source_repo_path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/predictions/test--event-ward-creek-2019--WCP-002--r68c401h64w64/prediction.npy",
+          "expected_bytes": 4224,
+          "observed_bytes": 4224,
+          "expected_sha256": "3f0355fc9b90cba2e1ac8770925fef019777704cf708eaff30d1cfae45807433",
+          "observed_sha256": "3f0355fc9b90cba2e1ac8770925fef019777704cf708eaff30d1cfae45807433",
+          "integrity_status": "pass"
+        },
+        {
+          "patch_id": "test--event-windigo-2022--WDP-001--r180c151h64w64",
+          "event_group_id": "event-windigo-2022",
+          "output_type": "probability",
+          "path": "predictions/test--event-windigo-2022--WDP-001--r180c151h64w64/probability.npy",
+          "source_repo_path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/predictions/test--event-windigo-2022--WDP-001--r180c151h64w64/probability.npy",
+          "expected_bytes": 16512,
+          "observed_bytes": 16512,
+          "expected_sha256": "b221718248526add393680d2d1f234e8b2e8116957d2a3c9eb906412d674b89e",
+          "observed_sha256": "b221718248526add393680d2d1f234e8b2e8116957d2a3c9eb906412d674b89e",
+          "integrity_status": "pass"
+        },
+        {
+          "patch_id": "test--event-windigo-2022--WDP-001--r180c151h64w64",
+          "event_group_id": "event-windigo-2022",
+          "output_type": "prediction",
+          "path": "predictions/test--event-windigo-2022--WDP-001--r180c151h64w64/prediction.npy",
+          "source_repo_path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/predictions/test--event-windigo-2022--WDP-001--r180c151h64w64/prediction.npy",
+          "expected_bytes": 4224,
+          "observed_bytes": 4224,
+          "expected_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+          "observed_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+          "integrity_status": "pass"
+        },
+        {
+          "patch_id": "test--event-windigo-2022--WDP-002--r103c393h64w64",
+          "event_group_id": "event-windigo-2022",
+          "output_type": "probability",
+          "path": "predictions/test--event-windigo-2022--WDP-002--r103c393h64w64/probability.npy",
+          "source_repo_path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/predictions/test--event-windigo-2022--WDP-002--r103c393h64w64/probability.npy",
+          "expected_bytes": 16512,
+          "observed_bytes": 16512,
+          "expected_sha256": "33fdfd4a681261e39cf66bb53938c04c3f54d980a5c73810209b3614eb505cc8",
+          "observed_sha256": "33fdfd4a681261e39cf66bb53938c04c3f54d980a5c73810209b3614eb505cc8",
+          "integrity_status": "pass"
+        },
+        {
+          "patch_id": "test--event-windigo-2022--WDP-002--r103c393h64w64",
+          "event_group_id": "event-windigo-2022",
+          "output_type": "prediction",
+          "path": "predictions/test--event-windigo-2022--WDP-002--r103c393h64w64/prediction.npy",
+          "source_repo_path": "samples/evaluation/phase-three/bounded-unet-test-v0.1.0/predictions/test--event-windigo-2022--WDP-002--r103c393h64w64/prediction.npy",
+          "expected_bytes": 4224,
+          "observed_bytes": 4224,
+          "expected_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+          "observed_sha256": "fe0fc71777eafd69ae42d67057cdef223abc70a2690b29d73202b051ef90d4b7",
+          "integrity_status": "pass"
+        }
+      ],
+      "implementation_lineage": {
+        "reference_record": {
+          "role": "unet_reference_record",
+          "path": "records/phase-three/implementations/BOUNDED-UNET-REFERENCE-2026-001.json",
+          "bytes": 7892,
+          "sha256": "e40c55571b2d1ef0f467d301e4c789c38acdc733eed58cab5f88e279aa7863c6",
+          "integrity_status": "pass"
+        },
+        "pure_reference_source_commit": "552f47d629f275fc732a36d9d7362b3e3ffc40a8",
+        "pure_reference_source_path": "burnlens/bounded_unet.py",
+        "pure_reference_source_bytes": 23729,
+        "pure_reference_source_sha256": "36bedaf8846d09e1805fd7cedc951a09d4d4cdbb79cb1453124061f192ebd7b6",
+        "frozen_protocol_source_commit": "fbb2e923ae7f9ca9ed7dbb317e4235a236ae2411",
+        "frozen_protocol_and_current_source_bytes": 24229,
+        "frozen_protocol_and_current_source_sha256": "e35e307a69095c3a6e54a59f90a9b246cac656dffaf16414256e1051fbbc96c1",
+        "current_source_identity": {
+          "role": "current_bounded_unet_source",
+          "path": "burnlens/bounded_unet.py",
+          "bytes": 24229,
+          "sha256": "e35e307a69095c3a6e54a59f90a9b246cac656dffaf16414256e1051fbbc96c1",
+          "integrity_status": "pass"
+        },
+        "drift_interpretation": "The protocol-freeze change added the authorization-bound TestAccessGrant sealed-test mechanism. The current HEAD file is byte-identical to the frozen-protocol file; the architecture and model semantics did not drift after protocol freeze.",
+        "admission_boundary": "Do not treat current-HEAD source as a substitute for the separately recorded pure reference identity, and do not execute either during Milestone 1."
+      }
+    }
+  },
+  "source_and_terms_evidence": {
+    "candidate_binding_record": {
+      "role": "dataset_candidate",
+      "path": "records/phase-two/readiness/DATASET-CANDIDATE-2026-002.json",
+      "bytes": 30504,
+      "sha256": "4a9646af493cdce81d0cd57405ebccf0dfecf5ca77c96930d0837c3b7d4e65f2",
+      "integrity_status": "pass"
+    },
+    "direct_bindings": {
+      "proposals": [
+        {
+          "path": "samples/labels/pilot/phase-two/REGION-CANDIDATE-PILOT-2026-001.json",
+          "expected_bytes": 12462,
+          "observed_bytes": 12462,
+          "expected_sha256": "1db602a721373f29f31f9d720ea9871b99d6e391e598236681a9cb438a51b55f",
+          "observed_sha256": "1db602a721373f29f31f9d720ea9871b99d6e391e598236681a9cb438a51b55f",
+          "integrity_status": "pass"
+        },
+        {
+          "path": "samples/labels/pilot/green-ridge/phase-two/GREEN-RIDGE-REGION-PROPOSAL-2026-001.json",
+          "expected_bytes": 4327,
+          "observed_bytes": 4327,
+          "expected_sha256": "b984ea5675f5114b615ab540552630847532a6492f0133ce80dd125b1c9d0281",
+          "observed_sha256": "b984ea5675f5114b615ab540552630847532a6492f0133ce80dd125b1c9d0281",
+          "integrity_status": "pass"
+        },
+        {
+          "path": "samples/labels/pilot/grandview/phase-two/GRANDVIEW-REGION-PROPOSAL-2026-001.json",
+          "expected_bytes": 4620,
+          "observed_bytes": 4620,
+          "expected_sha256": "ee1259142c9069c4057366f21320c4e61cc6c9cd412038955938370397c3aaba",
+          "observed_sha256": "ee1259142c9069c4057366f21320c4e61cc6c9cd412038955938370397c3aaba",
+          "integrity_status": "pass"
+        },
+        {
+          "path": "samples/labels/pilot/windigo/phase-two/WINDIGO-REGION-PROPOSAL-2026-001.json",
+          "expected_bytes": 29995,
+          "observed_bytes": 29995,
+          "expected_sha256": "612143b0d54f6203026f00cc7848ea4d073b219967c75014b5d119ed85ec7365",
+          "observed_sha256": "612143b0d54f6203026f00cc7848ea4d073b219967c75014b5d119ed85ec7365",
+          "integrity_status": "pass"
+        },
+        {
+          "path": "samples/labels/pilot/ward-creek/phase-two/region-proposal-v0.1.0/WARD-CREEK-REGION-PROPOSAL-2026-001.json",
+          "expected_bytes": 8433,
+          "observed_bytes": 8433,
+          "expected_sha256": "06100de3df058b397f3a797069a2705eea3d7f79c71dfa333a11698331b13638",
+          "observed_sha256": "06100de3df058b397f3a797069a2705eea3d7f79c71dfa333a11698331b13638",
+          "integrity_status": "pass"
+        }
+      ],
+      "owner_intakes": [
+        {
+          "path": "samples/labels/review/regions/phase-two/intake/REGION-OWNER-RESPONSE-INTAKE-2026-001.json",
+          "expected_bytes": 6149,
+          "observed_bytes": 6149,
+          "expected_sha256": "b3ee04e682c99113aa9189a905c160f99be77a98c23255eb69fa7a7c46b1dfcf",
+          "observed_sha256": "b3ee04e682c99113aa9189a905c160f99be77a98c23255eb69fa7a7c46b1dfcf",
+          "integrity_status": "pass"
+        },
+        {
+          "path": "samples/labels/review/green-ridge/phase-two/intake/GREEN-RIDGE-OWNER-RESPONSE-INTAKE-2026-001.json",
+          "expected_bytes": 8210,
+          "observed_bytes": 8210,
+          "expected_sha256": "ccfcca5d458b7ced654088bb96a959ce26293469f69e39f3dbb08b7e29b1d3c3",
+          "observed_sha256": "ccfcca5d458b7ced654088bb96a959ce26293469f69e39f3dbb08b7e29b1d3c3",
+          "integrity_status": "pass"
+        },
+        {
+          "path": "samples/labels/review/grandview/phase-two/intake/GRANDVIEW-OWNER-RESPONSE-INTAKE-2026-001.json",
+          "expected_bytes": 9112,
+          "observed_bytes": 9112,
+          "expected_sha256": "2897656ad13164295ad2fda78887d8a41b920dfe73e39c12396e55a034b081b5",
+          "observed_sha256": "2897656ad13164295ad2fda78887d8a41b920dfe73e39c12396e55a034b081b5",
+          "integrity_status": "pass"
+        },
+        {
+          "path": "samples/labels/review/windigo/phase-two/intake/WINDIGO-OWNER-RESPONSE-INTAKE-2026-001.json",
+          "expected_bytes": 6787,
+          "observed_bytes": 6787,
+          "expected_sha256": "f948b69c20fe02a166c51a4856e319860a2d0c112922a5bbfef6f002717da2f7",
+          "observed_sha256": "f948b69c20fe02a166c51a4856e319860a2d0c112922a5bbfef6f002717da2f7",
+          "integrity_status": "pass"
+        },
+        {
+          "path": "samples/labels/review/ward-creek/phase-two/intake/WARD-CREEK-OWNER-RESPONSE-INTAKE-2026-001.json",
+          "expected_bytes": 7513,
+          "observed_bytes": 7513,
+          "expected_sha256": "091adcf7e60c15c12dfb11449e4b46a6ebf95c0ad259592fc5915836d6c1df3d",
+          "observed_sha256": "091adcf7e60c15c12dfb11449e4b46a6ebf95c0ad259592fc5915836d6c1df3d",
+          "integrity_status": "pass"
+        }
+      ],
+      "source_records": [
+        {
+          "record_id": "SOURCE-2026-007",
+          "path": "records/phase-two/sources/SOURCE-2026-007.md",
+          "expected_bytes": 3186,
+          "observed_bytes": 3186,
+          "expected_sha256": "18ec272d75b8fb9bf846e9348963f45d50d816de95c3aec3d33cef81b48245f8",
+          "observed_sha256": "18ec272d75b8fb9bf846e9348963f45d50d816de95c3aec3d33cef81b48245f8",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-010",
+          "path": "records/phase-two/sources/SOURCE-2026-010.md",
+          "expected_bytes": 2789,
+          "observed_bytes": 2789,
+          "expected_sha256": "e4909114296086681e4933da39dd3320c4511bd31176de7bf4e6574623ad3ece",
+          "observed_sha256": "e4909114296086681e4933da39dd3320c4511bd31176de7bf4e6574623ad3ece",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-018",
+          "path": "records/phase-two/sources/SOURCE-2026-018.md",
+          "expected_bytes": 2372,
+          "observed_bytes": 2372,
+          "expected_sha256": "d48640f1f7c7e6163f41b27685a26a7644ff0e5a897952c4f61f5c01e550556b",
+          "observed_sha256": "d48640f1f7c7e6163f41b27685a26a7644ff0e5a897952c4f61f5c01e550556b",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-020",
+          "path": "records/phase-two/sources/SOURCE-2026-020.md",
+          "expected_bytes": 2216,
+          "observed_bytes": 2216,
+          "expected_sha256": "17b470f68c511ebdbb984f0c543d0246d71f5bb17b01afe0ef817e6ae512c878",
+          "observed_sha256": "17b470f68c511ebdbb984f0c543d0246d71f5bb17b01afe0ef817e6ae512c878",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-021",
+          "path": "records/phase-two/sources/SOURCE-2026-021.md",
+          "expected_bytes": 1567,
+          "observed_bytes": 1567,
+          "expected_sha256": "ac521f27e52131ad4e07c48c055995cf24630aa3f9514498d31eb8927bd55ed2",
+          "observed_sha256": "ac521f27e52131ad4e07c48c055995cf24630aa3f9514498d31eb8927bd55ed2",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-022",
+          "path": "records/phase-two/sources/SOURCE-2026-022.md",
+          "expected_bytes": 2627,
+          "observed_bytes": 2627,
+          "expected_sha256": "b7cea1b8a9c1d05a87cb8de896de8740cf7267593e5e45308aa157039bf1e1de",
+          "observed_sha256": "b7cea1b8a9c1d05a87cb8de896de8740cf7267593e5e45308aa157039bf1e1de",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-023",
+          "path": "records/phase-two/sources/SOURCE-2026-023.md",
+          "expected_bytes": 2260,
+          "observed_bytes": 2260,
+          "expected_sha256": "ecfd575da685021fbf1e7944823e934ac849ca30cca4c9bd9a406c76addb90d8",
+          "observed_sha256": "ecfd575da685021fbf1e7944823e934ac849ca30cca4c9bd9a406c76addb90d8",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-024",
+          "path": "records/phase-two/sources/SOURCE-2026-024.md",
+          "expected_bytes": 2100,
+          "observed_bytes": 2100,
+          "expected_sha256": "86ce20dc8ea15daad91161501506b107c659a10cfaf960d0b1ddb2d4f9fd3fba",
+          "observed_sha256": "86ce20dc8ea15daad91161501506b107c659a10cfaf960d0b1ddb2d4f9fd3fba",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-026",
+          "path": "records/phase-two/sources/SOURCE-2026-026.md",
+          "expected_bytes": 2279,
+          "observed_bytes": 2279,
+          "expected_sha256": "d2d877eec285d2e655e715ecb5d52fcf68bffc365d440292dff13e7690f00eac",
+          "observed_sha256": "d2d877eec285d2e655e715ecb5d52fcf68bffc365d440292dff13e7690f00eac",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-027",
+          "path": "records/phase-two/sources/SOURCE-2026-027.md",
+          "expected_bytes": 1896,
+          "observed_bytes": 1896,
+          "expected_sha256": "d31d8271211b47124a9f2b7c106a0202ab81a171a18f95be7bcac6bfa994313f",
+          "observed_sha256": "d31d8271211b47124a9f2b7c106a0202ab81a171a18f95be7bcac6bfa994313f",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-036",
+          "path": "records/phase-two/sources/SOURCE-2026-036.md",
+          "expected_bytes": 8940,
+          "observed_bytes": 8940,
+          "expected_sha256": "d8ea91debe6f02f4ca672084ad35a02e80cda1c10469cc391d8174bb8b724128",
+          "observed_sha256": "d8ea91debe6f02f4ca672084ad35a02e80cda1c10469cc391d8174bb8b724128",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-037",
+          "path": "records/phase-two/sources/SOURCE-2026-037.md",
+          "expected_bytes": 5666,
+          "observed_bytes": 5666,
+          "expected_sha256": "b19f9ca9cfcfda75216a094afc7f10056d39dfdfbddda66cd15e3ff092699b37",
+          "observed_sha256": "b19f9ca9cfcfda75216a094afc7f10056d39dfdfbddda66cd15e3ff092699b37",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "SOURCE-2026-038",
+          "path": "records/phase-two/sources/SOURCE-2026-038.md",
+          "expected_bytes": 5103,
+          "observed_bytes": 5103,
+          "expected_sha256": "239192c10e16f69ed6218c8e8766ba2a79826618095c30b6ab5561cbaed740c3",
+          "observed_sha256": "239192c10e16f69ed6218c8e8766ba2a79826618095c30b6ab5561cbaed740c3",
+          "integrity_status": "pass"
+        }
+      ],
+      "terms_records": [
+        {
+          "record_id": "TERMS-2026-003",
+          "path": "records/phase-two/terms/TERMS-2026-003.md",
+          "expected_bytes": 2621,
+          "observed_bytes": 2621,
+          "expected_sha256": "5277fad7ca9c899d1520408eeba3cde158f7704362d28e97e6e3032ca2d1e178",
+          "observed_sha256": "5277fad7ca9c899d1520408eeba3cde158f7704362d28e97e6e3032ca2d1e178",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-005",
+          "path": "records/phase-two/terms/TERMS-2026-005.md",
+          "expected_bytes": 2949,
+          "observed_bytes": 2949,
+          "expected_sha256": "ecd8795783f8d162554af4101ba4090fffba6e36e7828bb344fa35877e842ae1",
+          "observed_sha256": "ecd8795783f8d162554af4101ba4090fffba6e36e7828bb344fa35877e842ae1",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-013",
+          "path": "records/phase-two/terms/TERMS-2026-013.md",
+          "expected_bytes": 930,
+          "observed_bytes": 930,
+          "expected_sha256": "91d15105e058bb32b105e831c525a0334ff02eeecf31c04474da87615618df58",
+          "observed_sha256": "91d15105e058bb32b105e831c525a0334ff02eeecf31c04474da87615618df58",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-014",
+          "path": "records/phase-two/terms/TERMS-2026-014.md",
+          "expected_bytes": 2289,
+          "observed_bytes": 2289,
+          "expected_sha256": "08a5242df179fd63470ccbccfa918c63a8c345a4e08266f4236df5dc582ca88f",
+          "observed_sha256": "08a5242df179fd63470ccbccfa918c63a8c345a4e08266f4236df5dc582ca88f",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-016",
+          "path": "records/phase-two/terms/TERMS-2026-016.md",
+          "expected_bytes": 1557,
+          "observed_bytes": 1557,
+          "expected_sha256": "6425cf9c8a29f3828a6e9b5136cd3ff788d9923328c45c5ef46efd7d8331723e",
+          "observed_sha256": "6425cf9c8a29f3828a6e9b5136cd3ff788d9923328c45c5ef46efd7d8331723e",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-017",
+          "path": "records/phase-two/terms/TERMS-2026-017.md",
+          "expected_bytes": 1453,
+          "observed_bytes": 1453,
+          "expected_sha256": "d99840421504fd4e6e44ab3181666910c4cfc84ede7aa66f2f267732ecbdfe03",
+          "observed_sha256": "d99840421504fd4e6e44ab3181666910c4cfc84ede7aa66f2f267732ecbdfe03",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-018",
+          "path": "records/phase-two/terms/TERMS-2026-018.md",
+          "expected_bytes": 1946,
+          "observed_bytes": 1946,
+          "expected_sha256": "bcf52afb0a3b2867b14064b05bad6a4571dae405d97de2bdf54e7d3f7160f809",
+          "observed_sha256": "bcf52afb0a3b2867b14064b05bad6a4571dae405d97de2bdf54e7d3f7160f809",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-019",
+          "path": "records/phase-two/terms/TERMS-2026-019.md",
+          "expected_bytes": 1747,
+          "observed_bytes": 1747,
+          "expected_sha256": "dd081eb7d14a42632f5fc70dfafadd08434de01c6722e49d008954648e4d8b21",
+          "observed_sha256": "dd081eb7d14a42632f5fc70dfafadd08434de01c6722e49d008954648e4d8b21",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-020",
+          "path": "records/phase-two/terms/TERMS-2026-020.md",
+          "expected_bytes": 1537,
+          "observed_bytes": 1537,
+          "expected_sha256": "f68a57dd75189fe4656d6157103c3916c9895cbb997810afa9fec40d316b3a21",
+          "observed_sha256": "f68a57dd75189fe4656d6157103c3916c9895cbb997810afa9fec40d316b3a21",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-022",
+          "path": "records/phase-two/terms/TERMS-2026-022.md",
+          "expected_bytes": 1633,
+          "observed_bytes": 1633,
+          "expected_sha256": "2b3b8dc5dff3ad5c3cb1c092af3395e00fc37c2762e0117e89ae2d57b77b6038",
+          "observed_sha256": "2b3b8dc5dff3ad5c3cb1c092af3395e00fc37c2762e0117e89ae2d57b77b6038",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-023",
+          "path": "records/phase-two/terms/TERMS-2026-023.md",
+          "expected_bytes": 1438,
+          "observed_bytes": 1438,
+          "expected_sha256": "2c23b4318c56bcc5c7d449a301b18b6850e1bfeb1694f8868047f2694caf3c3e",
+          "observed_sha256": "2c23b4318c56bcc5c7d449a301b18b6850e1bfeb1694f8868047f2694caf3c3e",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-031",
+          "path": "records/phase-two/terms/TERMS-2026-031.md",
+          "expected_bytes": 5902,
+          "observed_bytes": 5902,
+          "expected_sha256": "4ba57312c3be30c1c0b0c288b9d488cb3303159db275b2a477ecd5eb299d0f15",
+          "observed_sha256": "4ba57312c3be30c1c0b0c288b9d488cb3303159db275b2a477ecd5eb299d0f15",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-032",
+          "path": "records/phase-two/terms/TERMS-2026-032.md",
+          "expected_bytes": 2361,
+          "observed_bytes": 2361,
+          "expected_sha256": "84c9ddafae1edbb2e5dcfa9b30e7d1d95e25341dcd6e3e2cb1e678894302a313",
+          "observed_sha256": "84c9ddafae1edbb2e5dcfa9b30e7d1d95e25341dcd6e3e2cb1e678894302a313",
+          "integrity_status": "pass"
+        },
+        {
+          "record_id": "TERMS-2026-033",
+          "path": "records/phase-two/terms/TERMS-2026-033.md",
+          "expected_bytes": 4058,
+          "observed_bytes": 4058,
+          "expected_sha256": "e8f55e33c67edad1462676812ec20663e96e239e45fa908ef13c33571fede268",
+          "observed_sha256": "e8f55e33c67edad1462676812ec20663e96e239e45fa908ef13c33571fede268",
+          "integrity_status": "pass"
+        }
+      ]
+    },
+    "direct_binding_summary": {
+      "proposals": {
+        "count": 5,
+        "bytes": 59837,
+        "all_match": true
+      },
+      "owner_intakes": {
+        "count": 5,
+        "bytes": 37771,
+        "all_match": true
+      },
+      "source_records": {
+        "count": 13,
+        "bytes": 43001,
+        "all_match": true
+      },
+      "terms_records": {
+        "count": 14,
+        "bytes": 32421,
+        "all_match": true
+      }
+    },
+    "supplemental_transitive_chain": [
+      {
+        "role": "cross_event_source_fitness",
+        "path": "samples/cross-event/phase-two/CROSS-EVENT-SOURCE-FITNESS-2026-001.json",
+        "bytes": 75333,
+        "sha256": "c9aa90894150e081a6df26b8ee16c502bd532b67d7ecd493e038a366a480b34f",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "mckay_tepee_source",
+        "path": "records/phase-two/sources/SOURCE-2026-012.md",
+        "bytes": 5167,
+        "sha256": "f90555f0d8473a581c8cc1f89a05f90e7373094be556527d18e1f46b15f32219",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "mckay_tepee_terms",
+        "path": "records/phase-two/terms/TERMS-2026-007.md",
+        "bytes": 2046,
+        "sha256": "5cd0a54130bb360cc2c91792724265884b5c94782b2fa9aecd8536b6b2a05bbd",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "nearby_context_source",
+        "path": "records/phase-two/sources/SOURCE-2026-013.md",
+        "bytes": 4503,
+        "sha256": "e625653c7ae1e0631f90f1e541a42519ad0f407c1a7026201758c4f608967c52",
+        "integrity_status": "pass"
+      },
+      {
+        "role": "restricted_context_terms",
+        "path": "records/phase-two/terms/TERMS-2026-012.md",
+        "bytes": 2168,
+        "sha256": "672e86b2300c6545435dd0027cd469f020556dc2d66acc4af3e027eccd4dbc39",
+        "integrity_status": "pass"
+      }
+    ],
+    "source_terms_roster": {
+      "scope": "The 27 directly bound source/terms records plus five supplemental transitive McKay/Tepee and nearby-context records.",
+      "canonicalization": "Sort repository-relative path strings ordinally; encode each row as UTF-8 path TAB decimal-bytes TAB lowercase-sha256 LF, including one terminal LF.",
+      "file_count": 32,
+      "aggregate_bytes": 164639,
+      "sha256": "953b428175b01a6392b957651b08ad8376bda698d5b679fbe3b07f18a0845702",
+      "all_match": true
+    },
+    "enumeration_finding": "The direct dataset-candidate bindings are internally exact but are not a self-contained enumeration of the transitive McKay/Tepee source-fitness chain. The supplemental identities are retained explicitly.",
+    "fresh_terms_status": "not_yet_captured_for_experiment_three",
+    "terms_decision_status": "human_gate_required_after_identity_pass"
+  },
+  "artifact_rights_matrix": [
+    {
+      "artifact_class": "repository_software_and_documentation",
+      "identity": "pass",
+      "integrity": "pass",
+      "rights": "pass_mit_scope",
+      "controlled_local_copy": "not_requested_in_u002",
+      "redistribution": "subject_to_mit_notice"
+    },
+    {
+      "artifact_class": "derived_dataset_arrays_and_label_states",
+      "identity": "pass",
+      "integrity": "pass",
+      "rights": "unknown_owner_and_upstream_gate_required",
+      "controlled_local_copy": "defer",
+      "redistribution": "block"
+    },
+    {
+      "artifact_class": "split_masks_normalization_and_metric_records",
+      "identity": "pass",
+      "integrity": "pass",
+      "rights": "unknown_travel_with_resolved_artifact_grant",
+      "controlled_local_copy": "defer",
+      "redistribution": "block"
+    },
+    {
+      "artifact_class": "rbr_constant_control_results_and_renders",
+      "identity": "pass_with_output_gaps",
+      "integrity": "pass_for_present_records",
+      "rights": "unknown_owner_and_upstream_gate_required",
+      "controlled_local_copy": "defer",
+      "redistribution": "block"
+    },
+    {
+      "artifact_class": "canonical_unet_weights_predictions_records_and_renders",
+      "identity": "pass",
+      "integrity": "pass",
+      "rights": "unknown_owner_artifact_grant_required",
+      "controlled_local_copy": "defer",
+      "redistribution": "block"
+    },
+    {
+      "artifact_class": "raw_provider_archives_and_native_reference_bytes",
+      "identity": "excluded",
+      "integrity": "not_evaluated_for_intake",
+      "rights": "not_requested",
+      "controlled_local_copy": "block",
+      "redistribution": "block"
+    },
+    {
+      "artifact_class": "raw_private_owner_review_material",
+      "identity": "metadata_only",
+      "integrity": "not_opened",
+      "rights": "not_requested",
+      "controlled_local_copy": "block",
+      "redistribution": "block"
+    }
+  ],
+  "required_attribution_if_later_approved": [
+    "Contains modified Copernicus Sentinel data 2017-2022, accessed through the Copernicus Data Space Ecosystem.",
+    "Credit Monitoring Trends in Burn Severity (MTBS), U.S. Geological Survey and USDA Forest Service.",
+    "Credit the relevant USDA Forest Service BAER and RAVG programs for their disclosed reference roles.",
+    "Preserve the MIT copyright and permission notice for copied software and documentation.",
+    "Identify prototype labels as owner-reviewed derivatives of disclosed source evidence, not independent ground truth."
+  ],
+  "exclusions": [
+    "All 12 native Sentinel SAFE archives, ignored provider registrations, and raw delivery custody.",
+    "Native MTBS, BAER, RAVG, NIFC, raster, vector, PDF, XML, or KMZ provider bytes.",
+    "Raw/private owner-response bytes, transcripts, retrieval receipts, credentials, cookies, tokens, recipient details, and private routes.",
+    "Restricted Tepee BARC4/BARC256 pixels, classes, thresholds, renders, and nearby restricted materials.",
+    "Darlene and Petes Lake artifacts.",
+    "All Experiment Two and Two-B code, data, environments, models, checkpoints, outputs, worktree state, and authority.",
+    "runs/**, downloads/**, .venv/**, build/**, tmp/**, ignored custody, and baseline retained-failure renders.",
+    "The nonselected final U-Net checkpoint from any later admission; its identity remains retained as history.",
+    "Current-HEAD model source as a silent substitute for the recorded pure reference implementation.",
+    "Any execution or deserialization of .pt files during Milestone 1.",
+    "Any use of retrospective test arrays for model, checkpoint, threshold, protocol, or rescue decisions.",
+    "Any fresh-event evidence."
+  ],
+  "lane_dispositions": {
+    "metadata_identity": "PASS",
+    "controlled_local_copy": "DEFER",
+    "downstream_scientific_use": "DEFER",
+    "repository_redistribution": "BLOCK",
+    "raw_provider_redistribution": "BLOCK",
+    "training_authority": "PROHIBITED_IN_MILESTONE_1",
+    "bytes_copied": 0,
+    "custody_directory_created": false
+  },
+  "gates": {
+    "source_repository_read_only": "pass",
+    "exact_git_and_path_identity": "pass",
+    "sha256_every_candidate": "pass",
+    "role_and_exposure_classification": "pass",
+    "missing_rejected_ambiguous_retained": "pass",
+    "source_rights": "pending_human_gate_not_an_identity_failure",
+    "benchmark_intake": "not_authorized"
+  },
+  "retained_gaps": [
+    "Artifact-level rights for non-software derived bytes remain unresolved.",
+    "Fresh authoritative upstream terms evidence for Experiment Three has not been captured.",
+    "Full-test RBR arrays and constant-control arrays are not present as one canonical Experiment One bundle.",
+    "The current benchmark has only two events per split role and is already known."
+  ],
+  "scientific_outputs_created": {
+    "datasets": 0,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "inference_runs": 0,
+    "evaluations": 0,
+    "releases": 0
+  },
+  "disposition": "pass_identity_metadata_only",
+  "next_dependency": "M1-U003-SOURCE-RIGHTS-GATE after explicit owner/rightsholder review; no copy, source gate, readiness audit, model work, training, inference, or evaluation is authorized by this inventory."
+}

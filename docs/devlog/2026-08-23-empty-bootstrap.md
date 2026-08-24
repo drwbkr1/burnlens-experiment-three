@@ -105,3 +105,29 @@ sources, provenance, terms, attribution, redistribution boundaries, and
 intended roles. No benchmark byte may be copied or admitted before the rights,
 integrity, and custody gate permits it. The approved protocol values still
 require a later executable, content-addressed freeze before training.
+
+## Milestone 1 identity update
+
+The first bounded Milestone 1 evidence unit inspected Experiment One in place,
+read-only, at clean `main` and `origin/main` commit
+`a741111d82e69689022d2058118ed8f4b9bf3546`, tree
+`bc679254030eb57a65f58ac2af10880866fc52be`. It copied none of the candidate
+bytes, executed no source code, and loaded or deserialized no `.npy` or `.pt`
+artifact. Structured JSON records were parsed read-only to derive the inventory.
+
+The resulting machine-readable inventory rehashes all 48 declared benchmark
+arrays (1,333,248 bytes; terminal-LF roster SHA-256
+`5f186ccd240db26483195421701baf83b7e85436e92a851ace638c249d0b43dd`),
+all eight historical U-Net prediction/probability arrays (82,944 bytes; roster
+SHA-256 `665510bb89920bf192a6342d0a968613ecc4d01998bd374fa5cfc19c0a7c8dfb`),
+and the direct plus supplemental source/terms chain. It also preserves the
+historical/current U-Net implementation distinction instead of silently
+treating current source code as the recorded historical dependency.
+
+This closes identity only. Controlled copy and downstream scientific use are
+deferred; repository and raw-provider redistribution are blocked. The next
+action is an explicit owner/rightsholder decision over the exact hash-bound
+project-authored derivative artifacts. A separate current upstream-source gate
+would still be required after an affirmative response. No dataset, model,
+training, inference, evaluation, metric, rendered scientific output, or release
+has been created.
