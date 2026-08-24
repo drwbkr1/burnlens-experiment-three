@@ -94,9 +94,9 @@
   "dependency_barriers": [
     {
       "id": "M2-BARRIER-RUNTIME",
-      "status": "active",
+      "status": "resolved",
       "required_before": "M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION",
-      "resolution": "The first approved route failed closed; one fresh exact owner-approved successor from M2-U004C must activate and pass before dependent work"
+      "resolution": "Candidate 001 failed and remains closed; exact owner-approved candidate 002 activated and passed under record 2026-001"
     },
     {
       "id": "M2-BARRIER-BENCHMARK",
@@ -137,7 +137,7 @@
     },
     {
       "id": "M2-GATE-DEPENDENCY-RUNTIME-SUCCESSOR",
-      "status": "ready_for_review",
+      "status": "passed",
       "unit_id": "M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION",
       "purpose": "Approve or reject the materially different official embeddable-package successor after retaining the failed installer route and binding exact identity, source, custody, construction, and compatibility risks.",
       "review_preparation": {
@@ -152,8 +152,10 @@
         "review_contract_sha256": "bf50874168e2024f953f8748435f46f0b2554ca5beeff9ec701f5ce032f28d39",
         "blank_response_path": "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-RESPONSE-BLANK-2026-001.json",
         "blank_response_sha256": "0e7b117acbfe1cf9517e1a05e2cf0bae39524123efea2b5907321196ba9b796b",
-        "human_decisions_created": 0,
-        "handoff_state": "prepared_blank_waiting_for_owner"
+        "human_decisions_created": 1,
+        "handoff_state": "completed_locked_and_reconciled",
+        "decision_record": "records/decisions/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-DECISION-2026-001.json",
+        "decision_sha256": "0bb8daafca4198b995f09952404fd93d185e4dccccb0ed45fc072143d491a29e"
       },
       "cannot_be_inferred_from": [
         "The owner yes for failed candidate 001",
@@ -183,12 +185,12 @@
   ],
   "exit_conditions": [
     {"id": "EXIT-M2-CONTROL", "status": "pass", "evidence": ["Issue 4 and codex/synthetic-preflight-002 begin from accepted M1"]},
-    {"id": "EXIT-M2-RUNTIME", "status": "pending", "evidence": []},
-    {"id": "EXIT-M2-MODEL", "status": "pending", "evidence": []},
-    {"id": "EXIT-M2-GRADIENT", "status": "pending", "evidence": []},
-    {"id": "EXIT-M2-RELOAD", "status": "pending", "evidence": []},
-    {"id": "EXIT-M2-REPLAY", "status": "pending", "evidence": []},
-    {"id": "EXIT-M2-SCIENTIFIC-BOUNDARY", "status": "pending", "evidence": []},
+    {"id": "EXIT-M2-RUNTIME", "status": "pass", "evidence": ["records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ACTIVATION-2026-001.json SHA-256 991d843e0dcfae6a2568fd837389d4ee5b64e36f1077f8299399a4f37e21083a"]},
+    {"id": "EXIT-M2-MODEL", "status": "pass", "evidence": ["records/synthetic/EXPERIMENT-THREE-SYNTHETIC-PREFLIGHT-2026-001.json SHA-256 88fa5c37134c2f91b74d9435cb353ab57664384ef19536b7984f89cccf487c10"]},
+    {"id": "EXIT-M2-GRADIENT", "status": "pass", "evidence": ["Finite nonzero gradient norm 0.07114846019345532; exact changed weight hashes"]},
+    {"id": "EXIT-M2-RELOAD", "status": "pass", "evidence": ["Fresh embedded process weights_only state-dict reconstruction produced exact logits and probabilities"]},
+    {"id": "EXIT-M2-REPLAY", "status": "pass", "evidence": ["Primary and replay seven-file rosters and receipts match exactly at roster 9c008f10 and receipt 7a3fde99"]},
+    {"id": "EXIT-M2-SCIENTIFIC-BOUNDARY", "status": "pass", "evidence": ["Both exact receipts and public preflight record classify outputs synthetic/non-scientific and record benchmark_accessed false; source inspection contains no benchmark custody locator or loader"]},
     {"id": "EXIT-M2-VERIFIED-CHECKPOINT", "status": "pending", "evidence": []}
   ],
   "units": [
@@ -273,13 +275,13 @@
       "depends_on": ["M2-U004B-RUNTIME-SUCCESSOR-INVENTORY"],
       "action_class": "external_source_model_runtime_or_service_adoption",
       "human_gate": true,
-      "status": "ready",
+      "status": "complete",
       "inputs": ["Successor inventory SHA-256 ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967", "Successor source gate READY", "Prepared blank response with zero decisions"],
-      "outputs": ["One exact locked yes/no decision or terminal rejection"],
-      "gates": {"explicit_owner_response": "pending", "exact_candidate_binding": "pass", "no_inferred_adoption": "pass"},
-      "disposition": null,
+      "outputs": ["records/decisions/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-DECISION-2026-001.json", "Private exact response, lock receipt, and reconciliation retained under Active-only custody"],
+      "gates": {"explicit_owner_response": "pass_yes", "exact_candidate_binding": "pass", "no_inferred_adoption": "pass"},
+      "disposition": "pass",
       "retained_failures": ["Candidate 001 activation remains FAIL and cannot authorize candidate 002."],
-      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "unknown", "rationale": "A materially new interpreter artifact and packaging route require an exact fresh decision."},
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "enables_dependency", "rationale": "One exact attested owner yes was locked before reveal and reconciled against successor inventory ae95bc39; it releases candidate 002 activation only."},
       "next_dependency": "M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION"
     },
     {
@@ -288,13 +290,13 @@
       "depends_on": ["M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION"],
       "action_class": "synthetic_preflight",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": ["Explicit owner-approved successor only"],
-      "outputs": ["Exact intake and extraction receipts", "Vendored-wheel and license capture", "Fresh-process import, CPU, native DLL/data, subprocess, deterministic, and synthetic compatibility receipts"],
-      "gates": {"approved_identity_only": "pending", "application_local_custody": "pending", "exact_lock": "pending", "native_imports": "pending", "cpu_only": "pending", "existing_python_unchanged": "pending"},
-      "disposition": null,
+      "outputs": ["records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ACTIVATION-2026-001.json", "Private exact interpreter intake", "Activated application-local runtime beneath Active"],
+      "gates": {"approved_identity_only": "pass", "application_local_custody": "pass", "exact_lock": "pass", "native_imports": "pass", "cpu_only": "pass", "existing_python_unchanged": "pass"},
+      "disposition": "pass",
       "retained_failures": ["Candidate 001 activation remains FAIL and closed."],
-      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": [], "decision_value": "unknown", "rationale": "Blocked by the successor owner decision."},
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME"], "observed": ["EXIT-M2-RUNTIME"], "decision_value": "advances_exit", "rationale": "Exact ZIP/Sigstore identity, application-local extraction, 20-package hash-enforced closure, native imports, CPU gradient, Rasterio roundtrip, subprocess, safe reload, deterministic fresh-process replay, runtime roster, and existing-Python isolation all passed."},
       "next_dependency": "M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION"
     },
     {
@@ -303,13 +305,13 @@
       "depends_on": ["M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION"],
       "action_class": "software_implementation",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": ["Approved runtime", "Fixed architecture and scientific boundaries"],
-      "outputs": ["Source", "tests", "synthetic fixtures", "safe package and replay interfaces"],
-      "gates": {"parameter_count_137": "pending", "arbitrary_hw": "pending", "benchmark_independence": "pending", "safe_state_dict_only": "pending"},
-      "disposition": null,
+      "outputs": ["src/burnlens_experiment_three", "scripts/run_synthetic_preflight.py", "tests/test_synthetic_neural_lifecycle.py", "records/synthetic/EXPERIMENT-THREE-SYNTHETIC-PREFLIGHT-2026-001.json"],
+      "gates": {"parameter_count_137": "pass", "arbitrary_hw": "pass", "benchmark_independence": "pass", "safe_state_dict_only": "pass"},
+      "disposition": "pass",
       "retained_failures": [],
-      "exit_condition_delta": {"expected": ["EXIT-M2-MODEL"], "observed": [], "decision_value": "unknown", "rationale": "Implementation pending."},
+      "exit_condition_delta": {"expected": ["EXIT-M2-MODEL"], "observed": ["EXIT-M2-MODEL"], "decision_value": "advances_exit", "rationale": "Six runtime tests prove the exact 137-parameter 1x1 architecture, arbitrary HxW, mask-preserving balanced loss, deterministic fixture, and strict safe state-dict package with tamper rejection."},
       "next_dependency": "M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION"
     },
     {
@@ -318,13 +320,13 @@
       "depends_on": ["M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION"],
       "action_class": "synthetic_preflight",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": ["Verified implementation", "Deterministic synthetic-only fixture"],
-      "outputs": ["Machine-readable preflight receipt", "External disposable checkpoint and outputs", "Human-readable rendered proof"],
-      "gates": {"finite_forward_and_loss": "pending", "nonzero_gradients": "pending", "changed_weights": "pending", "fresh_process_reload": "pending", "bitwise_replay": "pending", "rendered_surface": "pending"},
-      "disposition": null,
+      "outputs": ["Two exact seven-file external output rosters", "Machine-readable preflight receipts", "State-dict packages", "GeoTIFFs", "Rendered comparison panels"],
+      "gates": {"finite_forward_and_loss": "pass", "nonzero_gradients": "pass", "changed_weights": "pass", "fresh_process_reload": "pass", "bitwise_replay": "pass", "rendered_surface": "pass"},
+      "disposition": "pass",
       "retained_failures": [],
-      "exit_condition_delta": {"expected": ["EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY"], "observed": [], "decision_value": "unknown", "rationale": "Execution pending."},
+      "exit_condition_delta": {"expected": ["EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY"], "observed": ["EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY"], "decision_value": "advances_exit", "rationale": "Primary and independent replay produced identical receipts and all seven artifact bytes, finite gradients, changed weights, reduced synthetic loss, exact fresh-process reconstruction, exact GeoTIFF reopen, and a visually reviewed render."},
       "next_dependency": "M2-U007-INTEGRATED-VERIFICATION"
     },
     {
@@ -333,13 +335,13 @@
       "depends_on": ["M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION"],
       "action_class": "deterministic_validation",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": ["Complete synthetic candidate"],
-      "outputs": ["Validated evidence and reconciled project records"],
-      "gates": {"all_receipts_replay": "pending", "render_review": "pending", "scientific_boundary": "pending", "complete_diff": "pending"},
-      "disposition": null,
+      "outputs": ["scripts/verify_synthetic_preflight.py", "Independent external roster/receipt/GeoTIFF/render verification", "Validated public synthetic record"],
+      "gates": {"all_receipts_replay": "pass", "render_review": "pass", "scientific_boundary": "pass", "complete_diff": "pass"},
+      "disposition": "pass",
       "retained_failures": [],
-      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME", "EXIT-M2-MODEL", "EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY", "EXIT-M2-SCIENTIFIC-BOUNDARY"], "observed": [], "decision_value": "unknown", "rationale": "Verification pending."},
+      "exit_condition_delta": {"expected": ["EXIT-M2-RUNTIME", "EXIT-M2-MODEL", "EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY", "EXIT-M2-SCIENTIFIC-BOUNDARY"], "observed": ["EXIT-M2-RUNTIME", "EXIT-M2-MODEL", "EXIT-M2-GRADIENT", "EXIT-M2-RELOAD", "EXIT-M2-REPLAY", "EXIT-M2-SCIENTIFIC-BOUNDARY"], "decision_value": "advances_exit", "rationale": "The independent verifier rehashed every source and external output, proved exact primary/replay file identity, re-opened and hashed GeoTIFF values/tags, inspected the PNG structure, and preserved zero benchmark/scientific work."},
       "next_dependency": "M2-U008-REVIEWED-PR-VERIFICATION"
     },
     {
@@ -348,7 +350,7 @@
       "depends_on": ["M2-U007-INTEGRATED-VERIFICATION"],
       "action_class": "public_repository_publication",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "inputs": ["Exact verified candidate", "Issue 4 and codex/synthetic-preflight-002"],
       "outputs": ["Merged checkpoint and live verification receipt"],
       "gates": {"required_checks": "pending", "reviewed_pr": "pending", "live_main": "pending", "no_release": "pending"},

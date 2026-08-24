@@ -41,6 +41,10 @@ semantic versioning once a first release exists.
 - A source-ready application-local successor using the official CPython 3.12.10
   embeddable ZIP and unchanged 20-wheel lock, plus a new blank exact owner
   review containing zero decisions.
+- A scoped successor `yes`, exact interpreter intake, activated 20-package
+  application-local runtime, fixed 137-parameter implementation, synthetic
+  lifecycle runner, independent verifier, safe state-dict package, exact
+  replay receipts, synthetic GeoTIFF, and rendered comparison panel.
 
 ### Changed
 
@@ -109,10 +113,9 @@ semantic versioning once a first release exists.
 
 ### In progress
 
-- Milestone 2 awaits an explicit owner `yes` or `no` for exact successor
-  candidate 002. No successor artifact has been downloaded or executed, no
-  Experiment Three runtime has activated, and all synthetic and scientific
-  execution remains unstarted.
+- Milestone 2 awaits reviewed PR publication and direct live-main verification.
+  Runtime activation and synthetic lifecycle pass; substantive training and all
+  scientific execution remain unstarted.
 
 ### Not added
 

@@ -1,0 +1,113 @@
+{
+  "schema_version": "experiment-three-runtime-activation/v1",
+  "record_id": "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ACTIVATION-2026-001",
+  "recorded_at_utc": "2026-08-24T03:30:50Z",
+  "unit_id": "M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION",
+  "candidate_id": "CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002",
+  "decision_ref": "records/decisions/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-DECISION-2026-001.json",
+  "decision_sha256": "0bb8daafca4198b995f09952404fd93d185e4dccccb0ed45fc072143d491a29e",
+  "disposition": "pass",
+  "runtime_status": "activated_for_milestone_two_synthetic_use_only",
+  "custody": {
+    "runtime_root": "C:\\Projects\\Active\\burnlens-experiment-three-runtime\\cpython-3.12.10-embed",
+    "download_root": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-downloads",
+    "cache_root": "C:\\Projects\\Active\\burnlens-experiment-three-private\\uv-cache",
+    "private_intake_contract": "C:\\Projects\\Active\\burnlens-experiment-three-private\\runtime-intake\\EXPERIMENT-THREE-RUNTIME-SUCCESSOR-INTAKE-2026-001.json",
+    "private_intake_contract_bytes": 3896,
+    "private_intake_contract_sha256": "a0ac6252d78dca95788135e4cd01eb781e1cfacbf1ae44af74c8f94a4bd23453",
+    "onedrive_paths": 0,
+    "repository_runtime_binaries": 0
+  },
+  "interpreter_intake": {
+    "artifact": "python-3.12.10-embed-amd64.zip",
+    "artifact_bytes": 11133606,
+    "artifact_sha256": "4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3",
+    "sigstore_bytes": 4915,
+    "sigstore_sha256": "8aa5b4e555fd8b73b3dfef2f04328739f52d30706655930dcdf6111603d015be",
+    "sigstore_algorithm": "SHA2_256",
+    "sigstore_message_digest": "4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3",
+    "digest_match": true,
+    "extraction_overwrite": false
+  },
+  "runtime_identity": {
+    "python_version": "3.12.10",
+    "python_executable_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+    "python312_pth_sha256": "8df34c096b16156f45eedfb1d256758f3c0c808ee3f31e459fa44b3677311e47",
+    "file_count": 18171,
+    "total_bytes": 726368861,
+    "roster_canonicalization": "root-relative forward-slash path<TAB>bytes<TAB>sha256, ordinal path sort, LF, terminal LF",
+    "roster_sha256": "77a5bce011c81cd24ae080d76566e0bbcf8c500e80dfdb7f88efe19ddc1bf977",
+    "license_or_notice_file_count": 163,
+    "sys_path": [
+      "C:\\Projects\\Active\\burnlens-experiment-three-runtime\\cpython-3.12.10-embed\\python312.zip",
+      "C:\\Projects\\Active\\burnlens-experiment-three-runtime\\cpython-3.12.10-embed",
+      "C:\\Projects\\Active\\burnlens-experiment-three-runtime\\cpython-3.12.10-embed\\Lib\\site-packages"
+    ]
+  },
+  "package_installation": {
+    "tool": "uv 0.10.7",
+    "tool_sha256": "e756c553075d7a6582c885adfcdd07f72c79a5c7dc4e6284246eb2537536d27",
+    "private_uv_lock_sha256": "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081",
+    "requirements_export_bytes": 8732,
+    "requirements_export_sha256": "02fb5b9b448ab94a83c8eea09924a512d25eb574026b1c1f80eaa9f40f4c7fcc",
+    "install_guards": ["require-hashes", "no-deps", "only-binary", "python-version 3.12", "python-platform windows", "Active-only cache and target"],
+    "installed_package_count": 20,
+    "dependency_check": "pass_all_installed_packages_compatible",
+    "packages": {
+      "affine": "2.4.0",
+      "attrs": "26.1.0",
+      "certifi": "2026.6.17",
+      "click": "8.4.2",
+      "cligj": "0.7.2",
+      "colorama": "0.4.6",
+      "filelock": "3.32.0",
+      "fsspec": "2026.6.0",
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.3",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "numpy": "2.5.1",
+      "Pillow": "12.3.0",
+      "pyparsing": "3.3.2",
+      "rasterio": "1.5.0",
+      "setuptools": "82.0.0",
+      "sympy": "1.14.0",
+      "torch": "2.13.0+cpu",
+      "typing-extensions": "4.16.0"
+    }
+  },
+  "activation_checks": {
+    "fresh_process_imports": "pass",
+    "cuda_available": false,
+    "deterministic_algorithms_enabled": true,
+    "torch_gradient": [[2.0, 4.0]],
+    "rasterio_memoryfile_geotiff_roundtrip": true,
+    "embedded_subprocess_output": "137",
+    "fresh_process_replay_exact_match": true,
+    "fresh_process_output_sha256": "64bffa266e8f7a5d2b52149a3b49c28ac06d07d2366105ba4995ca5d53154c76",
+    "safe_weights_only_reload": true,
+    "serialization_file_bytes": 2085,
+    "serialization_file_sha256": "0cb7ac86abd2dd60cbbe154f535de7f24167a529fec6e547742c9491b38398c5",
+    "serialization_tensor_sha256": "9095472759e91d833756bc158a64cdd350ef33f22c23f44ce881aa88e10718b4",
+    "expected_nonblocking_warnings": ["NotGeoreferencedWarning for the deliberately ungeoreferenced in-memory GeoTIFF fixture", "PyTorch scalar-conversion warning in the diagnostic only"]
+  },
+  "host_isolation": {
+    "windows_installer_executed": false,
+    "administrator_access": false,
+    "path_registry_launcher_or_association_mutation": false,
+    "existing_python_executable_sha256_before": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+    "existing_python_executable_sha256_after": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+    "existing_python_executable_unchanged": true
+  },
+  "scientific_boundary": {
+    "benchmark_accessed": false,
+    "model_implementation_started": false,
+    "synthetic_lifecycle_started": false,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "inference_runs": 0,
+    "evaluations": 0,
+    "claim": "This PASS proves only exact runtime activation and bounded compatibility. It does not prove the 137-parameter model, synthetic lifecycle, benchmark performance, accuracy, generalization, or operational fitness."
+  },
+  "next_step": "Implement and independently test the fixed 137-parameter model, safe package, deterministic synthetic fixture, and one-command replay surface before executing the synthetic lifecycle."
+}

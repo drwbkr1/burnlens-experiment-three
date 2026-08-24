@@ -180,10 +180,10 @@
   "current_checkpoint": {
     "checkpoint_id": "MILESTONE-001-ACCEPTED-2026-08-24",
     "expected_branch": "codex/synthetic-preflight-002",
-    "expected_head": "c0bfcb515a1e9b91a3838b13fc504a8f5c972f9c",
+    "expected_head": "38a97d933ee9b2345251d9f05da05cf82568c005",
     "accepted_main_head": "32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4",
     "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/4",
-    "candidate_status": "Milestone 1 accepted and live-verified; runtime candidate 001 was explicitly approved but activation failed closed after the same-version installer entered maintenance mode on existing Python. Recovery passed for inspected surfaces. Candidate 002 is source-ready and wholly unadopted; zero synthetic or scientific execution has begun.",
-    "next_action": "Obtain an explicit yes/no for exact successor candidate 002 bound to inventory ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967; do not infer approval from candidate 001 or begin activation"
+    "candidate_status": "Milestone 1 accepted and live-verified; candidate 001 remains a closed activation failure. Candidate 002 passed exact activation. The fixed 137-parameter model and synthetic lifecycle now pass primary/replay byte identity, fresh-process reload, GeoTIFF reopen, rendered inspection, and independent verification. Outputs remain synthetic/non-scientific and no benchmark value was accessed.",
+    "next_action": "Execute ready M2-U008: reconcile public records, commit and push the exact verified candidate, require reviewed PR checks, merge only after candidate verification, then directly verify live main without a release"
   }
 }

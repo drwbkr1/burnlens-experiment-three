@@ -7,7 +7,7 @@ published releases. A version string does not by itself prove a release.
 | --- | --- | --- | --- | --- | --- |
 | `0.0.0-bootstrap` | 2026-08-23 | Accepted checkpoint; not a release | `4543a2dad5c2630249906aab763ae0cbf91097ba` | Governance, documentation, repository controls, and CI bootstrap only | None |
 | `0.1.0` | 2026-08-24 | Accepted checkpoint; not a release | `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4` | Hash-bound rights, source gate, readiness, and external controlled intake | None |
-| `0.2.0-m2-runtime-gate` | 2026-08-24 | Active branch candidate; not accepted or released | `c0bfcb515a1e9b91a3838b13fc504a8f5c972f9c` plus uncommitted failure disposition | Synthetic-preflight controls, retained runtime activation failure, and exact successor owner gate | None |
+| `0.2.0-m2-runtime-gate` | 2026-08-24 | Active branch candidate; not accepted or released | `38a97d933ee9b2345251d9f05da05cf82568c005` plus uncommitted activation/preflight candidate | Retained runtime failure, exact successor activation, fixed model, and synthetic lifecycle | None |
 
 ## Incoming state
 
@@ -60,9 +60,15 @@ model import, synthetic execution, or scientific work began.
 
 Candidate 002 replaces only the interpreter artifact and construction route
 with Python.org's application-local embeddable ZIP while retaining the exact
-wheel lock. Its source gate is ready, but the immutable successor response is
-blank. This failure-disposition and successor-gate update is not yet committed,
-reviewed, accepted, tagged, or released.
+wheel lock. One exact separate `yes` was locked and reconciled. The activated
+runtime passes 20-package compatibility, native imports, CPU gradients,
+serialization, subprocess, and deterministic replay without changing the
+existing Python executable.
+
+The fixed 137-parameter model passes six neural tests and two independent full
+synthetic executions with byte-identical seven-file rosters. The render was
+visually inspected and the GeoTIFF reopened exactly. This remains an uncommitted
+working-tree candidate, not accepted, tagged, released, or scientific evidence.
 
 ## Versioning rules
 

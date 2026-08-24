@@ -42,5 +42,21 @@ official CPython 3.12.10 embeddable ZIP, application-locally extracted beneath
 alongside it. Its main uncertainty is real: embedded Python is not an ordinary
 pip-managed environment, so PyTorch, Rasterio, native DLL/data discovery,
 subprocess behavior, and deterministic replay must all pass fresh-process
-checks. The source gate is ready, but the new blank response has zero decisions.
-Candidate 001's `yes` cannot authorize candidate 002.
+checks. The owner supplied a separate exact `yes`, locked before reveal. The
+ZIP and Sigstore digest matched, the unchanged 20-package lock installed under
+enforced hashes, and every runtime gate passed without changing the existing
+Python executable.
+
+That runtime now carries a real neural implementation—not a mock. The fixed
+model contains exactly 137 trainable parameters across three shared 1x1
+convolutions. Six focused tests prove its architecture, arbitrary HxW behavior,
+event/class-balanced masked loss, unknown-mask preservation, deterministic
+fixture, and safe state-dict reload.
+
+Two independent full synthetic executions then produced identical receipts and
+all seven artifact bytes. Loss fell from `0.6965426803` to `0.5614569187`;
+gradients were finite and nonzero; weights changed; fresh-process logits and
+probabilities matched; the GeoTIFF reopened exactly; and the four-panel render
+was visually legible. The diagnostic accuracy is deliberately not promoted as
+a scientific result. No benchmark value was accessed and no substantive
+training, inference, or evaluation occurred.

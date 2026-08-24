@@ -8,8 +8,8 @@
 | Working version | `0.2.0-m2-runtime-gate` (unreleased) |
 | Accepted checkpoint | `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4` on live `main` |
 | Active work | Milestone 2, issue [#4](https://github.com/drwbkr1/burnlens-experiment-three/issues/4) |
-| Active review | Exact runtime successor review; blank response has zero decisions |
-| Overall state | Candidate 001 was explicitly approved but failed activation; inspected existing-Python surfaces were restored. Candidate 002 is source-ready but requires a fresh exact owner decision before download or execution. |
+| Active review | None; both runtime decisions are resolved |
+| Overall state | Candidate 001 remains a closed activation failure. Candidate 002 passed exact activation, and the fixed 137-parameter model passed an independently verified, byte-replayable synthetic lifecycle. Milestone 2 awaits reviewed publication and live-main verification. |
 
 ## Current truth
 
@@ -36,8 +36,10 @@ Issue #2 is closed. There are still zero tags and zero releases.
 | Existing-Python recovery | `PASS`, scoped | pip, test, tkinter/Tk, headers, files, launcher, user PATH, and recorded install features were restored and verified; this does not erase the failed transaction. |
 | Runtime successor inventory | `PASS FOR OWNER REVIEW` | Official CPython 3.12.10 embeddable ZIP plus unchanged 20-wheel lock; inventory SHA-256 `ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967` |
 | Runtime successor source gate | `READY` | One materially new source, eight required criteria, six live observations, zero blockers or warnings; three unchanged package sources inherit gate 001 |
-| Runtime successor adoption | `PENDING OWNER YES/NO` | Blank exact response contains zero decisions; no successor artifact has been downloaded, extracted, vendored, or executed |
-| Model implementation | `MISSING` | Fixed architecture direction only |
+| Runtime successor adoption | `PASS: yes`, scoped | One exact attested response locked and reconciled; public aggregate decision SHA-256 `0bb8daafca4198b995f09952404fd93d185e4dccccb0ed45fc072143d491a29e` |
+| Runtime successor activation | `PASS`, synthetic-only | Exact application-local runtime: 18,171 files / 726,368,861 bytes / roster SHA-256 `77a5bce011c81cd24ae080d76566e0bbcf8c500e80dfdb7f88efe19ddc1bf977`; 20 packages compatible; CPU/native/replay checks pass |
+| Model implementation | `PASS`, synthetic scope | Exact `6 -> 8 -> 8 -> 1` pointwise network, 137 parameters, arbitrary HxW, mask-preserving balanced loss, strict state-dict package |
+| Synthetic lifecycle | `PASS` | Primary and replay each contain 7 files / 20,628 bytes with identical roster `9c008f10...`, receipt `7a3fde99...`, and fingerprint `d13ec92...`; fresh-process reload, GeoTIFF, and render verified |
 | Training runs / checkpoints | `0 / 0` | Training remains unauthorized before later gates |
 | Inference runs / evaluations | `0 / 0` | Known test evidence has not been opened by Experiment Three |
 | Metrics / rendered result | `MISSING` | No Experiment Three scientific output exists |
@@ -85,14 +87,7 @@ separately approved Experiment 3B.
 
 ## Immediate next gate
 
-Provide one explicit `yes` or `no` for runtime successor
-`CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002`, bound to
-inventory SHA-256
-`ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967`.
-A `yes` permits exact Active-only ZIP download, verification, application-local
-extraction, vendoring of only the unchanged locked wheels, license capture,
-and CPU/native-package/synthetic compatibility tests. It does
-not permit benchmark access or substantive training. A `no` rejects the exact
-successor and leaves Milestone 2 blocked pending a separately approved
-alternative. Candidate 001's prior `yes`, silence, or general chat cannot be
-carried forward as this decision.
+Publish the exact verified working tree through draft PR #5, require candidate
+and pull-request checks, merge only after review, then verify the live `main`
+tree and required public blobs. This is a checkpoint, not a release. Milestone
+3 must freeze the complete executable protocol before substantive training.

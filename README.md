@@ -34,17 +34,19 @@ Runtime candidate 001 received an exact owner `yes`, but its signed normal
 installer entered maintenance mode on an existing same-version Python product
 instead of creating the required isolated runtime. That activation is retained
 as `FAIL`; inspected existing-Python surfaces were restored, and no wheels,
-model imports, synthetic runs, or scientific work followed. Candidate 002 uses
-Python.org's official application-local embeddable ZIP with the unchanged
-20-package Windows CPU lock. It is source-ready, wholly unadopted, and its
-immutable blank review contains zero decisions.
+model imports, synthetic runs, or scientific work followed. Candidate 002 then
+received a separate exact owner `yes` and passed application-local activation
+with Python.org's official embeddable ZIP and the unchanged 20-package Windows
+CPU lock. The fixed 137-parameter model now passes a wholly synthetic lifecycle:
+finite gradients, changed weights, reduced loss, strict state-dict packaging,
+fresh-process reload, byte-identical replay, GeoTIFF reopen, and rendered proof.
 
 This is an engineering-control checkpoint candidate, not a scientific result.
 No Experiment Three model implementation, training run, checkpoint, inference,
-evaluation, metric, rendered result, tag, or release exists. The next action is
-an explicit owner `yes` or `no` for exact successor candidate 002; candidate
-001's prior approval, silence, or a general endorsement cannot be treated as
-adoption.
+evaluation metric, scientific rendered result, tag, or release exists. The
+synthetic diagnostic and render are engineering evidence only. The next action
+is to publish and live-verify this Milestone 2 checkpoint through draft PR #5;
+substantive training remains unauthorized until protocol freeze.
 
 ## Research question
 

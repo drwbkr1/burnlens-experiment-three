@@ -8,7 +8,7 @@
 | Active issue | `https://github.com/drwbkr1/burnlens-experiment-three/issues/4` |
 | Active branch | `codex/synthetic-preflight-002` |
 | Governing contract | `records/milestones/EXPERIMENT-THREE-MILESTONE-002-SYNTHETIC-PREFLIGHT-2026-001.json` |
-| Current human gate | `M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION` |
+| Current human gate | None; runtime adoption decisions resolved |
 
 ## Direction applied
 
@@ -31,11 +31,17 @@ and prohibit benchmark values from synthetic preflight.
 7. Restored and verified the specifically inspected existing-Python surfaces.
 8. Prepared the smallest materially distinct application-local successor,
    source gate, and immutable blank review with zero decisions.
+9. Locked and reconciled one exact successor `yes`, admitted the exact ZIP and
+   Sigstore bundle, and activated the unchanged 20-package closure.
+10. Implemented and tested the fixed 137-parameter model, mask-preserving loss,
+    deterministic synthetic fixture, safe package, and replay commands.
+11. Executed two byte-identical full synthetic lifecycles, re-opened the
+    GeoTIFF, inspected the render, and independently verified all source and
+    external artifact identities.
 
 ## Deliberate stop
 
-Do not download, extract, vendor, or execute successor candidate 002, implement
-or run the neural model, access benchmark values, or start scientific work
-before its exact owner response is locked and reconciled as `yes`. Candidate
-001's approval cannot be carried forward. Silence or a general endorsement is
-not approval.
+Do not treat synthetic PASS as scientific performance or begin substantive
+training. Publish and live-verify the exact Milestone 2 checkpoint first, then
+freeze the complete executable protocol in Milestone 3 before any benchmark
+training or evaluation.

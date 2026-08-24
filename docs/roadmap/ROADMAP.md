@@ -88,9 +88,11 @@ Control reconciliation is complete. Candidate 001 received an exact owner
 `yes`, but its Windows installer entered maintenance mode on an existing
 same-version Python installation instead of creating the requested isolated
 runtime. The route is retained as `FAIL` and closed; inspected existing-Python
-surfaces were restored. Candidate 002 uses the official embeddable ZIP and the
-unchanged 20-wheel lock. Its source gate is `READY`, its response remains
-blank, and no successor artifact or wheel has been downloaded or executed.
+surfaces were restored. Candidate 002 received a separate exact `yes` and
+passed application-local activation with the official embeddable ZIP and the
+unchanged 20-wheel lock. The 137-parameter implementation and two-run synthetic
+lifecycle now pass exact replay, fresh-process reload, GeoTIFF reopen, and
+render inspection. No benchmark or scientific work occurred.
 
 **Deliverables**
 
@@ -104,17 +106,12 @@ blank, and no successor artifact or wheel has been downloaded or executed.
 
 **Current gate**
 
-- Obtain one explicit owner `yes` or `no` for the exact application-local
-  CPython 3.12.10 embeddable ZIP, uv 0.10.7 tooling, and unchanged PyTorch
-  2.13.0+cpu Windows x64 lock bound to successor inventory
-  SHA-256
-  `ae95bc3982766e996c0ec6cb15d4964738f1958f48b1eabe73d2e2d27b3e3967`.
-- A `yes` releases only exact Active-only application-local construction and
-  synthetic compatibility validation. A `no` rejects the successor. Neither decision
-  authorizes benchmark access or substantive training.
-- Do not infer adoption from candidate 001's explicit `yes`, the successful
-  recovery, the unchanged wheel lock, an environment used by another project,
-  successful metadata resolution, or silence.
+- Publish the exact verified candidate through draft PR #5 and require both
+  candidate and pull-request checks.
+- Merge only the reviewed tree, verify live `main`, and record the accepted
+  commit/tree/blob identities without creating a tag or release.
+- Preserve the synthetic artifacts as non-scientific engineering evidence;
+  do not begin substantive training before Milestone 3 protocol freeze.
 
 **Exit gate**
 

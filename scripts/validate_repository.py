@@ -183,6 +183,12 @@ RUNTIME_SUCCESSOR_REVIEW_CONTRACT = Path(
 RUNTIME_SUCCESSOR_BLANK_RESPONSE = Path(
     "records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-RESPONSE-BLANK-2026-001.json"
 )
+RUNTIME_SUCCESSOR_ADOPTION_DECISION = Path(
+    "records/decisions/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-DECISION-2026-001.json"
+)
+RUNTIME_SUCCESSOR_ACTIVATION = Path(
+    "records/runtime/EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ACTIVATION-2026-001.json"
+)
 EXPECTED_RUNTIME_FAILURE_SHA256 = (
     "a6f98a20371a1ee3a6ad36e7d272fc21fa952d41bf6a5fa9c6abdf28ed803512"
 )
@@ -201,10 +207,32 @@ EXPECTED_RUNTIME_SUCCESSOR_CONTRACT_SHA256 = (
 EXPECTED_RUNTIME_SUCCESSOR_BLANK_SHA256 = (
     "0e7b117acbfe1cf9517e1a05e2cf0bae39524123efea2b5907321196ba9b796b"
 )
+EXPECTED_RUNTIME_SUCCESSOR_DECISION_SHA256 = (
+    "0bb8daafca4198b995f09952404fd93d185e4dccccb0ed45fc072143d491a29e"
+)
+EXPECTED_RUNTIME_SUCCESSOR_ACTIVATION_SHA256 = (
+    "991d843e0dcfae6a2568fd837389d4ee5b64e36f1077f8299399a4f37e21083a"
+)
 EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID = (
     "EXPERIMENT-THREE-RUNTIME-SUCCESSOR-ADOPTION-REVIEW-2026-001"
 )
 EXPECTED_RUNTIME_SUCCESSOR_ITEM_ID = "exact-windows-cpu-runtime-successor-002"
+SYNTHETIC_PREFLIGHT_RECORD = Path(
+    "records/synthetic/EXPERIMENT-THREE-SYNTHETIC-PREFLIGHT-2026-001.json"
+)
+SYNTHETIC_SOURCE_IDENTITIES = {
+    Path("src/burnlens_experiment_three/__init__.py"): "7f51f0ead6abda4b9c7b18e6b65371e06de7ca069cfdd5173fa4cbc6e371a5eb",
+    Path("src/burnlens_experiment_three/model.py"): "f7e68601c4d00d11a6569ee1f870815b7a0f16f7e1b1a116dbcd936312665313",
+    Path("src/burnlens_experiment_three/losses.py"): "aec40aae4e98042d5f73d59baeed3948c8073b18ed131f2c0e263749b5ed60a9",
+    Path("src/burnlens_experiment_three/synthetic.py"): "baa3640ff1db93f098a419f8b55fb2258d6ceccd714e441cd1a6373bca6955a6",
+    Path("src/burnlens_experiment_three/checkpoint.py"): "529870f28236592472d363a085ba9bf0a47c247af322fc114c57b515927805f8",
+    Path("scripts/run_synthetic_preflight.py"): "044946c5ddbc13dc023434ccf0faa0428921c9c5b3a722134fa274b4d01ca351",
+    Path("scripts/verify_synthetic_preflight.py"): "a79be6988b69149e0680aca9d92fe64f20d9e63b06918506caa25790f3bfefbf",
+    Path("tests/test_synthetic_neural_lifecycle.py"): "92ddf8e89b599d2f447a0d74444789b7c09532e6973bc1cad5c39dcf2f6feb4c",
+}
+EXPECTED_SYNTHETIC_PREFLIGHT_RECORD_SHA256 = (
+    "88fa5c37134c2f91b74d9435cb353ab57664384ef19536b7984f89cccf487c10"
+)
 
 REQUIRED_FILES = (
     Path(".gitignore"),
@@ -252,6 +280,10 @@ REQUIRED_FILES = (
     RUNTIME_SUCCESSOR_REVIEW_ITEM,
     RUNTIME_SUCCESSOR_REVIEW_CONTRACT,
     RUNTIME_SUCCESSOR_BLANK_RESPONSE,
+    RUNTIME_SUCCESSOR_ADOPTION_DECISION,
+    RUNTIME_SUCCESSOR_ACTIVATION,
+    SYNTHETIC_PREFLIGHT_RECORD,
+    *SYNTHETIC_SOURCE_IDENTITIES.keys(),
     Path("records/prompt-build-log/2026-08-23-bootstrap.md"),
     Path("records/prompt-build-log/2026-08-24-milestone-one-intake.md"),
     Path("records/prompt-build-log/2026-08-24-milestone-two-runtime-gate.md"),
@@ -1797,6 +1829,8 @@ def check_runtime_failure_and_successor_review(root: Path) -> list[str]:
         RUNTIME_SUCCESSOR_REVIEW_ITEM: EXPECTED_RUNTIME_SUCCESSOR_ITEM_SHA256,
         RUNTIME_SUCCESSOR_REVIEW_CONTRACT: EXPECTED_RUNTIME_SUCCESSOR_CONTRACT_SHA256,
         RUNTIME_SUCCESSOR_BLANK_RESPONSE: EXPECTED_RUNTIME_SUCCESSOR_BLANK_SHA256,
+        RUNTIME_SUCCESSOR_ADOPTION_DECISION: EXPECTED_RUNTIME_SUCCESSOR_DECISION_SHA256,
+        RUNTIME_SUCCESSOR_ACTIVATION: EXPECTED_RUNTIME_SUCCESSOR_ACTIVATION_SHA256,
     }
     errors: list[str] = []
     documents: dict[Path, dict[str, Any]] = {}
@@ -1903,6 +1937,47 @@ def check_runtime_failure_and_successor_review(root: Path) -> list[str]:
         if blank.get("review_id") != EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID or blank.get("completed") is not False or blank.get("reviewer") != {"attestation": False} or blank.get("responses") != [expected_response]:
             errors.append("runtime successor blank response must contain zero decisions")
 
+    decision_record = documents.get(RUNTIME_SUCCESSOR_ADOPTION_DECISION)
+    if decision_record is not None:
+        if decision_record.get("review_id") != EXPECTED_RUNTIME_SUCCESSOR_REVIEW_ID or decision_record.get("decision") != "yes":
+            errors.append("runtime successor adoption decision changed")
+        aggregate = decision_record.get("aggregate")
+        if not isinstance(aggregate, dict) or any(
+            aggregate.get(key) != value
+            for key, value in {
+                "expected_decisions": 1,
+                "received_decisions": 1,
+                "yes": 1,
+                "no": 0,
+                "ambiguous": 0,
+                "missing": 0,
+                "attestation_satisfied": True,
+                "exact_bundle_match": True,
+                "human_decisions_fabricated": False,
+            }.items()
+        ):
+            errors.append("runtime successor adoption aggregate is inconsistent")
+        locked = decision_record.get("locked_review_evidence")
+        if not isinstance(locked, dict) or locked.get("raw_response_or_notes_committed") is not False:
+            errors.append("runtime successor raw response and notes must remain private")
+
+    activation = documents.get(RUNTIME_SUCCESSOR_ACTIVATION)
+    if activation is not None:
+        if activation.get("disposition") != "pass" or activation.get("decision_sha256") != EXPECTED_RUNTIME_SUCCESSOR_DECISION_SHA256:
+            errors.append("runtime successor activation disposition or decision binding changed")
+        installed = activation.get("package_installation")
+        if not isinstance(installed, dict) or installed.get("installed_package_count") != 20 or installed.get("private_uv_lock_sha256") != "66ef4a354db2a1e51bd6ebeca81844c1f71497c1f8164e27b99816da5ce2e081":
+            errors.append("runtime successor activation lock or package count changed")
+        checks = activation.get("activation_checks")
+        if not isinstance(checks, dict) or any(
+            checks.get(key) is not True
+            for key in ("rasterio_memoryfile_geotiff_roundtrip", "fresh_process_replay_exact_match", "safe_weights_only_reload")
+        ) or checks.get("cuda_available") is not False:
+            errors.append("runtime successor activation checks changed")
+        scientific = activation.get("scientific_boundary")
+        if not isinstance(scientific, dict) or any(scientific.get(key) != 0 for key in ("training_runs", "checkpoints", "inference_runs", "evaluations")) or scientific.get("benchmark_accessed") is not False or scientific.get("model_implementation_started") is not False:
+            errors.append("runtime successor activation must preserve zero scientific/model work")
+
     milestone_path = root / SYNTHETIC_PREFLIGHT_MILESTONE
     if milestone_path.is_file():
         try:
@@ -1915,12 +1990,93 @@ def check_runtime_failure_and_successor_review(root: Path) -> list[str]:
             successor = units.get("M2-U004C-RUNTIME-SUCCESSOR-ADOPTION-DECISION", {})
             if failed.get("status") != "failed" or failed.get("disposition") != "remediate":
                 errors.append("M2 must retain candidate 001 activation as failed with remediation disposition")
-            if successor.get("status") != "ready" or successor.get("human_gate") is not True:
-                errors.append("M2 successor decision must be the sole ready human gate")
+            activated = units.get("M2-U004D-LOCKED-RUNTIME-SUCCESSOR-ACTIVATION", {})
+            model_unit = units.get("M2-U005-MODEL-AND-PACKAGING-IMPLEMENTATION", {})
+            if successor.get("status") != "complete" or successor.get("disposition") != "pass" or successor.get("human_gate") is not True:
+                errors.append("M2 successor decision must record the resolved pass")
+            if activated.get("status") != "complete" or activated.get("disposition") != "pass":
+                errors.append("M2 successor activation must record complete pass")
+            lifecycle_unit = units.get("M2-U006-SYNTHETIC-LIFECYCLE-EXECUTION", {})
+            verification_unit = units.get("M2-U007-INTEGRATED-VERIFICATION", {})
+            if model_unit.get("status") != "complete" or model_unit.get("disposition") != "pass":
+                errors.append("M2 model implementation must record complete pass")
+            if lifecycle_unit.get("status") != "complete" or lifecycle_unit.get("disposition") != "pass":
+                errors.append("M2 synthetic lifecycle must record complete pass")
+            publication_unit = units.get("M2-U008-REVIEWED-PR-VERIFICATION", {})
+            if verification_unit.get("status") != "complete" or verification_unit.get("disposition") != "pass":
+                errors.append("M2 integrated verification must record complete pass")
+            if publication_unit.get("status") != "ready":
+                errors.append("M2 reviewed publication must be the ready successor dependency")
             gates = [gate for gate in milestone.get("human_gates", []) if isinstance(gate, dict) and gate.get("id") == "M2-GATE-DEPENDENCY-RUNTIME-SUCCESSOR"]
-            if len(gates) != 1 or gates[0].get("status") != "ready_for_review" or gates[0].get("review_preparation", {}).get("human_decisions_created") != 0:
-                errors.append("M2 successor gate must remain prepared with zero decisions")
+            if len(gates) != 1 or gates[0].get("status") != "passed" or gates[0].get("review_preparation", {}).get("human_decisions_created") != 1:
+                errors.append("M2 successor gate must record one resolved human decision")
 
+    return errors
+
+
+def check_synthetic_preflight_record(root: Path) -> list[str]:
+    """Bind the fixed source and synthetic-only replay evidence without importing torch."""
+
+    errors: list[str] = []
+    record_path = root / SYNTHETIC_PREFLIGHT_RECORD
+    if not record_path.is_file():
+        return ["synthetic preflight record is missing"]
+    raw = record_path.read_bytes()
+    if _repository_text_sha256(raw) != EXPECTED_SYNTHETIC_PREFLIGHT_RECORD_SHA256:
+        errors.append("synthetic preflight record hash changed")
+    try:
+        record = json.loads(raw.decode("utf-8"))
+    except (UnicodeError, json.JSONDecodeError):
+        return errors + ["synthetic preflight record must be UTF-8 JSON"]
+    if record.get("disposition") != "pass" or record.get("scope") != "wholly_synthetic_engineering_evidence_only":
+        errors.append("synthetic preflight disposition or scope changed")
+    if record.get("benchmark_accessed") is not False or record.get("scientific_output") is not False:
+        errors.append("synthetic preflight must remain benchmark-free and non-scientific")
+    implementation = record.get("implementation")
+    if not isinstance(implementation, dict) or implementation.get("architecture_id") != "burnlens-exp3-pointwise-6x8x8x1-v1" or implementation.get("parameter_count") != 137:
+        errors.append("synthetic model architecture identity changed")
+    declared_sources = {
+        Path(item.get("path")): item
+        for item in implementation.get("source_files", [])
+        if isinstance(item, dict) and isinstance(item.get("path"), str)
+    } if isinstance(implementation, dict) else {}
+    if set(declared_sources) != set(SYNTHETIC_SOURCE_IDENTITIES):
+        errors.append("synthetic source roster changed")
+    for relative, expected_sha in SYNTHETIC_SOURCE_IDENTITIES.items():
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"synthetic source missing: {relative.as_posix()}")
+            continue
+        raw_source = path.read_bytes()
+        if _repository_text_sha256(raw_source) != expected_sha:
+            errors.append(f"synthetic source hash changed: {relative.as_posix()}")
+        declared = declared_sources.get(relative)
+        if not isinstance(declared, dict) or declared.get("sha256") != expected_sha:
+            errors.append(f"synthetic record source binding changed: {relative.as_posix()}")
+    for role in ("primary_execution", "independent_replay"):
+        value = record.get(role)
+        if not isinstance(value, dict) or value.get("files") != 7 or value.get("bytes") != 20628 or value.get("roster_sha256") != "9c008f10e73d6829710fabce0a20de500e6b403a6f807c9a3cb45222555913f3" or value.get("receipt_sha256") != "7a3fde9902b528f3c5457eaf9a12c2c8444f9de5f6fb88ed07bddc97bded7b28":
+            errors.append(f"synthetic {role} binding changed")
+    deterministic = record.get("deterministic_evidence")
+    if not isinstance(deterministic, dict) or deterministic.get("fingerprint") != "d13ec92fc783300cd56730e7ce050b88d2f2fc03ce3d805fcae8485ecffbd607" or any(
+        deterministic.get(key) is not True
+        for key in (
+            "loss_decreased",
+            "finite_nonzero_gradients",
+            "initial_and_final_weights_differ",
+            "fresh_process_logits_exact",
+            "fresh_process_probabilities_exact",
+            "checkpoint_tensor_state_exact",
+            "primary_and_replay_checkpoint_bytes_exact",
+            "primary_and_replay_geotiff_bytes_exact",
+            "primary_and_replay_render_bytes_exact",
+            "primary_and_replay_history_bytes_exact",
+        )
+    ):
+        errors.append("synthetic deterministic evidence changed")
+    gates = record.get("gates")
+    if not isinstance(gates, dict) or any(value != "pass" for value in gates.values()):
+        errors.append("synthetic preflight gates must all pass")
     return errors
 
 
@@ -1937,6 +2093,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_milestone_one_admission_chain,
         check_runtime_adoption_review_preparation,
         check_runtime_failure_and_successor_review,
+        check_synthetic_preflight_record,
     )
     errors: list[str] = []
     for check in checks:
