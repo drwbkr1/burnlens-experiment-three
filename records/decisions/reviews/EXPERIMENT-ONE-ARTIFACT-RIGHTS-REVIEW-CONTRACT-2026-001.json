@@ -1,0 +1,42 @@
+{
+  "contract_version": "human-review-contract-v1",
+  "template": false,
+  "review_id": "EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001",
+  "response_schema_version": "experiment-one-artifact-rights-response-v1",
+  "workflow_authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL/records-milestones:EXPERIMENT-THREE-MILESTONE-001-PROVENANCE-2026-001",
+    "authorized_action_classes": [
+      "metadata_capture",
+      "evidence_recording",
+      "read_only_inspection",
+      "deterministic_validation",
+      "update_project_records"
+    ],
+    "verified_at_utc": "2026-08-23T22:23:46Z",
+    "expires_at_utc": null,
+    "review_required": true,
+    "lock_authorized": true,
+    "reconcile_authorized": true,
+    "post_review_actions": [
+      "metadata_capture",
+      "evidence_recording",
+      "read_only_inspection",
+      "deterministic_validation",
+      "update_project_records"
+    ]
+  },
+  "allowed_decisions": [
+    "yes",
+    "no"
+  ],
+  "required_attestation": true,
+  "max_notes_length": 2000,
+  "hash_prefix_length": 16,
+  "items": [
+    {
+      "item_id": "experiment-one-project-authored-derivative-artifacts",
+      "evidence_sha256": "2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581"
+    }
+  ]
+}

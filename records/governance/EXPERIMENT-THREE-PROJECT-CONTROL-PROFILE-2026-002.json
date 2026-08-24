@@ -208,12 +208,12 @@
     "amendment_required_to_change_active_gate": true
   },
   "current_checkpoint": {
-    "checkpoint_id": "MILESTONE-001-IDENTITY-INVENTORY-BRANCH-CANDIDATE-2026-08-24",
+    "checkpoint_id": "MILESTONE-001-OWNER-RIGHTS-REVIEW-PREPARED-2026-08-24",
     "expected_branch": "codex/benchmark-provenance-001",
-    "expected_head": "74171043ddd543979e9773d5ffdd06da116bbaa1",
+    "expected_head": "b17176d07d34f34ab385acbc91cf1876471afe06",
     "accepted_main_head": "4543a2dad5c2630249906aab763ae0cbf91097ba",
     "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/2",
-    "candidate_status": "M1-U002 identity inventory is a locally validated issue-backed branch candidate; it is not an accepted public checkpoint until reviewed, merged, and live-verified",
-    "next_action": "Stop at the dependency-ready M1-U003 human gate and obtain the owner's explicit yes-or-no rightsholder disposition for the exact hash-bound Experiment One project-authored artifacts; do not copy benchmark bytes or begin the source gate before that response"
+    "candidate_status": "M1-U002 identity inventory is published and CI-verified on the draft issue-backed branch; the blank M1-U003 owner-rights review is prepared with zero human decisions and remains a branch candidate until reviewed, merged, and live-verified",
+    "next_action": "Hand off EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001 and wait for one explicit completed yes-or-no response; do not infer a decision, copy benchmark bytes, run the external-source gate, or begin scientific work before the exact response is locked and reconciled"
   }
 }

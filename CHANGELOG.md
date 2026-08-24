@@ -22,6 +22,8 @@ semantic versioning once a first release exists.
 - A metadata-only, machine-readable Experiment One benchmark identity
   inventory. It records exact repository, dataset, control, model-artifact,
   prediction, source, and terms identities without copying source bytes.
+- A one-item, hash-bound owner-rights review contract and blank response with
+  zero human decisions.
 
 ### Verified
 
@@ -48,13 +50,18 @@ semantic versioning once a first release exists.
   repository validator, 20 focused tests, active and historical control-schema
   validation, reconciliation, JSON, relative-link, compile, diff, and
   secret-pattern checks.
+- Published the identity inventory at branch commit
+  `b17176d07d34f34ab385acbc91cf1876471afe06`; push run `32676766091` and
+  pull-request run `32676767882` passed, and draft PR #3 remained unmerged.
+- Passed 21/21 local tests for the owner-rights handoff candidate, including a
+  mutation test that rejects any prefilled decision in the blank response.
 
 ### In progress
 
 - Milestone 1 identity reconciliation is complete with metadata identity
   `PASS`. Controlled copying and scientific use are `DEFER`; redistribution is
-  `BLOCK`; the explicit owner/rightsholder rights decision is next. No
-  benchmark bytes have been admitted.
+  `BLOCK`; the explicit owner/rightsholder review is prepared and waiting for
+  one completed `yes` or `no`. No benchmark bytes have been admitted.
 
 ### Not added
 

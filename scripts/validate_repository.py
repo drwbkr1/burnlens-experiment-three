@@ -52,6 +52,29 @@ EXPECTED_SOURCE_TERMS_ROSTER_SHA256 = (
 EXPECTED_UNET_PREDICTION_ROSTER_SHA256 = (
     "665510bb89920bf192a6342d0a968613ecc4d01998bd374fa5cfc19c0a7c8dfb"
 )
+OWNER_RIGHTS_REVIEW_ITEM = Path(
+    "records/decisions/reviews/"
+    "EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-ITEM-2026-001.json"
+)
+OWNER_RIGHTS_REVIEW_CONTRACT = Path(
+    "records/decisions/reviews/"
+    "EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-CONTRACT-2026-001.json"
+)
+OWNER_RIGHTS_BLANK_RESPONSE = Path(
+    "records/decisions/reviews/"
+    "EXPERIMENT-ONE-ARTIFACT-RIGHTS-RESPONSE-BLANK-2026-001.json"
+)
+EXPECTED_OWNER_REVIEW_ID = "EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001"
+EXPECTED_OWNER_REVIEW_ITEM_ID = "experiment-one-project-authored-derivative-artifacts"
+EXPECTED_OWNER_REVIEW_ITEM_SHA256 = (
+    "2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581"
+)
+EXPECTED_OWNER_REVIEW_CONTRACT_SHA256 = (
+    "0be9b7f10037cc67c3747778b4751ed4e4e7348d9d219e95d997094b06726ac3"
+)
+EXPECTED_OWNER_RIGHTS_BLANK_SHA256 = (
+    "3abf9c707da4c96657898fc20dbd01723daa01fca0f8779412d009e5d06b080e"
+)
 
 REQUIRED_FILES = (
     Path(".gitignore"),
@@ -1095,6 +1118,150 @@ def check_milestone_one_identity_inventory(root: Path) -> list[str]:
     return errors
 
 
+def check_owner_rights_review_preparation(root: Path) -> list[str]:
+    """Keep the prepared human-rights handoff exact and decision-free."""
+
+    milestone_path = root / PROVENANCE_MILESTONE
+    if not milestone_path.is_file():
+        return []
+    try:
+        milestone = _load_json(milestone_path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return []
+    if not isinstance(milestone, dict):
+        return []
+    human_gates = milestone.get("human_gates")
+    if not isinstance(human_gates, list):
+        return []
+    gates = [
+        gate
+        for gate in human_gates
+        if isinstance(gate, dict)
+        and gate.get("id") == "M1-GATE-OWNER-ARTIFACT-RIGHTS"
+    ]
+    if len(gates) != 1:
+        return []
+    preparation = gates[0].get("review_preparation")
+    if preparation is None:
+        return []
+
+    errors: list[str] = []
+    if not isinstance(preparation, dict):
+        return ["owner-rights review_preparation must be a JSON object"]
+    expected_preparation: dict[str, Any] = {
+        "review_id": EXPECTED_OWNER_REVIEW_ID,
+        "review_item_path": OWNER_RIGHTS_REVIEW_ITEM.as_posix(),
+        "review_item_sha256": EXPECTED_OWNER_REVIEW_ITEM_SHA256,
+        "review_contract_path": OWNER_RIGHTS_REVIEW_CONTRACT.as_posix(),
+        "review_contract_sha256": EXPECTED_OWNER_REVIEW_CONTRACT_SHA256,
+        "blank_response_path": OWNER_RIGHTS_BLANK_RESPONSE.as_posix(),
+        "blank_response_sha256": EXPECTED_OWNER_RIGHTS_BLANK_SHA256,
+        "human_decisions_created": 0,
+        "handoff_state": "ready_to_handoff_and_wait",
+    }
+    for field, expected in expected_preparation.items():
+        actual = preparation.get(field)
+        if type(expected) is int:
+            if type(actual) is not int or actual != expected:
+                errors.append(f"owner-rights review_preparation.{field} must equal 0")
+        elif actual != expected:
+            errors.append(
+                f"owner-rights review_preparation.{field} must equal {expected}"
+            )
+
+    file_expectations = (
+        (OWNER_RIGHTS_REVIEW_ITEM, EXPECTED_OWNER_REVIEW_ITEM_SHA256),
+        (OWNER_RIGHTS_REVIEW_CONTRACT, EXPECTED_OWNER_REVIEW_CONTRACT_SHA256),
+        (OWNER_RIGHTS_BLANK_RESPONSE, EXPECTED_OWNER_RIGHTS_BLANK_SHA256),
+    )
+    documents: dict[Path, dict[str, Any]] = {}
+    for relative, expected_sha256 in file_expectations:
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"prepared owner-rights review file is missing: {relative.as_posix()}")
+            continue
+        raw = path.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != expected_sha256:
+            errors.append(
+                f"prepared owner-rights review file hash changed: {relative.as_posix()}"
+            )
+        try:
+            value = json.loads(raw.decode("utf-8"))
+        except (UnicodeError, json.JSONDecodeError):
+            errors.append(
+                f"prepared owner-rights review file must be UTF-8 JSON: {relative.as_posix()}"
+            )
+            continue
+        if not isinstance(value, dict):
+            errors.append(
+                f"prepared owner-rights review file must be a JSON object: {relative.as_posix()}"
+            )
+            continue
+        documents[relative] = value
+
+    item = documents.get(OWNER_RIGHTS_REVIEW_ITEM)
+    if item is not None:
+        if item.get("template") is not False:
+            errors.append("owner-rights review item template must be false")
+        if item.get("review_id") != EXPECTED_OWNER_REVIEW_ID:
+            errors.append("owner-rights review item review_id changed")
+        if item.get("item_id") != EXPECTED_OWNER_REVIEW_ITEM_ID:
+            errors.append("owner-rights review item item_id changed")
+        allowed_decisions = item.get("allowed_decisions")
+        if (
+            not isinstance(allowed_decisions, dict)
+            or set(allowed_decisions) != {"yes", "no"}
+            or any(
+                not isinstance(value, str) or not value
+                for value in allowed_decisions.values()
+            )
+        ):
+            errors.append("owner-rights review item must define only nonempty yes/no decisions")
+
+    contract = documents.get(OWNER_RIGHTS_REVIEW_CONTRACT)
+    if contract is not None:
+        if contract.get("template") is not False:
+            errors.append("owner-rights review contract template must be false")
+        if contract.get("review_id") != EXPECTED_OWNER_REVIEW_ID:
+            errors.append("owner-rights review contract review_id changed")
+        if contract.get("allowed_decisions") != ["yes", "no"]:
+            errors.append("owner-rights review contract decisions must be yes/no")
+        if contract.get("required_attestation") is not True:
+            errors.append("owner-rights review contract must require attestation")
+        expected_items = [
+            {
+                "item_id": EXPECTED_OWNER_REVIEW_ITEM_ID,
+                "evidence_sha256": EXPECTED_OWNER_REVIEW_ITEM_SHA256,
+            }
+        ]
+        if contract.get("items") != expected_items:
+            errors.append("owner-rights review contract item binding changed")
+
+    blank = documents.get(OWNER_RIGHTS_BLANK_RESPONSE)
+    if blank is not None:
+        expected_responses = [
+            {
+                "item_id": EXPECTED_OWNER_REVIEW_ITEM_ID,
+                "evidence_sha256": EXPECTED_OWNER_REVIEW_ITEM_SHA256,
+                "decision": None,
+                "notes": "",
+            }
+        ]
+        if blank.get("review_id") != EXPECTED_OWNER_REVIEW_ID:
+            errors.append("owner-rights blank response review_id changed")
+        if blank.get("completed") is not False:
+            errors.append("owner-rights blank response must remain incomplete")
+        if blank.get("review_started_at_utc") is not None or blank.get(
+            "review_completed_at_utc"
+        ) is not None:
+            errors.append("owner-rights blank response timestamps must remain null")
+        if blank.get("reviewer") != {"attestation": False}:
+            errors.append("owner-rights blank response attestation must remain false")
+        if blank.get("responses") != expected_responses:
+            errors.append("owner-rights blank response must contain zero decisions")
+    return errors
+
+
 def validate_repository(root: Path = ROOT) -> list[str]:
     checks = (
         check_required_files,
@@ -1104,6 +1271,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_control_references,
         check_truthful_bootstrap_state,
         check_milestone_one_identity_inventory,
+        check_owner_rights_review_preparation,
     )
     errors: list[str] = []
     for check in checks:

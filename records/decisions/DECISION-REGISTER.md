@@ -133,3 +133,8 @@ disposition, benchmark-byte admission, dependency-runtime admission, exact
 implementation bindings, and executable protocol artifact remain pending their
 gated milestones. Their absence does not reopen the approved model or training
 choices for routine optimization.
+
+Review `EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001` is prepared with a
+closed `yes`/`no` domain and zero human decisions. It is a decision interface,
+not a decision record; no rights outcome exists until an exact completed
+response is locked and reconciled.

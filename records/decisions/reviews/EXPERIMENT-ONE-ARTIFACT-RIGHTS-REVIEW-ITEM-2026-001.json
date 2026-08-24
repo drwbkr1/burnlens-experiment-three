@@ -1,0 +1,38 @@
+{
+  "schema_version": "experiment-three-owner-artifact-rights-review-item/v1",
+  "template": false,
+  "review_id": "EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001",
+  "item_id": "experiment-one-project-authored-derivative-artifacts",
+  "candidate_identity": {
+    "experiment_three_commit": "b17176d07d34f34ab385acbc91cf1876471afe06",
+    "inventory_path": "records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json",
+    "inventory_bytes": 90576,
+    "inventory_sha256": "187c9d8aac67038e1269548d0477192ef6f3c6b8113190626c1aada2bed89529",
+    "experiment_one_head": "a741111d82e69689022d2058118ed8f4b9bf3546",
+    "experiment_one_tree": "bc679254030eb57a65f58ac2af10880866fc52be"
+  },
+  "question": "To the extent you own the rights, do you grant BurnLens Experiment Three non-exclusive, no-fee permission to copy into its controlled local custody, reproduce and use for the frozen retrospective experiment, and redistribute through Experiment Three only where a separate current upstream-source gate also permits, the exact hash-bound Experiment One project-authored derivative artifacts listed in the final Milestone 1 inventory: the dataset manifest and 48 patch arrays (features, input_valid, loss_mask, state), whole-event split, train normalization and metric/control records; RBR and constant-control results and renders; canonical U-Net configuration, training/checkpoint records, state-dict checkpoint, four prediction/probability pairs, evaluation/package records, and reviewer-reference renders?",
+  "allowed_decisions": {
+    "yes": "Grants only the stated non-exclusive, no-fee permission for rights the reviewer owns. It authorizes the separate current upstream-source gate to proceed; it does not itself admit, copy, publish, train on, or relicense any byte.",
+    "no": "Does not grant the stated permission. The controlled-copy lane remains nonpass and the workflow must produce a zero-copy disposition unless separately approved scope changes later."
+  },
+  "grant_limits": [
+    "No native provider bytes, credentials, private access routes, or raw/private owner-review material.",
+    "No Experiment Two or Experiment Two-B artifact.",
+    "No fresh-event material.",
+    "No right the reviewer does not own or control.",
+    "No waiver of attribution, source terms, claim limits, privacy-security review, integrity checks, or custody requirements.",
+    "No permission to tune from the known test, change the frozen protocol, or make an operational wildfire claim."
+  ],
+  "required_attestation": "The reviewer is the project owner and is making this decision only to the extent of rights the reviewer owns or controls, after reviewing the exact candidate identity and grant limits.",
+  "downstream_gate": "A yes permits only the fresh official upstream-source gate and subsequent readiness assessment. No benchmark byte may be copied or admitted unless those independent gates pass.",
+  "current_state": {
+    "metadata_identity": "PASS",
+    "controlled_local_copy": "DEFER",
+    "downstream_scientific_use": "DEFER",
+    "repository_redistribution": "BLOCK",
+    "raw_provider_redistribution": "BLOCK",
+    "bytes_copied": 0,
+    "scientific_work_started": false
+  }
+}

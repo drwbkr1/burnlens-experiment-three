@@ -147,6 +147,18 @@
       "status": "pending",
       "unit_id": "M1-U003-SOURCE-RIGHTS-GATE",
       "purpose": "Obtain an explicit yes-or-no owner/rightsholder disposition for the exact project-authored Experiment One derivative artifacts after M1-U002 hash-binds the final inventory.",
+      "review_preparation": {
+        "prepared_at_utc": "2026-08-24T00:31:55Z",
+        "review_id": "EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001",
+        "review_item_path": "records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-ITEM-2026-001.json",
+        "review_item_sha256": "2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581",
+        "review_contract_path": "records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-CONTRACT-2026-001.json",
+        "review_contract_sha256": "0be9b7f10037cc67c3747778b4751ed4e4e7348d9d219e95d997094b06726ac3",
+        "blank_response_path": "records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-RESPONSE-BLANK-2026-001.json",
+        "blank_response_sha256": "3abf9c707da4c96657898fc20dbd01723daa01fca0f8779412d009e5d06b080e",
+        "human_decisions_created": 0,
+        "handoff_state": "ready_to_handoff_and_wait"
+      },
       "cannot_be_inferred_from": [
         "Public repository presence",
         "The MIT software license",

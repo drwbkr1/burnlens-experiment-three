@@ -72,6 +72,10 @@ current upstream-source gate.
 - Obtain an explicit yes/no owner/rightsholder decision for the exact
   hash-bound project-authored derivative artifacts. A yes does not override
   third-party terms; a separate current upstream-source gate must still pass.
+- Review `EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001` is prepared with a
+  3,213-byte item at SHA-256
+  `2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581`
+  and a blank response containing zero human decisions.
 - Until then, keep the inventory metadata-only and retain zero admitted bytes,
   datasets, models, training runs, inference runs, evaluations, and releases.
 

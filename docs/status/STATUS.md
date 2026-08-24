@@ -9,7 +9,7 @@
 | Accepted checkpoint | `4543a2dad5c2630249906aab763ae0cbf91097ba` on live `main` |
 | Active work | Milestone 1, issue [#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2) |
 | Overall state | Milestone 0 accepted; Milestone 1 metadata identity PASS; explicit rights decision pending; no scientific run has begun |
-| Active review | Draft pull request [#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3), unmerged |
+| Active review | Draft pull request [#3](https://github.com/drwbkr1/burnlens-experiment-three/pull/3), head `b17176d07d34f34ab385acbc91cf1876471afe06`, unmerged; owner-rights review prepared and awaiting response |
 
 ## Accepted Milestone 0 checkpoint
 
@@ -35,7 +35,9 @@ evaluation, metric, or rendered scientific output.
 | Milestone 1 transition | Verified candidate | Branch commit `74171043ddd543979e9773d5ffdd06da116bbaa1`; push CI `32674532003` PASS; PR CI `32674546780` PASS; draft PR #3 remains unmerged |
 | Benchmark identity inventory | PASS, metadata only | Clean Experiment One revision `a741111d82e69689022d2058118ed8f4b9bf3546`, tree `bc679254030eb57a65f58ac2af10880866fc52be`; all declared inventory identities match |
 | Benchmark rights disposition | Human decision required | Controlled copy/use `DEFER`; repository/raw-provider redistribution `BLOCK`; zero bytes admitted |
-| Milestone 1 candidate controls | Local PASS | Repository validator PASS; 20/20 tests PASS; active profile and milestone schemas PASS; state reconciliation aligned; JSON, links, compile, diff, and secret-pattern checks PASS at `2026-08-24T00:18:15Z` |
+| Owner-rights review | Prepared, no decision | Review `EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001`; item SHA-256 `2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581`; blank response has zero decisions |
+| Identity publication checks | PASS | Commit `b17176d07d34f34ab385acbc91cf1876471afe06`; push run `32676766091`; PR run `32676767882`; PR remains draft |
+| Milestone 1 candidate controls | Local PASS | Repository validator PASS; 21/21 tests PASS, including zero-decision review enforcement; active profile and milestone schemas PASS; state reconciliation aligned; JSON, links, compile, diff, and secret-pattern checks PASS at `2026-08-24T00:39:15Z` |
 | Experiment Three dataset | Missing | No bytes admitted |
 | Benchmark admission manifest | Missing | Milestone 1 active; no manifest or admission decision yet |
 | Model implementation | Missing | Architecture direction only |
@@ -100,9 +102,12 @@ fitness, or emergency-use claims.
 ## Immediate next gate
 
 Under issue [#2](https://github.com/drwbkr1/burnlens-experiment-three/issues/2),
-the exact inherited identities have been bound without copying or executing
-their bytes. The next gate is an explicit yes/no owner/rightsholder decision
-for the exact project-authored derivative artifacts listed in the inventory.
+the exact inherited identities have been bound without copying candidate bytes
+or executing source code. The next gate is an explicit yes/no
+owner/rightsholder decision for the exact project-authored derivative artifacts
+listed in the inventory. The hash-bound review item and blank response are
+prepared; neither contains a human decision, and silence or general project
+approval cannot fill it.
 Even an affirmative decision cannot override third-party rights: a separate
 current upstream-source gate and readiness audit must pass before any byte may
 enter Experiment Three custody.

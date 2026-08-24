@@ -222,6 +222,31 @@ class RepositoryControlTests(unittest.TestCase):
                 any("source_repository.tree" in error for error in errors)
             )
 
+    def test_prepared_owner_rights_review_remains_exact_and_blank(self) -> None:
+        self.assertEqual([], validator.check_owner_rights_review_preparation(ROOT))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = (
+                validator.PROVENANCE_MILESTONE,
+                validator.OWNER_RIGHTS_REVIEW_ITEM,
+                validator.OWNER_RIGHTS_REVIEW_CONTRACT,
+                validator.OWNER_RIGHTS_BLANK_RESPONSE,
+            )
+            for relative in paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+
+            blank_path = root / validator.OWNER_RIGHTS_BLANK_RESPONSE
+            blank = json.loads(blank_path.read_text(encoding="utf-8"))
+            blank["responses"][0]["decision"] = "yes"
+            blank_path.write_text(json.dumps(blank, indent=2) + "\n", encoding="utf-8")
+
+            errors = validator.check_owner_rights_review_preparation(root)
+            self.assertTrue(any("file hash changed" in error for error in errors))
+            self.assertTrue(any("zero decisions" in error for error in errors))
+
     def test_workflow_pins_checkout_to_full_sha(self) -> None:
         workflow = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")
         match = re.search(r"uses:\s*actions/checkout@([0-9a-f]{40})\b", workflow)

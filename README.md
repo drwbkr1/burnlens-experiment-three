@@ -27,6 +27,12 @@ contains the accepted-checkpoint-to-Milestone-1 control transition; transition
 commit `74171043ddd543979e9773d5ffdd06da116bbaa1` passed push run
 `32674532003` and pull-request run `32674546780`.
 
+The metadata inventory is now published on that draft PR at commit
+`b17176d07d34f34ab385acbc91cf1876471afe06`; push run `32676766091` and
+pull-request run `32676767882` both passed. The exact owner-rights review item,
+contract, and blank response are prepared with zero human decisions. The review
+is waiting for one explicit `yes` or `no` response.
+
 - No dataset or benchmark bytes have been admitted.
 - A metadata-only identity inventory now binds the clean Experiment 1 source
   revision, all 48 declared benchmark arrays, all eight historical U-Net
@@ -167,6 +173,9 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Evidence ledger](records/evidence/EVIDENCE-LEDGER.md)
 - [Decision register](records/decisions/DECISION-REGISTER.md)
 - [Experiment One benchmark identity inventory](records/provenance/EXPERIMENT-ONE-BENCHMARK-IDENTITY-INVENTORY-2026-001.json)
+- [Owner-rights review item](records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-ITEM-2026-001.json)
+- [Owner-rights review contract](records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-CONTRACT-2026-001.json)
+- [Blank owner-rights response](records/decisions/reviews/EXPERIMENT-ONE-ARTIFACT-RIGHTS-RESPONSE-BLANK-2026-001.json)
 - [Bootstrap devlog](docs/devlog/2026-08-23-empty-bootstrap.md)
 - [Contributing rules](CONTRIBUTING.md)
 

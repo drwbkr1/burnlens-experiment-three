@@ -138,3 +138,14 @@ can relicense third-party material; a separate current upstream-source gate and
 readiness audit remain mandatory. No data admission, model implementation,
 training, inference, evaluation, metric, scientific render, or release has
 occurred.
+
+## Human-gate preparation
+
+The identity evidence unit was published at
+`b17176d07d34f34ab385acbc91cf1876471afe06`, with successful push and
+pull-request validation. The exact owner-rights question was then bound as
+review `EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001` to item SHA-256
+`2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581`.
+The generated blank response contains zero decisions. Preparation does not
+authorize copying, source admission, or scientific work; the workflow must now
+wait for one explicit completed `yes` or `no` response.

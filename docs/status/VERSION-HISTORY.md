@@ -39,6 +39,12 @@ redistribution `BLOCK`. No version may advance on identity alone; an explicit
 rights decision, current source gate, readiness result, and zero-copy or
 admission receipt must close Milestone 1 first.
 
+The inventory was published at branch commit
+`b17176d07d34f34ab385acbc91cf1876471afe06`, with successful push run
+`32676766091` and pull-request run `32676767882`. A hash-bound, blank
+owner-rights response is now prepared. This is still an unmerged branch
+candidate, not an accepted checkpoint or release.
+
 ## Versioning rules
 
 - `VERSION`, `CHANGELOG.md`, this history, status, and release metadata must

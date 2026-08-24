@@ -131,3 +131,20 @@ project-authored derivative artifacts. A separate current upstream-source gate
 would still be required after an affirmative response. No dataset, model,
 training, inference, evaluation, metric, rendered scientific output, or release
 has been created.
+
+## Owner-rights review preparation
+
+After the identity inventory was published at branch commit
+`b17176d07d34f34ab385acbc91cf1876471afe06` and both GitHub validation runs
+passed, the explicit Milestone 1 owner-rights gate was prepared as review
+`EXPERIMENT-ONE-ARTIFACT-RIGHTS-REVIEW-2026-001`.
+
+The 3,213-byte review item is SHA-256
+`2454921e3ed2cd5d786bb1599fb94c06c0c9ac3ae2010a021667830fe72a5581`.
+It binds the exact inventory commit and hash, the allowed `yes`/`no` domain,
+the grant limits, and the fact that an affirmative owner response cannot
+override a separate upstream-source gate. The review utility generated a blank
+521-byte response at SHA-256
+`3abf9c707da4c96657898fc20dbd01723daa01fca0f8779412d009e5d06b080e`
+with zero human decisions. The experiment now waits at handoff; no response is
+inferred from silence or earlier project approval.
