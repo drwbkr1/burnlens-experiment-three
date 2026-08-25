@@ -223,7 +223,7 @@ overwrite.
 ### E3-DEC-0017 - Accept the verified release and proceed to terminal closeout
 
 - **Date:** 2026-08-25
-- **State:** Applied; terminal records pending reviewed acceptance
+- **State:** Applied and terminally accepted through PR #15
 - **Decision:** Accept the single verified `v1.0.0` GitHub release as the
   Experiment Three publication. Preserve lifecycle `PASS` and comparative
   `FAIL`; publish no additional model attempt, rescue, or Experiment 3B work.
@@ -232,5 +232,5 @@ overwrite.
 
 ## Decisions still pending evidence or binding
 
-Only the administrative acceptance of terminal records, issue #12 closure,
-and active-goal closure remain. No scientific or product decision is pending.
+None for Experiment Three. Experiment 3B or fresh confirmation requires a new
+explicit owner decision and is not carried forward by this project.

@@ -22,6 +22,7 @@ Current prepublication records:
 - `EXPERIMENT-THREE-M6-LIVE-RELEASE-VERIFICATION-2026-001.json`
 - `EXPERIMENT-THREE-M6-REAL-SURFACE-MATRIX-2026-002.json`
 - `EXPERIMENT-THREE-M6-RELEASE-AUDIT-2026-002.json`
+- `EXPERIMENT-THREE-TERMINAL-CLOSEOUT-2026-001.json`
 
 Candidate audit 001 proves prepublication eligibility. Audit 002 and the live
 verification record separately prove that the exact tag, release, assets,

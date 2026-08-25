@@ -1,0 +1,17 @@
+{
+  "schema_version": "burnlens-exp3-terminal-closeout/v1",
+  "closeout_id": "EXPERIMENT-THREE-TERMINAL-CLOSEOUT-2026-001",
+  "status": "PASS_ON_PR15_LIVE_ACCEPTANCE",
+  "goal_id": "01a03021-0d66-7553-bcab-26971ec191e6",
+  "release": {"version": "1.0.0", "tag": "v1.0.0", "release_id": 376615584, "commit": "8de60a3350a7c25942be8223bf9067c9460774d1", "verification": "PASS"},
+  "scientific_dispositions": {"lifecycle_status": "PASS", "comparative_status": "FAIL", "post_test_changes": 0},
+  "scientific_outputs": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 6, "evaluations": 1, "releases": 1},
+  "accepted_release_receipt_checkpoint": {"pull_request": 14, "commit": "6d2c307dbfee21233489b798e47caff90473a2e7", "tree": "fdcbcfe70ada4ce457741649b164003ea279d6ba", "main_ci": 32884634374},
+  "terminal_acceptance": {"pull_request": 15, "issue": 12, "required_transaction": ["PR checks PASS", "merge to main", "merge-triggered main CI PASS", "issue 12 CLOSED", "live terminal documents exact", "goal service marked complete"], "premerge_claim": "This record is a terminal candidate until the required transaction is directly verified."},
+  "completed_milestones": [0, 1, 2, 3, 4, 5, 6],
+  "no_active_or_successor_work": true,
+  "continuation_boundary": {"experiment_three_b_authorized": false, "fresh_confirmation_authorized": false, "post_test_tuning_authorized": false, "new_release_authorized": false},
+  "retained_negative_evidence": ["Runtime candidate 001 activation FAIL", "Training attempt 001 FAIL", "Training attempts 002-004 INVALID", "Evaluation-path render attempt 001 FAIL", "Reviewer comparison attempt 001 FAIL", "Clean-context checkout attempt 001 FAIL", "Comparative scientific outcome FAIL"],
+  "claim_boundary": "Retrospective sparse prototype-core compatibility evidence only; no operational, accuracy, superiority, significance, dense-segmentation, or generalization claim.",
+  "next_action_after_acceptance": null
+}
