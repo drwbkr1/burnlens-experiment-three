@@ -384,6 +384,35 @@ class RepositoryControlTests(unittest.TestCase):
             errors = validator.check_milestone_one_admission_chain(root)
             self.assertTrue(any("intake receipt" in error for error in errors))
 
+    def test_frozen_training_record_binds_attempt_and_test_boundary(self) -> None:
+        self.assertEqual([], validator.check_frozen_training_record(ROOT))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = (
+                validator.CONTROL_PROFILE,
+                validator.FROZEN_TRAINING_MILESTONE,
+                validator.TRAIN_VALIDATION_DATA_RECORD,
+                validator.FROZEN_TRAINING_RECORD,
+                *validator.FROZEN_TRAINING_SOURCE_IDENTITIES.keys(),
+            )
+            for relative in paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+
+            training_path = root / validator.FROZEN_TRAINING_RECORD
+            training = json.loads(training_path.read_text(encoding="utf-8"))
+            training["accepted_attempt"]["test_values_opened"] = True
+            training["accepted_attempt"]["each_root"]["payload_roster_sha256"] = "0" * 64
+            training_path.write_text(
+                json.dumps(training, indent=2) + "\n", encoding="utf-8"
+            )
+            errors = validator.check_frozen_training_record(root)
+            self.assertTrue(
+                any("accepted attempt identity or exact-replay" in error for error in errors)
+            )
+
     def test_workflow_pins_checkout_to_full_sha(self) -> None:
         workflow = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")
         match = re.search(r"uses:\s*actions/checkout@([0-9a-f]{40})\b", workflow)

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "record_id": "EXPERIMENT-THREE-M4-TRAIN-VALIDATION-DATA-2026-001",
+  "disposition": "pass",
+  "protocol_sha256": "12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e",
+  "external_receipt": {
+    "path": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\training\\m4-data-verification-001.json",
+    "bytes": 9363,
+    "sha256": "bec3084c91c98d9cdd49ba1b1aec96d7f6a77cf54441edc988503ee6138e2b2a"
+  },
+  "verified": {
+    "roles_decoded": ["train", "validation"],
+    "arrays": 32,
+    "bytes": 888832,
+    "train": {"patches": 4, "events": 2, "loss_pixels": 109, "background": 58, "burned": 51},
+    "validation": {"patches": 4, "events": 2, "loss_pixels": 89, "background": 32, "burned": 57},
+    "feature_shape_per_role": [4, 6, 64, 64],
+    "target_shape_per_role": [4, 1, 64, 64],
+    "all_manifest_hashes_match": true,
+    "all_dtypes_shapes_masks_match": true,
+    "normalized_values_finite": true
+  },
+  "boundary": {
+    "test_arrays_listed_or_decoded": 0,
+    "test_values_opened": false,
+    "training_runs": 0,
+    "checkpoints": 0,
+    "scientific_output": false
+  },
+  "next_gate": "Implement and test the exact frozen runner before any training step."
+}

@@ -51,9 +51,25 @@ semantic versioning once a first release exists.
   application-local runtime, fixed 137-parameter implementation, synthetic
   lifecycle runner, independent verifier, safe state-dict package, exact
   replay receipts, synthetic GeoTIFF, and rendered comparison panel.
+- An exact train/validation-only loader, deterministic frozen trainer,
+  tensor-only `weights.pt` checkpoint package, fresh-process reload runner,
+  validation probability package, shared-threshold selector, and independent
+  exact-replay verifier.
+- A protocol-conformant three-seed attempt with complete histories, finite
+  nonzero gradients, changed weights, three selected checkpoints, validation-
+  only probabilities, threshold `0.5`, and byte-identical 20-file primary and
+  replay roots.
+- Provisional model-card and limitations surfaces that distinguish the locally
+  verified training candidate from any unopened comparative evaluation.
 
 ### Changed
 
+- Retained frozen-training attempt 001 as `FAIL` after a fresh-process runtime
+  configuration mismatch; attempt 002 as `INVALID` after its checkpoint
+  filename violated the frozen schema; attempt 003 as `INVALID` after its
+  receipt filenames violated the same frozen artifact list; and attempt 004 as
+  `INVALID` because its seeds did not train in separate fresh processes.
+  Accepted only full fresh-process attempt 005 after the bounded runner repair.
 - Accepted Milestone 3 through PR #7 at live `main`
   `10bc499db09bccd66e3bc9289d655ab561bec857`, exact tree
   `65d3fcb5b01b5f8448ab863a873a76d1c8da51ee`, with merge-triggered run
@@ -126,12 +142,12 @@ semantic versioning once a first release exists.
 
 ### In progress
 
-- Milestone 3 awaits reviewed PR publication and direct live-main verification.
-  The executable protocol passes locally; substantive training and all
-  scientific execution remain unstarted until acceptance.
+- Milestone 4 awaits repository-wide validation, reviewed PR publication,
+  merge-triggered CI, and direct live-main verification. Test evaluation and
+  all comparative claims remain unopened.
 
 ### Not added
 
-- No benchmark byte in Git, substantive training run, scientific checkpoint,
-  benchmark inference, Experiment Three performance metric, scientific replay
-  package, rendered result, tag, or release.
+- No benchmark byte, checkpoint, probability array, or run package in Git; no
+  test inference, Experiment Three comparative test metric, rendered result,
+  tag, or release.

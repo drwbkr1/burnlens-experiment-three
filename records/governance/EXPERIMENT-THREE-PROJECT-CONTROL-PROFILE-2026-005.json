@@ -3,8 +3,8 @@
   "profile_id": "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005",
   "active_milestone_path": "records/milestones/EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001.json",
   "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/8",
-  "scientific_state": "training_not_started",
-  "scientific_outputs": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0},
+  "scientific_state": "trained_validation_selected_candidate",
+  "scientific_outputs": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 3, "evaluations": 0, "releases": 0},
   "project": {
     "name": "BurnLens Experiment Three",
     "canonical_root": ".",
@@ -44,10 +44,10 @@
   "current_checkpoint": {
     "checkpoint_id": "MILESTONE-003-ACCEPTED-2026-08-24",
     "expected_branch": "codex/frozen-training-004",
-    "expected_head": "10bc499db09bccd66e3bc9289d655ab561bec857",
+    "expected_head": "35a628b61ffca9bd73f3cab04e5f4f9cec91727a",
     "accepted_main_head": "10bc499db09bccd66e3bc9289d655ab561bec857",
     "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/8",
-    "candidate_status": "M3 accepted live; M4 unborn candidate. No train/validation array decoded yet and test remains sealed.",
-    "next_action": "Validate exact train/validation array identities, implement the frozen lifecycle, and execute each seed once; never access test values."
+    "candidate_status": "M3 accepted live; M4 attempt 005 passes exact three-seed execution in separate fresh processes, safe reload, shared validation threshold selection, frozen artifact names, and byte-identical replay. Test remains sealed; M4 is not accepted until reviewed merge and live verification.",
+    "next_action": "Finish repository and control validation, publish the reviewed M4 checkpoint through issue #8, and verify live main without opening test values."
   }
 }

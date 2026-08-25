@@ -3,25 +3,25 @@
   "reconciliation_id": "EXPERIMENT-THREE-STATE-2026-005",
   "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json",
   "authority": {"mode": "inherited", "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL", "authorized_action_classes": ["read_only_inspection", "deterministic_validation", "project_control", "update_project_records", "model_training", "checkpoint_packaging"], "verified_at_utc": "2026-08-24T04:20:33Z", "expires_at_utc": null},
-  "observed_at_utc": "2026-08-24T04:20:33Z",
+  "observed_at_utc": "2026-08-25T16:58:30Z",
   "live_facts": [
-    {"id": "project.root", "status": "observed", "value": "C:\\Projects\\Active\\burnlens-experiment-three", "source_ref": "canonical checkout", "observed_at_utc": "2026-08-24T04:20:33Z"},
-    {"id": "git.branch", "status": "observed", "value": "codex/frozen-training-004", "source_ref": "git branch", "observed_at_utc": "2026-08-24T04:20:33Z"},
-    {"id": "git.head", "status": "observed", "value": "10bc499db09bccd66e3bc9289d655ab561bec857", "source_ref": "branch base before M4 edits", "observed_at_utc": "2026-08-24T04:20:33Z"},
-    {"id": "git.origin_main", "status": "observed", "value": "10bc499db09bccd66e3bc9289d655ab561bec857", "source_ref": "live GitHub main", "observed_at_utc": "2026-08-24T04:20:33Z"},
-    {"id": "checkpoint.accepted_main", "status": "observed", "value": {"commit": "10bc499db09bccd66e3bc9289d655ab561bec857", "tree": "65d3fcb5b01b5f8448ab863a873a76d1c8da51ee", "ci_run": 32689530033}, "source_ref": "PR 7 and live verification", "observed_at_utc": "2026-08-24T04:20:33Z"},
-    {"id": "github.issue.8.state", "status": "observed", "value": "OPEN", "source_ref": "https://github.com/drwbkr1/burnlens-experiment-three/issues/8", "observed_at_utc": "2026-08-24T04:20:33Z"},
-    {"id": "contract.active_id", "status": "observed", "value": "EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001", "source_ref": "profile 005", "observed_at_utc": "2026-08-24T04:20:33Z"},
-    {"id": "scientific.outputs", "status": "observed", "value": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0}, "source_ref": "M4 entry", "observed_at_utc": "2026-08-24T04:20:33Z"},
-    {"id": "test.values", "status": "observed", "value": "sealed", "source_ref": "accepted M3", "observed_at_utc": "2026-08-24T04:20:33Z"}
+    {"id": "project.root", "status": "observed", "value": "C:\\Projects\\Active\\burnlens-experiment-three", "source_ref": "canonical checkout", "observed_at_utc": "2026-08-25T16:52:41Z"},
+    {"id": "git.branch", "status": "observed", "value": "codex/frozen-training-004", "source_ref": "git branch", "observed_at_utc": "2026-08-25T16:52:41Z"},
+    {"id": "git.head", "status": "observed", "value": "35a628b61ffca9bd73f3cab04e5f4f9cec91727a", "source_ref": "pushed M4 control checkpoint before scientific candidate edits", "observed_at_utc": "2026-08-25T16:52:41Z"},
+    {"id": "git.origin_main", "status": "observed", "value": "10bc499db09bccd66e3bc9289d655ab561bec857", "source_ref": "live GitHub main", "observed_at_utc": "2026-08-25T16:52:41Z"},
+    {"id": "checkpoint.accepted_main", "status": "observed", "value": {"commit": "10bc499db09bccd66e3bc9289d655ab561bec857", "tree": "65d3fcb5b01b5f8448ab863a873a76d1c8da51ee", "ci_run": 32689530033}, "source_ref": "PR 7 and live verification", "observed_at_utc": "2026-08-25T16:52:41Z"},
+    {"id": "github.issue.8.state", "status": "observed", "value": "OPEN", "source_ref": "https://github.com/drwbkr1/burnlens-experiment-three/issues/8", "observed_at_utc": "2026-08-25T16:52:41Z"},
+    {"id": "contract.active_id", "status": "observed", "value": "EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001", "source_ref": "profile 005", "observed_at_utc": "2026-08-25T16:52:41Z"},
+    {"id": "scientific.outputs", "status": "observed", "value": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 3, "evaluations": 0, "releases": 0}, "source_ref": "attempt 005 verified training record", "observed_at_utc": "2026-08-25T16:58:30Z"},
+    {"id": "test.values", "status": "observed", "value": "sealed", "source_ref": "attempt 005 run and verifier receipts", "observed_at_utc": "2026-08-25T16:58:30Z"}
   ],
   "recorded_claims": [
     {"id": "profile.active_contract", "fact_id": "contract.active_id", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json", "scope": "current", "claimed_value": "EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001", "evidence_ref": "active_milestone_path"},
     {"id": "profile.current_branch", "fact_id": "git.branch", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json", "scope": "current", "claimed_value": "codex/frozen-training-004", "evidence_ref": "current_checkpoint.expected_branch"},
-    {"id": "profile.current_head", "fact_id": "git.head", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json", "scope": "current", "claimed_value": "10bc499db09bccd66e3bc9289d655ab561bec857", "evidence_ref": "current_checkpoint.expected_head"},
-    {"id": "profile.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0}, "evidence_ref": "scientific_outputs"},
-    {"id": "contract.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 0, "checkpoints": 0, "inference_runs": 0, "evaluations": 0, "releases": 0}, "evidence_ref": "scientific_outputs"}
+    {"id": "profile.current_head", "fact_id": "git.head", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json", "scope": "current", "claimed_value": "35a628b61ffca9bd73f3cab04e5f4f9cec91727a", "evidence_ref": "current_checkpoint.expected_head"},
+    {"id": "profile.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 3, "evaluations": 0, "releases": 0}, "evidence_ref": "scientific_outputs"},
+    {"id": "contract.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 3, "evaluations": 0, "releases": 0}, "evidence_ref": "scientific_outputs"}
   ],
   "required_fact_ids": ["project.root", "git.branch", "git.head", "git.origin_main", "checkpoint.accepted_main", "github.issue.8.state", "contract.active_id", "scientific.outputs", "test.values"],
-  "reconciliation": {"requested_action_class": "model_training", "intended_surfaces": ["src", "scripts", "tests", "records/training", "docs/status/STATUS.md"], "limitations": ["Only admitted train and validation values may be decoded.", "Test remains sealed.", "No protocol changes or evaluation output are allowed."]}
+  "reconciliation": {"requested_action_class": "public_repository_publication", "intended_surfaces": ["src", "scripts", "tests", "records/training", "project records", "reviewed pull request"], "limitations": ["Only admitted train and validation values were decoded.", "Test remains sealed.", "No protocol changes or evaluation output are allowed.", "The candidate is not accepted until merged CI and live-main identity pass."]}
 }

@@ -261,6 +261,20 @@ EXPECTED_FROZEN_PROTOCOL_SHA256 = (
 EXPECTED_PROTOCOL_FREEZE_RECORD_SHA256 = (
     "3be942adeda2957f6f0ee9556d605369d3b213e95b43aeab7321f2906449707f"
 )
+TRAIN_VALIDATION_DATA_RECORD = Path(
+    "records/training/EXPERIMENT-THREE-M4-TRAIN-VALIDATION-DATA-2026-001.json"
+)
+FROZEN_TRAINING_RECORD = Path(
+    "records/training/EXPERIMENT-THREE-M4-FROZEN-TRAINING-2026-001.json"
+)
+FROZEN_TRAINING_SOURCE_IDENTITIES = {
+    Path("src/burnlens_experiment_three/data.py"): "36147290692689e45373125cda8eadba9c8a7894b72716c8b3b21061e746946d",
+    Path("src/burnlens_experiment_three/training.py"): "a68cb3749895d7c177549d26a966fbfd17e619b967c3614741d4fe893ac1ef1e",
+    Path("scripts/run_frozen_training.py"): "8c1d43b8dffaa616c7c0925693292d2501ec6365e546a486fb59bbc275152b0d",
+    Path("scripts/verify_frozen_training.py"): "494a8f9dc5197451da9bc5cff11a6621db0a1dcd84456fc39eb17859aa009781",
+    Path("scripts/verify_train_validation_data.py"): "5fadbfdd91b40bc3e1dfe026ae04857e18cb1120bf2116a1bfc8fea0a830e058",
+    Path("tests/test_frozen_training.py"): "f1951f17caf419f14c6e5131d470e0f712fa8ffac5c3fb6d48922c05da560d5f",
+}
 
 REQUIRED_FILES = (
     Path(".gitignore"),
@@ -275,9 +289,12 @@ REQUIRED_FILES = (
     Path("docs/roadmap/ROADMAP.md"),
     Path("docs/status/STATUS.md"),
     Path("docs/status/VERSION-HISTORY.md"),
+    Path("docs/model-card/MODEL-CARD.md"),
+    Path("docs/limitations/LIMITATIONS.md"),
     Path("docs/devlog/2026-08-23-empty-bootstrap.md"),
     Path("docs/devlog/2026-08-24-milestone-one-intake.md"),
     Path("docs/devlog/2026-08-24-milestone-two-runtime-gate.md"),
+    Path("docs/devlog/2026-08-24-milestone-four-frozen-training.md"),
     Path("records/decisions/DECISION-REGISTER.md"),
     Path("records/evidence/EVIDENCE-LEDGER.md"),
     Path("records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md"),
@@ -297,6 +314,8 @@ REQUIRED_FILES = (
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-004.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-005.json"),
     Path("records/training/README.md"),
+    TRAIN_VALIDATION_DATA_RECORD,
+    FROZEN_TRAINING_RECORD,
     OWNER_RIGHTS_DECISION,
     SOURCE_GATE,
     READINESS_INPUT,
@@ -328,12 +347,14 @@ REQUIRED_FILES = (
     Path("records/prompt-build-log/2026-08-24-milestone-one-intake.md"),
     Path("records/prompt-build-log/2026-08-24-milestone-two-runtime-gate.md"),
     Path("records/prompt-build-log/2026-08-24-milestone-three-protocol-freeze.md"),
+    Path("records/prompt-build-log/2026-08-24-milestone-four-frozen-training.md"),
     Path("docs/devlog/2026-08-24-milestone-three-protocol-freeze.md"),
     Path("scripts/validate_frozen_protocol.py"),
     Path("scripts/run_protocol_dry_run.py"),
     Path("scripts/validate_repository.py"),
     Path("tests/test_repository_controls.py"),
     Path("tests/test_frozen_protocol.py"),
+    *FROZEN_TRAINING_SOURCE_IDENTITIES.keys(),
     Path(".github/ISSUE_TEMPLATE/config.yml"),
     Path(".github/ISSUE_TEMPLATE/milestone.yml"),
     Path(".github/pull_request_template.md"),
@@ -2197,6 +2218,215 @@ def check_frozen_protocol_record(root: Path) -> list[str]:
     return errors
 
 
+def check_frozen_training_record(root: Path) -> list[str]:
+    """Bind M4 train/validation evidence without reading external run bytes."""
+
+    errors: list[str] = []
+    data_path = root / TRAIN_VALIDATION_DATA_RECORD
+    training_path = root / FROZEN_TRAINING_RECORD
+    if not data_path.is_file() or not training_path.is_file():
+        return errors
+    try:
+        data = json.loads(data_path.read_text(encoding="utf-8"))
+        training = json.loads(training_path.read_text(encoding="utf-8"))
+        profile = json.loads((root / CONTROL_PROFILE).read_text(encoding="utf-8"))
+        milestone = json.loads(
+            (root / FROZEN_TRAINING_MILESTONE).read_text(encoding="utf-8")
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return ["M4 data, training, profile, and milestone records must be UTF-8 JSON"]
+
+    if data.get("disposition") != "pass" or data.get("protocol_sha256") != (
+        EXPECTED_FROZEN_PROTOCOL_SHA256
+    ):
+        errors.append("M4 train/validation data disposition or protocol binding changed")
+    receipt = data.get("external_receipt", {})
+    if receipt != {
+        "path": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\training\\m4-data-verification-001.json",
+        "bytes": 9363,
+        "sha256": "bec3084c91c98d9cdd49ba1b1aec96d7f6a77cf54441edc988503ee6138e2b2a",
+    }:
+        errors.append("M4 train/validation external receipt binding changed")
+    verified = data.get("verified", {})
+    if any(
+        verified.get(key) != value
+        for key, value in {
+            "roles_decoded": ["train", "validation"],
+            "arrays": 32,
+            "bytes": 888832,
+            "all_manifest_hashes_match": True,
+            "all_dtypes_shapes_masks_match": True,
+            "normalized_values_finite": True,
+        }.items()
+    ):
+        errors.append("M4 train/validation verification summary changed")
+    data_boundary = data.get("boundary", {})
+    if data_boundary.get("test_values_opened") is not False or data_boundary.get(
+        "test_arrays_listed_or_decoded"
+    ) != 0:
+        errors.append("M4 data gate must preserve zero test access")
+
+    if training.get("record_id") != "EXPERIMENT-THREE-M4-FROZEN-TRAINING-2026-001" or training.get(
+        "disposition"
+    ) != "pass" or training.get("scope") != "frozen_train_validation_lifecycle_only":
+        errors.append("M4 frozen-training identity, scope, or disposition changed")
+    if training.get("protocol", {}).get("canonical_lf_sha256") != (
+        EXPECTED_FROZEN_PROTOCOL_SHA256
+    ):
+        errors.append("M4 frozen-training protocol binding changed")
+
+    observed_bindings = {
+        Path(item.get("path", "")): item.get("sha256")
+        for item in training.get("source_bindings", [])
+        if isinstance(item, dict)
+    }
+    if observed_bindings != FROZEN_TRAINING_SOURCE_IDENTITIES:
+        errors.append("M4 frozen-training source roster changed")
+    for relative, expected_sha in FROZEN_TRAINING_SOURCE_IDENTITIES.items():
+        path = root / relative
+        if not path.is_file():
+            errors.append(f"M4 frozen-training source missing: {relative.as_posix()}")
+        elif _repository_text_sha256(path.read_bytes()) != expected_sha:
+            errors.append(f"M4 frozen-training source hash changed: {relative.as_posix()}")
+
+    attempt = training.get("accepted_attempt", {})
+    each_root = attempt.get("each_root", {})
+    if any(
+        attempt.get(key) != value
+        for key, value in {
+            "attempt_id": "m4-2026-005",
+            "primary_replay_exact": True,
+            "milestone_4_artifact_schema_exact": True,
+            "test_values_opened": False,
+            "test_arrays_listed_or_decoded": 0,
+        }.items()
+    ) or any(
+        each_root.get(key) != value
+        for key, value in {
+            "files_including_receipt": 20,
+            "bytes_including_receipt": 270793,
+            "exact_replay_receipt_sha256": "75c2263e6c3672ad18e603f964982a1bede2c3652b45be4bbd1b0b51d159bf4b",
+            "payload_files": 19,
+            "payload_bytes": 266578,
+            "payload_roster_sha256": "e3115254c1602e9f1c0aba7e91c7d1c2984db106053a880afbc069f6beb82473",
+            "per_seed_artifacts": ["run-manifest.json", "training-history.json", "selected-checkpoint/manifest.json", "selected-checkpoint/weights.pt", "validation-probabilities.npz", "replay-receipt.json"],
+            "aggregate_artifacts_present": ["shared-threshold-selection.json", "exact-replay-receipt.json"],
+        }.items()
+    ):
+        errors.append("M4 accepted attempt identity or exact-replay receipt changed")
+    timing = training.get("execution_timing_observation", {})
+    if timing.get("method") != (
+        "Controller UTC wall clock and monotonic stopwatch; excluded from deterministic run roots"
+    ) or any(
+        timing.get(role, {}).get("exit_code") != 0
+        or not isinstance(timing.get(role, {}).get("duration_seconds"), (int, float))
+        or timing.get(role, {}).get("duration_seconds", 0) <= 0
+        for role in ("primary", "replay")
+    ):
+        errors.append("M4 execution timing observation changed or is incomplete")
+
+    expected_seeds = [
+        (20260725, 130, 105, 0.6794654130935669, "50477e8f2be155e042816735bade3664bf318e2ce46e34032a4132911266b2fd"),
+        (20260726, 172, 147, 0.6747468709945679, "19b0308c13779d2b92c6931f5e8a4b409f83c910a9c7933abe757a0fe03132a2"),
+        (20260727, 171, 146, 0.6462924480438232, "078d4ffc648e00aeece354b7a214b6df3afb6d259c12ef5c788b8c4f7bdfe56c"),
+    ]
+    seeds = training.get("seeds", [])
+    observed_seeds = [
+        (
+            item.get("seed"),
+            item.get("epochs_completed"),
+            item.get("selected_epoch"),
+            item.get("selected_validation_balanced_bce"),
+            item.get("selected_tensor_state_sha256"),
+        )
+        for item in seeds
+        if isinstance(item, dict)
+    ]
+    if observed_seeds != expected_seeds or any(
+        not item.get("early_stopped")
+        or not isinstance(item.get("first_gradient_norm"), (int, float))
+        or item.get("first_gradient_norm", 0) <= 0
+        or item.get("initial_tensor_state_sha256") == item.get("first_step_tensor_state_sha256")
+        or item.get("weights_bytes") != 3285
+        for item in seeds
+        if isinstance(item, dict)
+    ):
+        errors.append("M4 per-seed training, gradient, selection, or checkpoint evidence changed")
+
+    threshold = training.get("shared_validation_threshold", {})
+    if threshold != {
+        "selected_threshold": 0.5,
+        "minimum_seed_event_macro_dice": 0.3333333333333333,
+        "median_seed_event_class_macro_iou": 0.625,
+        "selection_scope": "validation_only",
+        "test_values_opened": False,
+    }:
+        errors.append("M4 shared validation threshold evidence changed")
+    retained = training.get("retained_attempts", [])
+    if [(item.get("attempt_id"), item.get("disposition")) for item in retained] != [
+        ("m4-2026-001-primary", "fail"),
+        ("m4-2026-002", "invalid"),
+        ("m4-2026-003", "invalid"),
+        ("m4-2026-004", "invalid"),
+    ]:
+        errors.append("M4 failed/invalid attempt retention changed")
+    verification = training.get("verification", {})
+    required_passes = (
+        "all_gradients_finite_nonzero",
+        "all_first_steps_changed_weights",
+        "all_histories_complete",
+        "all_checkpoints_selected_by_frozen_rule",
+        "all_checkpoints_tensor_only_weights_pt",
+        "all_fresh_process_reloads_exact",
+        "all_validation_probability_packages_exact",
+        "shared_threshold_recomputed_exact",
+        "primary_replay_exact",
+        "all_seeds_trained_in_fresh_isolated_processes",
+        "runtime_identity_exact",
+        "exceptions_null",
+    )
+    if any(verification.get(key) is not True for key in required_passes) or verification.get(
+        "test_values_opened"
+    ) is not False:
+        errors.append("M4 frozen-training verification gates changed")
+
+    expected_outputs = {
+        "datasets": 1,
+        "training_runs": 3,
+        "checkpoints": 3,
+        "inference_runs": 3,
+        "evaluations": 0,
+        "releases": 0,
+    }
+    if training.get("scientific_outputs") != expected_outputs or profile.get(
+        "scientific_outputs"
+    ) != expected_outputs or milestone.get("scientific_outputs") != expected_outputs:
+        errors.append("M4 scientific output counts are not aligned")
+    if profile.get("scientific_state") != "trained_validation_selected_candidate":
+        errors.append("M4 profile scientific state changed")
+    exits = {item.get("id"): item.get("status") for item in milestone.get("exit_conditions", [])}
+    for exit_id in (
+        "EXIT-M4-DATA",
+        "EXIT-M4-RUNS",
+        "EXIT-M4-RELOAD",
+        "EXIT-M4-THRESHOLD",
+        "EXIT-M4-REPLAY",
+        "EXIT-M4-TEST-SEALED",
+    ):
+        if exits.get(exit_id) != "pass":
+            errors.append(f"{exit_id} must pass in the M4 candidate")
+    if exits.get("EXIT-M4-VERIFIED-CHECKPOINT") != "pending":
+        errors.append("M4 live checkpoint must remain pending before merge verification")
+    units = {item.get("id"): item.get("status") for item in milestone.get("units", [])}
+    if any(units.get(unit_id) != "complete" for unit_id in (
+        "M4-U003-IMPLEMENTATION",
+        "M4-U004-THREE-SEED-EXECUTION",
+        "M4-U005-REPLAY-VERIFY",
+    )) or units.get("M4-U006-REVIEWED-PR") != "ready":
+        errors.append("M4 unit readiness does not match the verified local candidate")
+    return errors
+
+
 def validate_repository(root: Path = ROOT) -> list[str]:
     checks = (
         check_required_files,
@@ -2212,6 +2442,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_runtime_failure_and_successor_review,
         check_synthetic_preflight_record,
         check_frozen_protocol_record,
+        check_frozen_training_record,
     )
     errors: list[str] = []
     for check in checks:

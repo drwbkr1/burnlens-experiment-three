@@ -13,7 +13,7 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-24, Milestone 3 is accepted and live-verified on `main` at
+As of 2026-08-25, Milestone 3 is accepted and live-verified on `main` at
 [`10bc499db09bccd66e3bc9289d655ab561bec857`](https://github.com/drwbkr1/burnlens-experiment-three/commit/10bc499db09bccd66e3bc9289d655ab561bec857),
 tree `65d3fcb5b01b5f8448ab863a873a76d1c8da51ee`. Merge-triggered GitHub
 Actions run
@@ -41,7 +41,7 @@ CPU lock. The fixed 137-parameter model now passes a wholly synthetic lifecycle:
 finite gradients, changed weights, reduced loss, strict state-dict packaging,
 fresh-process reload, byte-identical replay, GeoTIFF reopen, and rendered proof.
 
-The complete executable protocol is now frozen as a locally verified candidate
+The complete executable protocol is frozen and accepted
 at canonical-LF SHA-256 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`.
 It fixes all data roles, normalization, masks, training order, checkpoint and
 shared-threshold rules, metrics, collapse gates, artifacts, replay, test
@@ -49,8 +49,19 @@ opening, decision logic, and claim limits. Exact metadata bindings, fabricated
 replay, and all 39 approved-runtime tests pass without decoding a benchmark
 array. This is accepted engineering-control evidence, not a scientific result:
 no substantive training run, scientific checkpoint, inference, evaluation,
-metric, result render, tag, or release exists. Frozen training may begin only
-after exact train/validation identity verification; test remains sealed.
+metric, result render, tag, or release existed at protocol acceptance.
+
+Milestone 4 now has a locally verified scientific candidate. Exactly three
+predeclared seeds trained under the frozen protocol, selected checkpoints were
+reconstructed in fresh isolated processes, and primary/replay packages match
+byte for byte. The shared validation-only threshold is `0.5`. The first run
+attempt is retained as `FAIL`, and the second as `INVALID` because its otherwise
+replayable checkpoint package used the wrong frozen filename. The third full
+attempt is also retained as `INVALID` because its receipt filenames violated
+the frozen artifact list. The fourth is `INVALID` because its seeds trained in
+one parent process rather than a fresh process per seed. The fifth full attempt
+is protocol-conformant. Test values remain sealed, so there is still no
+Experiment Three test inference, comparative result, or performance claim.
 
 ## Research question
 
@@ -178,6 +189,9 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Controlled-intake receipt](records/intake/EXPERIMENT-ONE-BENCHMARK-INTAKE-RECEIPT-2026-001.json)
 - [Frozen executable protocol](protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json)
 - [Protocol-freeze evidence record](records/protocol/EXPERIMENT-THREE-PROTOCOL-FREEZE-2026-001.json)
+- [Frozen-training evidence record](records/training/EXPERIMENT-THREE-M4-FROZEN-TRAINING-2026-001.json)
+- [Provisional model card](docs/model-card/MODEL-CARD.md)
+- [Current limitations](docs/limitations/LIMITATIONS.md)
 - [Runtime candidate inventory](records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json)
 - [Runtime source gate](records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json)
 - [Runtime adoption review item](records/decisions/reviews/EXPERIMENT-THREE-RUNTIME-ADOPTION-REVIEW-ITEM-2026-001.json)

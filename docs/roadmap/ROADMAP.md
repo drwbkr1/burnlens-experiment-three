@@ -152,9 +152,15 @@ render inspection. No benchmark or scientific work occurred.
 ## Milestone 4 - Frozen training and checkpoint reconstruction
 
 **State:** Active under issue
-[#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8). Control
-transition is complete; there are zero training runs and zero checkpoints.
-Exact train/validation data verification is active. Test remains sealed.
+[#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8). The local
+candidate passes exact train/validation data verification, all three frozen
+seed runs, fresh-process reconstruction, shared validation-only threshold
+selection at `0.5`, and byte-identical replay. Attempt 001 remains `FAIL`,
+attempt 002 remains `INVALID` for its checkpoint filename, and attempt 003 is
+also `INVALID` for nonconforming receipt filenames. Attempt 004 is `INVALID`
+because its seeds trained sequentially in one process. Attempt 005 is the sole
+protocol-conformant candidate. Reviewed merge, CI, and
+direct live verification remain. Test is sealed.
 
 **Deliverables**
 
@@ -170,6 +176,8 @@ Exact train/validation data verification is active. Test remains sealed.
 - Every declared seed has a retained terminal record: valid, failed, invalid,
   or interrupted with exact cause. No seed is silently replaced.
 - No test evidence has been used to alter the protocol.
+- The reviewed candidate must merge with passing CI and match live `main`
+  before Milestone 5 control can authorize the one-time test opening.
 
 ## Milestone 5 - One retrospective evaluation
 
