@@ -9,7 +9,8 @@ published releases. A version string does not by itself prove a release.
 | `0.1.0` | 2026-08-24 | Accepted checkpoint; not a release | `32e5b0dfbd93bdf337fa4f2e9bde29d0bc36a6a4` | Hash-bound rights, source gate, readiness, and external controlled intake | None |
 | `0.2.0-m2-runtime-gate` | 2026-08-24 | Accepted checkpoint; not a release | `8b0636d6cc117d524256a0f7f2bd699fb64a232b` | Retained runtime failure, exact successor activation, fixed model, and synthetic lifecycle | None |
 | `0.3.0-m3-protocol-freeze` | 2026-08-24 | Accepted checkpoint; not a release | `10bc499db09bccd66e3bc9289d655ab561bec857` | Complete hash-bound executable protocol, pure selection/metric implementation, fabricated replay, and controls | None |
-| `0.4.0-m4-frozen-training` | 2026-08-25 | Locally verified branch candidate; not accepted or released | `codex/frozen-training-004` from control commit `35a628b61ffca9bd73f3cab04e5f4f9cec91727a` | Three frozen train/validation runs, selected checkpoints, fresh reload, shared threshold, and exact replay | Training/validation evidence only; test unopened |
+| `0.4.0-m4-frozen-training` | 2026-08-25 | Accepted checkpoint; not a release | `53983c09a03d7f8f9453e6f492b05e58b795b876` | Three frozen train/validation runs, selected checkpoints, fresh reload, shared threshold, and exact replay | Training/validation evidence only; test unopened |
+| `0.5.0-m5-retrospective-evaluation` | 2026-08-25 | Locally verified candidate; not accepted or released | `codex/retrospective-evaluation-005` from accepted M4 | One controlled known-test evaluation, exact replay, geospatial and rendered evidence | Lifecycle `PASS`; comparative `FAIL` |
 
 The accepted `0.3.0` checkpoint binds the protocol at canonical-LF SHA-256
 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`.
@@ -89,7 +90,7 @@ merged the exact protocol-freeze tree to live `main` at
 `32689530033` passed. This accepted the executable protocol before substantive
 training; it was not a release or scientific result.
 
-## Unreleased Milestone 4 frozen-training candidate
+## Accepted Milestone 4 frozen-training checkpoint
 
 Issue [#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8)
 tracks the exact frozen train/validation lifecycle. Attempt 001 is retained as
@@ -103,8 +104,23 @@ process. Attempt 005 reran every seed in a fresh isolated process and passes
 complete histories, finite nonzero gradients, changed weights, strict
 checkpoint selection, tensor-only `weights.pt` reconstruction, exact frozen
 receipt names, validation threshold `0.5`, and byte-identical
-primary/replay roots. Test values remain sealed. The candidate requires a
-reviewed merge, passing CI, and direct live-main identity verification.
+primary/replay roots. Test values remained sealed. PR #9 merged the exact
+reviewed tree `51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa` to live `main` at
+`53983c09a03d7f8f9453e6f492b05e58b795b876`; push, PR, and main runs
+`32875659950`/`32875705749`/`32875755932` passed. This is an accepted training
+checkpoint, not a release or comparative result.
+
+## Active Milestone 5 retrospective evaluation
+
+Issue [#10](https://github.com/drwbkr1/burnlens-experiment-three/issues/10)
+tracks one frozen retrospective opening. Profile 006, the M5 contract, and
+state reconciliation begin from the accepted M4 commit. Metadata-only audit
+and fabricated path proof passed before `M5-OPENING-2026-001` consumed the test
+exactly once. All frozen seeds and controls ran; primary/replay payloads match
+at 53 files / 367,150 bytes / roster `e322a101...`; 36 GeoTIFFs reopen exactly
+and the actual render passed direct inspection. Lifecycle is `PASS` and the
+frozen comparative outcome is `FAIL`. Reviewed merge and live verification are
+still required before this candidate is accepted.
 
 ## Versioning rules
 

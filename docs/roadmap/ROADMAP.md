@@ -151,16 +151,13 @@ render inspection. No benchmark or scientific work occurred.
 
 ## Milestone 4 - Frozen training and checkpoint reconstruction
 
-**State:** Active under issue
-[#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8). The local
-candidate passes exact train/validation data verification, all three frozen
-seed runs, fresh-process reconstruction, shared validation-only threshold
-selection at `0.5`, and byte-identical replay. Attempt 001 remains `FAIL`,
-attempt 002 remains `INVALID` for its checkpoint filename, and attempt 003 is
-also `INVALID` for nonconforming receipt filenames. Attempt 004 is `INVALID`
-because its seeds trained sequentially in one process. Attempt 005 is the sole
-protocol-conformant candidate. Reviewed merge, CI, and
-direct live verification remain. Test is sealed.
+**State:** Accepted and live-verified through pull request
+[#9](https://github.com/drwbkr1/burnlens-experiment-three/pull/9) at main
+`53983c09a03d7f8f9453e6f492b05e58b795b876`, tree
+`51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa`, with merge-triggered CI
+`32875755932` passing. Attempt 001 remains `FAIL`; attempts 002 through 004
+remain `INVALID`; attempt 005 is the sole accepted, exactly replayed training
+package. Test remained sealed.
 
 **Deliverables**
 
@@ -181,7 +178,11 @@ direct live verification remain. Test is sealed.
 
 ## Milestone 5 - One retrospective evaluation
 
-**State:** Pending and unopened by Experiment Three.
+**State:** Locally verified candidate under issue
+[#10](https://github.com/drwbkr1/burnlens-experiment-three/issues/10). The one
+opening completed for every frozen seed and control. Lifecycle is `PASS`, the
+frozen comparative outcome is `FAIL`, and exact replay/geospatial/render checks
+pass. Reviewed merge and live verification remain.
 
 **Deliverables**
 
@@ -194,10 +195,10 @@ direct live verification remain. Test is sealed.
 
 **Exit gate**
 
-- Evaluation is reproducible from frozen inputs and checkpoints.
+- Evaluation reproduces from frozen inputs and checkpoints. **Passed locally.**
 - All seeds and controls appear in the machine-readable and human-readable
   result, including unfavorable or invalid outcomes.
-- Claims remain retrospective and sparse-core bounded.
+- Claims remain retrospective and sparse-core bounded. **Passed locally.**
 
 ## Milestone 6 - Reviewer evidence and terminal closeout
 

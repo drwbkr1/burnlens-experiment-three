@@ -1,0 +1,101 @@
+{
+  "schema_version": "burnlens-exp3-public-evaluation/v1",
+  "record_id": "EXPERIMENT-THREE-M5-RETROSPECTIVE-EVALUATION-2026-001",
+  "recorded_at_utc": "2026-08-25T17:37:27Z",
+  "scope": "known_retrospective_sparse_prototype_core_compatibility",
+  "opening": {
+    "opening_id": "M5-OPENING-2026-001",
+    "opened_at_utc": "2026-08-25T17:35:40.1924824Z",
+    "previous_evaluation_roots": 0,
+    "single_opening": true,
+    "test_arrays_deserialized_once": 16,
+    "historical_prediction_arrays_deserialized_once": 8,
+    "post_test_changes": 0,
+    "threshold": 0.5,
+    "protocol_sha256": "12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e"
+  },
+  "dispositions": {
+    "lifecycle_status": "PASS",
+    "comparative_status": "FAIL",
+    "rationale": "The frozen neural lifecycle completed and replayed exactly, but the predeclared three-seed median did not strictly beat the strongest constant-class control on both median event-class macro IoU and median worst-event macro Dice, and one seed was constant on one event.",
+    "no_tuning_or_rescue": true,
+    "result_is_completion_eligible": true
+  },
+  "decision_evidence": {
+    "three_seed_median_event_class_macro_iou": 0.2201417004048583,
+    "three_seed_median_worst_event_macro_dice": 0.29193899782135074,
+    "strongest_constant_event_class_macro_iou": 0.28525641025641024,
+    "strongest_constant_worst_event_macro_dice": 0.3333333333333333,
+    "every_seed_every_event_nonconstant": false,
+    "strictly_beats_constants_on_both": false
+  },
+  "model_results": [
+    {
+      "seed": 20260725,
+      "checkpoint_tensor_state_sha256": "50477e8f2be155e042816735bade3664bf318e2ce46e34032a4132911266b2fd",
+      "masked_bce": 0.6912850839633453,
+      "aggregate": {"eligible_pixels": 89, "event_class_macro_dice": 0.31263616557734203, "event_class_macro_iou": 0.2201417004048583, "worst_event_macro_dice": 0.29193899782135074, "predicted_burn_prevalence": 0.9775280898876404, "all_events_nonconstant": false},
+      "events": [
+        {"event_group_id": "event-ward-creek-2019", "eligible_pixels": 39, "class_macro_dice": 0.29193899782135074, "class_macro_iou": 0.19028340080971662, "predicted_burn_prevalence": 0.9487179487179487, "nonconstant": true, "background": {"true_positive": 1, "false_positive": 1, "false_negative": 24}, "burned": {"true_positive": 13, "false_positive": 24, "false_negative": 1}},
+        {"event_group_id": "event-windigo-2022", "eligible_pixels": 50, "class_macro_dice": 0.3333333333333333, "class_macro_iou": 0.25, "predicted_burn_prevalence": 1.0, "nonconstant": false, "background": {"true_positive": 0, "false_positive": 0, "false_negative": 25}, "burned": {"true_positive": 25, "false_positive": 25, "false_negative": 0}}
+      ]
+    },
+    {
+      "seed": 20260726,
+      "checkpoint_tensor_state_sha256": "19b0308c13779d2b92c6931f5e8a4b409f83c910a9c7933abe757a0fe03132a2",
+      "masked_bce": 0.6967015868609014,
+      "aggregate": {"eligible_pixels": 89, "event_class_macro_dice": 0.2949134199134199, "event_class_macro_iou": 0.20094760312151616, "worst_event_macro_dice": 0.11363636363636363, "predicted_burn_prevalence": 0.7303370786516854, "all_events_nonconstant": true},
+      "events": [
+        {"event_group_id": "event-ward-creek-2019", "eligible_pixels": 39, "class_macro_dice": 0.11363636363636363, "class_macro_iou": 0.0641025641025641, "predicted_burn_prevalence": 0.5128205128205128, "nonconstant": true, "background": {"true_positive": 5, "false_positive": 14, "false_negative": 20}, "burned": {"true_positive": 0, "false_positive": 20, "false_negative": 14}},
+        {"event_group_id": "event-windigo-2022", "eligible_pixels": 50, "class_macro_dice": 0.47619047619047616, "class_macro_iou": 0.3377926421404682, "predicted_burn_prevalence": 0.9, "nonconstant": true, "background": {"true_positive": 4, "false_positive": 1, "false_negative": 21}, "burned": {"true_positive": 24, "false_positive": 21, "false_negative": 1}}
+      ]
+    },
+    {
+      "seed": 20260727,
+      "checkpoint_tensor_state_sha256": "078d4ffc648e00aeece354b7a214b6df3afb6d259c12ef5c788b8c4f7bdfe56c",
+      "masked_bce": 0.6255921552487873,
+      "aggregate": {"eligible_pixels": 89, "event_class_macro_dice": 0.6884693774593886, "event_class_macro_iou": 0.5794129720853859, "worst_event_macro_dice": 0.4652406417112299, "predicted_burn_prevalence": 0.5842696629213483, "all_events_nonconstant": true},
+      "events": [
+        {"event_group_id": "event-ward-creek-2019", "eligible_pixels": 39, "class_macro_dice": 0.9116981132075472, "class_macro_iou": 0.8392857142857143, "predicted_burn_prevalence": 0.28205128205128205, "nonconstant": true, "background": {"true_positive": 25, "false_positive": 3, "false_negative": 0}, "burned": {"true_positive": 11, "false_positive": 0, "false_negative": 3}},
+        {"event_group_id": "event-windigo-2022", "eligible_pixels": 50, "class_macro_dice": 0.4652406417112299, "class_macro_iou": 0.3195402298850575, "predicted_burn_prevalence": 0.82, "nonconstant": true, "background": {"true_positive": 5, "false_positive": 4, "false_negative": 20}, "burned": {"true_positive": 21, "false_positive": 20, "false_negative": 4}}
+      ]
+    }
+  ],
+  "comparators": {
+    "RBR": {"event_class_macro_dice": 1.0, "event_class_macro_iou": 1.0, "worst_event_macro_dice": 1.0, "predicted_burn_prevalence": 0.43820224719101125, "all_events_nonconstant": true, "events": [{"event_group_id": "event-ward-creek-2019", "eligible_pixels": 39, "class_macro_dice": 1.0, "class_macro_iou": 1.0, "background": {"true_positive": 25, "false_positive": 0, "false_negative": 0}, "burned": {"true_positive": 14, "false_positive": 0, "false_negative": 0}}, {"event_group_id": "event-windigo-2022", "eligible_pixels": 50, "class_macro_dice": 1.0, "class_macro_iou": 1.0, "background": {"true_positive": 25, "false_positive": 0, "false_negative": 0}, "burned": {"true_positive": 25, "false_positive": 0, "false_negative": 0}}]},
+    "canonical_experiment_one_unet": {"event_class_macro_dice": 0.29874213836477986, "event_class_macro_iou": 0.21474358974358976, "worst_event_macro_dice": 0.2641509433962264, "predicted_burn_prevalence": 1.0, "all_events_nonconstant": false, "events": [{"event_group_id": "event-ward-creek-2019", "eligible_pixels": 39, "class_macro_dice": 0.2641509433962264, "class_macro_iou": 0.1794871794871795, "background": {"true_positive": 0, "false_positive": 0, "false_negative": 25}, "burned": {"true_positive": 14, "false_positive": 25, "false_negative": 0}}, {"event_group_id": "event-windigo-2022", "eligible_pixels": 50, "class_macro_dice": 0.3333333333333333, "class_macro_iou": 0.25, "background": {"true_positive": 0, "false_positive": 0, "false_negative": 25}, "burned": {"true_positive": 25, "false_positive": 25, "false_negative": 0}}]},
+    "constant_background": {"event_class_macro_dice": 0.36197916666666663, "event_class_macro_iou": 0.28525641025641024, "worst_event_macro_dice": 0.3333333333333333, "predicted_burn_prevalence": 0.0, "all_events_nonconstant": false},
+    "constant_burned": {"event_class_macro_dice": 0.29874213836477986, "event_class_macro_iou": 0.21474358974358976, "worst_event_macro_dice": 0.2641509433962264, "predicted_burn_prevalence": 1.0, "all_events_nonconstant": false}
+  },
+  "external_package": {
+    "root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\evaluation\\m5-2026-001",
+    "root_files": 108,
+    "root_bytes": 747018,
+    "primary_and_replay": {"files_each": 53, "bytes_each": 367150, "roster_sha256": "e322a10135243d06360393b21553602713285a0b2f7aeabbb924930073bd1d68", "exact": true},
+    "opening_receipt": {"bytes": 538, "sha256": "a1703f8f4adb4c6d2763c1d9737e75f31cba48233be832b483b0803d34f042ba"},
+    "replay_receipt": {"bytes": 12180, "sha256": "688ffe9d81329dc5497fdbef7a4cc773bc1a4820e6c2e7c29a2bfb1e810deded"},
+    "comparison_manifest": {"bytes": 34355, "sha256": "01a0f3375bcdaf3d61f2ac6ba768e4b73342208b146efa17ab40d5c32462d3db"},
+    "render": {"bytes": 107423, "sha256": "87d7653fcc39abb7d290a36daf1d6fa1372f46f092970a936c10024269ff96bf", "format": "PNG", "mode": "RGB", "width": 5360, "height": 2076, "direct_visual_inspection": "pass"},
+    "geotiffs": {"count": 36, "all_write_reopen_exact": true, "unlabeled_and_invalid_are_nodata": true}
+  },
+  "independent_verification": {
+    "status": "PASS",
+    "verified_at_utc": "2026-08-25T17:37:27Z",
+    "command": "python -I scripts/verify_retrospective_evaluation.py --root C:\\Projects\\Active\\burnlens-experiment-three-custody\\evaluation\\m5-2026-001 --custody-root C:\\Projects\\Active\\burnlens-experiment-three-custody --training-root C:\\Projects\\Active\\burnlens-experiment-three-custody\\training\\m4-2026-005-primary --inspect-geospatial --inspect-rendered",
+    "checkpoint_reinference_exact": true,
+    "metrics_recomputed_exact": true,
+    "primary_replay_exact": true,
+    "geotiffs_reopened": 36,
+    "render_inspection": "pass",
+    "test_arrays": 16,
+    "historical_prediction_arrays": 8
+  },
+  "scientific_outputs": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 6, "evaluations": 1, "releases": 0},
+  "claim_limits": [
+    "Retrospective compatibility only; the test was already known from Experiment One.",
+    "Only two test events and 89 sparse selected prototype-core pixels are scored; events, not pixels, are the independent units.",
+    "No dense segmentation, independent accuracy, significance, superiority, generalization, operational, or wildfire-guidance claim is supported.",
+    "RBR is structurally favored because the prototype labels derive from the same spectral-change family.",
+    "Seed 20260727 is reported but not selected as a best-seed replacement; all three predeclared seeds determine the frozen comparative disposition."
+  ]
+}

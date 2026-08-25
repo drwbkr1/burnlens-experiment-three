@@ -8,6 +8,17 @@ semantic versioning once a first release exists.
 
 ### Added
 
+- Milestone 5 profile, one-opening retrospective-evaluation contract, aligned
+  state reconciliation, external-evidence boundary, and issue #10.
+- A staged pre-opening design requiring metadata-only audit and fabricated
+  metric/geospatial/render proof before any test value is decoded.
+- One terminal retrospective opening for all three frozen seeds and four
+  controls, with exact primary/replay packages, 36 verified GeoTIFFs, and a
+  reviewer-inspected comparison render.
+- A public machine-readable M5 result preserving lifecycle `PASS`, comparative
+  `FAIL`, every seed/event metric, raw confusion counts, controls, immutable
+  package identities, and claim limits.
+
 - A complete executable Experiment Three protocol, fixed before benchmark
   training, with exact data-role, model, runtime, checkpoint, shared-threshold,
   metric, collapse, artifact, replay, opening, decision, and claim rules.
@@ -63,6 +74,17 @@ semantic versioning once a first release exists.
   verified training candidate from any unopened comparative evaluation.
 
 ### Changed
+
+- Consumed `M5-OPENING-2026-001` exactly once without post-test change. The
+  three-seed median macro IoU is `0.2201` and median worst-event macro Dice is
+  `0.2919`, below the strongest constant-control values `0.2853` / `0.3333`.
+  Exact replay passes; the result remains a candidate pending reviewed merge.
+
+- Accepted Milestone 4 through PR #9 at live `main`
+  `53983c09a03d7f8f9453e6f492b05e58b795b876`, exact tree
+  `51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa`, with merge-triggered run
+  `32875755932` passing; activated issue #10 and Milestone 5 control with the
+  test still sealed.
 
 - Retained frozen-training attempt 001 as `FAIL` after a fresh-process runtime
   configuration mismatch; attempt 002 as `INVALID` after its checkpoint

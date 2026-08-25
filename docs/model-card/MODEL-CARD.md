@@ -1,4 +1,4 @@
-# BurnLens Experiment Three Provisional Model Card
+# BurnLens Experiment Three Model Card Candidate
 
 ## Model and intended role
 
@@ -13,7 +13,8 @@ information, field-validated mapping, or a basis for safety decisions.
 
 ## Current lifecycle state
 
-Milestone 4 has a locally verified train/validation candidate under issue #8.
+Milestone 4 is accepted live through PR #9; Milestone 5 is a locally verified
+candidate under issue #10.
 All three predeclared seeds trained in separate fresh isolated processes with
 the frozen CPU/float32 protocol,
 produced complete histories and changed weights, selected checkpoints by
@@ -21,9 +22,11 @@ minimum validation balanced BCE, reconstructed tensor-only `weights.pt`
 packages in fresh isolated processes, and reproduced byte for byte. The shared
 validation-only threshold is `0.5`.
 
-This candidate is not yet an accepted live checkpoint. Test values remain
-sealed, so no Experiment Three test metric, comparative disposition, or result
-render exists.
+Opening `M5-OPENING-2026-001` consumed the known test exactly once. Independent
+verification reproduced checkpoint inference and metrics, reopened all 36
+GeoTIFFs exactly, confirmed byte-identical primary/replay packages, and passed
+direct inspection of the actual comparison render. Lifecycle status is `PASS`;
+comparative status is `FAIL`.
 
 ## Training data and procedure
 
@@ -61,11 +64,23 @@ candidate.
 
 ## Evaluation and reporting
 
-Milestone 5 may open the already-known Experiment One test once under a
-separate active contract. It must compare every seed with RBR, the canonical
-U-Net, and constant controls. Events—not pixels—are the independent units.
-Lifecycle completion and comparative outcome remain separate.
+| Seed or control | Event-class macro IoU | Worst-event macro Dice | Burn prevalence | Collapse gate |
+| --- | ---: | ---: | ---: | --- |
+| `20260725` | 0.2201 | 0.2919 | 0.9775 | Fail: Windigo constant |
+| `20260726` | 0.2009 | 0.1136 | 0.7303 | Pass |
+| `20260727` | 0.5794 | 0.4652 | 0.5843 | Pass |
+| RBR | 1.0000 | 1.0000 | 0.4382 | Pass |
+| Canonical U-Net / constant burned | 0.2147 | 0.2642 | 1.0000 | Fail |
+| Constant background | 0.2853 | 0.3333 | 0.0000 | Fail |
+
+The predeclared three-seed median is macro IoU `0.2201` and worst-event macro
+Dice `0.2919`; it does not strictly beat the strongest constant-control values
+of `0.2853` and `0.3333`. Seed `20260727` is reported but was not selected as a
+replacement. Events—not pixels—are the independent units. Lifecycle completion
+and comparative outcome remain separate.
 
 See [current limitations](../limitations/LIMITATIONS.md), the
 [frozen protocol](../../protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json),
 and the [training record](../../records/training/EXPERIMENT-THREE-M4-FROZEN-TRAINING-2026-001.json).
+The exact public evaluation record is
+[`EXPERIMENT-THREE-M5-RETROSPECTIVE-EVALUATION-2026-001.json`](../../records/evaluation/EXPERIMENT-THREE-M5-RETROSPECTIVE-EVALUATION-2026-001.json).

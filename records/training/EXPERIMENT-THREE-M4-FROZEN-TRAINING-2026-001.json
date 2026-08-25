@@ -150,5 +150,20 @@
     "evaluations": 0,
     "releases": 0
   },
+  "live_acceptance": {
+    "status": "accepted",
+    "pull_request": 9,
+    "candidate_commit": "7ed79027a29195b30072dd632a1e091ca86b7011",
+    "candidate_tree": "51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa",
+    "live_main_commit": "53983c09a03d7f8f9453e6f492b05e58b795b876",
+    "live_main_tree": "51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa",
+    "push_ci": 32875659950,
+    "pull_request_ci": 32875705749,
+    "merge_ci": 32875755932,
+    "issue_8": "closed",
+    "tags": 0,
+    "releases": 0,
+    "test_values_opened": false
+  },
   "claim_boundary": "This record proves a frozen train/validation neural lifecycle and validation-only threshold selection. It contains no test inference, comparative evaluation, generalization claim, operational claim, tag, or release."
 }

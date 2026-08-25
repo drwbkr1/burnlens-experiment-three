@@ -13,8 +13,12 @@
 - The inherited RBR baseline is structurally aligned with dNBR-derived
   prototype-core labels. Its reported perfect score is prototype-core agreement,
   not independent accuracy.
-- Validation selection does not establish test performance. At the current M4
-  candidate, test values remain sealed and comparative status is unknown.
+- The known test was opened exactly once after validation selection. The
+  comparative result is `FAIL`: the three-seed median did not beat the
+  strongest constant control, and one seed was constant on one event.
+- Seed `20260727` performed substantially better than the other two, but
+  selecting it after test observation would be best-seed shopping. The frozen
+  decision therefore retains every seed and the unfavorable median outcome.
 
 ## Model and engineering limits
 

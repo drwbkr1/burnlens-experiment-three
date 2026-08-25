@@ -5,25 +5,23 @@
 | Status date | 2026-08-25 |
 | Canonical remote | `https://github.com/drwbkr1/burnlens-experiment-three` |
 | Canonical local checkout | `C:\Projects\Active\burnlens-experiment-three` |
-| Working version | `0.4.0-m4-frozen-training` (unreleased) |
-| Accepted checkpoint | `10bc499db09bccd66e3bc9289d655ab561bec857` on live `main` |
-| Active work | Milestone 4, issue [#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8) |
+| Working version | `0.5.0-m5-retrospective-evaluation` (unreleased) |
+| Accepted checkpoint | `53983c09a03d7f8f9453e6f492b05e58b795b876` on live `main` |
+| Active work | Milestone 5, issue [#10](https://github.com/drwbkr1/burnlens-experiment-three/issues/10) |
 | Active review | None |
-| Overall state | Milestone 3 is accepted. Milestone 4 has a locally verified three-seed training/replay candidate with shared validation threshold `0.5`; reviewed merge and live verification remain. Test remains sealed. |
+| Overall state | Milestone 4 is accepted live. Milestone 5 consumed the known test exactly once: lifecycle `PASS`, comparative `FAIL`, exact replay `PASS`. The result is a locally verified candidate awaiting reviewed merge and live verification. |
 
 ## Current truth
 
-Milestone 3 is accepted and live-verified. Pull request
-[#7](https://github.com/drwbkr1/burnlens-experiment-three/pull/7) merged the
-reviewed tree `65d3fcb5b01b5f8448ab863a873a76d1c8da51ee` to live `main` at
-[`10bc499db09bccd66e3bc9289d655ab561bec857`](https://github.com/drwbkr1/burnlens-experiment-three/commit/10bc499db09bccd66e3bc9289d655ab561bec857).
+Milestone 4 is accepted and live-verified. Pull request
+[#9](https://github.com/drwbkr1/burnlens-experiment-three/pull/9) merged the
+reviewed tree `51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa` to live `main` at
+[`53983c09a03d7f8f9453e6f492b05e58b795b876`](https://github.com/drwbkr1/burnlens-experiment-three/commit/53983c09a03d7f8f9453e6f492b05e58b795b876).
 Push, pull-request, and merge-triggered runs
-`32689480130`/`32689499207`/`32689530033` passed. Issue #6 is closed.
-There are still zero tags and zero releases. Milestone 4 is active from this
-exact checkpoint. Its local candidate contains three accepted frozen training
-runs, three selected checkpoints, and three validation-only inference packages;
-it is not an accepted checkpoint until reviewed merge, CI, and live identity
-verification pass.
+`32875659950`/`32875705749`/`32875755932` passed. Issue #8 is closed.
+There are still zero tags and zero releases. Milestone 5 is active from this
+exact checkpoint under issue #10. Opening `M5-OPENING-2026-001` is terminal;
+the known test cannot be reopened or used for tuning.
 
 | Surface | State | Evidence |
 | --- | --- | --- |
@@ -46,9 +44,13 @@ verification pass.
 | Synthetic lifecycle | `PASS` | Primary and replay each contain 7 files / 20,628 bytes with identical roster `9c008f10...`, receipt `7a3fde99...`, and fingerprint `d13ec92...`; fresh-process reload, GeoTIFF, and render verified |
 | Frozen executable protocol | `PASS`, accepted | Canonical-LF SHA-256 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`; accepted through PR #7 and live-main CI `32689530033` |
 | Train/validation data gate | `PASS` | Exactly 32 arrays / 888,832 bytes verified; train 109 and validation 89 scored prototype-core pixels; zero test arrays listed or decoded |
-| Training runs / checkpoints | `3 / 3`, local candidate | Seeds `20260725`/`26`/`27`; selected epochs `105`/`147`/`146`; strict `weights.pt` packages reconstruct exactly |
-| Inference runs / evaluations | `3 / 0` | Three validation-only probability packages; shared threshold `0.5`; known test evidence remains unopened |
-| Comparative test metrics / rendered result | `MISSING` | Training/validation evidence exists, but no Experiment Three test result has been opened or rendered |
+| Training runs / checkpoints | `3 / 3`, accepted | Seeds `20260725`/`26`/`27`; selected epochs `105`/`147`/`146`; strict `weights.pt` packages reconstruct exactly; accepted through PR #9 |
+| Inference runs / evaluations | `6 / 1` | Three validation-only plus three frozen test inference runs; one single-opening retrospective evaluation |
+| Neural lifecycle | `PASS` | Exact build, training, safe reload, inference, evaluation, packaging, and primary/replay verification completed |
+| Comparative outcome | `FAIL` | Three-seed median macro IoU `0.2201` and median worst-event macro Dice `0.2919`; did not beat strongest constant-control values `0.2853` / `0.3333`; one seed was constant on one event |
+| Per-seed macro IoU | `0.2201 / 0.2009 / 0.5794` | Seeds `20260725` / `20260726` / `20260727`; all reported, no best-seed substitution |
+| RBR / canonical U-Net | `1.0000 / 0.2147` macro IoU | RBR's perfect sparse-core agreement is structurally favored; the U-Net equals constant-burned and predicts all 89 scored cores burned |
+| Evaluation package | `PASS` | Primary/replay each 53 files / 367,150 bytes / roster `e322a101...`; 36 GeoTIFFs reopen exactly; 5360x2076 render directly inspected |
 | Release | `0` | No tag or GitHub release exists |
 | Fresh confirmation | `DEFERRED` | Separate owner-gated lane; not needed for primary completion |
 
@@ -65,10 +67,9 @@ segmentation quality, population generalization, statistical significance,
 model superiority, operational fitness, or wildfire-response utility.
 
 The approved 137-parameter `6 -> 8 -> 8 -> 1` pointwise neural detector and
-bounded training choices remain unchanged. No model code may become substantive
-training evidence until synthetic preflight passes and the complete executable
-protocol is frozen. Any post-evaluation tuning or new architecture belongs to a
-separately approved Experiment 3B.
+bounded training choices remained unchanged through synthetic preflight,
+protocol freeze, training, and evaluation. Any post-evaluation tuning or new
+architecture belongs to a separately approved Experiment 3B.
 
 ## Custody and retained failures
 
@@ -105,7 +106,7 @@ separately approved Experiment 3B.
 
 ## Immediate next gate
 
-Complete repository-wide validation, publish the exact Milestone 4 candidate
-through a reviewed pull request, and verify the merged live-main tree and CI.
-Test arrays, historical test predictions, test metrics, evaluation, and release
-remain prohibited until a separately activated Milestone 5 contract.
+Publish the exact reviewed M5 candidate through issue #10, then verify the
+merged `main` tree, merge-triggered CI, and public records. This checkpoint
+must retain lifecycle `PASS`, comparative `FAIL`, zero post-test changes, and
+zero tags/releases. Fresh confirmation remains outside this milestone.
