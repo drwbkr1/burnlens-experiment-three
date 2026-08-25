@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "release_id": "EXPERIMENT-THREE-v1.0.0-LIVE-AUDIT-2026-002",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": ["version_control_write", "github_pull_request_management", "github_issue_management", "external_state_verification", "public_repository_publication", "update_project_records", "terminal_closeout"],
+    "verified_at_utc": "2026-08-25T18:24:37Z",
+    "expires_at_utc": null
+  },
+  "risk_classes": ["documentation", "runtime", "data", "model", "package", "public", "security", "external"],
+  "candidate": {
+    "base_commit": "45b32c1cb782edc31ef8a4f49671b6a897c7d7bb",
+    "commit": "8de60a3350a7c25942be8223bf9067c9460774d1",
+    "tree": "98b8447f7aa1f1668adc14da5e364785c05286a1",
+    "version": "1.0.0",
+    "tag": "v1.0.0",
+    "artifacts": [
+      {"name": "burnlens-experiment-three-v1.0.0-evidence.zip", "bytes": 34007, "sha256": "ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4"},
+      {"name": "burnlens-experiment-three-v1.0.0-evidence.zip.sha256", "bytes": 112, "sha256": "f23c50e4da2a7669a77120843b6dbc9ea02442964725606e52da61af232097e3"}
+    ]
+  },
+  "live_truth": {"verified_at_utc": "2026-08-25T18:24:37Z", "branch": "main", "remote_commit": "8de60a3350a7c25942be8223bf9067c9460774d1", "pull_request": 13, "tag_target": "8de60a3350a7c25942be8223bf9067c9460774d1", "deployment": "GitHub release 376615584"},
+  "real_surface_matrix": {
+    "required": true,
+    "registry_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json",
+    "evaluation_receipt_ref": "records/release/EXPERIMENT-THREE-M6-REAL-SURFACE-MATRIX-2026-002.json",
+    "status": "verified",
+    "candidate_identity": "8de60a3350a7c25942be8223bf9067c9460774d1",
+    "required_surface_ids": ["repository_control", "repository_tests", "scientific_replay", "reviewer_evidence", "release_package", "github_public_repository", "github_release"],
+    "verified_surface_ids": ["repository_control", "repository_tests", "scientific_replay", "reviewer_evidence", "release_package", "github_public_repository", "github_release"],
+    "reason": ""
+  },
+  "checks": [
+    {"id": "CHECK-M6-LIVE-TAG", "category": "external", "required": true, "status": "pass", "method": "Inspect the GitHub annotated-tag object and peeled commit.", "evidence": ["v1.0.0 -> tag object 275eb15e... -> commit 8de60a3..."], "reason": ""},
+    {"id": "CHECK-M6-LIVE-ASSETS", "category": "package", "required": true, "status": "pass", "method": "Controlled no-replace intake and local hash/structure verification of both live assets.", "evidence": ["Both GitHub digests, sizes, downloaded hashes, and verifier result match"], "reason": ""},
+    {"id": "CHECK-M6-SOURCE-ARCHIVES", "category": "public", "required": true, "status": "pass", "method": "Download and extract GitHub ZIP/tar archives; compare canonical SHA-256 roster with tagged worktree.", "evidence": ["136 files / 1511185 bytes / roster 60a2da69f2ad3532621628a3d29f225e0a63401b4ddc59c78ef31224657382ca exact across all three"], "reason": ""},
+    {"id": "CHECK-M6-PUBLIC-CLAIMS", "category": "documentation", "required": true, "status": "pass", "method": "Compare release body and tagged repository records; probe public release page.", "evidence": ["Release notes exact", "Tagged README/release-note blobs exact", "HTTP 200", "Lifecycle PASS and comparative FAIL unchanged"], "reason": ""},
+    {"id": "CHECK-M6-RIGHTS-BOUNDARY", "category": "security", "required": true, "status": "pass", "method": "Run packaged byte-boundary verifier and compare live asset roster with audited package.", "evidence": ["Zero forbidden files", "Controlled scientific bytes absent", "Full replay remains custody-only"], "reason": ""}
+  ],
+  "truth_surfaces": [
+    {"path_or_uri": "https://github.com/drwbkr1/burnlens-experiment-three/tree/main", "expected_state": "Reviewed release commit", "observed_state": "8de60a3350a7c25942be8223bf9067c9460774d1", "status": "current"},
+    {"path_or_uri": "https://github.com/drwbkr1/burnlens-experiment-three/releases/tag/v1.0.0", "expected_state": "One public verified release", "observed_state": "Release 376615584 with two exact assets", "status": "current"},
+    {"path_or_uri": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\release-verification\\m6-2026-001-live-download", "expected_state": "Validated no-replace live-download custody", "observed_state": "Four promoted assets; contract PASS", "status": "current"}
+  ],
+  "limitations": ["Public package verification is not public-download scientific inference replay.", "Controlled benchmark/model-output bytes and runtime are intentionally excluded.", "Retrospective sparse-core results support no operational, accuracy, superiority, significance, or generalization claim."],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "All seven project-owned real surfaces verify against the exact released commit and rights-safe asset boundary.",
+    "next_action": "Publish the release receipt, reconcile terminal records, close issue #12, and mark the approved long-running goal complete without creating Experiment 3B.",
+    "authorized_next_actions": ["version_control_write", "github_pull_request_management", "github_issue_management", "external_state_verification", "public_repository_publication", "update_project_records", "terminal_closeout"]
+  }
+}

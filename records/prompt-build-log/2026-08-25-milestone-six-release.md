@@ -26,11 +26,18 @@ Continue the approved long-running goal after Milestone 5 accepted lifecycle
 - Passed 56/56 approved-runtime tests, full controlled scientific replay, clean
   extraction, forbidden-byte and common-secret scans, the real-surface matrix,
   and the prepublication release audit.
+- Merged PR #13 at the exact audited tree, observed merge-triggered CI pass,
+  created annotated `v1.0.0`, and published exactly the audited ZIP and
+  checksum.
+- Independently downloaded both live assets and both GitHub source archives
+  through a validated no-replace controlled-intake contract. Asset hashes,
+  packaged verifier, 136-file source roster, release notes, tagged blobs, and
+  public release page all pass.
 
 ## Current boundary
 
 The scientific result and terminal evaluation package are immutable. Public
 evidence may contain numerical/repository-authored material only. Package,
-clean-context replay, and candidate audit now pass. Reviewed merge, live-main
-verification, tag/release verification, and terminal reconciliation remain
-gated.
+clean-context replay, candidate audit, reviewed main, tag/release, downloaded
+assets, source archives, and public claims now pass. Only reviewed acceptance
+of the release receipt and terminal reconciliation remain gated.

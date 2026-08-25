@@ -6,6 +6,10 @@ semantic versioning once a first release exists.
 
 ## [Unreleased]
 
+No post-release scientific or feature work is authorized for Experiment Three.
+
+## [1.0.0] - 2026-08-25
+
 ### Added
 
 - Milestone 6 profile, terminal release contract, aligned M5 acceptance state,
@@ -80,6 +84,12 @@ semantic versioning once a first release exists.
   verified training candidate from any unopened comparative evaluation.
 
 ### Changed
+
+- Published and independently verified annotated tag and GitHub release
+  `v1.0.0` at reviewed commit `8de60a3350a7c25942be8223bf9067c9460774d1`.
+  Both release assets match the audited hashes; both GitHub source archives
+  match the tagged 136-file tree. Lifecycle remains `PASS`; comparative result
+  remains `FAIL`.
 
 - Accepted Milestone 5 through PR #11 at live `main`
   `45b32c1cb782edc31ef8a4f49671b6a897c7d7bb`, exact tree
