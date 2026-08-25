@@ -30,9 +30,13 @@ MILESTONE_THREE_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json"
 )
-CONTROL_PROFILE = Path(
+MILESTONE_FOUR_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json"
+)
+CONTROL_PROFILE = Path(
+    "records/governance/"
+    "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json"
 )
 BOOTSTRAP_MILESTONE = Path(
     "records/milestones/"
@@ -54,6 +58,27 @@ FROZEN_TRAINING_MILESTONE = Path(
     "records/milestones/"
     "EXPERIMENT-THREE-MILESTONE-004-FROZEN-TRAINING-2026-001.json"
 )
+RETROSPECTIVE_EVALUATION_MILESTONE = Path(
+    "records/milestones/"
+    "EXPERIMENT-THREE-MILESTONE-005-RETROSPECTIVE-EVALUATION-2026-001.json"
+)
+PREOPENING_AUDIT = Path(
+    "records/evaluation/EXPERIMENT-THREE-M5-PREOPENING-AUDIT-2026-001.json"
+)
+PREOPENING_VERIFIER = Path("scripts/verify_preopening_audit.py")
+EVALUATION_PATH_PREFLIGHT = Path(
+    "records/evaluation/EXPERIMENT-THREE-M5-EVALUATION-PATH-PREFLIGHT-2026-001.json"
+)
+RETROSPECTIVE_EVALUATION_RECORD = Path(
+    "records/evaluation/EXPERIMENT-THREE-M5-RETROSPECTIVE-EVALUATION-2026-001.json"
+)
+EVALUATION_PATH_SOURCES = {
+    Path("src/burnlens_experiment_three/evaluation.py"): "3c375ecd4e3983bb28e8193a2a479be948cf270e5332f13e938661dd0320a812",
+    Path("scripts/run_evaluation_path_preflight.py"): "dbe6a1089fe4c5f4c849492ea8ccc1925b24d5ee766430e74b497a7130f0dd94",
+    Path("scripts/run_retrospective_evaluation.py"): "6d09f0b1dcf9ef12fe078488d6c980d0154ae86e0cf45145ac9c4b68e26c0045",
+    Path("scripts/verify_retrospective_evaluation.py"): "9fccb4b6a28adbd17ea65e3c2e2522b3721e14de74784c4fb6105f1fc11f9337",
+    Path("tests/test_retrospective_evaluation.py"): "3ac5f4208d40a4fee315d00ea17f3fdd6e3b46d429ee6596f72576fec4964282",
+}
 STATE_RECONCILIATION = Path(
     "records/reconciliations/EXPERIMENT-THREE-STATE-2026-001.json"
 )
@@ -295,6 +320,7 @@ REQUIRED_FILES = (
     Path("docs/devlog/2026-08-24-milestone-one-intake.md"),
     Path("docs/devlog/2026-08-24-milestone-two-runtime-gate.md"),
     Path("docs/devlog/2026-08-24-milestone-four-frozen-training.md"),
+    Path("docs/devlog/2026-08-25-milestone-five-evaluation.md"),
     Path("records/decisions/DECISION-REGISTER.md"),
     Path("records/evidence/EVIDENCE-LEDGER.md"),
     Path("records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md"),
@@ -302,17 +328,27 @@ REQUIRED_FILES = (
     MILESTONE_ONE_CONTROL_PROFILE,
     MILESTONE_TWO_CONTROL_PROFILE,
     MILESTONE_THREE_CONTROL_PROFILE,
+    MILESTONE_FOUR_CONTROL_PROFILE,
     CONTROL_PROFILE,
     BOOTSTRAP_MILESTONE,
     PROVENANCE_MILESTONE,
     SYNTHETIC_PREFLIGHT_MILESTONE,
     PROTOCOL_FREEZE_MILESTONE,
     FROZEN_TRAINING_MILESTONE,
+    RETROSPECTIVE_EVALUATION_MILESTONE,
+    PREOPENING_AUDIT,
+    PREOPENING_VERIFIER,
+    EVALUATION_PATH_PREFLIGHT,
+    RETROSPECTIVE_EVALUATION_RECORD,
+    *EVALUATION_PATH_SOURCES.keys(),
     STATE_RECONCILIATION,
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-002.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-003.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-004.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-005.json"),
+    Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-006.json"),
+    Path("records/evaluation/README.md"),
+    Path("records/prompt-build-log/2026-08-25-milestone-five-evaluation.md"),
     Path("records/training/README.md"),
     TRAIN_VALIDATION_DATA_RECORD,
     FROZEN_TRAINING_RECORD,
@@ -2229,7 +2265,9 @@ def check_frozen_training_record(root: Path) -> list[str]:
     try:
         data = json.loads(data_path.read_text(encoding="utf-8"))
         training = json.loads(training_path.read_text(encoding="utf-8"))
-        profile = json.loads((root / CONTROL_PROFILE).read_text(encoding="utf-8"))
+        profile = json.loads(
+            (root / MILESTONE_FOUR_CONTROL_PROFILE).read_text(encoding="utf-8")
+        )
         milestone = json.loads(
             (root / FROZEN_TRAINING_MILESTONE).read_text(encoding="utf-8")
         )
@@ -2415,15 +2453,222 @@ def check_frozen_training_record(root: Path) -> list[str]:
     ):
         if exits.get(exit_id) != "pass":
             errors.append(f"{exit_id} must pass in the M4 candidate")
-    if exits.get("EXIT-M4-VERIFIED-CHECKPOINT") != "pending":
-        errors.append("M4 live checkpoint must remain pending before merge verification")
+    if exits.get("EXIT-M4-VERIFIED-CHECKPOINT") != "pass":
+        errors.append("M4 live checkpoint acceptance must remain passed")
     units = {item.get("id"): item.get("status") for item in milestone.get("units", [])}
     if any(units.get(unit_id) != "complete" for unit_id in (
         "M4-U003-IMPLEMENTATION",
         "M4-U004-THREE-SEED-EXECUTION",
         "M4-U005-REPLAY-VERIFY",
-    )) or units.get("M4-U006-REVIEWED-PR") != "ready":
-        errors.append("M4 unit readiness does not match the verified local candidate")
+    )) or units.get("M4-U006-REVIEWED-PR") != "complete":
+        errors.append("M4 unit status does not match the accepted live checkpoint")
+    return errors
+
+
+def check_preopening_audit(root: Path) -> list[str]:
+    """Bind the metadata-only M5 audit and retain zero-value access."""
+
+    record_path = root / PREOPENING_AUDIT
+    verifier_path = root / PREOPENING_VERIFIER
+    if not record_path.is_file() or not verifier_path.is_file():
+        return []
+    try:
+        record = json.loads(record_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return ["M5 pre-opening audit must be UTF-8 JSON"]
+    errors: list[str] = []
+    if record.get("record_id") != "EXPERIMENT-THREE-M5-PREOPENING-AUDIT-2026-001" or record.get("disposition") != "pass":
+        errors.append("M5 pre-opening audit identity or disposition changed")
+    verification = record.get("identity_verification", {})
+    expected_verifier = {
+        "path": PREOPENING_VERIFIER.as_posix(),
+        "bytes": 4580,
+        "sha256": "894df7525aea10845920d51582c7f4650b14cab8a2877ec74df0b814379724f2",
+    }
+    if verification.get("verifier") != expected_verifier:
+        errors.append("M5 pre-opening verifier binding changed")
+    elif verifier_path.stat().st_size != 4580 or _repository_text_sha256(verifier_path.read_bytes()) != expected_verifier["sha256"]:
+        errors.append("M5 pre-opening verifier source changed")
+    expected_groups = {
+        "binding_record": (3, 70314, "19973be5c98d1c7a246dfbd4e89af1018b95e89b008a5d9857ffe92807ff4839"),
+        "rbr_comparator_record": (1, 21257, "05ceda96f8d756f5b6d9d8b11e2a41ccb8923868814c436cd210d7c9f5b3ffbb"),
+        "test_dataset_arrays": (16, 444416, "04061c6a6747421e2cb4afbc079f2611c22ec6944c0839391c2b6a1611275321"),
+        "unet_comparator_record": (1, 26268, "449cf35b0c51ed43dc3d2adae6dc9b35758880c8625d8d68c415d5b2736fee6a"),
+        "unet_test_arrays": (8, 82944, "1c6bbd067273a5b1526aac0bfd7f43a92db36ef9259632da1b46840b5b0467d1"),
+    }
+    groups = verification.get("groups", {})
+    for name, expected in expected_groups.items():
+        observed = groups.get(name, {})
+        if (observed.get("files"), observed.get("bytes"), observed.get("roster_sha256")) != expected or observed.get("mismatches") != 0:
+            errors.append(f"M5 pre-opening roster changed: {name}")
+    if any(verification.get(field) != value for field, value in {
+        "arrays_deserialized": 0,
+        "values_decoded": 0,
+        "numpy_imported": False,
+    }.items()):
+        errors.append("M5 pre-opening audit must retain zero decoded values")
+    boundary = record.get("boundary", {})
+    expected_zero = (
+        "test_arrays_deserialized",
+        "historical_prediction_arrays_deserialized",
+        "evaluation_roots_created",
+        "evaluations",
+        "scientific_choices_made",
+    )
+    if boundary.get("test_values_opened") is not False or boundary.get("historical_prediction_values_opened") is not False or any(boundary.get(field) != 0 for field in expected_zero):
+        errors.append("M5 pre-opening boundary changed")
+    opening = record.get("one_opening_design", {})
+    if opening.get("preopening_state") != "absent" or opening.get("opening_marker_exists") is not False or opening.get("terminal_package_exists") is not False:
+        errors.append("M5 opening state must remain sealed before U003")
+    return errors
+
+
+def check_evaluation_path_preflight(root: Path) -> list[str]:
+    """Bind the accepted fabricated M5 path and retained visual failure."""
+
+    path = root / EVALUATION_PATH_PREFLIGHT
+    if not path.is_file():
+        return []
+    try:
+        record = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return ["M5 evaluation-path preflight must be UTF-8 JSON"]
+    errors: list[str] = []
+    if record.get("disposition") != "pass" or record.get("scope") != "wholly_fabricated_non_scientific_evaluation_path":
+        errors.append("M5 evaluation-path preflight scope or disposition changed")
+    bindings = {Path(item.get("path", "")): item.get("sha256") for item in record.get("source_bindings", []) if isinstance(item, dict)}
+    if bindings != EVALUATION_PATH_SOURCES:
+        errors.append("M5 evaluation-path source roster changed")
+    for relative, expected_sha in EVALUATION_PATH_SOURCES.items():
+        source = root / relative
+        if not source.is_file() or _repository_text_sha256(source.read_bytes()) != expected_sha:
+            errors.append(f"M5 evaluation-path source changed: {relative.as_posix()}")
+    attempts = record.get("retained_attempts", [])
+    if [(item.get("attempt_id"), item.get("disposition")) for item in attempts] != [("m5-u003-001", "fail")]:
+        errors.append("M5 visual-failure retention changed")
+    accepted = record.get("accepted_attempt", {})
+    if any(accepted.get(key) != value for key, value in {
+        "attempt_id": "m5-u003-002",
+        "payload_files_each": 49,
+        "payload_bytes_each": 92385,
+        "payload_roster_sha256": "98dcec345c4b8d8876a05cac9babecf4aa04c1e269578243ad27fbfd78fe6135",
+        "primary_replay_exact": True,
+    }.items()):
+        errors.append("M5 accepted fabricated replay identity changed")
+    if accepted.get("geotiffs", {}).get("all_reopen_exact") is not True or accepted.get("render", {}).get("direct_visual_inspection") != "pass":
+        errors.append("M5 geospatial or rendered proof changed")
+    boundary = record.get("boundary", {})
+    if boundary.get("benchmark_accessed") is not False or boundary.get("test_values_opened") is not False or boundary.get("historical_prediction_values_opened") is not False or boundary.get("evaluations") != 0:
+        errors.append("M5 fabricated preflight must retain sealed scientific evidence")
+    return errors
+
+
+def check_retrospective_evaluation_record(root: Path) -> list[str]:
+    """Bind the one M5 opening, frozen outcomes, exact replay, and output counts."""
+
+    record_path = root / RETROSPECTIVE_EVALUATION_RECORD
+    profile_path = root / CONTROL_PROFILE
+    milestone_path = root / RETROSPECTIVE_EVALUATION_MILESTONE
+    if not record_path.is_file() or not profile_path.is_file() or not milestone_path.is_file():
+        return []
+    try:
+        record = json.loads(record_path.read_text(encoding="utf-8"))
+        profile = json.loads(profile_path.read_text(encoding="utf-8"))
+        milestone = json.loads(milestone_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return ["M5 retrospective evaluation control records must be UTF-8 JSON"]
+    errors: list[str] = []
+    if record.get("record_id") != "EXPERIMENT-THREE-M5-RETROSPECTIVE-EVALUATION-2026-001" or record.get("scope") != "known_retrospective_sparse_prototype_core_compatibility":
+        errors.append("M5 retrospective evaluation identity or scope changed")
+    opening = record.get("opening", {})
+    if any(opening.get(key) != value for key, value in {
+        "opening_id": "M5-OPENING-2026-001",
+        "previous_evaluation_roots": 0,
+        "single_opening": True,
+        "test_arrays_deserialized_once": 16,
+        "historical_prediction_arrays_deserialized_once": 8,
+        "post_test_changes": 0,
+        "threshold": 0.5,
+        "protocol_sha256": "12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e",
+    }.items()):
+        errors.append("M5 one-opening boundary changed")
+    dispositions = record.get("dispositions", {})
+    if dispositions.get("lifecycle_status") != "PASS" or dispositions.get("comparative_status") != "FAIL" or dispositions.get("no_tuning_or_rescue") is not True:
+        errors.append("M5 lifecycle or comparative disposition changed")
+    decision = record.get("decision_evidence", {})
+    expected_decision = {
+        "three_seed_median_event_class_macro_iou": 0.2201417004048583,
+        "three_seed_median_worst_event_macro_dice": 0.29193899782135074,
+        "strongest_constant_event_class_macro_iou": 0.28525641025641024,
+        "strongest_constant_worst_event_macro_dice": 0.3333333333333333,
+        "every_seed_every_event_nonconstant": False,
+        "strictly_beats_constants_on_both": False,
+    }
+    if decision != expected_decision:
+        errors.append("M5 frozen decision evidence changed")
+    expected_seeds = [
+        (20260725, 0.2201417004048583, 0.29193899782135074, False),
+        (20260726, 0.20094760312151616, 0.11363636363636363, True),
+        (20260727, 0.5794129720853859, 0.4652406417112299, True),
+    ]
+    observed_seeds = [
+        (
+            item.get("seed"),
+            item.get("aggregate", {}).get("event_class_macro_iou"),
+            item.get("aggregate", {}).get("worst_event_macro_dice"),
+            item.get("aggregate", {}).get("all_events_nonconstant"),
+        )
+        for item in record.get("model_results", [])
+        if isinstance(item, dict)
+    ]
+    if observed_seeds != expected_seeds or any(len(item.get("events", [])) != 2 for item in record.get("model_results", [])):
+        errors.append("M5 per-seed or per-event result changed")
+    comparators = record.get("comparators", {})
+    expected_comparators = {
+        "RBR": (1.0, 1.0, 0.43820224719101125, True),
+        "canonical_experiment_one_unet": (0.21474358974358976, 0.2641509433962264, 1.0, False),
+        "constant_background": (0.28525641025641024, 0.3333333333333333, 0.0, False),
+        "constant_burned": (0.21474358974358976, 0.2641509433962264, 1.0, False),
+    }
+    observed_comparators = {
+        name: (
+            item.get("event_class_macro_iou"),
+            item.get("worst_event_macro_dice"),
+            item.get("predicted_burn_prevalence"),
+            item.get("all_events_nonconstant"),
+        )
+        for name, item in comparators.items()
+        if isinstance(item, dict)
+    }
+    if observed_comparators != expected_comparators:
+        errors.append("M5 comparator result changed")
+    package = record.get("external_package", {})
+    payload = package.get("primary_and_replay", {})
+    render = package.get("render", {})
+    if any(package.get(key) != value for key, value in {"root_files": 108, "root_bytes": 747018}.items()) or any(payload.get(key) != value for key, value in {
+        "files_each": 53,
+        "bytes_each": 367150,
+        "roster_sha256": "e322a10135243d06360393b21553602713285a0b2f7aeabbb924930073bd1d68",
+        "exact": True,
+    }.items()) or render.get("sha256") != "87d7653fcc39abb7d290a36daf1d6fa1372f46f092970a936c10024269ff96bf" or render.get("direct_visual_inspection") != "pass":
+        errors.append("M5 terminal package or rendered identity changed")
+    verification = record.get("independent_verification", {})
+    if verification.get("status") != "PASS" or verification.get("checkpoint_reinference_exact") is not True or verification.get("metrics_recomputed_exact") is not True or verification.get("primary_replay_exact") is not True or verification.get("geotiffs_reopened") != 36 or verification.get("render_inspection") != "pass":
+        errors.append("M5 independent verification changed")
+    expected_outputs = {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 6, "evaluations": 1, "releases": 0}
+    if record.get("scientific_outputs") != expected_outputs or profile.get("scientific_outputs") != expected_outputs or milestone.get("scientific_outputs") != expected_outputs:
+        errors.append("M5 scientific output counts are not aligned")
+    if profile.get("scientific_state") != "evaluated_replay_verified_candidate":
+        errors.append("M5 profile scientific state changed")
+    units = {item.get("id"): item.get("status") for item in milestone.get("units", [])}
+    if units.get("M5-U004-ONE-TIME-EVALUATION") != "complete" or units.get("M5-U005-INDEPENDENT-REPLAY") != "complete" or units.get("M5-U006-REVIEWED-PR") != "ready":
+        errors.append("M5 unit state does not match the verified candidate")
+    exits = {item.get("id"): item.get("status") for item in milestone.get("exit_conditions", [])}
+    for exit_id in ("EXIT-M5-ONE-OPENING", "EXIT-M5-ALL-SEEDS-CONTROLS", "EXIT-M5-GEOSPATIAL-RENDERED", "EXIT-M5-REPLAY", "EXIT-M5-DISPOSITIONS"):
+        if exits.get(exit_id) != "pass":
+            errors.append(f"{exit_id} must pass in the M5 candidate")
+    if exits.get("EXIT-M5-VERIFIED-CHECKPOINT") != "pending":
+        errors.append("M5 live checkpoint must remain pending before publication")
     return errors
 
 
@@ -2443,6 +2688,9 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_synthetic_preflight_record,
         check_frozen_protocol_record,
         check_frozen_training_record,
+        check_preopening_audit,
+        check_evaluation_path_preflight,
+        check_retrospective_evaluation_record,
     )
     errors: list[str] = []
     for check in checks:

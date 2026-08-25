@@ -34,5 +34,6 @@ evaluation, a protocol change, or a release.
 
 The M4 candidate has three training runs, three selected checkpoints, and three
 validation-only inference packages. It has zero evaluations, test openings,
-tags, or releases. Reviewed merge and live verification remain required before
-M4 acceptance; a new M5 contract is required before any test access.
+tags, or releases. PR #9 and main CI `32875755932` later accepted the exact
+candidate at live `main` `53983c09a03d7f8f9453e6f492b05e58b795b876`. A new
+M5 contract activated separately before any test access.

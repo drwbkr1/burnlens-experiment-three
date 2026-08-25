@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "record_id": "EXPERIMENT-THREE-M5-EVALUATION-PATH-PREFLIGHT-2026-001",
+  "disposition": "pass",
+  "scope": "wholly_fabricated_non_scientific_evaluation_path",
+  "protocol_sha256": "12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e",
+  "runtime": "CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002",
+  "source_bindings": [
+    {"path": "src/burnlens_experiment_three/evaluation.py", "bytes": 17176, "sha256": "3c375ecd4e3983bb28e8193a2a479be948cf270e5332f13e938661dd0320a812"},
+    {"path": "scripts/run_evaluation_path_preflight.py", "bytes": 6463, "sha256": "dbe6a1089fe4c5f4c849492ea8ccc1925b24d5ee766430e74b497a7130f0dd94"},
+    {"path": "scripts/run_retrospective_evaluation.py", "bytes": 8718, "sha256": "6d09f0b1dcf9ef12fe078488d6c980d0154ae86e0cf45145ac9c4b68e26c0045"},
+    {"path": "scripts/verify_retrospective_evaluation.py", "bytes": 7260, "sha256": "9fccb4b6a28adbd17ea65e3c2e2522b3721e14de74784c4fb6105f1fc11f9337"},
+    {"path": "tests/test_retrospective_evaluation.py", "bytes": 3733, "sha256": "3ac5f4208d40a4fee315d00ea17f3fdd6e3b46d429ee6596f72576fec4964282"}
+  ],
+  "retained_attempts": [
+    {
+      "attempt_id": "m5-u003-001",
+      "disposition": "fail",
+      "primary_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\evaluation-preflight\\m5-u003-001-primary",
+      "replay_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\evaluation-preflight\\m5-u003-001-replay",
+      "payload_files_each": 49,
+      "payload_bytes_each": 87558,
+      "payload_roster_sha256": "b5ddc6e98361f29dd69b48c8e50d7b3275a67e535f0e8ac955b3d7c5a3425fff",
+      "computational_replay_exact": true,
+      "failure": "Direct visual inspection found overlapping column labels at 48-pixel panel widths, so the rendered evidence was not reviewer-legible.",
+      "recovery": "Both roots retained unchanged. Only render scale and header layout changed before fresh attempt 002."
+    }
+  ],
+  "accepted_attempt": {
+    "attempt_id": "m5-u003-002",
+    "primary_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\evaluation-preflight\\m5-u003-002-primary",
+    "replay_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\evaluation-preflight\\m5-u003-002-replay",
+    "payload_files_each": 49,
+    "payload_bytes_each": 92385,
+    "payload_roster_sha256": "98dcec345c4b8d8876a05cac9babecf4aa04c1e269578243ad27fbfd78fe6135",
+    "primary_replay_exact": true,
+    "render": {"path": "rendered-comparison.png", "bytes": 17174, "sha256": "75216e6a3c5dd23bf1b7ff98a2a894471637d9dfa704e6b2a0cb908581954c8c", "size": [1520, 540], "format": "PNG", "mode": "RGB", "direct_visual_inspection": "pass"},
+    "geotiffs": {"count": 36, "roles": ["probability", "class", "error"], "all_reopen_exact": true, "crs_transform_nodata_verified": true, "unscored_is_nodata": true},
+    "arrays": {"per_seed_probability_packages": 3, "per_seed_prediction_packages": 3, "allow_pickle": false},
+    "metrics": {"all_three_seeds": true, "both_events": true, "both_classes": true, "raw_confusion": true, "dice_iou": true, "predicted_burn_prevalence": true, "collapse_gate": true, "comparative_rule_exercised": true},
+    "opening_control": {"exclusive_root": true, "existing_root_rejected": true, "marker_precedes_test_deserialization": true, "fixed_real_root_name": "m5-2026-001", "failure_is_fail_closed": true}
+  },
+  "validation": {
+    "system_runtime_tests": "51 tests pass or approved-runtime skip",
+    "approved_runtime_tests": "51/51 pass",
+    "compileall": "pass",
+    "real_runner_help": "pass",
+    "independent_verifier_help": "pass",
+    "fabricated_primary_replay": "byte_exact",
+    "geospatial_real_surface": "write_reopen_compare_pass",
+    "rendered_real_surface": "direct_visual_inspection_pass"
+  },
+  "boundary": {
+    "benchmark_accessed": false,
+    "test_values_opened": false,
+    "historical_prediction_values_opened": false,
+    "scientific_output": false,
+    "evaluation_root_created": false,
+    "evaluations": 0
+  },
+  "next_dependency": "M5-U004-ONE-TIME-EVALUATION"
+}

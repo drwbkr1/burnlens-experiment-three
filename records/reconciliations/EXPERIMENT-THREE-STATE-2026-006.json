@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "reconciliation_id": "EXPERIMENT-THREE-STATE-2026-006",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json",
+  "authority": {"mode": "inherited", "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL", "authorized_action_classes": ["read_only_inspection", "deterministic_validation", "metadata_capture", "project_control", "update_project_records", "software_implementation", "model_inference", "retrospective_evaluation", "rendered_evidence_generation"], "verified_at_utc": "2026-08-25T17:07:38Z", "expires_at_utc": null},
+  "observed_at_utc": "2026-08-25T17:37:27Z",
+  "live_facts": [
+    {"id": "project.root", "status": "observed", "value": "C:\\Projects\\Active\\burnlens-experiment-three", "source_ref": "canonical checkout", "observed_at_utc": "2026-08-25T17:07:38Z"},
+    {"id": "git.branch", "status": "observed", "value": "codex/retrospective-evaluation-005", "source_ref": "git branch", "observed_at_utc": "2026-08-25T17:07:38Z"},
+    {"id": "git.head", "status": "observed", "value": "53983c09a03d7f8f9453e6f492b05e58b795b876", "source_ref": "branch base", "observed_at_utc": "2026-08-25T17:07:38Z"},
+    {"id": "git.origin_main", "status": "observed", "value": "53983c09a03d7f8f9453e6f492b05e58b795b876", "source_ref": "git ls-remote origin main", "observed_at_utc": "2026-08-25T17:07:38Z"},
+    {"id": "checkpoint.accepted_main", "status": "observed", "value": {"commit": "53983c09a03d7f8f9453e6f492b05e58b795b876", "tree": "51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa", "pull_request": 9, "ci_run": 32875755932}, "source_ref": "PR 9 and live verification", "observed_at_utc": "2026-08-25T17:07:38Z"},
+    {"id": "github.issue.10.state", "status": "observed", "value": "OPEN", "source_ref": "https://github.com/drwbkr1/burnlens-experiment-three/issues/10", "observed_at_utc": "2026-08-25T17:07:38Z"},
+    {"id": "contract.active_id", "status": "observed", "value": "EXPERIMENT-THREE-MILESTONE-005-RETROSPECTIVE-EVALUATION-2026-001", "source_ref": "profile 006 candidate", "observed_at_utc": "2026-08-25T17:07:38Z"},
+    {"id": "scientific.outputs", "status": "observed", "value": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 6, "evaluations": 1, "releases": 0}, "source_ref": "M5 opening M5-OPENING-2026-001 and exact replay receipt", "observed_at_utc": "2026-08-25T17:37:27Z"},
+    {"id": "test.values", "status": "observed", "value": "opened_once_terminal", "source_ref": "opening receipt a1703f8f4adb4c6d2763c1d9737e75f31cba48233be832b483b0803d34f042ba and replay receipt 688ffe9d81329dc5497fdbef7a4cc773bc1a4820e6c2e7c29a2bfb1e810deded", "observed_at_utc": "2026-08-25T17:37:27Z"}
+  ],
+  "recorded_claims": [
+    {"id": "profile.active_contract", "fact_id": "contract.active_id", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json", "scope": "current", "claimed_value": "EXPERIMENT-THREE-MILESTONE-005-RETROSPECTIVE-EVALUATION-2026-001", "evidence_ref": "active_milestone_path"},
+    {"id": "profile.current_branch", "fact_id": "git.branch", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json", "scope": "current", "claimed_value": "codex/retrospective-evaluation-005", "evidence_ref": "current_checkpoint.expected_branch"},
+    {"id": "profile.current_head", "fact_id": "git.head", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json", "scope": "current", "claimed_value": "53983c09a03d7f8f9453e6f492b05e58b795b876", "evidence_ref": "current_checkpoint.expected_head"},
+    {"id": "profile.accepted_main", "fact_id": "checkpoint.accepted_main", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json", "scope": "current", "claimed_value": {"commit": "53983c09a03d7f8f9453e6f492b05e58b795b876", "tree": "51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa", "pull_request": 9, "ci_run": 32875755932}, "evidence_ref": "current_checkpoint"},
+    {"id": "profile.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 6, "evaluations": 1, "releases": 0}, "evidence_ref": "scientific_outputs"},
+    {"id": "contract.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/milestones/EXPERIMENT-THREE-MILESTONE-005-RETROSPECTIVE-EVALUATION-2026-001.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 6, "evaluations": 1, "releases": 0}, "evidence_ref": "scientific_outputs"},
+    {"id": "profile.test_boundary", "fact_id": "test.values", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json", "scope": "current", "claimed_value": "opened_once_terminal", "evidence_ref": "current_checkpoint.candidate_status"}
+  ],
+  "required_fact_ids": ["project.root", "git.branch", "git.head", "git.origin_main", "checkpoint.accepted_main", "github.issue.10.state", "contract.active_id", "scientific.outputs", "test.values"],
+  "reconciliation": {"requested_action_class": "evidence_recording", "intended_surfaces": ["M5 terminal evaluation package", "exact replay receipt", "public result record", "rendered and geospatial verification"], "limitations": ["M4 is accepted live.", "M5 is a locally verified candidate until reviewed merge and live verification.", "The known test was opened exactly once and cannot be rerun or used for tuning.", "Lifecycle PASS and comparative FAIL are separate dispositions."]}
+}

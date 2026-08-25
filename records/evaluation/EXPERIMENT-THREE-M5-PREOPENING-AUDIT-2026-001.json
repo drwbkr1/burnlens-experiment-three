@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "record_id": "EXPERIMENT-THREE-M5-PREOPENING-AUDIT-2026-001",
+  "disposition": "pass",
+  "observed_at_utc": "2026-08-25T17:21:28Z",
+  "scope": "metadata_and_cryptographic_identity_only",
+  "accepted_base": {
+    "main_commit": "53983c09a03d7f8f9453e6f492b05e58b795b876",
+    "tree": "51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa",
+    "pull_request": 9,
+    "main_ci": 32875755932
+  },
+  "frozen_protocol": {
+    "path": "protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json",
+    "canonical_lf_sha256": "12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e",
+    "test_events": ["event-ward-creek-2019", "event-windigo-2022"],
+    "test_patches": ["test--event-ward-creek-2019--WCP-001--r168c236h64w64", "test--event-ward-creek-2019--WCP-002--r68c401h64w64", "test--event-windigo-2022--WDP-001--r180c151h64w64", "test--event-windigo-2022--WDP-002--r103c393h64w64"],
+    "test_core_pixels": 89,
+    "shared_threshold": 0.5,
+    "seeds": [20260725, 20260726, 20260727]
+  },
+  "identity_verification": {
+    "procedure": "python scripts/verify_preopening_audit.py --custody-root C:\\Projects\\Active\\burnlens-experiment-three-custody\\benchmark --evaluation-root C:\\Projects\\Active\\burnlens-experiment-three-custody\\evaluation\\m5-2026-001",
+    "verifier": {"path": "scripts/verify_preopening_audit.py", "bytes": 4580, "sha256": "894df7525aea10845920d51582c7f4650b14cab8a2877ec74df0b814379724f2"},
+    "operation": "cryptographic hashing and JSON metadata validation only",
+    "groups": {
+      "binding_record": {"files": 3, "bytes": 70314, "mismatches": 0, "roster_sha256": "19973be5c98d1c7a246dfbd4e89af1018b95e89b008a5d9857ffe92807ff4839"},
+      "rbr_comparator_record": {"files": 1, "bytes": 21257, "mismatches": 0, "roster_sha256": "05ceda96f8d756f5b6d9d8b11e2a41ccb8923868814c436cd210d7c9f5b3ffbb"},
+      "test_dataset_arrays": {"files": 16, "bytes": 444416, "mismatches": 0, "roster_sha256": "04061c6a6747421e2cb4afbc079f2611c22ec6944c0839391c2b6a1611275321"},
+      "unet_comparator_record": {"files": 1, "bytes": 26268, "mismatches": 0, "roster_sha256": "449cf35b0c51ed43dc3d2adae6dc9b35758880c8625d8d68c415d5b2736fee6a"},
+      "unet_test_arrays": {"files": 8, "bytes": 82944, "mismatches": 0, "roster_sha256": "1c6bbd067273a5b1526aac0bfd7f43a92db36ef9259632da1b46840b5b0467d1"}
+    },
+    "arrays_deserialized": 0,
+    "values_decoded": 0,
+    "numpy_imported": false
+  },
+  "training_package": {
+    "attempt_id": "m4-2026-005",
+    "independent_verifier": "pass",
+    "files_each_root": 20,
+    "bytes_each_root": 270793,
+    "payload_roster_sha256": "e3115254c1602e9f1c0aba7e91c7d1c2984db106053a880afbc069f6beb82473",
+    "primary_replay_exact": true,
+    "test_values_opened": false
+  },
+  "rights_and_claim_gate": {
+    "controlled_local_scientific_use": "pass_under_scoped_owner_and_source_decisions",
+    "repository_redistribution": "blocked",
+    "native_provider_bytes": "excluded",
+    "restricted_tepee_barc_material": "excluded",
+    "fresh_confirmation": "deferred_and_not_authorized",
+    "independent_unit": "event",
+    "claim_scope": "retrospective sparse selected prototype-core compatibility only"
+  },
+  "required_comparators": {
+    "names": ["RBR", "canonical Experiment One U-Net", "constant background", "constant burned"],
+    "historical_records_exact": true,
+    "historical_prediction_arrays_exact": true,
+    "rbr_full_test_arrays": "not_complete_in_experiment_one",
+    "rbr_route": "reconstruct predictions deterministically from the frozen threshold and exact post/pre channels under the Experiment Three metric implementation",
+    "constant_route": "construct exact all-zero and all-one predictions after opening",
+    "unet_route": "translate all eight admitted prediction/probability arrays without rerunning or tuning the historical model"
+  },
+  "output_schema": {
+    "per_seed": ["test-probabilities.npz", "test-predictions.npz", "per-seed-metrics.json", "georeferenced probability/class/error GeoTIFFs"],
+    "aggregate": ["opening-receipt.json", "comparison-manifest.json", "rendered-comparison.png", "model-card.md", "limitations.md", "exact-replay-receipt.json"],
+    "required_metrics": ["per-event raw confusion", "per-class support and predicted count", "per-class Dice and IoU", "event-class macro Dice", "event-class macro IoU", "worst-event macro Dice", "masked BCE", "predicted-burn prevalence"],
+    "unlabeled_policy": "unscored and invalid locations remain distinct from background in arrays, GeoTIFFs, and renderings"
+  },
+  "one_opening_design": {
+    "evaluation_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\evaluation\\m5-2026-001",
+    "preopening_state": "absent",
+    "opening_marker_exists": false,
+    "terminal_package_exists": false,
+    "atomic_rule": "The evaluation controller must create the root exclusively and write opening-receipt.json before deserializing any test or historical prediction array; an existing root is a fail-closed stop.",
+    "single_event_semantics": "Opening is the single sealed-to-open transition. Verification may replay the immutable opened package but may not create another opening identity or change any frozen choice.",
+    "failure_rule": "If opening begins without a complete verifiable terminal package, retain the root and classify under the frozen terminal rules; do not delete, replace, or rerun it without owner approval."
+  },
+  "boundary": {
+    "test_values_opened": false,
+    "historical_prediction_values_opened": false,
+    "test_arrays_deserialized": 0,
+    "historical_prediction_arrays_deserialized": 0,
+    "evaluation_roots_created": 0,
+    "evaluations": 0,
+    "scientific_choices_made": 0
+  },
+  "next_dependency": "M5-U003-EVALUATION-PATH"
+}

@@ -18,7 +18,7 @@ Resolve instructions in this order:
 1. The owner's latest explicit direction and safety constraints.
 2. `docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md`.
 3. `records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md`.
-4. The active milestone contract named by `records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json`.
+4. The active milestone contract named by `records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json`.
 5. `docs/governance/CHECKPOINT-POLICY.md` and this file.
 6. Current status and roadmap records.
 7. Historical changelog, devlog, prompt log, decision, and evidence records.
@@ -41,7 +41,7 @@ Conv1x1(8 -> 1)
 
 It consumes the established six pre/post Sentinel-2 channels and emits dense logits. Dense output does not make sparsely scored prototype cores into dense ground truth.
 
-The approved protocol direction already fixes event-class-balanced masked BCE; deterministic float32 local CPU PyTorch; Adam learning rate `0.001`; batch size `4`; maximum `200` epochs; patience `25`; seeds `20260725`, `20260726`, and `20260727` with the first primary; minimum-validation-balanced-BCE checkpoint selection; one validation-only threshold selected under a prospectively sealed worst-event-Dice/macro-IoU rule; and no augmentation, positive-class weighting, BatchNorm, dropout, ensemble, pretraining, or architecture/hyperparameter search. Comparative `PASS` requires every seed to be nonconstant on each test event and the three-seed median to beat the strongest constant control on macro IoU and worst-event Dice. Milestone 3 must encode, validate, hash-bind, and seal these values and their remaining implementation details. It may not choose alternatives from observed outcomes.
+The approved protocol direction fixes event-class-balanced masked BCE; deterministic float32 local CPU PyTorch; Adam learning rate `0.001`; batch size `4`; maximum `200` epochs; patience `25`; seeds `20260725`, `20260726`, and `20260727` with the first primary; minimum-validation-balanced-BCE checkpoint selection; one validation-only threshold selected under a prospectively sealed worst-event-Dice/macro-IoU rule; and no augmentation, positive-class weighting, BatchNorm, dropout, ensemble, pretraining, or architecture/hyperparameter search. Comparative `PASS` requires every seed to be nonconstant on each test event and the three-seed median to beat the strongest constant control on macro IoU and worst-event Dice. Milestone 3 encoded, validated, hash-bound, and sealed these values and their remaining implementation details. Later milestones may not choose alternatives from observed outcomes.
 
 ## Scientific invariants
 

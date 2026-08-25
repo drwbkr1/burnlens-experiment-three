@@ -13,13 +13,14 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-25, Milestone 3 is accepted and live-verified on `main` at
-[`10bc499db09bccd66e3bc9289d655ab561bec857`](https://github.com/drwbkr1/burnlens-experiment-three/commit/10bc499db09bccd66e3bc9289d655ab561bec857),
-tree `65d3fcb5b01b5f8448ab863a873a76d1c8da51ee`. Merge-triggered GitHub
-Actions run
-[`32689530033`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32689530033)
-passed. Milestone 4 is active under issue
-[#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8).
+As of 2026-08-25, Milestone 4 is accepted and live-verified on `main` at
+[`53983c09a03d7f8f9453e6f492b05e58b795b876`](https://github.com/drwbkr1/burnlens-experiment-three/commit/53983c09a03d7f8f9453e6f492b05e58b795b876),
+tree `51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa`. Pull request
+[#9](https://github.com/drwbkr1/burnlens-experiment-three/pull/9) and
+merge-triggered GitHub Actions run
+[`32875755932`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32875755932)
+passed. Milestone 5 is active under issue
+[#10](https://github.com/drwbkr1/burnlens-experiment-three/issues/10).
 
 The exact owner/rightsholder review is now complete and reconciled as `yes` for
 rights the owner controls. A separate current six-source gate is `READY`, and
@@ -51,7 +52,7 @@ array. This is accepted engineering-control evidence, not a scientific result:
 no substantive training run, scientific checkpoint, inference, evaluation,
 metric, result render, tag, or release existed at protocol acceptance.
 
-Milestone 4 now has a locally verified scientific candidate. Exactly three
+Milestone 4 is an accepted live scientific checkpoint. Exactly three
 predeclared seeds trained under the frozen protocol, selected checkpoints were
 reconstructed in fresh isolated processes, and primary/replay packages match
 byte for byte. The shared validation-only threshold is `0.5`. The first run
@@ -60,8 +61,20 @@ replayable checkpoint package used the wrong frozen filename. The third full
 attempt is also retained as `INVALID` because its receipt filenames violated
 the frozen artifact list. The fourth is `INVALID` because its seeds trained in
 one parent process rather than a fresh process per seed. The fifth full attempt
-is protocol-conformant. Test values remain sealed, so there is still no
-Experiment Three test inference, comparative result, or performance claim.
+is protocol-conformant and is the sole accepted training package. Test values
+were opened exactly once in Milestone 5 as `M5-OPENING-2026-001`. All three
+frozen seeds and all four controls ran in one bounded invocation. The primary
+and replay payloads match exactly at 53 files / 367,150 bytes / roster
+`e322a101...`; independent re-inference, metric recomputation, all 36 GeoTIFF
+reopens, and direct inspection of the 5360x2076 comparison render pass.
+
+The neural lifecycle is `PASS`; the frozen comparative outcome is `FAIL`.
+Across all three predeclared seeds, median event-class macro IoU is `0.2201`
+and median worst-event macro Dice is `0.2919`, below the strongest constant
+control's `0.2853` and `0.3333`. Seed `20260727` was stronger (`0.5794` macro
+IoU), but it cannot replace the predeclared all-seed decision. No post-test
+tuning, rescue, rerun, or seed selection occurred. The result is a locally
+verified M5 candidate until reviewed merge and live verification.
 
 ## Research question
 
@@ -190,7 +203,8 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Frozen executable protocol](protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json)
 - [Protocol-freeze evidence record](records/protocol/EXPERIMENT-THREE-PROTOCOL-FREEZE-2026-001.json)
 - [Frozen-training evidence record](records/training/EXPERIMENT-THREE-M4-FROZEN-TRAINING-2026-001.json)
-- [Provisional model card](docs/model-card/MODEL-CARD.md)
+- [Retrospective evaluation result](records/evaluation/EXPERIMENT-THREE-M5-RETROSPECTIVE-EVALUATION-2026-001.json)
+- [Model card candidate](docs/model-card/MODEL-CARD.md)
 - [Current limitations](docs/limitations/LIMITATIONS.md)
 - [Runtime candidate inventory](records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json)
 - [Runtime source gate](records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json)

@@ -390,7 +390,7 @@ class RepositoryControlTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             paths = (
-                validator.CONTROL_PROFILE,
+                validator.MILESTONE_FOUR_CONTROL_PROFILE,
                 validator.FROZEN_TRAINING_MILESTONE,
                 validator.TRAIN_VALIDATION_DATA_RECORD,
                 validator.FROZEN_TRAINING_RECORD,
@@ -412,6 +412,32 @@ class RepositoryControlTests(unittest.TestCase):
             self.assertTrue(
                 any("accepted attempt identity or exact-replay" in error for error in errors)
             )
+
+    def test_retrospective_evaluation_binds_frozen_outcome_and_replay(self) -> None:
+        self.assertEqual([], validator.check_retrospective_evaluation_record(ROOT))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = (
+                validator.CONTROL_PROFILE,
+                validator.RETROSPECTIVE_EVALUATION_MILESTONE,
+                validator.RETROSPECTIVE_EVALUATION_RECORD,
+            )
+            for relative in paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+
+            result_path = root / validator.RETROSPECTIVE_EVALUATION_RECORD
+            result = json.loads(result_path.read_text(encoding="utf-8"))
+            result["dispositions"]["comparative_status"] = "PASS"
+            result["decision_evidence"]["strictly_beats_constants_on_both"] = True
+            result_path.write_text(
+                json.dumps(result, indent=2) + "\n", encoding="utf-8"
+            )
+            errors = validator.check_retrospective_evaluation_record(root)
+            self.assertTrue(any("disposition changed" in error for error in errors))
+            self.assertTrue(any("decision evidence changed" in error for error in errors))
 
     def test_workflow_pins_checkout_to_full_sha(self) -> None:
         workflow = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")

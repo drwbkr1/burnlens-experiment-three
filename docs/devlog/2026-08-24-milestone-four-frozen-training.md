@@ -37,7 +37,8 @@ fresh isolated processes. The shared validation-only threshold is `0.5`, and
 independent verification found the primary and replay roots byte-identical: 20
 files and 270,793 bytes each. Test values were never opened.
 
-This is a locally verified scientific candidate, not a comparative result.
-Milestone 4 still requires reviewed merge, passing CI, and direct live-main
-identity verification. Milestone 5 must activate separately before the one-time
-test opening.
+This candidate later passed reviewed publication. PR #9 merged the exact tree
+to live `main` at `53983c09a03d7f8f9453e6f492b05e58b795b876`; merge-triggered
+CI `32875755932` and direct identity verification passed. Milestone 4 is an
+accepted scientific-training checkpoint, not a comparative result or release.
+Milestone 5 activated separately with the test still sealed.
