@@ -175,8 +175,28 @@ overwrite.
   reload, deterministic replay, runtime roster, and existing-Python isolation
   passed. This creates no scientific training or evaluation authority.
 
+### E3-DEC-0014 - Frozen artifact conformance and rerun disposition
+
+- **Date:** 2026-08-24
+- **State:** `APPLIED`; implementation-conformance decision under the already
+  frozen protocol, not a protocol amendment
+- **Decision:** Retain attempt 002 as `INVALID` even though its computation and
+  byte replay passed, because `state_dict.pt` did not match the prospectively
+  required `selected-checkpoint/weights.pt` artifact schema.
+- **Repair boundary:** Change only a nonconforming artifact filename and its
+  matching reader or manifest, then rerun all three seeds from fresh
+  initialization. Do not reuse prior metrics or weights as accepted scientific
+  evidence.
+- **Outcome:** Attempt 003 corrected the checkpoint filename but remained
+  `INVALID` because its per-seed and aggregate replay receipt filenames also
+  violated the frozen artifact list. Attempt 004 applied that receipt-name-only
+  repair but remained `INVALID` because its seeds trained sequentially in one
+  parent process. Attempt 005 adds the required isolated training process per
+  seed and passes the exact artifact list and independent replay. Attempts 001
+  through 004 remain immutable retained evidence.
+
 ## Decisions still pending evidence or binding
 
-Exact implementation bindings, the executable protocol artifact, and every
-scientific outcome remain pending their gated milestones. Their absence does
-not reopen the approved model or training choices for routine optimization.
+The one-time test opening, comparative disposition, rendered result, and
+terminal release remain pending their gated milestones. Their absence does not
+reopen the frozen model or training choices for routine optimization.

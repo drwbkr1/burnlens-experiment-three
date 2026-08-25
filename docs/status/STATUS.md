@@ -2,30 +2,28 @@
 
 | Field | Current value |
 | --- | --- |
-| Status date | 2026-08-24 |
+| Status date | 2026-08-25 |
 | Canonical remote | `https://github.com/drwbkr1/burnlens-experiment-three` |
 | Canonical local checkout | `C:\Projects\Active\burnlens-experiment-three` |
-| Working version | `0.3.0-m3-protocol-freeze` (unreleased) |
-| Accepted checkpoint | `8b0636d6cc117d524256a0f7f2bd699fb64a232b` on live `main` |
-| Active work | Milestone 3, issue [#6](https://github.com/drwbkr1/burnlens-experiment-three/issues/6) |
-| Active review | None; protocol freeze is a locally verified candidate awaiting reviewed PR |
-| Overall state | Milestone 2 is accepted. The complete executable protocol is frozen locally at SHA-256 `12a092e...`; bindings, fabricated replay, and all 39 approved-runtime tests pass. Training remains prohibited until reviewed merge and live verification. |
+| Working version | `0.4.0-m4-frozen-training` (unreleased) |
+| Accepted checkpoint | `10bc499db09bccd66e3bc9289d655ab561bec857` on live `main` |
+| Active work | Milestone 4, issue [#8](https://github.com/drwbkr1/burnlens-experiment-three/issues/8) |
+| Active review | None |
+| Overall state | Milestone 3 is accepted. Milestone 4 has a locally verified three-seed training/replay candidate with shared validation threshold `0.5`; reviewed merge and live verification remain. Test remains sealed. |
 
 ## Current truth
 
-Milestone 2 is accepted and live-verified. Pull request
-[#5](https://github.com/drwbkr1/burnlens-experiment-three/pull/5) merged the
-reviewed tree `fe91a423cee4f4ad69cad88a643bb730c8647005` to live `main` at
-[`8b0636d6cc117d524256a0f7f2bd699fb64a232b`](https://github.com/drwbkr1/burnlens-experiment-three/commit/8b0636d6cc117d524256a0f7f2bd699fb64a232b).
-Candidate, pull-request, and merge-triggered runs
-`32687882167`/`32687884772`/`32687957764` passed. Issue #4 is closed.
-There are still zero tags and zero releases.
-
-Milestone 3 has frozen the complete executable protocol as a local candidate.
-It binds the admitted metadata and comparators without decoding any test array,
-and it fixes all remaining ordering, selection, metric, collapse, replay,
-artifact, exception, decision, opening, and claim rules. This is protocol
-evidence, not training or performance evidence.
+Milestone 3 is accepted and live-verified. Pull request
+[#7](https://github.com/drwbkr1/burnlens-experiment-three/pull/7) merged the
+reviewed tree `65d3fcb5b01b5f8448ab863a873a76d1c8da51ee` to live `main` at
+[`10bc499db09bccd66e3bc9289d655ab561bec857`](https://github.com/drwbkr1/burnlens-experiment-three/commit/10bc499db09bccd66e3bc9289d655ab561bec857).
+Push, pull-request, and merge-triggered runs
+`32689480130`/`32689499207`/`32689530033` passed. Issue #6 is closed.
+There are still zero tags and zero releases. Milestone 4 is active from this
+exact checkpoint. Its local candidate contains three accepted frozen training
+runs, three selected checkpoints, and three validation-only inference packages;
+it is not an accepted checkpoint until reviewed merge, CI, and live identity
+verification pass.
 
 | Surface | State | Evidence |
 | --- | --- | --- |
@@ -46,10 +44,11 @@ evidence, not training or performance evidence.
 | Runtime successor activation | `PASS`, synthetic-only | Exact application-local runtime: 18,171 files / 726,368,861 bytes / roster SHA-256 `77a5bce011c81cd24ae080d76566e0bbcf8c500e80dfdb7f88efe19ddc1bf977`; 20 packages compatible; CPU/native/replay checks pass |
 | Model implementation | `PASS`, synthetic scope | Exact `6 -> 8 -> 8 -> 1` pointwise network, 137 parameters, arbitrary HxW, mask-preserving balanced loss, strict state-dict package |
 | Synthetic lifecycle | `PASS` | Primary and replay each contain 7 files / 20,628 bytes with identical roster `9c008f10...`, receipt `7a3fde99...`, and fingerprint `d13ec92...`; fresh-process reload, GeoTIFF, and render verified |
-| Frozen executable protocol | `PASS`, local candidate | Canonical-LF SHA-256 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`; exact bindings and fabricated dry-run pass; 39/39 approved-runtime tests pass |
-| Training runs / checkpoints | `0 / 0` | Training remains unauthorized before later gates |
-| Inference runs / evaluations | `0 / 0` | Known test evidence has not been opened by Experiment Three |
-| Metrics / rendered result | `MISSING` | No Experiment Three scientific output exists |
+| Frozen executable protocol | `PASS`, accepted | Canonical-LF SHA-256 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`; accepted through PR #7 and live-main CI `32689530033` |
+| Train/validation data gate | `PASS` | Exactly 32 arrays / 888,832 bytes verified; train 109 and validation 89 scored prototype-core pixels; zero test arrays listed or decoded |
+| Training runs / checkpoints | `3 / 3`, local candidate | Seeds `20260725`/`26`/`27`; selected epochs `105`/`147`/`146`; strict `weights.pt` packages reconstruct exactly |
+| Inference runs / evaluations | `3 / 0` | Three validation-only probability packages; shared threshold `0.5`; known test evidence remains unopened |
+| Comparative test metrics / rendered result | `MISSING` | Training/validation evidence exists, but no Experiment Three test result has been opened or rendered |
 | Release | `0` | No tag or GitHub release exists |
 | Fresh confirmation | `DEFERRED` | Separate owner-gated lane; not needed for primary completion |
 
@@ -91,11 +90,22 @@ separately approved Experiment 3B.
   runtime. The attempt is retained as `FAIL`. Recovery restored the specifically
   inspected existing-install surfaces; no wheel download, model import,
   synthetic run, or scientific work occurred.
+- Frozen-training attempt `m4-2026-001-primary` stopped after seed `20260725`
+  because its reload child had not applied the required one-thread runtime
+  configuration. The partial six-file root remains retained as `FAIL`.
+- Attempt `m4-2026-002` completed all three seeds and exact replay, but its
+  checkpoint payload was named `state_dict.pt`, violating the frozen required
+  `weights.pt` artifact schema. Both roots remain retained as `INVALID`.
+  Attempt `003` reran every seed from initialization but is also retained as
+  `INVALID` because its replay receipt filenames did not match the frozen
+  artifact list. Attempt `004` used the correct artifacts but is `INVALID`
+  because its seeds trained sequentially in one process. Attempt `005` reran
+  every seed in a separate fresh process and is the sole accepted scientific
+  candidate.
 
 ## Immediate next gate
 
-Publish the exact protocol-freeze candidate through an issue #6 pull request,
-require candidate and pull-request checks, merge only after review, then verify
-the live `main` tree, protocol hash, required blobs, and merge-triggered CI.
-This is a checkpoint, not a release. Milestone 4 training remains prohibited
-until that acceptance is recorded.
+Complete repository-wide validation, publish the exact Milestone 4 candidate
+through a reviewed pull request, and verify the merged live-main tree and CI.
+Test arrays, historical test predictions, test metrics, evaluation, and release
+remain prohibited until a separately activated Milestone 5 contract.

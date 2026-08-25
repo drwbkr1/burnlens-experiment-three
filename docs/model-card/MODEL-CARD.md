@@ -1,0 +1,71 @@
+# BurnLens Experiment Three Provisional Model Card
+
+## Model and intended role
+
+The Experiment Three model is a 137-parameter pointwise fully convolutional
+change detector: `Conv1x1(6 -> 8) -> ReLU -> Conv1x1(8 -> 8) -> ReLU ->
+Conv1x1(8 -> 1)`. It consumes the six frozen pre/post Sentinel-2 channels and
+emits one logit per pixel. Its intended role is a bounded portfolio experiment
+on the retrospective BurnLens Deschutes compatibility benchmark.
+
+It is not operational wildfire guidance, a burn-severity product, emergency
+information, field-validated mapping, or a basis for safety decisions.
+
+## Current lifecycle state
+
+Milestone 4 has a locally verified train/validation candidate under issue #8.
+All three predeclared seeds trained in separate fresh isolated processes with
+the frozen CPU/float32 protocol,
+produced complete histories and changed weights, selected checkpoints by
+minimum validation balanced BCE, reconstructed tensor-only `weights.pt`
+packages in fresh isolated processes, and reproduced byte for byte. The shared
+validation-only threshold is `0.5`.
+
+This candidate is not yet an accepted live checkpoint. Test values remain
+sealed, so no Experiment Three test metric, comparative disposition, or result
+render exists.
+
+## Training data and procedure
+
+- Train: four 64x64 patches from Green Ridge and Tepee; 109 scored prototype-
+  core pixels, 58 background and 51 burned.
+- Validation: four 64x64 patches from Grandview and McKay; 89 scored prototype-
+  core pixels, 32 background and 57 burned.
+- Loss: event-class-balanced masked binary cross entropy.
+- Optimizer: Adam, learning rate `0.001`, batch size four.
+- Budget: at most 200 epochs, patience 25.
+- Seeds: `20260725`, `20260726`, `20260727`; all reported.
+- Prohibited: augmentation, class weighting, BatchNorm, dropout, pretraining,
+  ensembling, model search, test-driven tuning, and best-seed selection.
+
+## Candidate training evidence
+
+| Seed | Epochs | Selected epoch | Validation balanced BCE | Selected tensor SHA-256 |
+| --- | ---: | ---: | ---: | --- |
+| `20260725` | 130 | 105 | 0.6794654131 | `50477e8f...` |
+| `20260726` | 172 | 147 | 0.6747468710 | `19b0308c...` |
+| `20260727` | 171 | 146 | 0.6462924480 | `078d4ffc...` |
+
+These are validation-selection values, not test performance.
+
+## Retained attempts
+
+Attempt 001 is retained as `FAIL` after a reload-process runtime configuration
+mismatch. Attempt 002 is retained as `INVALID` because its checkpoint filename
+violated the frozen artifact contract despite exact computation and replay.
+Attempt 003 is also retained as `INVALID` because its receipt filenames did not
+match the frozen artifact list. Attempt 004 is `INVALID` because its seeds
+trained sequentially in one process. Attempt 005 reran every seed from
+initialization in a fresh isolated process and is the sole accepted local
+candidate.
+
+## Evaluation and reporting
+
+Milestone 5 may open the already-known Experiment One test once under a
+separate active contract. It must compare every seed with RBR, the canonical
+U-Net, and constant controls. Events—not pixels—are the independent units.
+Lifecycle completion and comparative outcome remain separate.
+
+See [current limitations](../limitations/LIMITATIONS.md), the
+[frozen protocol](../../protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json),
+and the [training record](../../records/training/EXPERIMENT-THREE-M4-FROZEN-TRAINING-2026-001.json).

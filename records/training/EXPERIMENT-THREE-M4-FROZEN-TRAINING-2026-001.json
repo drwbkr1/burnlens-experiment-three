@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "record_id": "EXPERIMENT-THREE-M4-FROZEN-TRAINING-2026-001",
+  "disposition": "pass",
+  "scope": "frozen_train_validation_lifecycle_only",
+  "protocol": {
+    "path": "protocol/EXPERIMENT-THREE-FROZEN-PROTOCOL-2026-001.json",
+    "canonical_lf_sha256": "12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e"
+  },
+  "runtime": {
+    "id": "CPYTHON-3.12.10-EMBED-UV-0.10.7-TORCH-2.13.0-CPU-WINDOWS-X64-002",
+    "python": "C:\\Projects\\Active\\burnlens-experiment-three-runtime\\cpython-3.12.10-embed\\python.exe",
+    "scope": "approved application-local CPU runtime"
+  },
+  "source_bindings": [
+    {"path": "src/burnlens_experiment_three/data.py", "bytes": 6317, "sha256": "36147290692689e45373125cda8eadba9c8a7894b72716c8b3b21061e746946d"},
+    {"path": "src/burnlens_experiment_three/training.py", "bytes": 10341, "sha256": "a68cb3749895d7c177549d26a966fbfd17e619b967c3614741d4fe893ac1ef1e"},
+    {"path": "scripts/run_frozen_training.py", "bytes": 7010, "sha256": "8c1d43b8dffaa616c7c0925693292d2501ec6365e546a486fb59bbc275152b0d"},
+    {"path": "scripts/verify_frozen_training.py", "bytes": 6700, "sha256": "494a8f9dc5197451da9bc5cff11a6621db0a1dcd84456fc39eb17859aa009781"},
+    {"path": "scripts/verify_train_validation_data.py", "bytes": 1834, "sha256": "5fadbfdd91b40bc3e1dfe026ae04857e18cb1120bf2116a1bfc8fea0a830e058"},
+    {"path": "tests/test_frozen_training.py", "bytes": 3528, "sha256": "f1951f17caf419f14c6e5131d470e0f712fa8ffac5c3fb6d48922c05da560d5f"}
+  ],
+  "accepted_attempt": {
+    "attempt_id": "m4-2026-005",
+    "primary_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\training\\m4-2026-005-primary",
+    "replay_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\training\\m4-2026-005-replay",
+    "each_root": {
+      "files_including_receipt": 20,
+      "bytes_including_receipt": 270793,
+      "exact_replay_receipt_sha256": "75c2263e6c3672ad18e603f964982a1bede2c3652b45be4bbd1b0b51d159bf4b",
+      "payload_files": 19,
+      "payload_bytes": 266578,
+      "payload_roster_sha256": "e3115254c1602e9f1c0aba7e91c7d1c2984db106053a880afbc069f6beb82473",
+      "per_seed_artifacts": ["run-manifest.json", "training-history.json", "selected-checkpoint/manifest.json", "selected-checkpoint/weights.pt", "validation-probabilities.npz", "replay-receipt.json"],
+      "aggregate_artifacts_present": ["shared-threshold-selection.json", "exact-replay-receipt.json"]
+    },
+    "primary_replay_exact": true,
+    "milestone_4_artifact_schema_exact": true,
+    "test_values_opened": false,
+    "test_arrays_listed_or_decoded": 0
+  },
+  "execution_timing_observation": {
+    "method": "Controller UTC wall clock and monotonic stopwatch; excluded from deterministic run roots",
+    "primary": {"started_at_utc": "2026-08-25T16:57:19.8034307Z", "completed_at_utc": "2026-08-25T16:57:41.4068756Z", "duration_seconds": 21.5970228, "exit_code": 0},
+    "replay": {"started_at_utc": "2026-08-25T16:57:55.4408432Z", "completed_at_utc": "2026-08-25T16:58:19.2835255Z", "duration_seconds": 23.8382229, "exit_code": 0}
+  },
+  "seeds": [
+    {
+      "seed": 20260725,
+      "epochs_completed": 130,
+      "early_stopped": true,
+      "selected_epoch": 105,
+      "selected_validation_balanced_bce": 0.6794654130935669,
+      "first_gradient_norm": 0.12538227438926697,
+      "initial_tensor_state_sha256": "3209b74384c5a4ec864bd2e25e71f41dbd9592bfbc3e27fb975d3169e58f940c",
+      "first_step_tensor_state_sha256": "223dbe72df0c31adab155efd698a3cd1ce1031029372b2b60cb2fad88a0ae91b",
+      "final_tensor_state_sha256": "67a22f140c8c31223c0b09607b13ee2f992f328e44137e2d95a61d5fbd455532",
+      "selected_tensor_state_sha256": "50477e8f2be155e042816735bade3664bf318e2ce46e34032a4132911266b2fd",
+      "weights_bytes": 3285,
+      "weights_sha256": "54b0906dedf90995725ad2bbfcc00102f49c870af5af8534cf13389d341c17b9"
+    },
+    {
+      "seed": 20260726,
+      "epochs_completed": 172,
+      "early_stopped": true,
+      "selected_epoch": 147,
+      "selected_validation_balanced_bce": 0.6747468709945679,
+      "first_gradient_norm": 0.1594109684228897,
+      "initial_tensor_state_sha256": "26e9ff6e5037f66cc4aa0e5e21324a16156fe447fb98280a267fbf407623ff59",
+      "first_step_tensor_state_sha256": "e34bde9c2c0a6f1b21904f9f48d924cba66ba29dc7dd9e86400a983f715047bb",
+      "final_tensor_state_sha256": "15195c49a8bae18e702ab7dbad747216532799c124750415dd4716945f927991",
+      "selected_tensor_state_sha256": "19b0308c13779d2b92c6931f5e8a4b409f83c910a9c7933abe757a0fe03132a2",
+      "weights_bytes": 3285,
+      "weights_sha256": "ea27e4f222c62a219a596dac8727e4964f995b9b0ca9cf7ffd220973f681e12e"
+    },
+    {
+      "seed": 20260727,
+      "epochs_completed": 171,
+      "early_stopped": true,
+      "selected_epoch": 146,
+      "selected_validation_balanced_bce": 0.6462924480438232,
+      "first_gradient_norm": 0.1322394758462906,
+      "initial_tensor_state_sha256": "555cdd39f0b80ea8769bfe4ad148a605f3d41e8c0708d51c72482ceb5e24df89",
+      "first_step_tensor_state_sha256": "004ec8fa3d42519f681f4534250b6f37539412c8435573c5a7b0870086457155",
+      "final_tensor_state_sha256": "806c2103bbf9858a16b53091089543e5ffb784c6dce7cff24e2fd679bf406957",
+      "selected_tensor_state_sha256": "078d4ffc648e00aeece354b7a214b6df3afb6d259c12ef5c788b8c4f7bdfe56c",
+      "weights_bytes": 3285,
+      "weights_sha256": "250788d7b34aba4bd26fd3c0546facac773df7dbf42d65da77b2625668e9d3a8"
+    }
+  ],
+  "shared_validation_threshold": {
+    "selected_threshold": 0.5,
+    "minimum_seed_event_macro_dice": 0.3333333333333333,
+    "median_seed_event_class_macro_iou": 0.625,
+    "selection_scope": "validation_only",
+    "test_values_opened": false
+  },
+  "retained_attempts": [
+    {
+      "attempt_id": "m4-2026-001-primary",
+      "disposition": "fail",
+      "files": 6,
+      "bytes": 79624,
+      "cause": "Fresh-process probability identity differed because the reload child had not applied the frozen one-thread runtime configuration; checkpoint tensor identity matched.",
+      "recovery": "Retained unchanged; bounded implementation repair applied before a fresh full run."
+    },
+    {
+      "attempt_id": "m4-2026-002",
+      "disposition": "invalid",
+      "primary_and_replay_each": {"files": 20, "bytes": 270550, "run_receipt_sha256": "82c97c08ad1c4a8a1e93977f1168eb24ba8174f7e11e24cc2a731d1b4c925ba5", "payload_roster_sha256": "bcd4a275a4596148e61c47dd5efb0499d8e3babc1c7dcc0cee32469f8a8423ab"},
+      "cause": "Computation and exact replay passed, but selected checkpoint payloads were named state_dict.pt rather than the frozen required weights.pt.",
+      "recovery": "Both roots retained unchanged; writer filename and manifest repaired without changing scientific semantics; all seeds rerun from initialization as attempt 003."
+    },
+    {
+      "attempt_id": "m4-2026-003",
+      "disposition": "invalid",
+      "primary_and_replay_each": {"files": 20, "bytes": 270040, "run_receipt_sha256": "7942477f070999c46a5196f2c242a38a48cd16bfc383bbfc553ac2b15596ccac", "payload_roster_sha256": "f8e59d87d6135ca898b6fb5434197b2c8857d632daafd5e6e40d8dd0a633aec6"},
+      "cause": "Computation and exact replay passed, but per-seed and aggregate receipts were named fresh-process-reload.json and run-receipt.json rather than the frozen required replay-receipt.json and exact-replay-receipt.json.",
+      "recovery": "Both roots retained unchanged; receipt filenames repaired without changing scientific semantics; all seeds rerun from initialization as attempt 004."
+    },
+    {
+      "attempt_id": "m4-2026-004",
+      "disposition": "invalid",
+      "primary_and_replay_each": {"files": 20, "bytes": 270022, "exact_replay_receipt_sha256": "5c36523c73bc4e126db50e9f3f9536da3a552e2ae4ede52e1319a2020a5174d4", "payload_roster_sha256": "2b63e1e8a4a75315e69836f8e8a6c415df0a562614213bfa75217a35f2c48c2c"},
+      "cause": "Artifacts and exact replay passed, but all three seeds trained sequentially in one parent process rather than the frozen required fresh process per seed.",
+      "recovery": "Both roots retained unchanged; runner repaired to spawn one isolated -I training child per seed; all seeds rerun from initialization as attempt 005."
+    }
+  ],
+  "verification": {
+    "focused_tests": "6/6 pass in approved runtime",
+    "all_seeds_trained_in_fresh_isolated_processes": true,
+    "runtime_identity_exact": true,
+    "exceptions_null": true,
+    "all_gradients_finite_nonzero": true,
+    "all_first_steps_changed_weights": true,
+    "all_histories_complete": true,
+    "all_checkpoints_selected_by_frozen_rule": true,
+    "all_checkpoints_tensor_only_weights_pt": true,
+    "all_fresh_process_reloads_exact": true,
+    "all_validation_probability_packages_exact": true,
+    "shared_threshold_recomputed_exact": true,
+    "primary_replay_exact": true,
+    "test_values_opened": false
+  },
+  "scientific_outputs": {
+    "datasets": 1,
+    "training_runs": 3,
+    "checkpoints": 3,
+    "inference_runs": 3,
+    "evaluations": 0,
+    "releases": 0
+  },
+  "claim_boundary": "This record proves a frozen train/validation neural lifecycle and validation-only threshold selection. It contains no test inference, comparative evaluation, generalization claim, operational claim, tag, or release."
+}

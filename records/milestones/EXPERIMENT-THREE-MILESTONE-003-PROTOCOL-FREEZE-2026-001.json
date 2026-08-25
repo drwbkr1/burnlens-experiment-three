@@ -3,7 +3,7 @@
   "milestone_id": "EXPERIMENT-THREE-MILESTONE-003-PROTOCOL-FREEZE-2026-001",
   "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json",
   "control_profile_path": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-004.json",
-  "status": "active",
+  "status": "complete",
   "active_issue": "https://github.com/drwbkr1/burnlens-experiment-three/issues/6",
   "accepted_base_commit": "8b0636d6cc117d524256a0f7f2bd699fb64a232b",
   "active_branch": "codex/protocol-freeze-003",
@@ -43,7 +43,7 @@
     {"id": "EXIT-M3-PROTOCOL", "status": "pass", "evidence": ["Frozen protocol canonical-LF SHA-256 12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e"]},
     {"id": "EXIT-M3-EXECUTABLE", "status": "pass", "evidence": ["Fabricated dry-run PASS; seven focused tests PASS; approved runtime 39/39 PASS"]},
     {"id": "EXIT-M3-TEST-SEALED", "status": "pass", "evidence": ["Zero benchmark arrays loaded or decoded; test values unopened; zero scientific outputs"]},
-    {"id": "EXIT-M3-VERIFIED-CHECKPOINT", "status": "pending", "evidence": []}
+    {"id": "EXIT-M3-VERIFIED-CHECKPOINT", "status": "pass", "evidence": ["PR #7 merged reviewed candidate 3b67850539e4d1a4b47f1486de91192a25c2ec3e to main 10bc499db09bccd66e3bc9289d655ab561bec857; tree 65d3fcb5b01b5f8448ab863a873a76d1c8da51ee; runs 32689480130/32689499207/32689530033 PASS; issue #6 closed after verification"]}
   ],
   "units": [
     {
@@ -127,13 +127,13 @@
       "depends_on": ["M3-U005-INTEGRATED-VERIFICATION"],
       "action_class": "public_repository_publication",
       "human_gate": false,
-      "status": "ready",
+      "status": "complete",
       "inputs": ["Exact verified candidate", "Issue 6", "codex/protocol-freeze-003"],
-      "outputs": ["Reviewed merged PR", "Live main and CI receipt", "Closed issue 6"],
-      "gates": {"required_checks": "pending", "reviewed_pr": "pending", "live_main": "pending", "no_release": "required"},
-      "disposition": null,
+      "outputs": ["Merged PR #7", "Live main 10bc499db09bccd66e3bc9289d655ab561bec857", "Tree 65d3fcb5b01b5f8448ab863a873a76d1c8da51ee", "Merge CI 32689530033 PASS", "Closed issue #6"],
+      "gates": {"required_checks": "pass", "reviewed_pr": "pass", "live_main": "pass", "no_release": "pass"},
+      "disposition": "pass",
       "retained_failures": [],
-      "exit_condition_delta": {"expected": ["EXIT-M3-VERIFIED-CHECKPOINT"], "observed": [], "decision_value": "enables_dependency", "rationale": "All local dependencies pass; reviewed publication and live verification remain."},
+      "exit_condition_delta": {"expected": ["EXIT-M3-VERIFIED-CHECKPOINT"], "observed": ["EXIT-M3-VERIFIED-CHECKPOINT"], "decision_value": "advances_exit", "rationale": "Reviewed candidate and live tree match exactly; all three CI surfaces pass; issue closed after direct verification; no release exists."},
       "next_dependency": null
     }
   ],
@@ -144,8 +144,8 @@
     "completed_checks": ["Accepted M2 live identity and CI verified", "Issue 6 open", "No training or test opening at M3 entry", "Eight exact protocol bindings pass", "Fabricated dry-run PASS", "Seven focused protocol tests PASS", "Repository controls PASS for 78 required files", "Dependency-free 33 pass plus six expected skips", "Approved runtime 39 of 39 PASS", "Profile, milestone, and reconciliation schemas valid with zero findings"]
   },
   "handoff": {
-    "current_checkpoint": "Milestone 2 accepted; Milestone 3 protocol freeze is a locally verified but unaccepted candidate on codex/protocol-freeze-003 at protocol SHA-256 12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e.",
-    "next_action": "Execute ready M3-U006: commit, push, open a reviewed PR, require checks, merge only the verified tree, and directly verify live main before training.",
+    "current_checkpoint": "Milestone 3 is accepted and live-verified at main 10bc499db09bccd66e3bc9289d655ab561bec857, tree 65d3fcb5b01b5f8448ab863a873a76d1c8da51ee. Protocol SHA-256 12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e is frozen; no test opening or scientific output occurred.",
+    "next_action": "Begin Milestone 4 under issue #8 from the exact accepted freeze; execute only train/validation runs and keep test sealed.",
     "do_not_carry_forward": ["Any test array value", "Any post-outcome tuning", "Any new architecture, dependency, or claim", "Any Experiment Two or Two-B implementation or authority", "Any scientific output before accepted freeze"]
   }
 }
