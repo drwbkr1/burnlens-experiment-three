@@ -13,14 +13,14 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-25, Milestone 4 is accepted and live-verified on `main` at
-[`53983c09a03d7f8f9453e6f492b05e58b795b876`](https://github.com/drwbkr1/burnlens-experiment-three/commit/53983c09a03d7f8f9453e6f492b05e58b795b876),
-tree `51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa`. Pull request
-[#9](https://github.com/drwbkr1/burnlens-experiment-three/pull/9) and
+As of 2026-08-25, Milestone 5 is accepted and live-verified on `main` at
+[`45b32c1cb782edc31ef8a4f49671b6a897c7d7bb`](https://github.com/drwbkr1/burnlens-experiment-three/commit/45b32c1cb782edc31ef8a4f49671b6a897c7d7bb),
+tree `91fb304d4cadc450ed997c0d3f68c995b5538cb4`. Pull request
+[#11](https://github.com/drwbkr1/burnlens-experiment-three/pull/11) and
 merge-triggered GitHub Actions run
-[`32875755932`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32875755932)
-passed. Milestone 5 is active under issue
-[#10](https://github.com/drwbkr1/burnlens-experiment-three/issues/10).
+[`32879876813`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32879876813)
+passed. Milestone 6 release and terminal closeout is active under issue
+[#12](https://github.com/drwbkr1/burnlens-experiment-three/issues/12).
 
 The exact owner/rightsholder review is now complete and reconciled as `yes` for
 rights the owner controls. A separate current six-source gate is `READY`, and
@@ -73,8 +73,9 @@ Across all three predeclared seeds, median event-class macro IoU is `0.2201`
 and median worst-event macro Dice is `0.2919`, below the strongest constant
 control's `0.2853` and `0.3333`. Seed `20260727` was stronger (`0.5794` macro
 IoU), but it cannot replace the predeclared all-seed decision. No post-test
-tuning, rescue, rerun, or seed selection occurred. The result is a locally
-verified M5 candidate until reviewed merge and live verification.
+tuning, rescue, rerun, or seed selection occurred. This exact result is now the
+accepted M5 checkpoint; Milestone 6 may package and release it but cannot change
+it.
 
 ## Research question
 
@@ -204,6 +205,9 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Protocol-freeze evidence record](records/protocol/EXPERIMENT-THREE-PROTOCOL-FREEZE-2026-001.json)
 - [Frozen-training evidence record](records/training/EXPERIMENT-THREE-M4-FROZEN-TRAINING-2026-001.json)
 - [Retrospective evaluation result](records/evaluation/EXPERIMENT-THREE-M5-RETROSPECTIVE-EVALUATION-2026-001.json)
+- [Reviewer guide](docs/evidence/REVIEWER-GUIDE.md)
+- [Benchmark card](docs/benchmark/BENCHMARK-CARD.md)
+- [Reproducibility guide](docs/reproducibility/REPRODUCIBILITY.md)
 - [Model card candidate](docs/model-card/MODEL-CARD.md)
 - [Current limitations](docs/limitations/LIMITATIONS.md)
 - [Runtime candidate inventory](records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json)

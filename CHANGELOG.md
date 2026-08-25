@@ -8,6 +8,12 @@ semantic versioning once a first release exists.
 
 ### Added
 
+- Milestone 6 profile, terminal release contract, aligned M5 acceptance state,
+  and issue #12 with a fail-closed public-asset rights boundary.
+- Public-safe architecture, all-seed training curves, all-seed/control
+  comparison, reviewer guide, benchmark card, reproducibility guide, release
+  notes, and machine-readable public-evidence manifest.
+
 - Milestone 5 profile, one-opening retrospective-evaluation contract, aligned
   state reconciliation, external-evidence boundary, and issue #10.
 - A staged pre-opening design requiring metadata-only audit and fabricated
@@ -74,6 +80,11 @@ semantic versioning once a first release exists.
   verified training candidate from any unopened comparative evaluation.
 
 ### Changed
+
+- Accepted Milestone 5 through PR #11 at live `main`
+  `45b32c1cb782edc31ef8a4f49671b6a897c7d7bb`, exact tree
+  `91fb304d4cadc450ed997c0d3f68c995b5538cb4`, with merge-triggered run
+  `32879876813` passing; activated issue #12 and Milestone 6.
 
 - Consumed `M5-OPENING-2026-001` exactly once without post-test change. The
   three-seed median macro IoU is `0.2201` and median worst-event macro Dice is

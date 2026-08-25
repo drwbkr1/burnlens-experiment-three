@@ -195,8 +195,33 @@ overwrite.
   seed and passes the exact artifact list and independent replay. Attempts 001
   through 004 remain immutable retained evidence.
 
+### E3-DEC-0015 - Retain lifecycle PASS and comparative FAIL
+
+- **Date:** 2026-08-25
+- **State:** Active and accepted at Milestone 5 checkpoint
+- **Decision:** Retain lifecycle `PASS` because the complete frozen neural
+  lifecycle and exact replay passed. Retain comparative `FAIL` because one seed
+  was constant on one event and the three-seed median did not beat the strongest
+  constant control on both frozen measures.
+- **Limits:** Seed `20260727` remains visible but cannot replace the all-seed
+  result. No test-driven tuning, rerun, threshold rescue, architecture change,
+  fresh cohort, significance claim, or operational claim follows.
+
+### E3-DEC-0016 - Rights-safe public release boundary
+
+- **Date:** 2026-08-25
+- **State:** Active for Milestone 6
+- **Decision:** Release repository-authored software, documentation, metrics,
+  hashes, manifests, and numerical reviewer graphics only. Verify full replay
+  separately against controlled custody.
+- **Exclusions:** Do not publish benchmark arrays, source imagery, labels,
+  historical comparator arrays, checkpoints, predictions, probabilities,
+  GeoTIFFs, the imagery-bearing test render, runtime, private review material,
+  credentials, or secrets. Do not call public-package verification a public-
+  download scientific replay.
+
 ## Decisions still pending evidence or binding
 
-The one-time test opening, comparative disposition, rendered result, and
-terminal release remain pending their gated milestones. Their absence does not
-reopen the frozen model or training choices for routine optimization.
+The terminal GitHub release and live closeout receipt remain pending Milestone
+6 gates. Their absence does not reopen the frozen model, result, or training
+choices for routine optimization.

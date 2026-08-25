@@ -5,23 +5,22 @@
 | Status date | 2026-08-25 |
 | Canonical remote | `https://github.com/drwbkr1/burnlens-experiment-three` |
 | Canonical local checkout | `C:\Projects\Active\burnlens-experiment-three` |
-| Working version | `0.5.0-m5-retrospective-evaluation` (unreleased) |
-| Accepted checkpoint | `53983c09a03d7f8f9453e6f492b05e58b795b876` on live `main` |
-| Active work | Milestone 5, issue [#10](https://github.com/drwbkr1/burnlens-experiment-three/issues/10) |
+| Working version | `1.0.0` release candidate (unreleased) |
+| Accepted checkpoint | `45b32c1cb782edc31ef8a4f49671b6a897c7d7bb` on live `main` |
+| Active work | Milestone 6, issue [#12](https://github.com/drwbkr1/burnlens-experiment-three/issues/12) |
 | Active review | None |
-| Overall state | Milestone 4 is accepted live. Milestone 5 consumed the known test exactly once: lifecycle `PASS`, comparative `FAIL`, exact replay `PASS`. The result is a locally verified candidate awaiting reviewed merge and live verification. |
+| Overall state | Milestone 5 is accepted live: lifecycle `PASS`, comparative `FAIL`, exact replay `PASS`. Milestone 6 is building a rights-safe reviewer package and one verified terminal release without changing the result. |
 
 ## Current truth
 
-Milestone 4 is accepted and live-verified. Pull request
-[#9](https://github.com/drwbkr1/burnlens-experiment-three/pull/9) merged the
-reviewed tree `51dc4ba7b4e942ad7be884051e0ce8e2fe57c6aa` to live `main` at
-[`53983c09a03d7f8f9453e6f492b05e58b795b876`](https://github.com/drwbkr1/burnlens-experiment-three/commit/53983c09a03d7f8f9453e6f492b05e58b795b876).
-Push, pull-request, and merge-triggered runs
-`32875659950`/`32875705749`/`32875755932` passed. Issue #8 is closed.
-There are still zero tags and zero releases. Milestone 5 is active from this
-exact checkpoint under issue #10. Opening `M5-OPENING-2026-001` is terminal;
-the known test cannot be reopened or used for tuning.
+Milestone 5 is accepted and live-verified. Pull request
+[#11](https://github.com/drwbkr1/burnlens-experiment-three/pull/11) merged exact
+tree `91fb304d4cadc450ed997c0d3f68c995b5538cb4` to live `main` at
+[`45b32c1cb782edc31ef8a4f49671b6a897c7d7bb`](https://github.com/drwbkr1/burnlens-experiment-three/commit/45b32c1cb782edc31ef8a4f49671b6a897c7d7bb).
+Candidate, pull-request, and merge-triggered runs
+`32879802983`/`32879832729`/`32879876813` passed. Issue #10 is closed.
+There are still zero tags and zero releases. Milestone 6 is active under issue
+#12. Opening `M5-OPENING-2026-001` is terminal and cannot be reused for tuning.
 
 | Surface | State | Evidence |
 | --- | --- | --- |
@@ -51,7 +50,8 @@ the known test cannot be reopened or used for tuning.
 | Per-seed macro IoU | `0.2201 / 0.2009 / 0.5794` | Seeds `20260725` / `20260726` / `20260727`; all reported, no best-seed substitution |
 | RBR / canonical U-Net | `1.0000 / 0.2147` macro IoU | RBR's perfect sparse-core agreement is structurally favored; the U-Net equals constant-burned and predicts all 89 scored cores burned |
 | Evaluation package | `PASS` | Primary/replay each 53 files / 367,150 bytes / roster `e322a101...`; 36 GeoTIFFs reopen exactly; 5360x2076 render directly inspected |
-| Release | `0` | No tag or GitHub release exists |
+| Reviewer evidence | `PASS` candidate | Public-safe architecture, three-seed curves, and all-seed/control comparison contain numerical evidence only; imagery-bearing panel remains hash-bound in controlled custody |
+| Release | `0` | Version `1.0.0` is a working candidate; no tag or GitHub release exists |
 | Fresh confirmation | `DEFERRED` | Separate owner-gated lane; not needed for primary completion |
 
 `PASS` is role-bounded. Rights and readiness for controlled local intake do not
@@ -106,7 +106,7 @@ architecture belongs to a separately approved Experiment 3B.
 
 ## Immediate next gate
 
-Publish the exact reviewed M5 candidate through issue #10, then verify the
-merged `main` tree, merge-triggered CI, and public records. This checkpoint
-must retain lifecycle `PASS`, comparative `FAIL`, zero post-test changes, and
-zero tags/releases. Fresh confirmation remains outside this milestone.
+Complete the deterministic public evidence package, clean-extraction verifier,
+controlled full replay, and release audit. Only then may the reviewed `1.0.0`
+candidate merge, receive tag `v1.0.0`, and become one verified GitHub release.
+Fresh confirmation and Experiment 3B remain outside this milestone.

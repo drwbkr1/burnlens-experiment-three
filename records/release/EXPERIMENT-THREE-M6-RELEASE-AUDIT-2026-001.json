@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "release_id": "EXPERIMENT-THREE-v1.0.0-CANDIDATE-AUDIT-2026-001",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL",
+    "authorized_action_classes": [
+      "version_control_write",
+      "github_pull_request_management",
+      "external_state_verification",
+      "public_repository_publication"
+    ],
+    "verified_at_utc": "2026-08-25T17:49:27Z",
+    "expires_at_utc": null
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "data",
+    "model",
+    "package",
+    "public",
+    "security",
+    "external"
+  ],
+  "candidate": {
+    "base_commit": "45b32c1cb782edc31ef8a4f49671b6a897c7d7bb",
+    "commit": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+    "tree": "0e582fa09db39a49309f660d5244ffaacdcb0912",
+    "version": "1.0.0",
+    "tag": "v1.0.0",
+    "artifacts": [
+      {
+        "name": "burnlens-experiment-three-v1.0.0-evidence.zip",
+        "bytes": 34007,
+        "sha256": "ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4"
+      },
+      {
+        "name": "burnlens-experiment-three-v1.0.0-evidence.zip.sha256",
+        "bytes": 112,
+        "sha256": "f23c50e4da2a7669a77120843b6dbc9ea02442964725606e52da61af232097e3"
+      }
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-25T18:12:28Z",
+    "branch": "main",
+    "remote_commit": "45b32c1cb782edc31ef8a4f49671b6a897c7d7bb",
+    "pull_request": null,
+    "tag_target": "absent before publication",
+    "deployment": null
+  },
+  "real_surface_matrix": {
+    "required": true,
+    "registry_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-007.json",
+    "evaluation_receipt_ref": "records/release/EXPERIMENT-THREE-M6-REAL-SURFACE-MATRIX-2026-001.json",
+    "status": "verified",
+    "candidate_identity": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+    "required_surface_ids": [
+      "repository_control",
+      "repository_tests",
+      "scientific_replay",
+      "reviewer_evidence",
+      "release_package"
+    ],
+    "verified_surface_ids": [
+      "repository_control",
+      "repository_tests",
+      "scientific_replay",
+      "reviewer_evidence",
+      "release_package"
+    ],
+    "reason": "GitHub repository and release surfaces are evaluated after the reviewed candidate becomes live; this audit authorizes that next bounded publication step."
+  },
+  "checks": [
+    {
+      "id": "CHECK-M6-SCOPE",
+      "category": "scope",
+      "required": true,
+      "status": "pass",
+      "method": "Compare candidate diff, goal, profile, milestone, and frozen scientific identities.",
+      "evidence": ["Only release/reviewer/control/test surfaces changed", "Lifecycle PASS and comparative FAIL remain immutable", "No post-test change"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-M6-CLEAN-CONTEXT",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Validate a detached candidate worktree under C:\\Projects\\Active after retaining and correcting the first checkout failure.",
+      "evidence": ["Repository validator PASS", "56/56 approved-runtime tests PASS", "LF checkout contract enforced"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-M6-SCIENTIFIC-REPLAY",
+      "category": "model",
+      "required": true,
+      "status": "pass",
+      "method": "Run full controlled-custody replay with geospatial and rendered inspection.",
+      "evidence": ["53-file primary/replay packages exact", "36 GeoTIFFs reopened", "Lifecycle PASS; comparative FAIL; zero post-test changes"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-M6-PACKAGE",
+      "category": "package",
+      "required": true,
+      "status": "pass",
+      "method": "Compare three independent deterministic builds and verify a clean extraction.",
+      "evidence": ["ZIP SHA-256 ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4", "14-file verifier PASS"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-M6-RIGHTS-SECURITY",
+      "category": "security",
+      "required": true,
+      "status": "pass",
+      "method": "Inspect archive roster and scan tracked paths/content for prohibited scientific extensions and common credential patterns.",
+      "evidence": ["Zero forbidden binary files", "Zero common secret-pattern matches", "No benchmark arrays, imagery, labels, checkpoints, predictions, GeoTIFFs, runtime, or private review material"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-M6-PREPUBLICATION-LIVE-TRUTH",
+      "category": "external",
+      "required": true,
+      "status": "pass",
+      "method": "Read canonical GitHub repository, main ref, tag roster, and release roster directly before publication.",
+      "evidence": ["Public canonical repository", "Remote main 45b32c1cb782edc31ef8a4f49671b6a897c7d7bb", "Zero tags", "Zero releases"],
+      "reason": ""
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "C:\\Projects\\Active\\burnlens-experiment-three@a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+      "expected_state": "Clean, validated release candidate",
+      "observed_state": "Exact candidate tree verified in detached worktree",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/burnlens-experiment-three/tree/main",
+      "expected_state": "Accepted M5 base before candidate publication",
+      "observed_state": "45b32c1cb782edc31ef8a4f49671b6a897c7d7bb",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/burnlens-experiment-three/tags",
+      "expected_state": "No tag before reviewed-main acceptance",
+      "observed_state": "Zero tags",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/burnlens-experiment-three/releases",
+      "expected_state": "No release before reviewed-main acceptance",
+      "observed_state": "Zero releases",
+      "status": "current"
+    }
+  ],
+  "limitations": [
+    "This is a prepublication candidate audit; it does not claim a live tag or release.",
+    "Public package verification is not public-download scientific inference replay.",
+    "The retrospective benchmark uses known Experiment One prototype cores and supports no generalization or operational wildfire claim.",
+    "Controlled scientific bytes and the approved runtime remain outside the public release."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "The exact candidate is scientifically unchanged, clean-context replayable, rights-safe, deterministically packaged, and eligible for reviewed repository publication.",
+    "next_action": "Push the candidate branch, open a reviewed pull request, require CI, merge only if the candidate tree remains exact, and verify live main before tagging.",
+    "authorized_next_actions": [
+      "version_control_write",
+      "github_pull_request_management",
+      "external_state_verification",
+      "public_repository_publication"
+    ]
+  }
+}

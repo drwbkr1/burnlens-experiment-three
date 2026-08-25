@@ -13,8 +13,8 @@ information, field-validated mapping, or a basis for safety decisions.
 
 ## Current lifecycle state
 
-Milestone 4 is accepted live through PR #9; Milestone 5 is a locally verified
-candidate under issue #10.
+Milestone 5 is accepted live through PR #11. Milestone 6 release and terminal
+closeout is active under issue #12.
 All three predeclared seeds trained in separate fresh isolated processes with
 the frozen CPU/float32 protocol,
 produced complete histories and changed weights, selected checkpoints by
@@ -26,7 +26,8 @@ Opening `M5-OPENING-2026-001` consumed the known test exactly once. Independent
 verification reproduced checkpoint inference and metrics, reopened all 36
 GeoTIFFs exactly, confirmed byte-identical primary/replay packages, and passed
 direct inspection of the actual comparison render. Lifecycle status is `PASS`;
-comparative status is `FAIL`.
+comparative status is `FAIL`. The result cannot be tuned or rerun inside
+Experiment Three.
 
 ## Training data and procedure
 
