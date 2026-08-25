@@ -83,6 +83,16 @@ class RepositoryControlTests(unittest.TestCase):
     def test_repository_passes_all_control_checks(self) -> None:
         self.assertEqual([], validator.validate_repository(ROOT))
 
+    def test_checkout_policy_enforces_lf_for_hash_bound_text(self) -> None:
+        self.assertEqual([], validator.check_checkout_portability(ROOT))
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / ".gitattributes").write_text(
+                "* text=auto\n", encoding="utf-8"
+            )
+            errors = validator.check_checkout_portability(root)
+            self.assertTrue(any("must enforce LF" in error for error in errors))
+
     def test_completed_u002_inventory_is_self_consistent_without_source_access(
         self,
     ) -> None:

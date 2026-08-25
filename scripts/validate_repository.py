@@ -317,6 +317,7 @@ FROZEN_TRAINING_SOURCE_IDENTITIES = {
 }
 
 REQUIRED_FILES = (
+    Path(".gitattributes"),
     Path(".gitignore"),
     Path("AGENTS.md"),
     Path("CHANGELOG.md"),
@@ -2220,6 +2221,21 @@ def check_synthetic_preflight_record(root: Path) -> list[str]:
     return errors
 
 
+def check_checkout_portability(root: Path) -> list[str]:
+    """Require hash-bound repository text to retain LF bytes on every checkout."""
+
+    path = root / ".gitattributes"
+    if not path.is_file():
+        return ["missing LF checkout policy: .gitattributes"]
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeError) as exc:
+        return [f"invalid LF checkout policy: {exc}"]
+    if "* text=auto eol=lf" not in lines:
+        return [".gitattributes must enforce LF for repository text"]
+    return []
+
+
 def check_frozen_protocol_record(root: Path) -> list[str]:
     """Bind the complete M3 protocol without loading benchmark arrays."""
 
@@ -2754,6 +2770,7 @@ def check_reviewer_evidence_record(root: Path) -> list[str]:
 def validate_repository(root: Path = ROOT) -> list[str]:
     checks = (
         check_required_files,
+        check_checkout_portability,
         check_json_documents,
         check_no_cloud_sync_references,
         check_no_scientific_artifacts,
