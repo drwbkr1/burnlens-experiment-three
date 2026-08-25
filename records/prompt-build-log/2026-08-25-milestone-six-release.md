@@ -40,4 +40,5 @@ The scientific result and terminal evaluation package are immutable. Public
 evidence may contain numerical/repository-authored material only. Package,
 clean-context replay, candidate audit, reviewed main, tag/release, downloaded
 assets, source archives, and public claims now pass. Only reviewed acceptance
-of the release receipt and terminal reconciliation remain gated.
+of the terminal record remains; PR #15 is the transactional acceptance and
+issue #12 closure mechanism. No successor work is created.

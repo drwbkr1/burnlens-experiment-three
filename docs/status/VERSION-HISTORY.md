@@ -11,7 +11,7 @@ published releases. A version string does not by itself prove a release.
 | `0.3.0-m3-protocol-freeze` | 2026-08-24 | Accepted checkpoint; not a release | `10bc499db09bccd66e3bc9289d655ab561bec857` | Complete hash-bound executable protocol, pure selection/metric implementation, fabricated replay, and controls | None |
 | `0.4.0-m4-frozen-training` | 2026-08-25 | Accepted checkpoint; not a release | `53983c09a03d7f8f9453e6f492b05e58b795b876` | Three frozen train/validation runs, selected checkpoints, fresh reload, shared threshold, and exact replay | Training/validation evidence only; test unopened |
 | `0.5.0-m5-retrospective-evaluation` | 2026-08-25 | Accepted checkpoint; not a release | `45b32c1cb782edc31ef8a4f49671b6a897c7d7bb` | One controlled known-test evaluation, exact replay, geospatial and rendered evidence | Lifecycle `PASS`; comparative `FAIL` |
-| `1.0.0` | 2026-08-25 | Published and independently verified GitHub release | `v1.0.0` -> `8de60a3350a7c25942be8223bf9067c9460774d1` | Reviewer evidence, rights-safe package, exact live assets/source archives, and terminal closeout | Frozen lifecycle `PASS`; comparative `FAIL` |
+| `1.0.0` | 2026-08-25 | Published, independently verified, and terminally closed | `v1.0.0` -> `8de60a3350a7c25942be8223bf9067c9460774d1`; terminal PR #15 | Reviewer evidence, rights-safe package, exact live assets/source archives, and terminal closeout | Frozen lifecycle `PASS`; comparative `FAIL` |
 
 The accepted `0.3.0` checkpoint binds the protocol at canonical-LF SHA-256
 `12a092e90586a819e6014ed181da82721675040ff2678c7d7115b1582b904f1e`.
@@ -130,8 +130,8 @@ complete. PR #11 merged exact tree
 Issue [#12](https://github.com/drwbkr1/burnlens-experiment-three/issues/12)
 tracks public-safe reviewer evidence, deterministic package verification,
 controlled scientific replay, one `v1.0.0` GitHub release, live verification,
-and terminal truth. The release is live and verified; terminal-record
-acceptance remains before issue and goal closure.
+and terminal truth. The release is live and verified; terminal PR #15 closes
+issue #12 and leaves no active successor milestone.
 
 ## Versioning rules
 

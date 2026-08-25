@@ -7,9 +7,9 @@
 | Canonical local checkout | `C:\Projects\Active\burnlens-experiment-three` |
 | Working version | `1.0.0`, tagged and released |
 | Accepted checkpoint | `8de60a3350a7c25942be8223bf9067c9460774d1` on live `main`; tag `v1.0.0` |
-| Active work | Terminal record acceptance, issue [#12](https://github.com/drwbkr1/burnlens-experiment-three/issues/12) |
+| Active work | None; terminally closed through PR #15 and issue #12 |
 | Active review | None |
-| Overall state | Release `v1.0.0` is live and independently verified. Lifecycle `PASS`, comparative `FAIL`, exact replay `PASS`; only terminal-record acceptance and goal closeout remain. |
+| Overall state | Terminally complete. Release `v1.0.0` is live and independently verified; lifecycle `PASS`, comparative `FAIL`, exact replay `PASS`; no successor work is active. |
 
 ## Current truth
 
@@ -105,9 +105,8 @@ architecture belongs to a separately approved Experiment 3B.
   every seed in a separate fresh process and is the sole accepted scientific
   candidate.
 
-## Immediate next gate
+## Terminal state
 
-Publish the live-release receipts and reconciled status through a checked PR,
-then accept the terminal closeout record on `main`, close issue #12, and mark
-the long-running goal complete. Fresh confirmation and Experiment 3B remain
-outside this milestone.
+No next gate exists for Experiment Three. Post-evaluation tuning belongs to a
+separately approved Experiment 3B, and fresh confirmation remains a separate
+owner-gated lane; neither is authorized by this closeout.

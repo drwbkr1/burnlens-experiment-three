@@ -41,4 +41,6 @@ intake downloaded the two release assets and both GitHub source archives into
 an Active-only root without replacement. The asset hashes and packaged
 verifier pass; ZIP, tarball, and tagged worktree share the same 136-file roster;
 release notes match; and the public page returns HTTP 200. Terminal records are
-the only remaining checkpoint.
+accepted through final PR #15, which closes issue #12. Experiment Three ends
+with lifecycle `PASS`, comparative `FAIL`, one verified release, and no active
+successor work.

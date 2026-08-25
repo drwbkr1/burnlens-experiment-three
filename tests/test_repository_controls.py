@@ -503,7 +503,7 @@ class RepositoryControlTests(unittest.TestCase):
                 validator.LIVE_RELEASE_RECORD,
                 validator.LIVE_RELEASE_SURFACE_MATRIX,
                 validator.LIVE_RELEASE_AUDIT,
-                validator.CONTROL_PROFILE,
+                validator.MILESTONE_SIX_RELEASE_PROFILE,
             ):
                 target = root / relative
                 target.parent.mkdir(parents=True, exist_ok=True)
@@ -516,6 +516,27 @@ class RepositoryControlTests(unittest.TestCase):
             )
             errors = validator.check_live_release_record(root)
             self.assertTrue(any("release or tag identity changed" in error for error in errors))
+
+    def test_terminal_closeout_has_one_release_and_no_successor(self) -> None:
+        self.assertEqual([], validator.check_terminal_closeout_record(ROOT))
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for relative in (
+                validator.TERMINAL_CLOSEOUT_RECORD,
+                validator.CONTROL_PROFILE,
+                validator.TERMINAL_RELEASE_MILESTONE,
+            ):
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+            record_path = root / validator.TERMINAL_CLOSEOUT_RECORD
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record["continuation_boundary"]["experiment_three_b_authorized"] = True
+            record_path.write_text(
+                json.dumps(record, indent=2) + "\n", encoding="utf-8"
+            )
+            errors = validator.check_terminal_closeout_record(root)
+            self.assertTrue(any("continuation boundary changed" in error for error in errors))
 
     def test_workflow_pins_checkout_to_full_sha(self) -> None:
         workflow = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")

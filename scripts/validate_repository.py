@@ -42,9 +42,13 @@ MILESTONE_SIX_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-007.json"
 )
-CONTROL_PROFILE = Path(
+MILESTONE_SIX_RELEASE_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json"
+)
+CONTROL_PROFILE = Path(
+    "records/governance/"
+    "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-009.json"
 )
 BOOTSTRAP_MILESTONE = Path(
     "records/milestones/"
@@ -108,6 +112,9 @@ LIVE_RELEASE_SURFACE_MATRIX = Path(
 )
 LIVE_RELEASE_AUDIT = Path(
     "records/release/EXPERIMENT-THREE-M6-RELEASE-AUDIT-2026-002.json"
+)
+TERMINAL_CLOSEOUT_RECORD = Path(
+    "records/release/EXPERIMENT-THREE-TERMINAL-CLOSEOUT-2026-001.json"
 )
 EVALUATION_PATH_SOURCES = {
     Path("src/burnlens_experiment_three/evaluation.py"): "3c375ecd4e3983bb28e8193a2a479be948cf270e5332f13e938661dd0320a812",
@@ -369,6 +376,7 @@ REQUIRED_FILES = (
     MILESTONE_FOUR_CONTROL_PROFILE,
     MILESTONE_FIVE_CONTROL_PROFILE,
     MILESTONE_SIX_CONTROL_PROFILE,
+    MILESTONE_SIX_RELEASE_PROFILE,
     CONTROL_PROFILE,
     BOOTSTRAP_MILESTONE,
     PROVENANCE_MILESTONE,
@@ -390,6 +398,7 @@ REQUIRED_FILES = (
     LIVE_RELEASE_RECORD,
     LIVE_RELEASE_SURFACE_MATRIX,
     LIVE_RELEASE_AUDIT,
+    TERMINAL_CLOSEOUT_RECORD,
     Path("scripts/build_release_package.py"),
     Path("scripts/verify_release_package.py"),
     Path("tests/test_release_package.py"),
@@ -412,6 +421,7 @@ REQUIRED_FILES = (
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-006.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-007.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-008.json"),
+    Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-009.json"),
     Path("records/evaluation/README.md"),
     Path("records/prompt-build-log/2026-08-25-milestone-five-evaluation.md"),
     Path("records/training/README.md"),
@@ -2862,7 +2872,7 @@ def check_release_candidate_audit(root: Path) -> list[str]:
 def check_live_release_record(root: Path) -> list[str]:
     """Bind the one verified GitHub release and all seven live surfaces."""
 
-    paths = (LIVE_RELEASE_RECORD, LIVE_RELEASE_SURFACE_MATRIX, LIVE_RELEASE_AUDIT, CONTROL_PROFILE)
+    paths = (LIVE_RELEASE_RECORD, LIVE_RELEASE_SURFACE_MATRIX, LIVE_RELEASE_AUDIT, MILESTONE_SIX_RELEASE_PROFILE)
     if any(not (root / relative).is_file() for relative in paths):
         return []
     try:
@@ -2887,13 +2897,48 @@ def check_live_release_record(root: Path) -> list[str]:
         errors.append("M6 source archive verification changed")
     if record.get("public_byte_boundary") != {"forbidden_bytes_in_release": 0, "full_scientific_replay_requires_controlled_custody": True, "public_package_is_full_scientific_replay": False}:
         errors.append("M6 live release byte boundary changed")
-    profile_sha = hashlib.sha256((root / CONTROL_PROFILE).read_bytes()).hexdigest()
+    profile_sha = hashlib.sha256((root / MILESTONE_SIX_RELEASE_PROFILE).read_bytes()).hexdigest()
     receipts = {item.get("surface_id"): item for item in matrix.get("receipts", []) if isinstance(item, dict)}
     if matrix.get("candidate_identity") != commit or matrix.get("registry_sha256") != profile_sha or set(matrix.get("surface_ids", [])) != all_surfaces or set(receipts) != all_surfaces or any(item.get("status") != "pass" for item in receipts.values()):
         errors.append("M6 live real-surface matrix changed")
     audit_matrix = audit.get("real_surface_matrix", {})
     if audit.get("candidate", {}).get("commit") != commit or audit.get("decision", {}).get("reported_status") != "verified" or audit_matrix.get("status") != "verified" or set(audit_matrix.get("verified_surface_ids", [])) != all_surfaces:
         errors.append("M6 live release audit changed")
+    return errors
+
+
+def check_terminal_closeout_record(root: Path) -> list[str]:
+    """Require one released terminal outcome and no successor work."""
+
+    record_path = root / TERMINAL_CLOSEOUT_RECORD
+    profile_path = root / CONTROL_PROFILE
+    milestone_path = root / TERMINAL_RELEASE_MILESTONE
+    if not record_path.is_file() or not profile_path.is_file() or not milestone_path.is_file():
+        return []
+    try:
+        record = _load_json(record_path)
+        profile = _load_json(profile_path)
+        milestone = _load_json(milestone_path)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return ["terminal closeout records must be UTF-8 JSON"]
+    errors: list[str] = []
+    if record.get("status") != "PASS_ON_PR15_LIVE_ACCEPTANCE" or record.get("goal_id") != "01a03021-0d66-7553-bcab-26971ec191e6":
+        errors.append("terminal closeout identity or transaction changed")
+    if record.get("scientific_dispositions") != {"lifecycle_status": "PASS", "comparative_status": "FAIL", "post_test_changes": 0}:
+        errors.append("terminal scientific dispositions changed")
+    if record.get("scientific_outputs") != {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 6, "evaluations": 1, "releases": 1}:
+        errors.append("terminal scientific outputs changed")
+    if record.get("completed_milestones") != [0, 1, 2, 3, 4, 5, 6] or record.get("no_active_or_successor_work") is not True or record.get("next_action_after_acceptance") is not None:
+        errors.append("terminal completion or successor boundary changed")
+    continuation = record.get("continuation_boundary", {})
+    if any(value is not False for value in continuation.values()) or set(continuation) != {"experiment_three_b_authorized", "fresh_confirmation_authorized", "post_test_tuning_authorized", "new_release_authorized"}:
+        errors.append("terminal continuation boundary changed")
+    if profile.get("scientific_state") != "terminal_released_closed" or profile.get("scientific_outputs") != record.get("scientific_outputs"):
+        errors.append("terminal profile state changed")
+    units = {item.get("id"): item for item in milestone.get("units", []) if isinstance(item, dict)}
+    exits = {item.get("id"): item.get("status") for item in milestone.get("exit_conditions", []) if isinstance(item, dict)}
+    if milestone.get("status") != "complete" or units.get("M6-U006-TERMINAL-CLOSEOUT", {}).get("status") != "complete" or any(status != "pass" for status in exits.values()):
+        errors.append("terminal milestone is not fully complete")
     return errors
 
 
@@ -2920,6 +2965,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_reviewer_evidence_record,
         check_release_candidate_audit,
         check_live_release_record,
+        check_terminal_closeout_record,
     )
     errors: list[str] = []
     for check in checks:

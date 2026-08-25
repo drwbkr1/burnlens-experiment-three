@@ -22,9 +22,9 @@ tree `98b8447f7aa1f1668adc14da5e364785c05286a1`. PR
 merge-triggered run
 [`32882978238`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32882978238)
 passed. Both release assets and both GitHub source archives were independently
-downloaded and verified. Issue
-[#12](https://github.com/drwbkr1/burnlens-experiment-three/issues/12) remains
-open only for terminal-record acceptance and goal closeout.
+downloaded and verified. Experiment Three is terminally complete through PR
+[#15](https://github.com/drwbkr1/burnlens-experiment-three/pull/15); no successor
+milestone, Experiment 3B, or fresh-confirmation work is implied.
 
 The exact owner/rightsholder review is now complete and reconciled as `yes` for
 rights the owner controls. A separate current six-source gate is `READY`, and
