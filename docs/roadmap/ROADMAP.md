@@ -201,10 +201,11 @@ every frozen seed and control. Lifecycle is `PASS`, comparative outcome is
 
 ## Milestone 6 - Reviewer evidence and terminal closeout
 
-**State:** Active under issue
+**State:** Release live; terminal record acceptance pending under issue
 [#12](https://github.com/drwbkr1/burnlens-experiment-three/issues/12). Control
-profile 007 and the release/closeout contract pass. Public-safe numerical
-reviewer evidence is in progress; zero tags and releases exist.
+profile 008 and the release/closeout contract pass. Reviewer evidence,
+deterministic package, clean replay, audited reviewed main, annotated tag,
+GitHub release, downloaded assets, source archives, and public claims verify.
 
 **Deliverables**
 
@@ -218,8 +219,9 @@ reviewer evidence is in progress; zero tags and releases exist.
 **Exit gate**
 
 - A clean local reconstruction reproduces required evidence within frozen
-  tolerances.
-- Repository records, release assets, tags, and public claims agree.
+  tolerances. **Passed.**
+- Repository records, release assets, tags, and public claims agree. **Passed;
+  terminal record publication pending.**
 - The experiment has a terminal `PASS`, `FAIL`, `INCONCLUSIVE`, or `INVALID`
   comparative disposition and is not extended into post-test tuning.
 

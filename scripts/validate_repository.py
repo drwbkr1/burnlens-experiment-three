@@ -38,9 +38,13 @@ MILESTONE_FIVE_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json"
 )
-CONTROL_PROFILE = Path(
+MILESTONE_SIX_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-007.json"
+)
+CONTROL_PROFILE = Path(
+    "records/governance/"
+    "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json"
 )
 BOOTSTRAP_MILESTONE = Path(
     "records/milestones/"
@@ -95,6 +99,15 @@ RELEASE_AUDIT = Path(
 )
 RELEASE_CANDIDATE = Path(
     "records/release/EXPERIMENT-THREE-M6-RELEASE-CANDIDATE-2026-001.json"
+)
+LIVE_RELEASE_RECORD = Path(
+    "records/release/EXPERIMENT-THREE-M6-LIVE-RELEASE-VERIFICATION-2026-001.json"
+)
+LIVE_RELEASE_SURFACE_MATRIX = Path(
+    "records/release/EXPERIMENT-THREE-M6-REAL-SURFACE-MATRIX-2026-002.json"
+)
+LIVE_RELEASE_AUDIT = Path(
+    "records/release/EXPERIMENT-THREE-M6-RELEASE-AUDIT-2026-002.json"
 )
 EVALUATION_PATH_SOURCES = {
     Path("src/burnlens_experiment_three/evaluation.py"): "3c375ecd4e3983bb28e8193a2a479be948cf270e5332f13e938661dd0320a812",
@@ -355,6 +368,7 @@ REQUIRED_FILES = (
     MILESTONE_THREE_CONTROL_PROFILE,
     MILESTONE_FOUR_CONTROL_PROFILE,
     MILESTONE_FIVE_CONTROL_PROFILE,
+    MILESTONE_SIX_CONTROL_PROFILE,
     CONTROL_PROFILE,
     BOOTSTRAP_MILESTONE,
     PROVENANCE_MILESTONE,
@@ -373,6 +387,9 @@ REQUIRED_FILES = (
     RELEASE_SURFACE_MATRIX,
     RELEASE_AUDIT,
     RELEASE_CANDIDATE,
+    LIVE_RELEASE_RECORD,
+    LIVE_RELEASE_SURFACE_MATRIX,
+    LIVE_RELEASE_AUDIT,
     Path("scripts/build_release_package.py"),
     Path("scripts/verify_release_package.py"),
     Path("tests/test_release_package.py"),
@@ -394,6 +411,7 @@ REQUIRED_FILES = (
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-005.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-006.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-007.json"),
+    Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-008.json"),
     Path("records/evaluation/README.md"),
     Path("records/prompt-build-log/2026-08-25-milestone-five-evaluation.md"),
     Path("records/training/README.md"),
@@ -2782,7 +2800,7 @@ def check_reviewer_evidence_record(root: Path) -> list[str]:
 def check_release_candidate_audit(root: Path) -> list[str]:
     """Bind the exact prepublication candidate, verified surfaces, and asset."""
 
-    paths = (RELEASE_SURFACE_MATRIX, RELEASE_AUDIT, RELEASE_CANDIDATE, CONTROL_PROFILE)
+    paths = (RELEASE_SURFACE_MATRIX, RELEASE_AUDIT, RELEASE_CANDIDATE, MILESTONE_SIX_CONTROL_PROFILE)
     if any(not (root / relative).is_file() for relative in paths):
         return []
     try:
@@ -2803,7 +2821,7 @@ def check_release_candidate_audit(root: Path) -> list[str]:
         "reviewer_evidence",
         "release_package",
     }
-    profile_sha = hashlib.sha256((root / CONTROL_PROFILE).read_bytes()).hexdigest()
+    profile_sha = hashlib.sha256((root / MILESTONE_SIX_CONTROL_PROFILE).read_bytes()).hexdigest()
     if matrix.get("candidate_identity") != commit or matrix.get("registry_sha256") != profile_sha:
         errors.append("M6 release surface matrix candidate or profile binding changed")
     receipts = {
@@ -2841,6 +2859,44 @@ def check_release_candidate_audit(root: Path) -> list[str]:
     return errors
 
 
+def check_live_release_record(root: Path) -> list[str]:
+    """Bind the one verified GitHub release and all seven live surfaces."""
+
+    paths = (LIVE_RELEASE_RECORD, LIVE_RELEASE_SURFACE_MATRIX, LIVE_RELEASE_AUDIT, CONTROL_PROFILE)
+    if any(not (root / relative).is_file() for relative in paths):
+        return []
+    try:
+        record, matrix, audit = (
+            _load_json(root / relative)
+            for relative in (LIVE_RELEASE_RECORD, LIVE_RELEASE_SURFACE_MATRIX, LIVE_RELEASE_AUDIT)
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return ["M6 live release records must be UTF-8 JSON"]
+    errors: list[str] = []
+    commit = "8de60a3350a7c25942be8223bf9067c9460774d1"
+    archive_sha = "ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4"
+    all_surfaces = {"repository_control", "repository_tests", "scientific_replay", "reviewer_evidence", "release_package", "github_public_repository", "github_release"}
+    if record.get("status") != "PASS" or record.get("release", {}).get("id") != 376615584 or record.get("tag", {}).get("peeled_commit") != commit or record.get("tag", {}).get("exact") is not True:
+        errors.append("M6 live release or tag identity changed")
+    assets = {item.get("name"): item for item in record.get("assets", []) if isinstance(item, dict)}
+    zip_asset = assets.get("burnlens-experiment-three-v1.0.0-evidence.zip", {})
+    if len(assets) != 2 or zip_asset.get("bytes") != 34007 or zip_asset.get("downloaded_sha256") != archive_sha or any(item.get("download_verification") != "PASS" for item in assets.values()):
+        errors.append("M6 live release asset verification changed")
+    sources = record.get("source_archive_verification", {})
+    if sources.get("zip_tar_and_tag_worktree_exact") is not True or sources.get("files_each") != 136 or sources.get("bytes_each") != 1511185 or sources.get("roster_sha256") != "60a2da69f2ad3532621628a3d29f225e0a63401b4ddc59c78ef31224657382ca":
+        errors.append("M6 source archive verification changed")
+    if record.get("public_byte_boundary") != {"forbidden_bytes_in_release": 0, "full_scientific_replay_requires_controlled_custody": True, "public_package_is_full_scientific_replay": False}:
+        errors.append("M6 live release byte boundary changed")
+    profile_sha = hashlib.sha256((root / CONTROL_PROFILE).read_bytes()).hexdigest()
+    receipts = {item.get("surface_id"): item for item in matrix.get("receipts", []) if isinstance(item, dict)}
+    if matrix.get("candidate_identity") != commit or matrix.get("registry_sha256") != profile_sha or set(matrix.get("surface_ids", [])) != all_surfaces or set(receipts) != all_surfaces or any(item.get("status") != "pass" for item in receipts.values()):
+        errors.append("M6 live real-surface matrix changed")
+    audit_matrix = audit.get("real_surface_matrix", {})
+    if audit.get("candidate", {}).get("commit") != commit or audit.get("decision", {}).get("reported_status") != "verified" or audit_matrix.get("status") != "verified" or set(audit_matrix.get("verified_surface_ids", [])) != all_surfaces:
+        errors.append("M6 live release audit changed")
+    return errors
+
+
 def validate_repository(root: Path = ROOT) -> list[str]:
     checks = (
         check_required_files,
@@ -2863,6 +2919,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_retrospective_evaluation_record,
         check_reviewer_evidence_record,
         check_release_candidate_audit,
+        check_live_release_record,
     )
     errors: list[str] = []
     for check in checks:

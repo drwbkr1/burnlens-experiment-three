@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "reconciliation_id": "EXPERIMENT-THREE-STATE-2026-008",
+  "project_profile_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json",
+  "authority": {"mode": "inherited", "authority_ref": "thread-user-directive:2026-08-23/goal-service:01a03021-0d66-7553-bcab-26971ec191e6/docs-governance:EXPERIMENT-THREE-EXECUTION-GOAL", "authorized_action_classes": ["read_only_inspection", "deterministic_validation", "metadata_capture", "project_control", "update_project_records", "external_state_verification", "public_repository_publication", "terminal_closeout"], "verified_at_utc": "2026-08-25T18:24:37Z", "expires_at_utc": null},
+  "observed_at_utc": "2026-08-25T18:24:37Z",
+  "live_facts": [
+    {"id": "project.root", "status": "observed", "value": "C:\\Projects\\Active\\burnlens-experiment-three", "source_ref": "canonical checkout", "observed_at_utc": "2026-08-25T18:24:37Z"},
+    {"id": "git.branch", "status": "observed", "value": "codex/release-closeout-receipts-006", "source_ref": "git branch", "observed_at_utc": "2026-08-25T18:24:37Z"},
+    {"id": "git.head", "status": "observed", "value": "8de60a3350a7c25942be8223bf9067c9460774d1", "source_ref": "branch base", "observed_at_utc": "2026-08-25T18:24:37Z"},
+    {"id": "git.origin_main", "status": "observed", "value": "8de60a3350a7c25942be8223bf9067c9460774d1", "source_ref": "GitHub main ref", "observed_at_utc": "2026-08-25T18:24:37Z"},
+    {"id": "checkpoint.accepted_main", "status": "observed", "value": {"commit": "8de60a3350a7c25942be8223bf9067c9460774d1", "tree": "98b8447f7aa1f1668adc14da5e364785c05286a1", "pull_request": 13, "ci_run": 32882978238}, "source_ref": "PR 13 and live verification", "observed_at_utc": "2026-08-25T18:24:37Z"},
+    {"id": "github.issue.12.state", "status": "observed", "value": "OPEN", "source_ref": "issue 12", "observed_at_utc": "2026-08-25T18:24:37Z"},
+    {"id": "contract.active_id", "status": "observed", "value": "EXPERIMENT-THREE-MILESTONE-006-RELEASE-CLOSEOUT-2026-001", "source_ref": "profile 008", "observed_at_utc": "2026-08-25T18:24:37Z"},
+    {"id": "scientific.outputs", "status": "observed", "value": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 6, "evaluations": 1, "releases": 1}, "source_ref": "accepted evaluation plus live release", "observed_at_utc": "2026-08-25T18:24:37Z"},
+    {"id": "scientific.dispositions", "status": "observed", "value": {"lifecycle_status": "PASS", "comparative_status": "FAIL"}, "source_ref": "accepted M5 and v1.0.0 release", "observed_at_utc": "2026-08-25T18:24:37Z"},
+    {"id": "github.releases", "status": "observed", "value": {"tags": 1, "releases": 1, "tag": "v1.0.0", "release_id": 376615584}, "source_ref": "GitHub API and independent downloads", "observed_at_utc": "2026-08-25T18:24:37Z"}
+  ],
+  "recorded_claims": [
+    {"id": "profile.active_contract", "fact_id": "contract.active_id", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json", "scope": "current", "claimed_value": "EXPERIMENT-THREE-MILESTONE-006-RELEASE-CLOSEOUT-2026-001", "evidence_ref": "active_milestone_path"},
+    {"id": "profile.current_branch", "fact_id": "git.branch", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json", "scope": "current", "claimed_value": "codex/release-closeout-receipts-006", "evidence_ref": "current_checkpoint.expected_branch"},
+    {"id": "profile.current_head", "fact_id": "git.head", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json", "scope": "current", "claimed_value": "8de60a3350a7c25942be8223bf9067c9460774d1", "evidence_ref": "current_checkpoint.expected_head"},
+    {"id": "profile.accepted_main", "fact_id": "checkpoint.accepted_main", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json", "scope": "current", "claimed_value": {"commit": "8de60a3350a7c25942be8223bf9067c9460774d1", "tree": "98b8447f7aa1f1668adc14da5e364785c05286a1", "pull_request": 13, "ci_run": 32882978238}, "evidence_ref": "current_checkpoint"},
+    {"id": "profile.scientific_outputs", "fact_id": "scientific.outputs", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json", "scope": "current", "claimed_value": {"datasets": 1, "training_runs": 3, "checkpoints": 3, "inference_runs": 6, "evaluations": 1, "releases": 1}, "evidence_ref": "scientific_outputs"},
+    {"id": "profile.dispositions", "fact_id": "scientific.dispositions", "surface_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-008.json", "scope": "current", "claimed_value": {"lifecycle_status": "PASS", "comparative_status": "FAIL"}, "evidence_ref": "current_checkpoint.candidate_status"}
+  ],
+  "required_fact_ids": ["project.root", "git.branch", "git.head", "git.origin_main", "checkpoint.accepted_main", "github.issue.12.state", "contract.active_id", "scientific.outputs", "scientific.dispositions", "github.releases"],
+  "reconciliation": {"requested_action_class": "project_control", "intended_surfaces": ["reviewed main", "v1.0.0 tag", "GitHub release", "downloaded assets", "source archives", "terminal closeout handoff"], "limitations": ["Public release excludes controlled scientific bytes.", "Public-package verification is not public-download scientific inference replay.", "Issue #12 remains open until terminal records are accepted on main."]}
+}

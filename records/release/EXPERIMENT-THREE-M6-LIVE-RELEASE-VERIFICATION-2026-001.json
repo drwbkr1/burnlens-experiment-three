@@ -1,0 +1,91 @@
+{
+  "schema_version": "burnlens-exp3-live-release-verification/v1",
+  "record_id": "EXPERIMENT-THREE-M6-LIVE-RELEASE-VERIFICATION-2026-001",
+  "status": "PASS",
+  "verified_at_utc": "2026-08-25T18:24:37Z",
+  "repository": "https://github.com/drwbkr1/burnlens-experiment-three",
+  "release": {
+    "id": 376615584,
+    "url": "https://github.com/drwbkr1/burnlens-experiment-three/releases/tag/v1.0.0",
+    "tag": "v1.0.0",
+    "name": "BurnLens Experiment Three v1.0.0",
+    "draft": false,
+    "prerelease": false,
+    "published_at_utc": "2026-08-25T18:20:38Z",
+    "release_page_http_status": 200,
+    "release_notes_exact": true
+  },
+  "tag": {
+    "annotated_tag_object": "275eb15ef2839b3d746af0c1c77890552c8ed4b9",
+    "peeled_commit": "8de60a3350a7c25942be8223bf9067c9460774d1",
+    "expected_commit": "8de60a3350a7c25942be8223bf9067c9460774d1",
+    "exact": true
+  },
+  "reviewed_main": {
+    "pull_request": 13,
+    "commit": "8de60a3350a7c25942be8223bf9067c9460774d1",
+    "tree": "98b8447f7aa1f1668adc14da5e364785c05286a1",
+    "candidate_ci": 32882903304,
+    "pull_request_ci": 32882930436,
+    "main_ci": 32882978238,
+    "all_pass": true
+  },
+  "assets": [
+    {
+      "id": 529598156,
+      "name": "burnlens-experiment-three-v1.0.0-evidence.zip",
+      "bytes": 34007,
+      "github_digest": "sha256:ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4",
+      "downloaded_sha256": "ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4",
+      "state": "uploaded",
+      "download_verification": "PASS"
+    },
+    {
+      "id": 529598160,
+      "name": "burnlens-experiment-three-v1.0.0-evidence.zip.sha256",
+      "bytes": 112,
+      "github_digest": "sha256:f23c50e4da2a7669a77120843b6dbc9ea02442964725606e52da61af232097e3",
+      "downloaded_sha256": "f23c50e4da2a7669a77120843b6dbc9ea02442964725606e52da61af232097e3",
+      "state": "uploaded",
+      "download_verification": "PASS"
+    }
+  ],
+  "public_package": {
+    "standalone_verifier": "PASS",
+    "payload_files": 14,
+    "payload_bytes": 76059,
+    "manifest_sha256": "8ba0e480e27175d936bcf24e10d35a743695c588806dcfb91fab33b1ac389ba5",
+    "svg_xml_parsed": 3,
+    "forbidden_files": 0,
+    "lifecycle_status": "PASS",
+    "comparative_status": "FAIL",
+    "post_test_changes": 0
+  },
+  "source_archives": [
+    {"format": "zip", "bytes": 423841, "sha256": "f557806ff98dae12488f7753457282fe30baa9d69af689c8db132dfbeaaa7cec"},
+    {"format": "tar.gz", "bytes": 295888, "sha256": "a3d9d269385e3e2ddf92a47114f2e7fec88894870d04a6e4b8acb077cf81245a"}
+  ],
+  "source_archive_verification": {
+    "zip_tar_and_tag_worktree_exact": true,
+    "files_each": 136,
+    "bytes_each": 1511185,
+    "roster_sha256": "60a2da69f2ad3532621628a3d29f225e0a63401b4ddc59c78ef31224657382ca"
+  },
+  "controlled_intake": {
+    "contract_path": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\release-verification\\m6-2026-001-live-download\\intake-contract.json",
+    "contract_sha256": "b934c4e63ac121827b311b1503cf50c740fa706595bf8b8951da8509e291f15f",
+    "validation": "PASS",
+    "assets_promoted": 4,
+    "collision_policy": "fail",
+    "promotion_mode": "atomic-no-replace",
+    "root_policy": "C:\\Projects\\Active only"
+  },
+  "public_byte_boundary": {
+    "forbidden_bytes_in_release": 0,
+    "full_scientific_replay_requires_controlled_custody": true,
+    "public_package_is_full_scientific_replay": false
+  },
+  "retained_failures": [
+    "Initial local tag-peel syntax was misparsed by PowerShell after tag push; direct GitHub tag-object inspection proved the exact peel before release creation."
+  ]
+}

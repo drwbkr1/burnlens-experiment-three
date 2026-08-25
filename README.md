@@ -13,14 +13,18 @@ safety decisions.
 
 ## Current status
 
-As of 2026-08-25, Milestone 5 is accepted and live-verified on `main` at
-[`45b32c1cb782edc31ef8a4f49671b6a897c7d7bb`](https://github.com/drwbkr1/burnlens-experiment-three/commit/45b32c1cb782edc31ef8a4f49671b6a897c7d7bb),
-tree `91fb304d4cadc450ed997c0d3f68c995b5538cb4`. Pull request
-[#11](https://github.com/drwbkr1/burnlens-experiment-three/pull/11) and
-merge-triggered GitHub Actions run
-[`32879876813`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32879876813)
-passed. Milestone 6 release and terminal closeout is active under issue
-[#12](https://github.com/drwbkr1/burnlens-experiment-three/issues/12).
+As of 2026-08-25, the frozen Experiment Three result is published as
+[`v1.0.0`](https://github.com/drwbkr1/burnlens-experiment-three/releases/tag/v1.0.0).
+The annotated tag peels to reviewed `main` commit
+[`8de60a3350a7c25942be8223bf9067c9460774d1`](https://github.com/drwbkr1/burnlens-experiment-three/commit/8de60a3350a7c25942be8223bf9067c9460774d1),
+tree `98b8447f7aa1f1668adc14da5e364785c05286a1`. PR
+[#13](https://github.com/drwbkr1/burnlens-experiment-three/pull/13) and
+merge-triggered run
+[`32882978238`](https://github.com/drwbkr1/burnlens-experiment-three/actions/runs/32882978238)
+passed. Both release assets and both GitHub source archives were independently
+downloaded and verified. Issue
+[#12](https://github.com/drwbkr1/burnlens-experiment-three/issues/12) remains
+open only for terminal-record acceptance and goal closeout.
 
 The exact owner/rightsholder review is now complete and reconciled as `yes` for
 rights the owner controls. A separate current six-source gate is `READY`, and
@@ -74,8 +78,8 @@ and median worst-event macro Dice is `0.2919`, below the strongest constant
 control's `0.2853` and `0.3333`. Seed `20260727` was stronger (`0.5794` macro
 IoU), but it cannot replace the predeclared all-seed decision. No post-test
 tuning, rescue, rerun, or seed selection occurred. This exact result is now the
-accepted M5 checkpoint; Milestone 6 may package and release it but cannot change
-it.
+accepted scientific result and the released `v1.0.0` disposition; no later
+Milestone 6 record may change it.
 
 ## Research question
 
@@ -208,7 +212,9 @@ Prior BurnLens repositories must not be modified by this experiment.
 - [Reviewer guide](docs/evidence/REVIEWER-GUIDE.md)
 - [Benchmark card](docs/benchmark/BENCHMARK-CARD.md)
 - [Reproducibility guide](docs/reproducibility/REPRODUCIBILITY.md)
-- [Model card candidate](docs/model-card/MODEL-CARD.md)
+- [Model card](docs/model-card/MODEL-CARD.md)
+- [v1.0.0 release](https://github.com/drwbkr1/burnlens-experiment-three/releases/tag/v1.0.0)
+- [Live release verification](records/release/EXPERIMENT-THREE-M6-LIVE-RELEASE-VERIFICATION-2026-001.json)
 - [Current limitations](docs/limitations/LIMITATIONS.md)
 - [Runtime candidate inventory](records/runtime/EXPERIMENT-THREE-RUNTIME-CANDIDATE-INVENTORY-2026-001.json)
 - [Runtime source gate](records/source-gates/EXPERIMENT-THREE-RUNTIME-SOURCE-GATE-2026-001.json)

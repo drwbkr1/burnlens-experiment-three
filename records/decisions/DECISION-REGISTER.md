@@ -210,7 +210,7 @@ overwrite.
 ### E3-DEC-0016 - Rights-safe public release boundary
 
 - **Date:** 2026-08-25
-- **State:** Active for Milestone 6
+- **State:** Applied and verified in `v1.0.0`
 - **Decision:** Release repository-authored software, documentation, metrics,
   hashes, manifests, and numerical reviewer graphics only. Verify full replay
   separately against controlled custody.
@@ -220,8 +220,17 @@ overwrite.
   credentials, or secrets. Do not call public-package verification a public-
   download scientific replay.
 
+### E3-DEC-0017 - Accept the verified release and proceed to terminal closeout
+
+- **Date:** 2026-08-25
+- **State:** Applied; terminal records pending reviewed acceptance
+- **Decision:** Accept the single verified `v1.0.0` GitHub release as the
+  Experiment Three publication. Preserve lifecycle `PASS` and comparative
+  `FAIL`; publish no additional model attempt, rescue, or Experiment 3B work.
+- **Evidence:** Annotated tag peels to reviewed main; two assets and two source
+  archives independently download and verify; all seven real surfaces pass.
+
 ## Decisions still pending evidence or binding
 
-The terminal GitHub release and live closeout receipt remain pending Milestone
-6 gates. Their absence does not reopen the frozen model, result, or training
-choices for routine optimization.
+Only the administrative acceptance of terminal records, issue #12 closure,
+and active-goal closure remain. No scientific or product decision is pending.

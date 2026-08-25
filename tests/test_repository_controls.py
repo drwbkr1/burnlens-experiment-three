@@ -481,7 +481,7 @@ class RepositoryControlTests(unittest.TestCase):
                 validator.RELEASE_SURFACE_MATRIX,
                 validator.RELEASE_AUDIT,
                 validator.RELEASE_CANDIDATE,
-                validator.CONTROL_PROFILE,
+                validator.MILESTONE_SIX_CONTROL_PROFILE,
             ):
                 target = root / relative
                 target.parent.mkdir(parents=True, exist_ok=True)
@@ -494,6 +494,28 @@ class RepositoryControlTests(unittest.TestCase):
             )
             errors = validator.check_release_candidate_audit(root)
             self.assertTrue(any("asset identity changed" in error for error in errors))
+
+    def test_live_release_binds_tag_assets_sources_and_all_surfaces(self) -> None:
+        self.assertEqual([], validator.check_live_release_record(ROOT))
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for relative in (
+                validator.LIVE_RELEASE_RECORD,
+                validator.LIVE_RELEASE_SURFACE_MATRIX,
+                validator.LIVE_RELEASE_AUDIT,
+                validator.CONTROL_PROFILE,
+            ):
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+            record_path = root / validator.LIVE_RELEASE_RECORD
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record["tag"]["peeled_commit"] = "0" * 40
+            record_path.write_text(
+                json.dumps(record, indent=2) + "\n", encoding="utf-8"
+            )
+            errors = validator.check_live_release_record(root)
+            self.assertTrue(any("release or tag identity changed" in error for error in errors))
 
     def test_workflow_pins_checkout_to_full_sha(self) -> None:
         workflow = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")

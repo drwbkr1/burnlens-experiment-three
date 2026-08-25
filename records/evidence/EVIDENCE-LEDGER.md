@@ -75,6 +75,8 @@ because it appears here.
 | `E3-EVID-0053` | `OBSERVED` | Public-safe reviewer evidence candidate | `docs/evidence`; public evidence manifest | Architecture and training curves pass direct inspection. Comparison attempt 001 retained for label collision; layout-only attempt 002 passes. Three SVGs contain numerical evidence only and no forbidden benchmark/model bytes. |
 | `E3-EVID-0054` | `FAILED_RETAINED` | Clean-context checkout attempt 001 | Detached worktree at `3847d91b6c82e06ddd75d3ab8c15baa16b499ab0` | Scientific replay and package verification passed, but repository controls failed six hash-bound text identities after Windows converted LF to CRLF. The retained failure led to an explicit `.gitattributes` LF policy; no science changed. |
 | `E3-EVID-0055` | `OBSERVED` | Deterministic package, clean replay, and candidate audit | Candidate `a123fd1ff1b48089890cb9eb6a2d81d043a717a9`; M6 release candidate/audit/surface records | Three independent ZIP builds are byte-identical at 34,007 bytes / SHA-256 `ac811cb4...`; clean extraction and full controlled scientific replay pass; 56/56 approved-runtime tests pass; zero forbidden tracked binaries or common secret-pattern matches; audit evaluates `verified`. |
+| `E3-EVID-0056` | `ACCEPTED` | Reviewed Milestone 6 release candidate on main | PR #13; live `main` `8de60a3350a7c25942be8223bf9067c9460774d1`, tree `98b8447f7aa1f1668adc14da5e364785c05286a1` | Candidate/PR/main runs `32882903304`/`32882930436`/`32882978238` passed. Live main tree exactly matches the audited candidate; tag and release publication became eligible but were still absent at this receipt. |
+| `E3-EVID-0057` | `ACCEPTED` | Verified live `v1.0.0` release | GitHub release `376615584`; live-release record and real-surface audit 002 | Annotated tag peels to `8de60a3...`; exact ZIP/checksum downloaded; packaged verifier passes; GitHub ZIP/tar source archives match the tagged 136-file / 1,511,185-byte tree; release notes exact; page HTTP 200; all seven real surfaces verify. |
 
 ## Missing and deferred surfaces
 
@@ -88,7 +90,7 @@ because it appears here.
 | `E3-EVID-0106` | `ACCEPTED` | Training histories and checkpoints | Completed locally as `E3-EVID-0043` and accepted live as `E3-EVID-0044`. |
 | `E3-EVID-0107` | `OBSERVED` | Predictions, metrics, and decision | Completed in `E3-EVID-0049`: all seeds and controls retained; lifecycle `PASS`, comparative `FAIL`. |
 | `E3-EVID-0108` | `OBSERVED` | Geospatial and rendered evidence | M5 wrote and reopened 36 GeoTIFFs and the accepted 5360x2076 imagery-bearing comparison under controlled custody; M6 adds three inspected public-safe numerical SVGs. |
-| `E3-EVID-0109` | `PARTIAL` | Exact replay and release verification | M4 train/validation replay is exact as `E3-EVID-0043`; M5 evaluation replay passes as `E3-EVID-0050`; reviewed live checkpoint and terminal release verification remain. |
+| `E3-EVID-0109` | `ACCEPTED` | Exact replay and release verification | M4/M5 scientific replay passes; M6 clean-context package/replay audit and independent live tag, asset, source-archive, and public-surface verification pass. |
 | `E3-EVID-0110` | `DEFERRED` | Fresh-event confirmation cohort | Separate owner-gated lane; not required for Experiment Three completion. |
 
 ## Admission rule

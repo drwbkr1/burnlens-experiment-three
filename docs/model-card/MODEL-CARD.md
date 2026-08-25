@@ -1,4 +1,4 @@
-# BurnLens Experiment Three Model Card Candidate
+# BurnLens Experiment Three Model Card
 
 ## Model and intended role
 
@@ -13,8 +13,12 @@ information, field-validated mapping, or a basis for safety decisions.
 
 ## Current lifecycle state
 
-Milestone 5 is accepted live through PR #11. Milestone 6 release and terminal
-closeout is active under issue #12.
+The frozen result is published as
+[`v1.0.0`](https://github.com/drwbkr1/burnlens-experiment-three/releases/tag/v1.0.0)
+from reviewed commit `8de60a3350a7c25942be8223bf9067c9460774d1`.
+Independent live verification passed for the tag, assets, source archives,
+release notes, and public page. Terminal record acceptance remains under issue
+#12; the scientific result is already immutable.
 All three predeclared seeds trained in separate fresh isolated processes with
 the frozen CPU/float32 protocol,
 produced complete histories and changed weights, selected checkpoints by
