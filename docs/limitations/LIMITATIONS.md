@@ -31,6 +31,10 @@
 - Exact replay demonstrates reproducibility within the frozen environment; it
   does not validate labels, source imagery, operational utility, or independent
   scientific accuracy.
+- Public release assets cannot include controlled benchmark, checkpoint,
+  prediction, GeoTIFF, or imagery-bearing panel bytes. Public-package integrity
+  is independently verifiable, but full scientific replay requires authorized
+  local custody and the approved runtime.
 
 ## Use limits
 

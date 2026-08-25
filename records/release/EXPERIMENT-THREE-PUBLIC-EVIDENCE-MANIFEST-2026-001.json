@@ -1,0 +1,91 @@
+{
+  "artifacts": [
+    {
+      "bytes": 2273,
+      "path": "docs/benchmark/BENCHMARK-CARD.md",
+      "sha256": "16ee4af84aea53afd0e32fc1240812bebf40565fd28b95e032cbbf0a79cc6144"
+    },
+    {
+      "bytes": 3202,
+      "path": "docs/evidence/REVIEWER-GUIDE.md",
+      "sha256": "efd144a2cdd971fcc5c56ce6e64308013b25777ad770cd36179295dd6f47a3a9"
+    },
+    {
+      "bytes": 3414,
+      "path": "docs/evidence/generated/architecture.svg",
+      "sha256": "3c7de3ddb7b3ec5c7b0275bc151edfbb745686254920d86f9eab58e684562495"
+    },
+    {
+      "bytes": 7121,
+      "path": "docs/evidence/generated/comparative-summary.svg",
+      "sha256": "880e9ec02d6178510e69a5a723b278a11f859401e1ccdbd66f5ab278a8ae128c"
+    },
+    {
+      "bytes": 18645,
+      "path": "docs/evidence/generated/training-curves.svg",
+      "sha256": "d4b8e2578ba8a5de35ddf9435f6cd832b04fb07d3bfbe055f212d48b580478f7"
+    },
+    {
+      "bytes": 2447,
+      "path": "docs/limitations/LIMITATIONS.md",
+      "sha256": "724c5c5eec6803a602f62b59cec279a32a2874106f5677d5a722777aa852f924"
+    },
+    {
+      "bytes": 4422,
+      "path": "docs/model-card/MODEL-CARD.md",
+      "sha256": "0231daa2cde17885fcef10c8a4543fb066dd2517d6a608b4c19c0fd17e779dc4"
+    },
+    {
+      "bytes": 2159,
+      "path": "docs/reproducibility/REPRODUCIBILITY.md",
+      "sha256": "37a52a156e4136850abf221b589b32bfd68058e829894482479dc7e8fe18a2de"
+    },
+    {
+      "bytes": 9772,
+      "path": "records/evaluation/EXPERIMENT-THREE-M5-RETROSPECTIVE-EVALUATION-2026-001.json",
+      "sha256": "6466e66b927f6556c0259d4b9aff1c1a3f36a93b66a0ff2b6c7248c7344e4314"
+    }
+  ],
+  "controlled_only_surfaces": [
+    "benchmark arrays",
+    "source imagery",
+    "labels",
+    "historical comparator arrays",
+    "model checkpoints",
+    "predictions",
+    "probabilities",
+    "GeoTIFFs",
+    "imagery-bearing comparison render",
+    "runtime",
+    "private review material"
+  ],
+  "dispositions": {
+    "comparative_status": "FAIL",
+    "lifecycle_status": "PASS"
+  },
+  "forbidden_bytes_included": 0,
+  "manifest_id": "EXPERIMENT-THREE-PUBLIC-EVIDENCE-2026-001",
+  "public_package_scope": "repository-authored narrative, metrics, hashes, and numerical SVGs only",
+  "schema_version": "burnlens-exp3-public-evidence/v1",
+  "source_checkpoint": {
+    "commit": "45b32c1cb782edc31ef8a4f49671b6a897c7d7bb",
+    "tree": "91fb304d4cadc450ed997c0d3f68c995b5538cb4"
+  },
+  "source_histories": [
+    {
+      "bytes": 18441,
+      "seed": 20260725,
+      "sha256": "092721e5c6004902e03ccb0dcf491034eca42033a2cd848f8d32626c188ac02b"
+    },
+    {
+      "bytes": 24227,
+      "seed": 20260726,
+      "sha256": "52fc5d86f13d16689c50689cbe3e09d7cc8f467e7da2be383cafb414c3eb8add"
+    },
+    {
+      "bytes": 24129,
+      "seed": 20260727,
+      "sha256": "35d775c47f25d0fbb18e9e07360cb80875a76688dad4b4ecce02364e64d2cad6"
+    }
+  ]
+}

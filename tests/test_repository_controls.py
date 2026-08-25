@@ -419,7 +419,7 @@ class RepositoryControlTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             paths = (
-                validator.CONTROL_PROFILE,
+                validator.MILESTONE_FIVE_CONTROL_PROFILE,
                 validator.RETROSPECTIVE_EVALUATION_MILESTONE,
                 validator.RETROSPECTIVE_EVALUATION_RECORD,
             )
@@ -438,6 +438,30 @@ class RepositoryControlTests(unittest.TestCase):
             errors = validator.check_retrospective_evaluation_record(root)
             self.assertTrue(any("disposition changed" in error for error in errors))
             self.assertTrue(any("decision evidence changed" in error for error in errors))
+
+    def test_reviewer_evidence_binds_visuals_and_byte_boundary(self) -> None:
+        self.assertEqual([], validator.check_reviewer_evidence_record(ROOT))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = (
+                validator.REVIEWER_EVIDENCE_RECORD,
+                validator.PUBLIC_EVIDENCE_MANIFEST,
+                validator.REVIEWER_RENDERER,
+                Path("docs/evidence/generated/architecture.svg"),
+                Path("docs/evidence/generated/training-curves.svg"),
+                Path("docs/evidence/generated/comparative-summary.svg"),
+            )
+            for relative in paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ROOT / relative).read_bytes())
+            record_path = root / validator.REVIEWER_EVIDENCE_RECORD
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record["boundary_verification"]["forbidden_bytes_included"] = 1
+            record_path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+            errors = validator.check_reviewer_evidence_record(root)
+            self.assertTrue(any("byte boundary changed" in error for error in errors))
 
     def test_workflow_pins_checkout_to_full_sha(self) -> None:
         workflow = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")

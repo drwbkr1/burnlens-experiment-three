@@ -178,11 +178,10 @@ package. Test remained sealed.
 
 ## Milestone 5 - One retrospective evaluation
 
-**State:** Locally verified candidate under issue
-[#10](https://github.com/drwbkr1/burnlens-experiment-three/issues/10). The one
-opening completed for every frozen seed and control. Lifecycle is `PASS`, the
-frozen comparative outcome is `FAIL`, and exact replay/geospatial/render checks
-pass. Reviewed merge and live verification remain.
+**State:** Accepted live through PR #11 at main
+`45b32c1cb782edc31ef8a4f49671b6a897c7d7bb`. The one opening completed for
+every frozen seed and control. Lifecycle is `PASS`, comparative outcome is
+`FAIL`, and exact replay/geospatial/render checks pass.
 
 **Deliverables**
 
@@ -202,7 +201,10 @@ pass. Reviewed merge and live verification remain.
 
 ## Milestone 6 - Reviewer evidence and terminal closeout
 
-**State:** Pending.
+**State:** Active under issue
+[#12](https://github.com/drwbkr1/burnlens-experiment-three/issues/12). Control
+profile 007 and the release/closeout contract pass. Public-safe numerical
+reviewer evidence is in progress; zero tags and releases exist.
 
 **Deliverables**
 

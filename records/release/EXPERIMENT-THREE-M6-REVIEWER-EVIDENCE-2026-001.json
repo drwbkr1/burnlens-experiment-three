@@ -1,0 +1,27 @@
+{
+  "schema_version": "burnlens-exp3-reviewer-evidence/v1",
+  "record_id": "EXPERIMENT-THREE-M6-REVIEWER-EVIDENCE-2026-001",
+  "status": "PASS",
+  "scope": "public_safe_repository_authored_numerical_evidence",
+  "source_checkpoint": {"commit": "45b32c1cb782edc31ef8a4f49671b6a897c7d7bb", "tree": "91fb304d4cadc450ed997c0d3f68c995b5538cb4"},
+  "dispositions": {"lifecycle_status": "PASS", "comparative_status": "FAIL", "post_test_changes": 0},
+  "renderer": {"path": "scripts/render_reviewer_evidence.py", "bytes": 13411, "sha256": "c9dd1d33eedd11b15d690af85ddd52681c2895c5c76ee2eb53686a3803718322"},
+  "source_histories": [
+    {"seed": 20260725, "bytes": 18441, "sha256": "092721e5c6004902e03ccb0dcf491034eca42033a2cd848f8d32626c188ac02b"},
+    {"seed": 20260726, "bytes": 24227, "sha256": "52fc5d86f13d16689c50689cbe3e09d7cc8f467e7da2be383cafb414c3eb8add"},
+    {"seed": 20260727, "bytes": 24129, "sha256": "35d775c47f25d0fbb18e9e07360cb80875a76688dad4b4ecce02364e64d2cad6"}
+  ],
+  "public_manifest": {"path": "records/release/EXPERIMENT-THREE-PUBLIC-EVIDENCE-MANIFEST-2026-001.json", "bytes": 2848, "sha256": "4b55ecfd1b1d288dc6a6ad8bac80cd4a44d990e7161817a79d74ad2b735e4bd3", "artifacts": 9},
+  "rendered_surfaces": [
+    {"path": "docs/evidence/generated/architecture.svg", "bytes": 3414, "sha256": "3c7de3ddb7b3ec5c7b0275bc151edfbb745686254920d86f9eab58e684562495", "width": 1410, "height": 420, "direct_visual_inspection": "pass"},
+    {"path": "docs/evidence/generated/training-curves.svg", "bytes": 18645, "sha256": "d4b8e2578ba8a5de35ddf9435f6cd832b04fb07d3bfbe055f212d48b580478f7", "width": 1500, "height": 960, "direct_visual_inspection": "pass"},
+    {"path": "docs/evidence/generated/comparative-summary.svg", "bytes": 7121, "sha256": "880e9ec02d6178510e69a5a723b278a11f859401e1ccdbd66f5ab278a8ae128c", "width": 1500, "height": 1020, "direct_visual_inspection": "pass"}
+  ],
+  "retained_attempts": [
+    {"attempt_id": "m6-u002-001", "disposition": "fail", "reason": "The first comparison preview was numerically exact but long rotated constant-control labels collided with the frozen-decision box.", "retained_root": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\release-previews\\m6-u002-001"}
+  ],
+  "accepted_attempt": {"attempt_id": "m6-u002-002", "disposition": "pass", "change_from_previous": "comparison SVG vertical clearance only", "preview_sha256": "e2cf5e9ab5e33cb5cf31ca0cb053092cd2dd3817697420fc1f48f578bac86e71"},
+  "coverage": {"architecture_and_parameter_count": true, "all_training_histories": true, "all_predeclared_seeds": true, "all_required_controls": true, "threshold_method_disclosure": true, "lifecycle_and_comparative_separation": true, "benchmark_card": true, "model_card": true, "limitations": true, "reproducibility_instructions": true},
+  "boundary_verification": {"svg_xml_parse": "PASS", "svg_embedded_images": 0, "repository_forbidden_binary_extensions": 0, "forbidden_bytes_included": 0, "controlled_imagery_panel_publication": "excluded", "controlled_imagery_panel_sha256": "87d7653fcc39abb7d290a36daf1d6fa1372f46f092970a936c10024269ff96bf"},
+  "limitations": ["Public numerical graphics do not replace the controlled four-patch imagery/reference/prediction/error panel.", "Full scientific replay requires authorized controlled custody and the approved runtime.", "Public package verification is not public-download scientific reproduction."]
+}

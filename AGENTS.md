@@ -18,7 +18,7 @@ Resolve instructions in this order:
 1. The owner's latest explicit direction and safety constraints.
 2. `docs/governance/EXPERIMENT-THREE-EXECUTION-GOAL.md`.
 3. `records/governance/EXPERIMENT-THREE-AUTHORITY-2026-001.md`.
-4. The active milestone contract named by `records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json`.
+4. The active milestone contract named by `records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-007.json`.
 5. `docs/governance/CHECKPOINT-POLICY.md` and this file.
 6. Current status and roadmap records.
 7. Historical changelog, devlog, prompt log, decision, and evidence records.

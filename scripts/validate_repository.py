@@ -34,9 +34,13 @@ MILESTONE_FOUR_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-005.json"
 )
-CONTROL_PROFILE = Path(
+MILESTONE_FIVE_CONTROL_PROFILE = Path(
     "records/governance/"
     "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-006.json"
+)
+CONTROL_PROFILE = Path(
+    "records/governance/"
+    "EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-007.json"
 )
 BOOTSTRAP_MILESTONE = Path(
     "records/milestones/"
@@ -62,6 +66,10 @@ RETROSPECTIVE_EVALUATION_MILESTONE = Path(
     "records/milestones/"
     "EXPERIMENT-THREE-MILESTONE-005-RETROSPECTIVE-EVALUATION-2026-001.json"
 )
+TERMINAL_RELEASE_MILESTONE = Path(
+    "records/milestones/"
+    "EXPERIMENT-THREE-MILESTONE-006-RELEASE-CLOSEOUT-2026-001.json"
+)
 PREOPENING_AUDIT = Path(
     "records/evaluation/EXPERIMENT-THREE-M5-PREOPENING-AUDIT-2026-001.json"
 )
@@ -72,6 +80,13 @@ EVALUATION_PATH_PREFLIGHT = Path(
 RETROSPECTIVE_EVALUATION_RECORD = Path(
     "records/evaluation/EXPERIMENT-THREE-M5-RETROSPECTIVE-EVALUATION-2026-001.json"
 )
+PUBLIC_EVIDENCE_MANIFEST = Path(
+    "records/release/EXPERIMENT-THREE-PUBLIC-EVIDENCE-MANIFEST-2026-001.json"
+)
+REVIEWER_EVIDENCE_RECORD = Path(
+    "records/release/EXPERIMENT-THREE-M6-REVIEWER-EVIDENCE-2026-001.json"
+)
+REVIEWER_RENDERER = Path("scripts/render_reviewer_evidence.py")
 EVALUATION_PATH_SOURCES = {
     Path("src/burnlens_experiment_three/evaluation.py"): "3c375ecd4e3983bb28e8193a2a479be948cf270e5332f13e938661dd0320a812",
     Path("scripts/run_evaluation_path_preflight.py"): "dbe6a1089fe4c5f4c849492ea8ccc1925b24d5ee766430e74b497a7130f0dd94",
@@ -329,6 +344,7 @@ REQUIRED_FILES = (
     MILESTONE_TWO_CONTROL_PROFILE,
     MILESTONE_THREE_CONTROL_PROFILE,
     MILESTONE_FOUR_CONTROL_PROFILE,
+    MILESTONE_FIVE_CONTROL_PROFILE,
     CONTROL_PROFILE,
     BOOTSTRAP_MILESTONE,
     PROVENANCE_MILESTONE,
@@ -336,10 +352,27 @@ REQUIRED_FILES = (
     PROTOCOL_FREEZE_MILESTONE,
     FROZEN_TRAINING_MILESTONE,
     RETROSPECTIVE_EVALUATION_MILESTONE,
+    TERMINAL_RELEASE_MILESTONE,
     PREOPENING_AUDIT,
     PREOPENING_VERIFIER,
     EVALUATION_PATH_PREFLIGHT,
     RETROSPECTIVE_EVALUATION_RECORD,
+    PUBLIC_EVIDENCE_MANIFEST,
+    REVIEWER_EVIDENCE_RECORD,
+    REVIEWER_RENDERER,
+    Path("scripts/build_release_package.py"),
+    Path("scripts/verify_release_package.py"),
+    Path("tests/test_release_package.py"),
+    Path("records/release/README.md"),
+    Path("docs/evidence/REVIEWER-GUIDE.md"),
+    Path("docs/evidence/generated/architecture.svg"),
+    Path("docs/evidence/generated/training-curves.svg"),
+    Path("docs/evidence/generated/comparative-summary.svg"),
+    Path("docs/benchmark/BENCHMARK-CARD.md"),
+    Path("docs/reproducibility/REPRODUCIBILITY.md"),
+    Path("docs/release/RELEASE-NOTES-v1.0.0.md"),
+    Path("docs/devlog/2026-08-25-milestone-six-release.md"),
+    Path("records/prompt-build-log/2026-08-25-milestone-six-release.md"),
     *EVALUATION_PATH_SOURCES.keys(),
     STATE_RECONCILIATION,
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-002.json"),
@@ -347,6 +380,7 @@ REQUIRED_FILES = (
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-004.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-005.json"),
     Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-006.json"),
+    Path("records/reconciliations/EXPERIMENT-THREE-STATE-2026-007.json"),
     Path("records/evaluation/README.md"),
     Path("records/prompt-build-log/2026-08-25-milestone-five-evaluation.md"),
     Path("records/training/README.md"),
@@ -2567,7 +2601,7 @@ def check_retrospective_evaluation_record(root: Path) -> list[str]:
     """Bind the one M5 opening, frozen outcomes, exact replay, and output counts."""
 
     record_path = root / RETROSPECTIVE_EVALUATION_RECORD
-    profile_path = root / CONTROL_PROFILE
+    profile_path = root / MILESTONE_FIVE_CONTROL_PROFILE
     milestone_path = root / RETROSPECTIVE_EVALUATION_MILESTONE
     if not record_path.is_file() or not profile_path.is_file() or not milestone_path.is_file():
         return []
@@ -2661,14 +2695,59 @@ def check_retrospective_evaluation_record(root: Path) -> list[str]:
     if profile.get("scientific_state") != "evaluated_replay_verified_candidate":
         errors.append("M5 profile scientific state changed")
     units = {item.get("id"): item.get("status") for item in milestone.get("units", [])}
-    if units.get("M5-U004-ONE-TIME-EVALUATION") != "complete" or units.get("M5-U005-INDEPENDENT-REPLAY") != "complete" or units.get("M5-U006-REVIEWED-PR") != "ready":
-        errors.append("M5 unit state does not match the verified candidate")
+    if units.get("M5-U004-ONE-TIME-EVALUATION") != "complete" or units.get("M5-U005-INDEPENDENT-REPLAY") != "complete" or units.get("M5-U006-REVIEWED-PR") != "complete":
+        errors.append("M5 unit state does not match the accepted checkpoint")
     exits = {item.get("id"): item.get("status") for item in milestone.get("exit_conditions", [])}
     for exit_id in ("EXIT-M5-ONE-OPENING", "EXIT-M5-ALL-SEEDS-CONTROLS", "EXIT-M5-GEOSPATIAL-RENDERED", "EXIT-M5-REPLAY", "EXIT-M5-DISPOSITIONS"):
         if exits.get(exit_id) != "pass":
             errors.append(f"{exit_id} must pass in the M5 candidate")
-    if exits.get("EXIT-M5-VERIFIED-CHECKPOINT") != "pending":
-        errors.append("M5 live checkpoint must remain pending before publication")
+    if exits.get("EXIT-M5-VERIFIED-CHECKPOINT") != "pass":
+        errors.append("M5 live checkpoint acceptance must remain passed")
+    return errors
+
+
+def check_reviewer_evidence_record(root: Path) -> list[str]:
+    """Bind public-safe reviewer evidence and its no-controlled-byte boundary."""
+
+    record_path = root / REVIEWER_EVIDENCE_RECORD
+    manifest_path = root / PUBLIC_EVIDENCE_MANIFEST
+    renderer_path = root / REVIEWER_RENDERER
+    if not record_path.is_file() or not manifest_path.is_file() or not renderer_path.is_file():
+        return []
+    try:
+        record = json.loads(record_path.read_text(encoding="utf-8"))
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return ["M6 reviewer evidence records must be UTF-8 JSON"]
+    errors: list[str] = []
+    if record.get("record_id") != "EXPERIMENT-THREE-M6-REVIEWER-EVIDENCE-2026-001" or record.get("status") != "PASS":
+        errors.append("M6 reviewer evidence identity or status changed")
+    renderer = record.get("renderer", {})
+    if renderer != {"path": "scripts/render_reviewer_evidence.py", "bytes": 13411, "sha256": "c9dd1d33eedd11b15d690af85ddd52681c2895c5c76ee2eb53686a3803718322"} or renderer_path.stat().st_size != 13411 or _repository_text_sha256(renderer_path.read_bytes()) != renderer["sha256"]:
+        errors.append("M6 reviewer renderer identity changed")
+    public_manifest = record.get("public_manifest", {})
+    if public_manifest.get("bytes") != manifest_path.stat().st_size or public_manifest.get("sha256") != _repository_text_sha256(manifest_path.read_bytes()) or public_manifest.get("artifacts") != 9:
+        errors.append("M6 public evidence manifest identity changed")
+    expected_renders = {
+        "docs/evidence/generated/architecture.svg": (3414, "3c7de3ddb7b3ec5c7b0275bc151edfbb745686254920d86f9eab58e684562495"),
+        "docs/evidence/generated/training-curves.svg": (18645, "d4b8e2578ba8a5de35ddf9435f6cd832b04fb07d3bfbe055f212d48b580478f7"),
+        "docs/evidence/generated/comparative-summary.svg": (7121, "880e9ec02d6178510e69a5a723b278a11f859401e1ccdbd66f5ab278a8ae128c"),
+    }
+    observed_renders = {item.get("path"): (item.get("bytes"), item.get("sha256")) for item in record.get("rendered_surfaces", [])}
+    if observed_renders != expected_renders:
+        errors.append("M6 reviewer render roster changed")
+    for relative, (size, digest) in expected_renders.items():
+        path = root / relative
+        if not path.is_file() or path.stat().st_size != size or _repository_text_sha256(path.read_bytes()) != digest:
+            errors.append(f"M6 reviewer render bytes changed: {relative}")
+    attempts = record.get("retained_attempts", [])
+    if [(item.get("attempt_id"), item.get("disposition")) for item in attempts] != [("m6-u002-001", "fail")] or record.get("accepted_attempt", {}).get("attempt_id") != "m6-u002-002":
+        errors.append("M6 reviewer visual attempt retention changed")
+    boundary = record.get("boundary_verification", {})
+    if boundary.get("svg_embedded_images") != 0 or boundary.get("repository_forbidden_binary_extensions") != 0 or boundary.get("forbidden_bytes_included") != 0:
+        errors.append("M6 reviewer evidence byte boundary changed")
+    if manifest.get("forbidden_bytes_included") != 0 or manifest.get("dispositions") != {"comparative_status": "FAIL", "lifecycle_status": "PASS"} or len(manifest.get("artifacts", [])) != 9:
+        errors.append("M6 public evidence manifest content changed")
     return errors
 
 
@@ -2691,6 +2770,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_preopening_audit,
         check_evaluation_path_preflight,
         check_retrospective_evaluation_record,
+        check_reviewer_evidence_record,
     )
     errors: list[str] = []
     for check in checks:
