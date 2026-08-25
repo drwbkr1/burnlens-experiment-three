@@ -87,6 +87,15 @@ REVIEWER_EVIDENCE_RECORD = Path(
     "records/release/EXPERIMENT-THREE-M6-REVIEWER-EVIDENCE-2026-001.json"
 )
 REVIEWER_RENDERER = Path("scripts/render_reviewer_evidence.py")
+RELEASE_SURFACE_MATRIX = Path(
+    "records/release/EXPERIMENT-THREE-M6-REAL-SURFACE-MATRIX-2026-001.json"
+)
+RELEASE_AUDIT = Path(
+    "records/release/EXPERIMENT-THREE-M6-RELEASE-AUDIT-2026-001.json"
+)
+RELEASE_CANDIDATE = Path(
+    "records/release/EXPERIMENT-THREE-M6-RELEASE-CANDIDATE-2026-001.json"
+)
 EVALUATION_PATH_SOURCES = {
     Path("src/burnlens_experiment_three/evaluation.py"): "3c375ecd4e3983bb28e8193a2a479be948cf270e5332f13e938661dd0320a812",
     Path("scripts/run_evaluation_path_preflight.py"): "dbe6a1089fe4c5f4c849492ea8ccc1925b24d5ee766430e74b497a7130f0dd94",
@@ -361,6 +370,9 @@ REQUIRED_FILES = (
     PUBLIC_EVIDENCE_MANIFEST,
     REVIEWER_EVIDENCE_RECORD,
     REVIEWER_RENDERER,
+    RELEASE_SURFACE_MATRIX,
+    RELEASE_AUDIT,
+    RELEASE_CANDIDATE,
     Path("scripts/build_release_package.py"),
     Path("scripts/verify_release_package.py"),
     Path("tests/test_release_package.py"),
@@ -2767,6 +2779,68 @@ def check_reviewer_evidence_record(root: Path) -> list[str]:
     return errors
 
 
+def check_release_candidate_audit(root: Path) -> list[str]:
+    """Bind the exact prepublication candidate, verified surfaces, and asset."""
+
+    paths = (RELEASE_SURFACE_MATRIX, RELEASE_AUDIT, RELEASE_CANDIDATE, CONTROL_PROFILE)
+    if any(not (root / relative).is_file() for relative in paths):
+        return []
+    try:
+        matrix, audit, candidate = (
+            _load_json(root / relative)
+            for relative in (RELEASE_SURFACE_MATRIX, RELEASE_AUDIT, RELEASE_CANDIDATE)
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return ["M6 release candidate records must be UTF-8 JSON"]
+    errors: list[str] = []
+    commit = "a123fd1ff1b48089890cb9eb6a2d81d043a717a9"
+    tree = "0e582fa09db39a49309f660d5244ffaacdcb0912"
+    archive_sha = "ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4"
+    required_surfaces = {
+        "repository_control",
+        "repository_tests",
+        "scientific_replay",
+        "reviewer_evidence",
+        "release_package",
+    }
+    profile_sha = hashlib.sha256((root / CONTROL_PROFILE).read_bytes()).hexdigest()
+    if matrix.get("candidate_identity") != commit or matrix.get("registry_sha256") != profile_sha:
+        errors.append("M6 release surface matrix candidate or profile binding changed")
+    receipts = {
+        item.get("surface_id"): item
+        for item in matrix.get("receipts", [])
+        if isinstance(item, dict)
+    }
+    if set(matrix.get("surface_ids", [])) != required_surfaces or set(receipts) != required_surfaces or any(
+        item.get("status") != "pass" or item.get("candidate_identity") != commit
+        for item in receipts.values()
+    ):
+        errors.append("M6 release surface receipts are incomplete or changed")
+    audit_candidate = audit.get("candidate", {})
+    audit_matrix = audit.get("real_surface_matrix", {})
+    decision = audit.get("decision", {})
+    if audit_candidate.get("commit") != commit or audit_candidate.get("tree") != tree or audit_candidate.get("version") != "1.0.0" or audit_candidate.get("tag") != "v1.0.0":
+        errors.append("M6 audited candidate identity changed")
+    if audit_matrix.get("status") != "verified" or audit_matrix.get("candidate_identity") != commit or set(audit_matrix.get("required_surface_ids", [])) != required_surfaces or set(audit_matrix.get("verified_surface_ids", [])) != required_surfaces:
+        errors.append("M6 audited real-surface disposition changed")
+    if decision.get("reported_status") != "verified" or "github_pull_request_management" not in decision.get("authorized_next_actions", []):
+        errors.append("M6 candidate audit decision changed")
+    asset = candidate.get("release_asset", {})
+    dispositions = candidate.get("dispositions", {})
+    verification = candidate.get("verification", {})
+    if candidate.get("candidate_commit") != commit or candidate.get("candidate_tree") != tree or candidate.get("status") != "eligible_for_reviewed_main_publication":
+        errors.append("M6 release candidate identity or eligibility changed")
+    if asset.get("bytes") != 34007 or asset.get("sha256") != archive_sha or asset.get("checksum_sha256") != "f23c50e4da2a7669a77120843b6dbc9ea02442964725606e52da61af232097e3":
+        errors.append("M6 release asset identity changed")
+    if dispositions != {"lifecycle_status": "PASS", "comparative_status": "FAIL", "post_test_changes": 0}:
+        errors.append("M6 release dispositions changed")
+    if verification.get("scientific_replay_status") != "PASS" or verification.get("package_verifier_status") != "PASS" or verification.get("approved_runtime_tests") != 56 or verification.get("tracked_forbidden_binary_files") != 0 or verification.get("secret_pattern_matches") != 0:
+        errors.append("M6 release verification summary changed")
+    if candidate.get("publication_boundary", {}).get("full_scientific_replay_requires_controlled_custody") is not True:
+        errors.append("M6 release custody boundary changed")
+    return errors
+
+
 def validate_repository(root: Path = ROOT) -> list[str]:
     checks = (
         check_required_files,
@@ -2788,6 +2862,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         check_evaluation_path_preflight,
         check_retrospective_evaluation_record,
         check_reviewer_evidence_record,
+        check_release_candidate_audit,
     )
     errors: list[str] = []
     for check in checks:

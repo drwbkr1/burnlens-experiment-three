@@ -18,10 +18,19 @@ Continue the approved long-running goal after Milestone 5 accepted lifecycle
   from accepted records and exact M4 histories.
 - Retained comparison preview attempt 001 after label collision; accepted the
   spacing-only attempt 002 after direct visual inspection.
+- Built the rights-safe public evidence ZIP independently three times with
+  exact SHA-256 `ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4`.
+- Retained clean-context attempt 001 after Windows line-ending conversion broke
+  six hash-bound identities, added an explicit LF checkout policy, and passed
+  attempt 002 from detached commit `a123fd1ff1b48089890cb9eb6a2d81d043a717a9`.
+- Passed 56/56 approved-runtime tests, full controlled scientific replay, clean
+  extraction, forbidden-byte and common-secret scans, the real-surface matrix,
+  and the prepublication release audit.
 
 ## Current boundary
 
 The scientific result and terminal evaluation package are immutable. Public
-evidence may contain numerical/repository-authored material only. Release
-package, clean-context replay, candidate audit, reviewed merge, tag/release,
-and terminal reconciliation remain gated.
+evidence may contain numerical/repository-authored material only. Package,
+clean-context replay, and candidate audit now pass. Reviewed merge, live-main
+verification, tag/release verification, and terminal reconciliation remain
+gated.

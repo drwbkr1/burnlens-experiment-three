@@ -1,0 +1,52 @@
+{
+  "schema_version": "burnlens-exp3-release-candidate/v1",
+  "candidate_id": "EXPERIMENT-THREE-v1.0.0-CANDIDATE-2026-001",
+  "status": "eligible_for_reviewed_main_publication",
+  "candidate_commit": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+  "candidate_tree": "0e582fa09db39a49309f660d5244ffaacdcb0912",
+  "accepted_scientific_base": "45b32c1cb782edc31ef8a4f49671b6a897c7d7bb",
+  "version": "1.0.0",
+  "proposed_tag": "v1.0.0",
+  "dispositions": {
+    "lifecycle_status": "PASS",
+    "comparative_status": "FAIL",
+    "post_test_changes": 0
+  },
+  "release_asset": {
+    "path": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\release\\m6-2026-001-primary\\burnlens-experiment-three-v1.0.0-evidence.zip",
+    "bytes": 34007,
+    "sha256": "ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4",
+    "checksum_path": "C:\\Projects\\Active\\burnlens-experiment-three-custody\\release\\m6-2026-001-primary\\burnlens-experiment-three-v1.0.0-evidence.zip.sha256",
+    "checksum_sha256": "f23c50e4da2a7669a77120843b6dbc9ea02442964725606e52da61af232097e3"
+  },
+  "determinism": {
+    "builds_compared": 3,
+    "exact": true,
+    "clean_context_commit": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9"
+  },
+  "verification": {
+    "real_surface_matrix": "records/release/EXPERIMENT-THREE-M6-REAL-SURFACE-MATRIX-2026-001.json",
+    "release_audit": "records/release/EXPERIMENT-THREE-M6-RELEASE-AUDIT-2026-001.json",
+    "reviewer_evidence": "records/release/EXPERIMENT-THREE-M6-REVIEWER-EVIDENCE-2026-001.json",
+    "public_evidence_manifest": "records/release/EXPERIMENT-THREE-PUBLIC-EVIDENCE-MANIFEST-2026-001.json",
+    "scientific_replay_status": "PASS",
+    "package_verifier_status": "PASS",
+    "approved_runtime_tests": 56,
+    "tracked_forbidden_binary_files": 0,
+    "secret_pattern_matches": 0
+  },
+  "retained_failures": [
+    {
+      "attempt": "clean-context-001",
+      "commit": "3847d91b6c82e06ddd75d3ab8c15baa16b499ab0",
+      "disposition": "FAIL",
+      "reason": "Windows checkout converted hash-bound text to CRLF; repository controls failed on six identities. Scientific replay and package verification passed."
+    }
+  ],
+  "publication_boundary": {
+    "public_release_contains": ["repository-authored software", "documentation", "metrics", "hashes", "manifests", "numerical SVG graphics"],
+    "excluded": ["benchmark arrays", "source imagery", "labels", "historical comparator arrays", "checkpoints", "predictions", "probabilities", "GeoTIFFs", "imagery-bearing comparison render", "runtime", "private review material", "credentials", "secrets"],
+    "full_scientific_replay_requires_controlled_custody": true
+  },
+  "next_action": "Publish through an issue-backed pull request and verify reviewed main before creating v1.0.0."
+}

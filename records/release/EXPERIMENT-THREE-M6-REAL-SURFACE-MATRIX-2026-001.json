@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "matrix_id": "EXPERIMENT-THREE-M6-REAL-SURFACES-2026-001",
+  "registry_ref": "records/governance/EXPERIMENT-THREE-PROJECT-CONTROL-PROFILE-2026-007.json",
+  "registry_sha256": "7272d370ac9f89bb9cdf6dd7fa47894c135b579c89764c534e33553522f86e64",
+  "candidate_identity": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+  "surface_ids": [
+    "repository_control",
+    "repository_tests",
+    "scientific_replay",
+    "reviewer_evidence",
+    "release_package"
+  ],
+  "receipts": [
+    {
+      "surface_id": "repository_control",
+      "candidate_identity": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+      "status": "pass",
+      "observed_at_utc": "2026-08-25T18:12:28Z",
+      "method": "Detached Active-only worktree at the exact candidate commit; run repository validator after enforcing LF checkout bytes.",
+      "evidence": [
+        "Candidate tree 0e582fa09db39a49309f660d5244ffaacdcb0912",
+        "Clean worktree repository controls PASS: 129 required files",
+        "Retained attempt 001 at 3847d91 failed six hash-bound surfaces because Windows converted text to CRLF",
+        "Attempt 002 at a123fd1 passed after .gitattributes enforced LF"
+      ],
+      "reason": ""
+    },
+    {
+      "surface_id": "repository_tests",
+      "candidate_identity": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+      "status": "pass",
+      "observed_at_utc": "2026-08-25T18:12:28Z",
+      "method": "Run the complete unittest discovery suite in the approved isolated CPython/PyTorch runtime from the detached candidate worktree.",
+      "evidence": [
+        "56 tests ran",
+        "56 passed",
+        "0 skipped",
+        "0 failures or errors"
+      ],
+      "reason": ""
+    },
+    {
+      "surface_id": "scientific_replay",
+      "candidate_identity": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+      "status": "pass",
+      "observed_at_utc": "2026-08-25T18:12:28Z",
+      "method": "Run verify_retrospective_evaluation.py in the approved runtime from the detached candidate worktree against immutable controlled custody with geospatial and rendered inspection enabled.",
+      "evidence": [
+        "Lifecycle PASS and comparative FAIL unchanged",
+        "One opening and zero post-test changes",
+        "Primary/replay exact: 53 files, 367150 bytes, roster e322a10135243d06360393b21553602713285a0b2f7aeabbb924930073bd1d68",
+        "36 GeoTIFFs reopened",
+        "Rendered comparison reopened as RGB PNG 5360x2076"
+      ],
+      "reason": ""
+    },
+    {
+      "surface_id": "reviewer_evidence",
+      "candidate_identity": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+      "status": "pass",
+      "observed_at_utc": "2026-08-25T18:12:28Z",
+      "method": "Hash-check the renderer, manifest, and three numerical SVGs; parse SVG XML; inspect the accepted rendered previews; verify the public-byte boundary.",
+      "evidence": [
+        "records/release/EXPERIMENT-THREE-M6-REVIEWER-EVIDENCE-2026-001.json",
+        "Accepted visual attempt m6-u002-002",
+        "Three SVGs parse and contain zero embedded images",
+        "Public evidence manifest contains nine artifacts and zero forbidden bytes"
+      ],
+      "reason": ""
+    },
+    {
+      "surface_id": "release_package",
+      "candidate_identity": "a123fd1ff1b48089890cb9eb6a2d81d043a717a9",
+      "status": "pass",
+      "observed_at_utc": "2026-08-25T18:12:28Z",
+      "method": "Build the rights-safe ZIP independently three times, verify a clean extraction with the packaged verifier, and scan the tracked repository roster for forbidden scientific binary extensions and common secret patterns.",
+      "evidence": [
+        "Three exact ZIPs: 34007 bytes, SHA-256 ac811cb42511a2ec5c1163a1a9f193dcf4bd3637485a452b526a06435511f8e4",
+        "Package manifest: 14 payload files, 76059 bytes, SHA-256 8ba0e480e27175d936bcf24e10d35a743695c588806dcfb91fab33b1ac389ba5",
+        "Clean-extraction verifier PASS with three SVGs and zero forbidden files",
+        "Tracked forbidden binary extensions: 0; common secret-pattern matches: 0"
+      ],
+      "reason": ""
+    }
+  ]
+}
